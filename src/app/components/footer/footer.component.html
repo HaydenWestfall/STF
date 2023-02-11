@@ -1,0 +1,26 @@
+
+<div class="section footer-wrapper">
+    <div class="footer">
+        <svg-icon [name]="SvgIcon.LOGO_WATERMARK" [height]="2"></svg-icon>
+        <div *ngFor="let footerSection of footerSections" class="footer-section">
+            {{footerSection.header}}
+            <a *ngFor="let sectionLink of footerSection.subHeaders" [routerLink]="sectionLink.route">
+                {{sectionLink.label}}
+            </a>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <div class="copyright-text">
+            <svg-icon [name]="SvgIcon.COPYRIGHT" [height]="1"></svg-icon>
+            <span>Spieles Troutwine Fount Insurance Group, 2023   |   Site Designed by Hayden Westfall</span>
+        </div>
+        <div class="socials">
+            <svg-icon [name]="SvgIcon.TWITTER" [height]="1.5"></svg-icon>
+            <svg-icon [name]="SvgIcon.INSTAGRAM" [height]="1.5"></svg-icon>
+            <svg-icon [name]="SvgIcon.FACEBOOK" [height]="1.5"></svg-icon>
+        </div>
+    </div>
+
+    <svg-icon class="watermark" [name]="SvgIcon.LOGO_WATERMARK" [height]="16"></svg-icon>
+</div>

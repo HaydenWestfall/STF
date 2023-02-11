@@ -1,0 +1,19 @@
+
+<div class="section review-wrapper">
+    <stf-header>
+        <span class="sub-header">REVIEWS</span>
+        <span class="header" data-aos="fade-up"data-aos-easing="ease-out" data-aos-duration="800">What people are saying</span>
+    </stf-header>
+
+
+    <div class="review-list-wrapper">
+        <div class="review-list">
+            <div class="review" *ngFor="let review of reviews">
+                <span>{{review.review}}</span>
+                <span>{{review.reviewer}}</span>
+            </div>
+        </div>
+        <svg-icon [name]="SvgIcon.QUOTE_OPEN" [height]="4" style="top: -5rem; left: 3rem"></svg-icon>
+        <svg-icon [name]="SvgIcon.QUOTE_CLOSE" [height]="4" style="bottom: -5rem; right: 3rem"></svg-icon>
+    </div>
+</div>

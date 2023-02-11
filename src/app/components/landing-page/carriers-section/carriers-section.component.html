@@ -1,0 +1,27 @@
+<div class="section carriers">
+
+    <div class="carrier-header">
+        <stf-header>
+            <span class="sub-header" style="color: #deeaff80">PARTNERS</span>
+            <span class="header" style="color: white" data-aos="fade-up"data-aos-easing="ease-out" data-aos-duration="800">
+                Trusted by the best
+            </span>
+        </stf-header>
+    
+        <span class="description" data-aos="fade" data-aos-easing="ease-out" data-aos-duration="800" data-aos-delay="600">With access to several of the largest and most respected companies, we are confident we can find the best coverage and rates for you.</span>
+
+        <button class="stf-button stf-button-primary" data-aos="fade" data-aos-easing="ease-out" data-aos-duration="500" data-aos-delay="1100">See the list</button>
+    </div>
+
+    <div class="marquee">
+        <div class="carrier animate-left" *ngFor="let carrier of carriers1">
+            <img [src]="carrier.image" [alt]="carrier.image" />
+        </div>
+    </div>
+
+    <div class="marquee" style="justify-content: flex-end;">
+        <div class="carrier animate-right" *ngFor="let carrier of carriers2">
+            <img [src]="carrier.image" [alt]="carrier.image" />
+        </div>
+    </div>
+</div>

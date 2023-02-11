@@ -1,0 +1,28 @@
+
+.header-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+::ng-deep .sub-header {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    font-family: 'helios-antique';
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 2.6px;
+    color: var(--secondary-text-color);
+}
+
+::ng-deep .header {
+    font-family: 'helios-antique';
+    font-size: 4rem;
+    display: flex;
+    font-weight: 800;
+    line-height: 4.7rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    white-space:pre;
+    color: var(--primary-text-color);
+}

@@ -1,0 +1,22 @@
+
+<div class="section coverages">
+
+    <stf-header>
+        <span class="sub-header">COVERAGES</span>
+        <span class="header" data-aos="fade-up"data-aos-easing="ease-out" data-aos-duration="800">Expert guidance,</span>
+        <span class="header" data-aos="fade-up"data-aos-easing="ease-out" data-aos-duration="800" data-aos-delay="200">exceptional customer service</span>
+    </stf-header>
+
+    <div class="coverage-list">
+        <div class="coverage" *ngFor="let coverage of coverages">
+            <div class="icon">
+                <svg-icon [name]="coverage.icon" [height]="coverage.iconSize"></svg-icon>
+            </div>
+            <div class="information">
+                <span>{{coverage.title}}</span>
+                <span>{{coverage.description}}</span>
+                <button class="stf-button stf-button-primary" style="padding: 0.5rem 1.5rem; margin-top: 2rem;">Learn More</button>
+            </div>
+        </div>
+    </div>
+</div>

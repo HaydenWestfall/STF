@@ -1,0 +1,17 @@
+
+.about {
+    padding-top: 5rem;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    white-space: pre-wrap;
+    flex-direction: column;
+    gap: 5rem;
+
+    .about-description {
+        text-align: center;
+        max-width: 50vw;
+        font-size: 1.25rem;
+        line-height: 1.875rem;
+    }
+}
