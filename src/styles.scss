@@ -101,6 +101,7 @@ html {
     font-size: 0.9rem;
     max-height: 3.5rem;
     cursor: pointer;
+    text-decoration: none;
     transition: background .25s linear, border-color .25s linear;
 }
 
@@ -136,4 +137,14 @@ body[data-aos-delay='75'] [data-aos],
 body[data-aos-delay='225'] [data-aos],
 [data-aos][data-aos][data-aos-delay='225']{
   transition-delay: 225ms;
+}
+
+.banner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8rem;
+    background-color: #F5FAFC;
+    gap: 2.5rem;
 }

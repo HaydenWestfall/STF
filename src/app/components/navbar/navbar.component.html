@@ -1,36 +1,41 @@
 
-<div class="navbar-wrapper">
+<div class="navbar-wrapper" ngxHideOnScroll (eventElementHidden)="selectedLink = null" [ngClass]="navbarClass" propertyUsedToHide="transform"
+    (mouseenter)="mouseEnterNavbar()" (mouseleave)="mouseLeaveNavbar()">
     <div class="navbar">
         <div class="links" *ngIf="showNav" @panelSlideIn>
             <div class="get-quote">
                 <span>Want an instant quote?</span>
                 <a>Get Quote</a>
             </div>
-            <div class="link" (click)="selectedLink = aboutLinks">
+            <div class="link" #about (click)="selectedLink = aboutLinks"
+             [ngClass]="{'selectedLink': selectedLink === aboutLinks}">
                 <span>About</span>
                 <svg-icon [name]="SvgIcon.ANGLE" [width]="1.25" [height]="1.25"></svg-icon>
             </div>
-            <div class="link" (click)="selectedLink = coverageLinks">
+            <div class="link" #coverage (click)="selectedLink = coverageLinks"
+            [ngClass]="{'selectedLink': selectedLink === coverageLinks}">
                 <span>Coverage</span>
                 <svg-icon [name]="SvgIcon.ANGLE" [width]="1.25" [height]="1.25"></svg-icon>
             </div>
-            <div class="link" (click)="selectedLink = carrierLinks">
+            <div class="link" routerLink="/carriers">
                 <span>Carriers</span>
                 <svg-icon [name]="SvgIcon.ANGLE" [width]="1.25" [height]="1.25"></svg-icon>
             </div>
             <div class="contact-us">Contact Us</div>
 
-            <li class="slide-in-panel" *ngIf="selectedLink" @panelSlideIn>
+            <li class="slide-in-panel" *ngIf="false" @panelSlideIn>
                 <span class="header">{{selectedLink.title}}</span>
                 <ul class="option-list">
                     <li *ngFor="let link of selectedLink.links" class="option">{{link}}</li>
                 </ul>
             </li>
         </div>
-        <svg-icon class="logo" [name]="SvgIcon.LOGO" [width]="3.25"></svg-icon>
-        <div class="quote-btn">
+        <svg-icon class="logo" [name]="SvgIcon.LOGO" [width]="4" (click)="router.navigate(['/home'])"></svg-icon>
+
+        <button class="stf-button stf-button-primary" style="padding: 0.5rem 1rem; font-size: 0.75rem;"
+            (click)="selectedLink = null">
             Get Quote
-        </div>
+        </button>
 
         <button #btn class="more-btn" aria-controls="primary-navigation"
             [attr.aria-expanded]="showNav" (click)="showNav = !showNav">
@@ -43,8 +48,22 @@
               </rect>
             </svg>
           </button>
-        <svg-icon id="left-icon" *ngIf="selectedLink" [name]="SvgIcon.ANGLE" [height]="1"
+        <svg-icon id="left-icon" *ngIf="selectedLink && mediaQuery.matches" [name]="SvgIcon.ANGLE" [height]="1"
             (click)="selectedLink = null" [@fade]="{value: selectedLink ? ':leave' : ':enter',
             params: {fadeTime: '275'}}"></svg-icon>
+    </div>
+
+
+
+    <div class="navbar-overlay" @growHeight (@growHeight.done)="mouseLeaveNavbar()" *ngIf="selectedLink">
+        <div class="navbar-options">
+            <a class="navbar-option" *ngFor="let option of selectedLink.dropdown" (click)="selectLink(option.navigateTo)"
+                [@fade]="{value: selectedLink ? ':leave' : ':enter', params: {fadeTime: '275'}}">
+                <div class="icon">
+                    <svg-icon [name]="option.icon" [height]="option.iconSize"></svg-icon>
+                </div>
+                <span>{{option.label}}</span>
+            </a>
+        </div>
     </div>
 </div>

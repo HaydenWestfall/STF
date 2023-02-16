@@ -19,6 +19,11 @@ import { ContactPageComponent } from './components/contact-page/contact-page.com
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { CoveragesSectionComponent } from './components/landing-page/coverages-section/coverages-section.component';
 import { FaqPageComponent } from './components/faq-page/faq-page.component';
+import { CoveragePageComponent } from './components/coverage-page/coverage-page.component';
+import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
+import { CarriersPageComponent } from './components/carriers-page/carriers-page.component';
+import { FormsModule } from '@angular/forms';
+import { LocationsPageComponent } from './components/locations-page/locations-page.component';
 
 @NgModule({
   declarations: [
@@ -37,12 +42,17 @@ import { FaqPageComponent } from './components/faq-page/faq-page.component';
     HeaderComponent,
     ContactPageComponent,
     LandingPageComponent,
-    FaqPageComponent
+    FaqPageComponent,
+    CoveragePageComponent,
+    CarriersPageComponent,
+    LocationsPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxHideOnScrollModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

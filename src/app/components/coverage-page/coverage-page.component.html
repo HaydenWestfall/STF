@@ -1,0 +1,42 @@
+
+<div class="section coverage-wrapper">
+    <div class="coverage-header" *ngIf="!refreshing">
+        <img [@fade]="{value: ':enter', params: {fadeTime: '500ms 850'}}" [src]="coverageType.coverageImage" [ngClass]="coverageType.id" />
+        <div class="gradient-overlay"></div>
+        <stf-header class="overlay-header">
+            <span class="sub-header">INSURANCE</span>
+            <span class="header" data-aos="fade-up" data-aos-duration="1000">{{coverageType.coverageTitle}}</span>
+        </stf-header>
+    </div>
+
+    <div style="height: 100vh; width: 100vw; background-color: white;" *ngIf="refreshing"></div>
+
+    <div class="coverage-description">
+        <stf-header>
+            <span class="sub-header">INFORMATION</span>
+            <span class="header" data-aos="fade-up" data-aos-duration="1000">What we have to offer</span>
+        </stf-header>
+
+        <span class="text"  data-aos="fade-up" data-aos-duration="1000">{{coverageType.description}}</span>
+    </div>
+
+
+    <div class="coverage-cards">
+        <div class="coverage-card" *ngFor="let coverageCard of coverageType.informationCards; let i = index">
+            <img *ngIf="i == 0 || i == 2" [src]="coverageCard.image" />
+            <div data-aos="fade-up" data-aos-duration="1000">{{coverageCard.description}}</div>
+            <img *ngIf="i == 1" [src]="coverageCard.image" />
+        </div>
+    </div>
+
+    <div class="section banner">
+        <stf-header>
+            <span class="header" data-aos="fade-up"data-aos-easing="ease-out" data-aos-duration="800">Like what you see?</span>
+        </stf-header>
+    
+        <button class="stf-button stf-button-primary">Get quote</button>
+    </div>
+</div>
+
+
+<app-footer></app-footer>

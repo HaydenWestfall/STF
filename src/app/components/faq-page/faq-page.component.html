@@ -11,16 +11,24 @@
     </div>
 
     <div class="questions">
-        <div class="question" *ngFor="let question of faqs">
-            <h2>{{question.question}}</h2>
-            
+        <div class="faq" *ngFor="let question of faqs" (click)="question.expanded = !question.expanded">
+            <div class="question">
+                <h3 style="height: 3rem">{{question.question}}</h3>
+                <div class="icon" [ngClass]="question.expanded ? 'icon-open' : 'icon-close'">
+                    <svg-icon *ngIf="!question.expanded" [name]="SvgIcon.PLUS" [width]="0.6"></svg-icon>
+                    <svg-icon *ngIf="question.expanded" [name]="SvgIcon.TIMES" [width]="0.6"></svg-icon>
+                </div>
+            </div>
+            <div class="answer" *ngIf="question.expanded" @growHeight>
+                {{question.answer}}
+            </div>
         </div>
-    </div>
 
-    <h2>didnt find what you were looking for?</h2>
-    <button class="stf-button stf-button-primary">Contact us</button>
+    </div>
 
     <div class="contact">
-
+        <span>didnt find what you were looking for?</span>
+        <a class="stf-button stf-button-primary" routerLink="/contact">Contact us</a>
     </div>
 </div>
+<app-footer></app-footer>

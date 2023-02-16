@@ -1,0 +1,98 @@
+
+.coverage-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .coverage-header {
+        position: relative;
+        width: 100vw;
+
+        .overlay-header {
+            position: absolute;
+            top: 8rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        img {
+            position: relative;
+            display:inline-block;
+            object-fit: cover;
+            width: 100vw;
+            height: 120vh;
+        }
+
+        .home {
+            margin-top: -15rem;
+        }
+
+        .life {
+            margin-top: 5rem;
+        }
+
+        .commercial {
+            margin-top: 5rem;
+        }
+
+        .gradient-overlay {
+            position:absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(to top, white, transparent 30%);
+        }
+    }
+
+    .coverage-description {
+        height: 80vh;
+        margin:auto;
+        max-width: 55rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        justify-content: center;
+        align-items: center;
+
+        .text {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+    }
+
+    .coverage-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 40vh;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        margin: 40vh 0 10rem 0;
+
+        .coverage-card {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 75rem;
+
+            img {
+                object-fit: cover;
+                width: 38vw;
+                height: 80vh;
+                border-radius: 8px;
+                flex-shrink: 0;
+            }
+
+            div {
+                padding: 6rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

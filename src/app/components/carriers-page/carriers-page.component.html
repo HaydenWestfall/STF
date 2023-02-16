@@ -1,0 +1,42 @@
+
+<div class="section carriers-wrapper">
+    <div class="carrier-header">
+        <img [@fade]="{value: ':enter', params: {fadeTime: '500ms 850'}}" [src]="basePath + 'carriers_bg.png'" />
+        <div class="gradient-overlay"></div>
+        <div class="overlay-header">
+            <stf-header>
+                <span class="sub-header" style="color: #deeaff80">CARRIERS</span>
+                <span class="header" style="color: white" data-aos="fade-up" data-aos-duration="1000">Find your carrier</span>
+            </stf-header>
+            <span class="description">Below is a list of all our carriers and information so that you can submit a claim or get in touch.</span>
+        </div>
+        <svg-icon [name]="SvgIcon.ANGLE" [width]="1" class="scroll-indicator"></svg-icon>
+    </div>
+    <div class="carriers-list">
+        <div class="input-wrapper">
+            <svg-icon class="search-icon" [name]="SvgIcon.SEARCH" [height]="1"></svg-icon>
+            <input placeholder="Search for your carrier..." (keyup.enter)="searchCarriers()" [(ngModel)]="searchText">
+            <svg-icon class="clear-icon" [name]="SvgIcon.TIMES" [width]="0.6" (click)="clearSearch()"></svg-icon>
+        </div>
+        <div class="carriers-wrapper" [@listAnim]>
+            <div class="carrier" *ngFor="let carrier of foundCarriers" [@itemAnim]>
+                <div style="width: 8rem; height: 100%; position: relative;">
+                    <img [src]="carrier.logo" />
+                </div>
+                <div class="carrier-info">
+                    <div>
+                        <span>Phone: </span><a [href]="'https://www.google.com'">{{carrier.phone}}</a>
+                    </div>
+                    <div>
+                        <span>Claims: </span><a [href]="'https://www.google.com'">{{carrier.claims}}</a>
+                    </div>
+                </div>
+                <div class="carrier-actions">
+                    <button class="stf-button stf-button-primary">Payments</button>
+                    <button class="stf-button stf-button-primary">Claims</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>
