@@ -1,16 +1,19 @@
 
 <div class="section carriers-wrapper">
     <div class="carrier-header">
-        <img [@fade]="{value: ':enter', params: {fadeTime: '500ms 850'}}" [src]="basePath + 'carriers_bg.png'" />
+        <img [@fade]="{value: ':enter', params: {fadeTime: '850'}}" [src]="basePath + 'carriers_bg.png'" />
         <div class="gradient-overlay"></div>
         <div class="overlay-header">
             <stf-header>
                 <span class="sub-header" style="color: #deeaff80">CARRIERS</span>
-                <span class="header" style="color: white" data-aos="fade-up" data-aos-duration="1000">Find your carrier</span>
+                <span class="header" style="color: white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">Find your carrier</span>
             </stf-header>
-            <span class="description">Below is a list of all our carriers and information so that you can submit a claim or get in touch.</span>
+            <span class="description" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+                Below is a list of all our carriers and information so that you can submit a claim or get in touch.
+            </span>
         </div>
-        <svg-icon [name]="SvgIcon.ANGLE" [width]="1" class="scroll-indicator"></svg-icon>
+        <svg-icon [name]="SvgIcon.ANGLE" [width]="1" class="scroll-indicator"
+        data-aos="fade-down" data-aos-duration="1000" data-aos-delay="1200"></svg-icon>
     </div>
     <div class="carriers-list">
         <div class="input-wrapper">

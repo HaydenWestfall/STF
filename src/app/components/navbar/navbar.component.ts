@@ -1,5 +1,5 @@
-import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { fade, growHeight } from 'src/animations';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 import { panelSlideIn } from './navbar.animation';
@@ -10,7 +10,7 @@ import { panelSlideIn } from './navbar.animation';
   styleUrls: ['./navbar.component.scss'],
   animations: [panelSlideIn, fade, growHeight]
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   SvgIcon = SvgIcon;
   showNav = true;
   navbarClass = 'transparent';
@@ -23,9 +23,9 @@ export class NavbarComponent {
       'FAQ'
     ],
     dropdown: [
-      {icon: SvgIcon.SHIELD, iconSize: 3, label: 'Mission', navigateTo: '/about'},
+      {icon: SvgIcon.LOGO_WATERMARK, iconSize: 1.5, label: 'About', navigateTo: '/about'},
+      {icon: SvgIcon.SHIELD, iconSize: 3, label: 'Carriers', navigateTo: '/carriers'},
       {icon: SvgIcon.TEAM, iconSize: 2.5, label: 'Team', navigateTo: '/team'},
-      {icon: SvgIcon.STRENGTH, iconSize: 2.5, label: 'Strengths', navigateTo: '/strengths'},
       {icon: SvgIcon.LOCATION, iconSize: 2.5, label: 'Locations', navigateTo: '/locations'}
     ]
   };
@@ -41,12 +41,13 @@ export class NavbarComponent {
       'Farm Insurance'
     ],
     dropdown: [
-      {icon: SvgIcon.HOME_INSURANCE, iconSize: 3.5, label: 'Home\nInsurance', navigateTo: '/coverages/home'},
-      {icon: SvgIcon.LIFE_INSURANCE, iconSize: 3.5, label: 'Life\nInsurance', navigateTo: '/coverages/life'},
       {icon: SvgIcon.AUTO_INSURANCE, iconSize: 3.5, label: 'Auto\nInsurance', navigateTo: '/coverages/auto'},
-      {icon: SvgIcon.HEALTH_INSURANCE, iconSize: 2.5, label: 'Health\nInsurance', navigateTo: 'health'},
+      {icon: SvgIcon.HOME_INSURANCE, iconSize: 3.5, label: 'Home\nInsurance', navigateTo: '/coverages/home'},
+      {icon: SvgIcon.FARM_INSURANCE, iconSize: 3.5, label: 'Farm\nInsurance', navigateTo: '/coverages/farm'},
       {icon: SvgIcon.COMMERCIAL_INSURANCE, iconSize: 3.5, label: 'Commercial\nInsurance', navigateTo: '/coverages/commercial'},
-      {icon: SvgIcon.FARM_INSURANCE, iconSize: 3.5, label: 'Farm\nInsurance', navigateTo: '/coverages/farm'}
+      {icon: SvgIcon.COMMERCIAL_INSURANCE, iconSize: 3.5, label: 'Recreational\nInsurance', navigateTo: '/coverages/recreational'},
+      {icon: SvgIcon.LIFE_INSURANCE, iconSize: 3.5, label: 'Life\nInsurance', navigateTo: '/coverages/life'},
+      {icon: SvgIcon.HEALTH_INSURANCE, iconSize: 2.5, label: 'Health\nInsurance', navigateTo: 'health'},
     ]
   };
 
@@ -61,10 +62,21 @@ export class NavbarComponent {
 
   externalLink = 'https://www.google.com';
   selectedLink: any = null;
+  whiteNavbarRoute = false;
 
   mediaQuery: any = window.matchMedia('(max-width: 768px)');
 
   constructor(public router: Router, private elementRef: ElementRef) { }
+
+  ngOnInit() {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        const url = event['url'];
+        this.whiteNavbarRoute = (['/carriers', '/faq', '/locations'].includes(url)) ? true : false;
+        this.navbarClass = this.navbarStyleSelector();
+      }
+    });
+  }
 
   @HostListener('document:click', ['$event.target'])
   public onPageClick(targetElement) {
@@ -88,7 +100,7 @@ export class NavbarComponent {
   }
 
   navbarStyleSelector(): string {
-    return (window.scrollY < 70) ? 'clear-navbar' : 'white-navbar';
+    return (window.scrollY < 70 && !this.whiteNavbarRoute) ? 'clear-navbar' : 'white-navbar';
   }
 
   selectLink(link: any): void {

@@ -93,8 +93,6 @@ export class CoveragePageComponent {
         let coverageTypeParam = params["coverageType"];
         this.coverageType = this.coverageTypes.find(x => x.id === coverageTypeParam);
         this.refreshing = false;
-        console.log(this.coverageType);
-        
       }, 200);
     });
   }

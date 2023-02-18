@@ -11,26 +11,25 @@ export class FooterComponent {
 
   footerSections = [
     { header: 'About', subHeaders: [
-      { label: 'Our Mission', route: '' },
-      { label: 'Our Team', route: '' },
-      { label: 'Our Strengths', route: '' },
-      { label: 'Locations', route: '' }
+      { label: 'About STF', route: '/about' },
+      { label: 'Our Team', route: '/team' },
+      { label: 'Locations', route: '/locations' }
     ]},
     { header: 'Coverages', subHeaders: [ 
-      { label: 'Home Insurance', route: '' },
-      { label: 'Life Insurance', route: '' },
-      { label: 'Health Insurance', route: '' },
-      { label: 'Auto Insurance', route: '' },
-      { label: 'Commercial Insurance', route: '' },
-      { label: 'FarmInsurance', route: '' }
+      { label: 'Home Insurance', route: '/coverages/home' },
+      { label: 'Life Insurance', route: '/coverages/life' },
+      { label: 'Health Insurance', route: '/coverages/health' },
+      { label: 'Auto Insurance', route: '/coverages/auto' },
+      { label: 'Commercial Insurance', route: '/coverages/commercial' },
+      { label: 'Farm Insurance', route: '/coverages/farm' }
     ] },
     { header: 'Carriers', subHeaders: [
       { label: 'Carriers', route: '' },
     ] },
     { header: 'Company', subHeaders: [
       { label: 'Contact', route: '/contact' },
-      { label: 'FAQ', route: '' },
-      { label: 'Locations', route: '' },
+      { label: 'FAQ', route: '/faq' },
+      { label: 'Locations', route: '/locations' },
     ] },
   ];
 }

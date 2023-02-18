@@ -1,20 +1,17 @@
 
 .review-wrapper {
     position: relative;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     padding: 7rem 0 calc(5rem - 5vh);
-    gap: 8rem;
-
-
-    
+    margin-bottom: 8rem;
 
     .review-list-wrapper {
         position: relative;
         width: 100%;
 
         .review-list {
+            margin-top: 8rem;
             position: relative;
             width: 100%;
             display: grid;
@@ -60,5 +57,12 @@
         svg-icon {
             position: absolute;
         }
+    }
+
+    .leave-review {
+        margin-top: 1.25rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 }

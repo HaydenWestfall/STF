@@ -1,58 +1,71 @@
 
 <div class="section locations-section">
     <img class="section-header" [src]="basePath + 'map_bg.png'" />
+    <div class="gradient-overlay"></div>
     <div class="overlay-header">
         <stf-header>
             <span class="sub-header">LOCATIONS</span>
-            <span class="header" data-aos="fade-up" data-aos-duration="1000">Where you can find us</span>
+            <span class="header" data-aos="fade-up" data-aos-easing="ease-out" data-aos-duration="800">Where you can find us</span>
         </stf-header>
-        <span class="description">STF currenlty has two offices. Check out the cards below for addresses, phone numbers, and more.</span>
+        <span class="description" data-aos="fade-up" data-aos-easing="ease-out" data-aos-duration="700" data-aos-delay="400">STF currenlty has two offices. Check out the cards below for addresses, phone numbers, and more.</span>
     </div>
     <div class="locations-wrapper">
-        <div class="location">
-            <div style=" padding: 1.25rem 2rem; height: 24rem;">
-                <h1>Arcanum</h1>
-                <span class="address">21 W George St Arcanum, OH 45304</span><br/>
-                <span class="number-label">PHONE</span><br/>
-                <span class="number">(937) 692 - 8310</span><br/>
-                <span class="number-label">TOLL FREE</span><br/>
-                <span class="number">(800) 270-9667</span><br/>
-                <span class="number-label">FAX</span><br/>
-                <span class="number">(937) 278-9132</span><br/>
-                <span class="number-label">HOURS</span><br/>
+        <div class="location" data-aos="fade-up" data-aos-easing="ease-out" data-aos-duration="600" data-aos-delay="800">
+            <div class="information">
                 <div>
-                    <span class="hours" style="margin-right: 2rem">Weekdays</span>
-                    <span class="hours">8:30AM - 4:30PM</span>
+                    <h1>Arcanum</h1>
+                    <span class="address">21 W George St Arcanum, OH 45304</span><br/>
                 </div>
                 <div>
-                    <span class="hours" style="margin-right: 2rem; margin-top: 0.4rem">Weekdays</span>
-                    <span class="hours">CLOSED</span>
-                </div>
-            </div>
-            <img [src]="basePath + 'location.png'">
-        </div>
-        <div class="location">
-            <div style=" padding: 1.25rem 2rem; height: 24rem">
-                <h1>Vandalia</h1>
-                <span class="address">21 W George St Arcanum, OH 45304</span><br/>
-                <span class="number-label">PHONE</span><br/>
-                <span class="number">(937) 692 - 8310</span><br/>
-                <span class="number-label">TOLL FREE</span><br/>
-                <span class="number">(800) 270-9667</span><br/>
-                <span class="number-label">FAX</span><br/>
-                <span class="number">(937) 278-9132</span><br/>
-                <span class="number-label">HOURS</span><br/>
-                <div>
-                    <span class="hours" style="margin-right: 2rem">Weekdays</span>
-                    <span class="hours">8:30AM - 4:30PM</span>
-                </div>
-                <div>
-                    <span class="hours" style="margin-right: 2rem; margin-top: 0.4rem">Weekdays</span>
-                    <span class="hours">CLOSED</span>
+                    <span class="number-label">PHONE</span><br/>
+                    <span class="number">(937) 692 - 8310</span><br/>
+                    <span class="number-label">TOLL FREE</span><br/>
+                    <span class="number">(800) 270-9667</span><br/>
+                    <span class="number-label">FAX</span><br/>
+                    <span class="number">(937) 278-9132</span><br/>
+                    <span class="number-label">HOURS</span><br/>
+                    <div>
+                        <span class="hours" style="margin-right: 2rem">Weekdays</span>
+                        <span class="hours">8:30AM - 4:30PM</span>
+                    </div>
+                    <div>
+                        <span class="hours" style="margin-right: 2rem; margin-top: 0.4rem">Weekends</span>
+                        <span class="hours">CLOSED</span>
+                    </div>
                 </div>
             </div>
-            <img [src]="basePath + 'location.png'">
+            <img class="location-img" [src]="basePath + 'SRL-ins.jpeg'">
         </div>
+        <div class="location" data-aos="fade-up" data-aos-easing="ease-out" data-aos-duration="500">
+            <div class="information">
+                <div>
+                    <h1>Vandalia</h1>
+                    <span class="address">415 S Dixie Dr, Vandalia, OH 45377</span><br/>
+                </div>
+                <div>
+                    <span class="number-label">PHONE</span><br/>
+                    <span class="number">(937) 890 - 5426</span><br/>
+                    <span class="number-label">HOURS</span><br/>
+                    <div>
+                        <span class="hours" style="margin-right: 2rem">Weekdays</span>
+                        <span class="hours">8:30AM - 4:30PM</span>
+                    </div>
+                    <div>
+                        <span class="hours" style="margin-right: 2rem; margin-top: 0.4rem">Weekends</span>
+                        <span class="hours">CLOSED</span>
+                    </div>
+                </div>
+            </div>
+            <img class="location-img" [src]="basePath + 'smia-ins.webp'">
+        </div>
+    </div>
+
+    <div class="section banner">
+        <stf-header>
+            <span class="header" data-aos="fade-up"data-aos-easing="ease-out" data-aos-duration="800">Have a question?</span>
+        </stf-header>
+    
+        <button class="stf-button stf-button-primary">Contact Us</button>
     </div>
 </div>
 <app-footer></app-footer>
