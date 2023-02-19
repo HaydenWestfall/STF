@@ -21,7 +21,7 @@
             scroll-snap-type: x mandatory;
             -ms-overflow-style: none;  /* Internet Explorer 10+ */
             scrollbar-width: none;  /* Firefox */
-            grid-auto-columns: 20vw;
+            grid-auto-columns: 22rem;
             grid-column-gap: 6rem;
             padding: 5vh 12vw;
 
@@ -47,9 +47,6 @@
                 span {
                     font-size: 1.1rem;
                     font-weight: 600;
-                    &:last-child {
-
-                    }
                 }
             }
         }

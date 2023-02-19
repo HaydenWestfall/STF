@@ -1,6 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { fade, growHeight } from 'src/animations';
+import { fade, fadeInPlace, growHeight } from 'src/animations';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 import { panelSlideIn } from './navbar.animation';
 
@@ -8,7 +8,7 @@ import { panelSlideIn } from './navbar.animation';
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
-  animations: [panelSlideIn, fade, growHeight]
+  animations: [panelSlideIn, fade, growHeight, fadeInPlace]
 })
 export class NavbarComponent implements OnInit {
   SvgIcon = SvgIcon;
@@ -45,7 +45,7 @@ export class NavbarComponent implements OnInit {
       {icon: SvgIcon.HOME_INSURANCE, iconSize: 3.5, label: 'Home\nInsurance', navigateTo: '/coverages/home'},
       {icon: SvgIcon.FARM_INSURANCE, iconSize: 3.5, label: 'Farm\nInsurance', navigateTo: '/coverages/farm'},
       {icon: SvgIcon.COMMERCIAL_INSURANCE, iconSize: 3.5, label: 'Commercial\nInsurance', navigateTo: '/coverages/commercial'},
-      {icon: SvgIcon.COMMERCIAL_INSURANCE, iconSize: 3.5, label: 'Recreational\nInsurance', navigateTo: '/coverages/recreational'},
+      {icon: SvgIcon.RECREATIONAL_INSRUANCE, iconSize: 3.5, label: 'Recreational\nInsurance', navigateTo: '/coverages/recreational'},
       {icon: SvgIcon.LIFE_INSURANCE, iconSize: 3.5, label: 'Life\nInsurance', navigateTo: '/coverages/life'},
       {icon: SvgIcon.HEALTH_INSURANCE, iconSize: 2.5, label: 'Health\nInsurance', navigateTo: 'health'},
     ]

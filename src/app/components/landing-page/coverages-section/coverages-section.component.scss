@@ -1,9 +1,8 @@
 
 .coverages {
-    height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: 5rem 0 calc(5rem - 5vh);
+    padding: 5rem 0;
     gap: 3rem;
 
     .coverage-list {

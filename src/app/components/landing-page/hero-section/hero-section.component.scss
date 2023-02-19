@@ -3,15 +3,16 @@
     display: flex;
     min-height: 100vh;
     overflow: hidden;
+    padding-bottom: 5rem;
 
     .text {
         flex-grow: 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 65%;
         padding-left: 5rem;
         height: 100vh;
+        z-index: 10;
         
         .hero-subHeader {
             color: var(--primary-color);
@@ -20,10 +21,38 @@
         }
 
         .hero-Header {
+            position: relative;
             color: var(--secondary-color);
             font-size: 5vw;
             font-weight: 800;
             line-height: 5.75rem;
+            white-space: pre-wrap;
+
+            .hero-header-line {
+                position: relative;
+                line-height: 7vw;
+                white-space: nowrap;
+            }
+
+            svg {
+                position: absolute;
+                bottom: -0.5vw;
+                left: 10.5vw;
+                height: 8vw;
+
+                path {
+                    stroke-dasharray: 0;
+                    stroke-dashoffset: 0;
+                    stroke-width: 7;
+                    stroke: var(--primary-color);
+                    stroke-linecap: round;
+                    fill: none;
+                }
+
+                .anim {
+                    transition: stroke-dashoffset 1s;
+                }
+            }
         }
     }
      

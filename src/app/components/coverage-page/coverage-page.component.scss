@@ -47,7 +47,7 @@
     }
 
     .coverage-description {
-        height: 80vh;
+        height: 40vh;
         margin:auto;
         max-width: 55rem;
         text-align: center;
@@ -70,7 +70,7 @@
         justify-content: center;
         align-items: center;
         width: 100vw;
-        margin: 40vh 0 10rem 0;
+        margin: 25vh 0 10rem 0;
 
         .coverage-card {
             display: flex;
@@ -91,7 +91,9 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                font-size: 1.2rem;
+                font-size: 4vw;
+                font-weight: 800;
+                line-height: 4.5vw;
             }
         }
     }

@@ -1,12 +1,12 @@
 
 .about {
     padding-top: 5rem;
-    height: 100vh;
     display: flex;
     align-items: center;
     white-space: pre-wrap;
     flex-direction: column;
     gap: 5rem;
+    margin: 20vh 0 40vh;
 
     .about-description {
         text-align: center;

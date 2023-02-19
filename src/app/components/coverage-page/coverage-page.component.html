@@ -23,19 +23,13 @@
 
     <div class="coverage-cards">
         <div class="coverage-card" *ngFor="let coverageCard of coverageType?.informationCards; let i = index">
-            <img *ngIf="i == 0 || i == 2" [src]="coverageCard.image" />
-            <div data-aos="fade-up" data-aos-duration="1000">{{coverageCard.description}}</div>
-            <img *ngIf="i == 1" [src]="coverageCard.image" />
+            <img data-aos="fade" data-aos-duration="1000" *ngIf="i == 0 || i == 2" [src]="coverageCard.image" />
+            <div data-aos="fade-up" data-aos-duration="1000" [ngStyle]="{'text-align': i == 1 ? 'right' : ''}">{{coverageCard.description}}</div>
+            <img data-aos="fade" data-aos-duration="1000" *ngIf="i == 1" [src]="coverageCard.image" />
         </div>
     </div>
 
-    <div class="section banner">
-        <stf-header>
-            <span class="header" data-aos="fade-up"data-aos-easing="ease-out" data-aos-duration="800">Like what you see?</span>
-        </stf-header>
-    
-        <button class="stf-button stf-button-primary">Get quote</button>
-    </div>
+    <app-banner bannerType="getQuote"></app-banner>
 </div>
 
 

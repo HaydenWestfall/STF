@@ -17,7 +17,7 @@
                 <span>Coverage</span>
                 <svg-icon [name]="SvgIcon.ANGLE" [width]="1.25" [height]="1.25"></svg-icon>
             </div>
-            <div class="link" routerLink="/carriers">
+            <div class="link" (click)="selectLink('carriers')">
                 <span>Payments | Claims</span>
                 <svg-icon [name]="SvgIcon.ANGLE" [width]="1.25" [height]="1.25"></svg-icon>
             </div>
@@ -32,10 +32,10 @@
         </div>
         <svg-icon class="logo" [name]="SvgIcon.LOGO" [width]="4" (click)="router.navigate(['/home'])"></svg-icon>
 
-        <button class="stf-button stf-button-primary" style="padding: 0.5rem 1rem; font-size: 0.75rem;"
-            (click)="selectedLink = null">
+        <a class="stf-button stf-button-primary" style="padding: 0.5rem 1rem; font-size: 0.75rem;"
+            (click)="selectedLink = null" routerLink="quote">
             Get Quote
-        </button>
+        </a>
 
         <button #btn class="more-btn" aria-controls="primary-navigation"
             [attr.aria-expanded]="showNav" (click)="showNav = !showNav">
@@ -57,8 +57,7 @@
 
     <div class="navbar-overlay" @growHeight (@growHeight.done)="mouseLeaveNavbar()" *ngIf="selectedLink">
         <div class="navbar-options">
-            <a class="navbar-option" *ngFor="let option of selectedLink.dropdown" (click)="selectLink(option.navigateTo)"
-                [@fade]="{value: selectedLink ? ':leave' : ':enter', params: {fadeTime: '275'}}">
+            <a class="navbar-option" *ngFor="let option of selectedLink.dropdown" (click)="selectLink(option.navigateTo)">
                 <div class="icon">
                     <svg-icon [name]="option.icon" [height]="option.iconSize"></svg-icon>
                 </div>

@@ -1,5 +1,5 @@
 import { ViewportScroller } from '@angular/common';
-import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { fade } from 'src/animations';
 
 @Component({
@@ -8,7 +8,7 @@ import { fade } from 'src/animations';
   styleUrls: ['./about-page.component.scss'],
   animations: [fade]
 })
-export class AboutPageComponent {
+export class AboutPageComponent implements AfterViewInit {
   basePath = '../../../assets/img/about/';
   yearsOfService = 0;
   familiesProtected = 0;
@@ -59,13 +59,13 @@ export class AboutPageComponent {
   
     let familiesProtectedInterval: any = setInterval(()=>{
       this.familiesProtected = this.familiesProtected + 50;
-      if(this.familiesProtected == 10000) {
+      if(this.familiesProtected == 5000) {
         clearInterval(familiesProtectedInterval);
         console.log('done');
         
       }
       this.cd.detectChanges();
-    }, 750 / 400);
+    }, 750 / 100);
     
     let yearsOfServiceInterval: any = setInterval(()=>{
       this.yearsOfService++;
