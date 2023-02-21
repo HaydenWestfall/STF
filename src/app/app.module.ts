@@ -24,6 +24,10 @@ import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 import { CarriersPageComponent } from './components/carriers-page/carriers-page.component';
 import { FormsModule } from '@angular/forms';
 import { LocationsPageComponent } from './components/locations-page/locations-page.component';
+import { AboutPageComponent } from './components/about-page/about-page.component';
+import { TeamPageComponent } from './components/team-page/team-page.component';
+import { GetQuoteComponent } from './components/get-quote/get-quote.component';
+import { BannerComponent } from './components/banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,11 @@ import { LocationsPageComponent } from './components/locations-page/locations-pa
     FaqPageComponent,
     CoveragePageComponent,
     CarriersPageComponent,
-    LocationsPageComponent
+    LocationsPageComponent,
+    AboutPageComponent,
+    TeamPageComponent,
+    GetQuoteComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,

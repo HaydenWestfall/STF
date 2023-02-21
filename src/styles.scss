@@ -5,17 +5,17 @@ html body {
     --primary-color: #EF6C23;
     --primary-color-accent: #F6A577;
     --secondary-color: #273051;
-    --secondary-color-acccent: #BECBDF;
-    --tertiary-color: #F5FAFC;
+    --secondary-color-acccent: #f1f3fb;
+    --tertiary-color: #ebf5f9;
 
-    --primary-text-color: #12172a;
+    --primary-text-color: #1D243C;
     --secondary-text-color: #3f4959cc;
 
     --surface-0: white;
     --surface-1: #F1F1F1;
     --surface-2: #F2F2F2;
-    --surface-3: #596f82a6;
-    --surface-3: #707070;
+    --surface-3: #dcdcdc;
+    --surface-4: #707070;
 }
 
 /* Type Faces */
@@ -95,14 +95,17 @@ html {
 
 .stf-button {
     width: fit-content;
-    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 500px;
     padding: 0.7rem 1.75rem;
     font-weight: 700;
     font-size: 0.9rem;
     max-height: 3.5rem;
     cursor: pointer;
     text-decoration: none;
-    transition: background .25s linear, border-color .25s linear;
+    transition: background-color .25s linear, border-color .25s linear;
 }
 
 .stf-button-primary {
@@ -113,19 +116,48 @@ html {
     &:hover {
         background-color: transparent;
         color: var(--secondary-color);
-        border: 2px solid var(--surface-3);
+        border: 2px solid var(--surface-4);
+    }
+}
+
+.stf-button-primary-dark-bg {
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    color: white;
+
+    &:hover {
+        background-color: var(--secondary-color-acccent);
+        color: var(--secondary-color);
+        border: 2px solid var(--secondary-color-acccent);;
     }
 }
 
 .stf-button-secondary {
     background-color: transparent;
-    border: 2px solid var(--surface-3);
+    border: 2px solid var(--surface-4);
     color: var(--secondary-color);
 
     &:hover {
-        background-color: var(--surface-2);
-        color: var(--surface-3);
+        background-color: var(--surface-3);
+        color: white;
         border: 2px solid var(--surface-3);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .stf-button {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 500px;
+        padding: 2.2rem 0;
+        font-weight: 700;
+        font-size: 3.8vw;
+        max-height: 3.5rem;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color .25s linear, border-color .25s linear;
     }
 }
 
@@ -137,14 +169,4 @@ body[data-aos-delay='75'] [data-aos],
 body[data-aos-delay='225'] [data-aos],
 [data-aos][data-aos][data-aos-delay='225']{
   transition-delay: 225ms;
-}
-
-.banner {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 8rem;
-    background-color: #F5FAFC;
-    gap: 2.5rem;
 }
