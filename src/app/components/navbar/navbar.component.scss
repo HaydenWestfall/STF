@@ -166,16 +166,23 @@
     @media only screen and (max-width: 768px) {
         .navbar {
             padding: 0rem;
+            background-color: white;
+
+            #desktop-getQuote {
+                display: none;
+            }
 
             .links {
                 position: absolute;
-                top: 3.25rem;
+                top: 0;
                 min-height: calc(100vh - 5.25rem);
                 width: 100%;
                 display: flex;
                 align-items: center;
                 flex-direction: column;
                 gap: 0rem;
+                background-color: white;
+                padding-top: 7.25rem;
 
                 .get-quote {
                     display: flex;
@@ -185,17 +192,19 @@
                     color: rgb(176, 176, 176);
                     border-bottom: 1px solid #f2f2f2;
                     padding: 2rem 1.8rem;
-                    font-size: 0.6rem;
+                    font-size: clamp(11px, 5vw, 1.1rem);
 
                     a {
                         background: var(--primary-color);
                         border-radius: 50px;
-                        padding: 0.7rem 1.75rem;
                         border: 2px solid var(--primary-color);
                         color: white;
                         font-weight: 700;
-                        font-size: 0.9rem;
                         cursor: pointer;
+                        font-size: clamp(15px, 4vw, 1.5rem);
+                        width: 40%; 
+                        padding: 2.25rem 0;
+                        flex-shrink: 1;
                         transition: background .25s linear, border-color .25s linear;
 
                         &:hover {
@@ -231,10 +240,10 @@
                 .contact-us {
                     display: unset;
                     font-weight: 700;
-                    color: gray;
+                    color: #6b717f;
                     border-bottom: 2px solid gray;
                     align-self: flex-start;
-                    font-size: 0.65rem;
+                    font-size: 0.9rem;
                     cursor: pointer;
                     margin: 2rem 2rem 5rem 2rem;
                 }
@@ -246,31 +255,69 @@
                     width: 100%;
                     padding: 2rem 2rem;
                     list-style-type: none;
+                    border-left: 1px solid var(--surface-2);
 
-                    .header {
-                        font-size: calc(16px + (32 - 16) * ((100vw - 375px) / (750 - 375)));
+                    .slide-in-header {
+                        font-size: clamp(11px, 1.5rem, 1.5rem);
                         font-weight: 400;
                         color: rgba(89,111,130,.65);
                         margin-bottom: 1rem;
                     }
 
                     .option-list {
-                        margin-top: 2rem;
+                        margin-top: 2.5rem;
                         list-style-type: none;
 
                         .option {
                             font-size: calc(16px + (32 - 16) * ((100vw - 375px) / (750 - 375)));
                             font-weight: 700;
                             color: black;
-                            margin-top: 1.375rem;
+                            margin-top: 1.8rem;
                             cursor: pointer;
                         }
                     }
                 }
             }
 
+            .more-btn {
+                display: inline-block;
+                position: absolute;
+                right: 2rem;
+                top: 0;
+                height: 100%;
+                background: transparent;
+                border-radius: 0.3rem;
+                border: none;
+                cursor: pointer;
+                color: var(--secondary-color);
+        
+                .line {
+                    transition: y 150ms ease-in 150ms, rotate 150ms ease-in, opacity 0ms 150ms;
+                    transform-origin: center;
+                }
+
+                &[aria-expanded="true"] .line {
+                    transition: y 150ms ease-in, rotate 150ms ease-in 150ms, opacity 0ms 150ms;
+                }
+
+                &[aria-expanded="true"] :is(.top, .bottom) {
+                    y: 45;
+                }
+
+                &[aria-expanded="true"] .middle {
+                    opacity: 0;
+                }
+
+                &[aria-expanded="true"] .top {
+                    rotate: 45deg;
+                }
+
+                &[aria-expanded="true"] .bottom {
+                    rotate: -45deg;
+                }
+            }
+
             .quote-btn {
-                display: none;
             }
 
             #left-icon {
@@ -279,46 +326,10 @@
                 display: flex;
                 align-items: center;
                 top: 0;
-                left: 1rem;
+                left: 2.5rem;
                 cursor: pointer;
             }
         }
-    }
-
-    .more-btn {
-        position: absolute;
-        right: 1rem;
-        top: 0;
-        height: 100%;
-        background: transparent;
-        border-radius: 0.3rem;
-        border: none;
-        cursor: pointer;
-
-        .line {
-            transition: y 150ms ease-in 150ms, rotate 150ms ease-in, opacity 0ms 150ms;
-            transform-origin: center;
-        }
-    }
-
-    .more-btn[aria-expanded="true"] .line {
-        transition: y 150ms ease-in, rotate 150ms ease-in 150ms, opacity 0ms 150ms;
-    }
-    
-    .more-btn[aria-expanded="true"] :is(.top, .bottom) {
-        y: 45;
-    }
-    
-    .more-btn[aria-expanded="true"] .top {
-        rotate: 45deg;
-    }
-    
-    .more-btn[aria-expanded="true"] .middle {
-        opacity: 0;
-    }
-    
-    .more-btn[aria-expanded="true"] .bottom {
-        rotate: -45deg;
     }
 }
 

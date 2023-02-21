@@ -65,6 +65,49 @@
                         text-align: center;
                     }
                 }
+
+                a {
+                    padding: 0.5rem 1.5rem;
+                    margin-top: 2rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .coverages {
+        .coverage-list {
+            grid-auto-columns: 70vw;
+            grid-column-gap: 5vw;
+            padding: 5vh 15vw;
+
+            .coverage {
+                width: 70vw;
+                scroll-snap-align: center;
+
+                .icon {
+                    height: 10rem;
+                    width: 10rem;
+                }
+
+                .information {
+                    span {
+                        &:first-child {
+                            font-weight: 700;
+                            font-size: 6vw
+                        }
+    
+                        &:nth-child(2) {
+                            font-size: 3vw;
+                        }
+                    }
+
+                    a {
+                        width: 60%;
+                        padding: 1rem;
+                    }
+                }
             }
         }
     }

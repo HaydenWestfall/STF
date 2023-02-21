@@ -27,10 +27,15 @@ export class AboutPageComponent implements AfterViewInit {
 
   observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        console.log('here');
-        
-        this.runCounters();
+      if (entry.target.id === 'statistic1') {
+        console.log(entry.intersectionRatio);
+      }
+      if (entry.isIntersecting && entry.target.id === 'statistic1') {
+        this.runYearsOfServiceCounter();
+      } else if (entry.isIntersecting && entry.target.id === 'statistic2') {
+        this.runFamiliesProtectedCounter();
+      } else if (entry.isIntersecting && entry.target.id === 'statistic3') {
+        this.runCustomerRatingCounter();
       }
     });
   });
@@ -40,13 +45,13 @@ export class AboutPageComponent implements AfterViewInit {
   constructor(public cd: ChangeDetectorRef, public scrollToView: ViewportScroller) { }
 
   ngAfterViewInit() {
-    this.observer.observe(document.getElementById('statistic'));
+    this.observer.observe(document.getElementById('statistic1'));
+    this.observer.observe(document.getElementById('statistic2'));
+    this.observer.observe(document.getElementById('statistic3'));
   }
 
-  runCounters(): void {
+  runCustomerRatingCounter(): void {
     this.customerRatings = 0;
-    this.familiesProtected = 0;
-    this.yearsOfService = 0;
     
     let cusotmerRatingsInterval: any = setInterval(()=>{
       this.customerRatings = Math.round((this.customerRatings + 0.1) * 10) / 10
@@ -56,6 +61,10 @@ export class AboutPageComponent implements AfterViewInit {
       }
       this.cd.detectChanges();
     }, 750 / 45);
+  }
+
+  runFamiliesProtectedCounter(): void {
+    this.familiesProtected = 0;
   
     let familiesProtectedInterval: any = setInterval(()=>{
       this.familiesProtected = this.familiesProtected + 50;
@@ -66,6 +75,10 @@ export class AboutPageComponent implements AfterViewInit {
       }
       this.cd.detectChanges();
     }, 750 / 100);
+  }
+
+  runYearsOfServiceCounter(): void {
+    this.yearsOfService = 0;
     
     let yearsOfServiceInterval: any = setInterval(()=>{
       this.yearsOfService++;

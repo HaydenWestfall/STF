@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Component } from '@angular/core';
 import { fade, itemAnim, listAnim } from 'src/animations';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
@@ -171,6 +172,27 @@ export class CarriersPageComponent {
     }
   ];
   foundCarriers: any[] = structuredClone(this.carriers);
+
+  searchWrapper: any;
+  observer = new IntersectionObserver((entries) => {
+      if (entries[0].intersectionRatio === 0) {
+        console.log('on');
+        
+        // this.searchWrapper.querySelector("#header").classList.add("sticky-element");
+      } else if (entries[0].intersectionRatio === 1) {
+        console.log('off');
+        // this.searchWrapper.querySelector("#header").classList.remove("sticky-element");
+      }
+    },
+    { threshold: [0, 1] }
+  );
+
+  constructor(public scrollToView: ViewportScroller) { }
+
+  ngAfterViewInit() {
+    this.searchWrapper = document.getElementById('search-container');
+    this.observer.observe(document.getElementById('search-container'));
+  }
 
   clearSearch(): void {
     this.searchText = '';

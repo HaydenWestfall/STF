@@ -12,15 +12,16 @@ import { panelSlideIn } from './navbar.animation';
 })
 export class NavbarComponent implements OnInit {
   SvgIcon = SvgIcon;
-  showNav = true;
+  showNav = false;
   navbarClass = 'transparent';
 
   aboutLinks = {
     title: 'About',
     links: [
-      'About Us',
-      'Our Locations',
-      'FAQ'
+      'About STF',
+      'Carriers',
+      'Our Team',
+      'Locations'
     ],
     dropdown: [
       {icon: SvgIcon.LOGO_WATERMARK, iconSize: 1.5, label: 'About', navigateTo: '/about'},
@@ -109,9 +110,10 @@ export class NavbarComponent implements OnInit {
       return;
     }
 
+    this.showNav = false;
     this.selectedLink = null;
     setTimeout(() => {
       this.router.navigate([link]);
-    }, 200);
+    }, this.mediaQuery.matches ? 425 : 200);
   }
 }

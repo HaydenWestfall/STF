@@ -3,8 +3,7 @@
 
     <stf-header>
         <span class="sub-header">COVERAGES</span>
-        <span class="header" data-aos="fade-up"data-aos-easing="ease-out" data-aos-duration="800">Expert guidance and</span>
-        <span class="header" data-aos="fade-up"data-aos-easing="ease-out" data-aos-duration="800" data-aos-delay="200">Expert customer service</span>
+        <span class="header" data-aos="fade-up"data-aos-easing="ease-out" data-aos-duration="800">Expert customer service.</span>
     </stf-header>
 
     <div class="coverage-list">
@@ -16,8 +15,8 @@
             <div class="information">
                 <span>{{coverage.title}}</span>
                 <span>{{coverage.description}}</span>
-                <a *ngIf="coverage.link" class="stf-button stf-button-primary" style="padding: 0.5rem 1.5rem; margin-top: 2rem;" [routerLink]="coverage.link">Learn More</a>
-                <a *ngIf="coverage.externalLink" class="stf-button stf-button-primary" style="padding: 0.5rem 1.5rem; margin-top: 2rem;" [href]="coverage.externalLink" target="_blank">Learn More</a>
+                <a *ngIf="coverage.link" class="stf-button stf-button-primary" [routerLink]="coverage.link">Learn More</a>
+                <a *ngIf="coverage.externalLink" class="stf-button stf-button-primary" [href]="coverage.externalLink" target="_blank">Learn More</a>
             </div>
         </div>
     </div>

@@ -15,3 +15,12 @@
         line-height: 1.875rem;
     }
 }
+
+
+@media only screen and (max-width: 768px) {
+    .about {
+        .about-description {
+            max-width: 75vw;
+        }
+    }
+}

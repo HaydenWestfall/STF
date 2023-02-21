@@ -97,7 +97,7 @@
             .strength-num {
                 position: relative;
                 height: 7rem;
-                aspect-ratio: 1;
+                width: 7rem;
                 background-color: var(--secondary-color);
                 box-shadow: 0 0 50px 0 #14182a;
                 z-index: 1;
@@ -126,6 +126,16 @@
                         border-radius: 10px;
                         background-color: var(--primary-color);
                     }
+
+                    .align-left {
+                        left: 0;
+                        right: unset
+                    }
+                }
+
+                .align-left {
+                    right: 11rem;
+                    text-align: right;
                 }
             }
 
@@ -160,7 +170,7 @@
                 justify-content: center;
                 align-items: center;
                 background-color: white;
-                box-shadow: 0 0 1px 0 #0d669340, 0 15px 80px 0 #272d3f1c;
+                box-shadow: 0 0 2px 0 #0d669332, 0 15px 80px 0 #272d3f1c;
                 height: 15rem;
                 width: 15rem;
                 border-radius: 12px;
@@ -177,6 +187,66 @@
                     text-align: center;
                     line-height: 1.5rem;
                 }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+    .about-wrapper {
+        .about-description {
+            max-width: 80vw;
+            font-size: 1.6rem;
+            font-weight: 500;
+    
+            .statistics {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    
+        .strengths-section {
+            .description {
+                font-size: 1.5rem;
+            }
+    
+    
+            .strengths-graphic {
+                width: calc(100% + 2rem);
+                left: -2rem;
+                gap: 12rem;
+                
+                .strength-num {
+                    gap: 3rem;
+    
+                    .strength-text {
+                        font-size: clamp(1rem, 1.1rem, 1.2rem);
+                        width: 72vw;
+                        left: 10rem;
+                    }
+
+                    .align-left {
+                        right: unset;
+                        left: 10rem;
+                        text-align: left;
+                    }
+                }
+    
+                .line {
+                    left: 3.5rem;
+                }
+            }
+        }
+    
+        .carriers-section {
+            .carriers-wrapper {
+                justify-content: center;
             }
         }
     }

@@ -2,12 +2,12 @@
 .carriers {
     display: flex;
     flex-direction: column;
-    padding-bottom: 5rem;
+    padding-bottom: 10rem;
     gap: 0.5rem;
     background-color: #1D243C;
 
     .carrier-header {
-        padding: 10rem 0 10rem 0;
+        padding: 15rem 0 15rem 0;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -67,6 +67,25 @@
         }
         100% {
             transform: translateX(calc(900% + 4.5rem));
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .carriers {
+        .carrier-header {
+            gap: 3rem;
+
+            .description {
+                font-size: 5vw;
+            }
+
+            .button-wrapper {
+                width: 40%;
+                a {
+                    width: 100%;
+                }
+            }
         }
     }
 }

@@ -54,6 +54,16 @@
         svg-icon {
             position: absolute;
         }
+
+        .top-quote {
+            top: 3rem;
+            left: 5rem
+        }
+
+        .bottom-quote {
+            bottom: -5rem;
+            right: 5rem
+        }
     }
 
     .leave-review {
@@ -61,5 +71,37 @@
         width: 100%;
         display: flex;
         justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .review-wrapper {
+        .review-list-wrapper {
+            .review-list {
+                grid-auto-columns: 70vw;
+                grid-column-gap: 5vw;
+                padding: 5vh 15vw;
+    
+                .review {
+                    width: 70vw;
+                    scroll-snap-align: center;
+    
+                    div {
+                        text-align: center;
+                        font-size: 1rem;
+                    }
+                }
+            }
+
+            .top-quote {
+                top: 5rem;
+                left: 1.5rem
+            }
+    
+            .bottom-quote {
+                bottom: -3rem;
+                right: 1.5rem
+            }
+        }
     }
 }
