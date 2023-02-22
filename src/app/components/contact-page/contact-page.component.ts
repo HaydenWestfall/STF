@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-contact-page',
@@ -8,4 +9,5 @@ import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 })
 export class ContactPageComponent {
   SvgIcon = SvgIcon;
+  contactEmail = environment.contactEmail;
 }

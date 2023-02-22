@@ -14,7 +14,7 @@
     <div class="coverage-description">
         <stf-header>
             <span class="sub-header">INFORMATION</span>
-            <span class="header" data-aos="fade-up" data-aos-duration="1000">What we have to offer</span>
+            <span class="header" data-aos="fade-up" data-aos-duration="1000">What we have to offer.</span>
         </stf-header>
 
         <span class="text"  data-aos="fade-up" data-aos-duration="1000">{{coverageType?.description}}</span>
@@ -22,15 +22,12 @@
 
 
     <div class="coverage-cards">
-        <div class="coverage-card" *ngFor="let coverageCard of coverageType?.informationCards; let i = index">
-            <img data-aos="fade" data-aos-duration="1000" *ngIf="i == 0 || i == 2" [src]="coverageCard.image" />
+        <div class="coverage-card" *ngFor="let coverageCard of coverageType?.informationCards; let i = index" [ngClass]="i == 0 || i == 2 ? 'reverse' : ''">
             <div data-aos="fade-up" data-aos-duration="1000" [ngStyle]="{'text-align': i == 1 ? 'right' : ''}">{{coverageCard.description}}</div>
-            <img data-aos="fade" data-aos-duration="1000" *ngIf="i == 1" [src]="coverageCard.image" />
+            <img data-aos="fade" data-aos-duration="1000" [src]="coverageCard.image" />
         </div>
     </div>
-
-    <app-banner bannerType="getQuote"></app-banner>
 </div>
 
-
+<app-banner bannerType="getQuote"></app-banner>
 <app-footer></app-footer>

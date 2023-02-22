@@ -1,5 +1,5 @@
 import { ViewportScroller } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { fade, itemAnim, listAnim } from 'src/animations';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 
@@ -201,5 +201,24 @@ export class CarriersPageComponent {
 
   searchCarriers(): void {
     this.foundCarriers = this.carriers.filter(x => x.name.includes(this.searchText))
+  }
+
+  toggleSearchBar(): void {
+    console.log('here');
+    
+  }
+  
+  @HostListener('window:scroll', ['$event']) // for window scroll events
+  onScroll(event) {
+    const searchContainer = document.getElementById('search-container-2');
+    console.log(searchContainer.offsetTop - window.pageYOffset);
+    if (searchContainer.offsetTop - window.pageYOffset) {
+      searchContainer.classList.add('scrolled-top');
+      
+    } else {
+      searchContainer.classList.remove('scrolled-top');
+      
+    }
+    
   }
 }

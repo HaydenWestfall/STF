@@ -165,3 +165,86 @@
         }
     }
 }
+
+
+@media only screen and (max-width: 768px) {
+    .coverage-wrapper {
+    
+        .coverage-header {
+    
+            .overlay-header {
+            }
+    
+            img {
+            }
+        }
+    
+        .team-wrapper {
+            grid-auto-columns: 70vw;
+            grid-column-gap: 5vw;
+            padding: 5vh 15vw;
+            padding-top: 15rem;
+    
+            .team-member {
+                flex-direction: column;
+                width: 70vw;
+                scroll-snap-align: center;
+                align-items: center;
+                padding: 0 2rem;
+                min-height: 40rem;
+    
+                .employee-photo {
+                    width: 22rem;
+                    height: 15rem;
+    
+                    .photo-wrapper {
+    
+                        .person-fg {
+                        }
+                    }
+                }
+    
+                .employee-description {
+                    gap: 3rem;
+
+                    .employee-title {
+                        font-size: clamp(2rem, 6vw, 3.5rem);
+    
+                        .employee-sub-header {
+                            font-size: clamp(0.5rem, 2vw, 0.7rem);
+                        }
+                    }
+    
+                    .employee-description {
+                    }
+                }
+            }
+    
+            .next-prev-icon {
+            }
+        }
+    
+        .employee-list {
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+        }
+    
+        .thumbnail-wrapper {
+            scroll-snap-align: center;
+    
+            .thumbnail-image {
+                min-height: 6rem;
+                min-width: 6rem;
+    
+                &:hover {
+                }
+    
+                .person-fg {
+                }
+            }
+    
+            span {
+            }
+        }
+    }
+}

@@ -47,7 +47,6 @@
     }
 
     .coverage-description {
-        height: 40vh;
         margin:auto;
         max-width: 55rem;
         text-align: center;
@@ -56,10 +55,10 @@
         gap: 3rem;
         justify-content: center;
         align-items: center;
+        max-width: 75vw;
 
         .text {
             font-size: 1.1rem;
-            font-weight: 500;
         }
     }
 
@@ -94,6 +93,66 @@
                 font-size: 4vw;
                 font-weight: 800;
                 line-height: 4.5vw;
+            }
+        }
+
+        .reverse {
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .coverage-wrapper {
+    
+        .coverage-header {
+    
+            .overlay-header {
+            }
+    
+            img {
+            }
+    
+            .home {
+            }
+    
+            .life {
+            }
+    
+            .commercial {
+            }
+    
+            .gradient-overlay {
+            }
+        }
+    
+        .coverage-description {
+
+            .text {
+            }
+        }
+    
+        .coverage-cards {
+            flex-direction: column;
+            gap: 15vh;
+    
+            .coverage-card {
+                flex-direction: column-reverse;
+                align-items: center;
+    
+                img {
+                    height: 50vh;
+                    width: 80vw;
+                }
+    
+                div {
+                    text-align: center !important;
+                    max-width: 75vw;
+                    font-size: 8vw;
+                    line-height: 10vw;
+                    padding: 5rem 0;
+                }
             }
         }
     }

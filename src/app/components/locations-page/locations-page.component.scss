@@ -102,3 +102,59 @@ $bg-height: 70vh;
         }
     }
 }
+
+
+@media only screen and (max-width: 768px) {
+    .locations-section {
+
+        .section-header {
+        }
+
+        .gradient-overlay {
+        }
+
+        .overlay-header {
+            max-width: 75vw;
+
+            .description {
+                max-width: 60vw;
+                font-size: 1.4rem;
+                color: gray
+            }
+        }
+
+        .locations-wrapper {
+            align-items: center;
+            flex-direction: column;
+            
+            .location {
+                width: 75%;
+                height: unset;
+                flex-direction: column;
+                box-shadow: 0px 0px 8px 0px rgb(13 102 147 / 11%), 0px 15px 80px 0px rgb(39 45 63 / 11%);
+
+                .information {
+                    width: unset;
+                    height: 23rem;
+
+                    .address {
+                    }
+        
+                    .number-label {
+                    }
+        
+                    .number {
+                    }
+        
+                    .hours {
+                    }
+                }
+
+                .location-img {
+                    width: unset;
+                    height: 26rem;
+                }
+            }
+        }
+    }
+}

@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } fro
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { fade, fadeInPlace, growHeight } from 'src/animations';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
+import { environment } from 'src/environments/environment.development';
 import { panelSlideIn } from './navbar.animation';
 
 @Component({
@@ -66,6 +67,8 @@ export class NavbarComponent implements OnInit {
   whiteNavbarRoute = false;
 
   mediaQuery: any = window.matchMedia('(max-width: 768px)');
+
+  quoteLink = environment.quoteLink;
 
   constructor(public router: Router, private elementRef: ElementRef) { }
 

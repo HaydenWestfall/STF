@@ -117,7 +117,11 @@
                 color: black;
                 
                 &:hover {
-                    background-color: var(--secondary-color-acccent);
+                    background-color: var(--surface-2);
+
+                    svg-icon {
+                        transform: scale(1.1);
+                    }
                 }
         
                 .icon {
@@ -128,6 +132,10 @@
                     height: 6rem;
                     width: 6rem;
                     margin-bottom: 1.5rem;
+
+                    svg-icon {
+                        transition: all 250ms linear;
+                    }
                 }
                 
                 span {
@@ -139,22 +147,6 @@
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -175,7 +167,7 @@
             .links {
                 position: absolute;
                 top: 0;
-                min-height: calc(100vh - 5.25rem);
+                height: 100vh;
                 width: 100%;
                 display: flex;
                 align-items: center;

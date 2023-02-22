@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-banner',
@@ -11,7 +12,7 @@ export class BannerComponent implements OnInit {
 
   selectedBanner: any;
   bannerTypes: any[] = [
-    { id: 'getQuote', message: 'Like what you see?', button: 'Get Quote', callback: '/quote' },
+    { id: 'getQuote', message: 'Like what you see?', button: 'Get Quote', callback: environment.quoteLink },
     { id: 'contactUs', message: 'Have a question?', button: 'Contact us', callback: '/contact' },
   ];
 
