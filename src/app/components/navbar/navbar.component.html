@@ -1,11 +1,13 @@
 
-<div class="navbar-wrapper" ngxHideOnScroll (eventElementHidden)="selectedLink = null" [ngClass]="navbarClass" propertyUsedToHide="transform"
+<div class="navbar-wrapper" ngxHideOnScroll (eventElementHidden)="selectedLink = null"
+    [ngClass]="navbarClass" propertyUsedToHide="transform" (eventElementShown)="stf.navIsShowing = true"
+    (eventElementHidden)="stf.navIsShowing = false"
     (mouseenter)="mouseEnterNavbar()" (mouseleave)="mouseLeaveNavbar()">
     <div class="navbar">
         <div class="links" *ngIf="showNav || !mediaQuery.matches" @panelSlideIn>
             <div class="get-quote">
                 <span>Want an instant quote?</span>
-                <a class="stf-button stf-button-primary" (click)="selectedLink = null" [href]="quoteLink" target="_blank">
+                <a class="stf-button stf-button-primary" (click)="selectedLink = null" routerLink="/quote">
                 Get Quote
                 </a>
             </div>
@@ -32,10 +34,11 @@
                 </ul>
             </li>
         </div>
-        <svg-icon class="logo" [name]="SvgIcon.LOGO" [width]="4" (click)="router.navigate(['/home'])"></svg-icon>
+        
+        <svg-icon class="logo" [name]="SvgIcon.LOGO" [width]="4" (click)="selectLink('/home')"></svg-icon>
 
         <a id="desktop-getQuote" class="stf-button stf-button-primary" style="padding: 0.5rem 1rem; font-size: 0.75rem;"
-            (click)="selectedLink = null" [href]="quoteLink" target="_blank">
+            (click)="selectedLink = null" routerLink="/quote">
             Get Quote
         </a>
 

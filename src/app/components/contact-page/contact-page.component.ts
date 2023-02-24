@@ -10,4 +10,27 @@ import { environment } from 'src/environments/environment.development';
 export class ContactPageComponent {
   SvgIcon = SvgIcon;
   contactEmail = environment.contactEmail;
+  flipArcanumCard = false;
+  flipVandaliaCard = false;
+
+  branches = [
+    {
+      branchName: 'Arcanum',
+      contactMethods: [
+        {label: 'Phone: ', value: '937-692-8310'},
+        {label: 'Fax: ', value: '937-278-9132'},
+        {label: 'Toll Free: ', value: '800-270-9667'}
+      ],
+      email: this.contactEmail,
+      cardFlipped: false
+    },
+    {
+      branchName: 'Vandalia',
+      contactMethods: [
+        {label: 'Phone: ', value: '937-890-5426'},
+      ],
+      email: this.contactEmail,
+      cardFlipped: false
+    }
+  ]
 }

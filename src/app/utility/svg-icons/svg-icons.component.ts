@@ -2,10 +2,13 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 export enum SvgIcon {
   ANGLE,
+  ARROW,
   AUTO_INSURANCE,
   COMMERCIAL_INSURANCE,
+  CONTACT,
   COPYRIGHT,
   FACEBOOK,
+  FAQ,
   FARM_INSURANCE,
   HAMBURGER,
   HAMBURGER_NEW,

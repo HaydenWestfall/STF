@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
-import { ChildrenOutletContexts, NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { ChildrenOutletContexts, NavigationEnd, NavigationStart, Router, RouterEvent, RouterOutlet } from '@angular/router';
 import * as AOS from 'aos';
 import { routeAnimations } from 'src/animations';
 
@@ -11,6 +11,7 @@ import { routeAnimations } from 'src/animations';
 })
 export class AppComponent implements OnInit {
   title = 'stf';
+  navigationType: string;
 
   constructor(private router: Router, private contexts: ChildrenOutletContexts) { }
 
@@ -20,11 +21,13 @@ export class AppComponent implements OnInit {
     });
   
     this.router.events.subscribe((event) => {
-      
-        if (!(event instanceof NavigationEnd)) {
-            return;
-        }
-        window.scrollTo(0, 0)
+      if (event instanceof NavigationStart) {
+        this.navigationType = event.navigationTrigger;
+      }
+      if (event instanceof NavigationEnd && this.navigationType !== 'popstate') {
+        console.log('scrolltop');
+        window.scrollTo(0, 0);
+      }
     });
   }
 }

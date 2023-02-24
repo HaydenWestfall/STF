@@ -6,7 +6,7 @@
         <span class="header" data-aos="fade-up"data-aos-easing="ease-out" data-aos-duration="800">Expert customer service.</span>
     </stf-header>
 
-    <div class="coverage-list">
+    <div class="coverage-list" #coverageList>
         <div class="coverage" *ngFor="let coverage of coverages; let i = index"
             data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="800" [attr.data-aos-delay]="(i * 100) + 200">
             <div class="icon">

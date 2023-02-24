@@ -1,6 +1,7 @@
 import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { fade, fadeInPlace, growHeight } from 'src/animations';
+import { StfService } from 'src/app/services/stf.service';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 import { environment } from 'src/environments/environment.development';
 import { panelSlideIn } from './navbar.animation';
@@ -28,7 +29,9 @@ export class NavbarComponent implements OnInit {
       {icon: SvgIcon.LOGO_WATERMARK, iconSize: 1.5, label: 'About', navigateTo: '/about'},
       {icon: SvgIcon.SHIELD, iconSize: 3, label: 'Carriers', navigateTo: '/carriers'},
       {icon: SvgIcon.TEAM, iconSize: 2.5, label: 'Team', navigateTo: '/team'},
-      {icon: SvgIcon.LOCATION, iconSize: 2.5, label: 'Locations', navigateTo: '/locations'}
+      {icon: SvgIcon.LOCATION, iconSize: 2.5, label: 'Locations', navigateTo: '/locations'},
+      {icon: SvgIcon.FAQ, iconSize: 2.5, label: 'FAQ', navigateTo: '/faq'},
+      {icon: SvgIcon.CONTACT, iconSize: 2.5, label: 'Contact', navigateTo: '/contact'}
     ]
   };
 
@@ -70,7 +73,7 @@ export class NavbarComponent implements OnInit {
 
   quoteLink = environment.quoteLink;
 
-  constructor(public router: Router, private elementRef: ElementRef) { }
+  constructor(public router: Router, private elementRef: ElementRef, public stf: StfService) { }
 
   ngOnInit() {
     this.router.events.subscribe(event => {
@@ -115,8 +118,13 @@ export class NavbarComponent implements OnInit {
 
     this.showNav = false;
     this.selectedLink = null;
-    setTimeout(() => {
-      this.router.navigate([link]);
-    }, this.mediaQuery.matches ? 425 : 200);
+
+    if (!this.mediaQuery.matches && !this.selectedLink) {
+      this.router.navigate([link]); 
+    } else {
+      setTimeout(() => {
+        this.router.navigate([link]);
+      }, this.mediaQuery.matches ? 425 : 200);
+    }
   }
 }

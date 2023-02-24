@@ -18,17 +18,6 @@ export class CoveragePageComponent {
   coverageType: any;
   coverageTypes: any[] = [
     {
-      id: 'home',
-      coverageTitle: 'Home Insurance',
-      coverageImage: this.coveragesPath + 'home/home.png',
-      description: 'The urge to protect our homes, the place where we lay our heads and raise our children, is universal. We help keep the castle safe and sound with comprehensive coverage that guards against theft, fire, and storm damage. We also insure other properties, including apartments, condos, mobile homes and property owned by your business.',
-      informationCards: [
-        {image: this.coveragesPath + 'home/card1.png', description: 'Scheduling jewelry, guns, hearing aids, motorized scooters, etc. to make sure you get full replacement on valued items.'},
-        {image: this.coveragesPath + 'home/card2.png', description: 'Sufficient replacement cost and proper home coverage.'},
-        {image: this.coveragesPath + 'home/card3.png', description: 'Insuring outbuilding and detached structures properly'}
-      ]
-    },
-    {
       id: 'auto',
       coverageTitle: 'Auto Insurance',
       coverageImage: this.coveragesPath + 'auto/auto.png',
@@ -40,13 +29,25 @@ export class CoveragePageComponent {
       ]
     },
     {
-      id: 'life',
-      coverageTitle: 'Life Insurance',
-      coverageImage: this.coveragesPath + 'life/life.png',
-      description: 'Life and Health insurance have many variables and decisions; such as, how much is enough and what type of policy best fits your need and your family\'s. Needs vary for Life insurance and each type of policy has its advantages. Depending on your life or health insurance needs, we will provide you with the most comprehensive plan based on your individual or group\'s current or future financial needs.',
+      id: 'home',
+      coverageTitle: 'Home Insurance',
+      coverageImage: this.coveragesPath + 'home/home.png',
+      description: 'The urge to protect our homes, the place where we lay our heads and raise our children, is universal. We help keep the castle safe and sound with comprehensive coverage that guards against theft, fire, and storm damage. We also insure other properties, including apartments, condos, mobile homes and property owned by your business.',
       informationCards: [
-        {image: this.coveragesPath + 'life/card1.png', description: 'Whole Life'},
-        {image: this.coveragesPath + 'life/card2.png', description: 'Term Life'},
+        {image: this.coveragesPath + 'home/card1.png', description: 'Scheduling jewelry, guns, hearing aids, motorized scooters, etc. to make sure you get full replacement on valued items.'},
+        {image: this.coveragesPath + 'home/card2.png', description: 'Sufficient replacement cost and proper home coverage.'},
+        {image: this.coveragesPath + 'home/card3.png', description: 'Insuring outbuilding and detached structures properly'}
+      ]
+    },
+    {
+      id: 'farm',
+      coverageTitle: 'Farm Insurance',
+      coverageImage: this.coveragesPath + 'farm/farm.png',
+      description: 'From hobby farms to commercial agriculture exposures such as feed and seed dealers, it is important to identify risks associated with whatever it is you produce. We know farming and commercial farm exposures is unique to the state of Ohio. We proudly represent top-rated insurance carriers that are specific to agribusiness to ensure you get the coverage you need at a price you can afford.',
+      informationCards: [
+        {image: this.coveragesPath + 'farm/card1.png', description: 'Peak season and crop storage coverage'},
+        {image: this.coveragesPath + 'farm/card2.png', description: 'Scheduling all farm equipment'},
+        {image: this.coveragesPath + 'farm/card3.png', description: 'Cover all ATVs and Rangers on farm policies'}
       ]
     },
     {
@@ -61,14 +62,13 @@ export class CoveragePageComponent {
       ]
     },
     {
-      id: 'farm',
-      coverageTitle: 'Farm Insurance',
-      coverageImage: this.coveragesPath + 'farm/farm.png',
-      description: 'From hobby farms to commercial agriculture exposures such as feed and seed dealers, it is important to identify risks associated with whatever it is you produce. We know farming and commercial farm exposures is unique to the state of Ohio. We proudly represent top-rated insurance carriers that are specific to agribusiness to ensure you get the coverage you need at a price you can afford.',
+      id: 'life',
+      coverageTitle: 'Life Insurance',
+      coverageImage: this.coveragesPath + 'life/life.png',
+      description: 'Life and Health insurance have many variables and decisions; such as, how much is enough and what type of policy best fits your need and your family\'s. Needs vary for Life insurance and each type of policy has its advantages. Depending on your life or health insurance needs, we will provide you with the most comprehensive plan based on your individual or group\'s current or future financial needs.',
       informationCards: [
-        {image: this.coveragesPath + 'farm/card1.png', description: 'Peak season and crop storage coverage'},
-        {image: this.coveragesPath + 'farm/card2.png', description: 'Scheduling all farm equipment'},
-        {image: this.coveragesPath + 'farm/card3.png', description: 'Cover all ATVs and Rangers on farm policies'}
+        {image: this.coveragesPath + 'life/card1.png', description: 'Whole Life'},
+        {image: this.coveragesPath + 'life/card2.png', description: 'Term Life'},
       ]
     },
     {

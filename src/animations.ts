@@ -43,20 +43,6 @@ export const growHeight = trigger('growHeight', [
     ]),
 ]);
 
-export const listAnim = trigger('listAnim', [
-    transition("* => *", [
-        query(':enter', [
-            style({
-                opacity: 0,
-                height: 0
-            }),
-            stagger(100, [
-                animate('0.2s ease')
-            ])
-        ], { optional: true })
-    ])
-]);
-
 export const itemAnim = trigger('itemAnim', [
     transition("void => *", [
         style({

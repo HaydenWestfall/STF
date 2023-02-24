@@ -1,42 +1,55 @@
 
 <div class="contact-wrapper">
-
     <stf-header>
         <span class="sub-header">CONTACT</span>
         <span class="header" data-aos="fade-up" data-aos-duration="1000">We'd love to hear from you.</span>
     </stf-header>
 
-    <span class="sub-text">How can we help?</span>
-    <svg-icon [name]="SvgIcon.ANGLE" [width]="1" style="transform: rotate(270deg); color: var(--primary-color)"></svg-icon>
+    <span class="sub-text" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">How can we help?</span>
+    <svg-icon [name]="SvgIcon.ANGLE" [width]="1" style="transform: rotate(270deg); color: var(--primary-color)"
+    class="sub-text" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1200"></svg-icon>
 
 
     <div class="contact-cards">
-        <div class="contact-card">
-            <div style="text-align: center">
+        <div class="contact-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+            <div class="text-wrapper">
                 <h2>Have a general question?</h2><br/>
                 <span>Check out our FAQ page</span>
             </div>
             <a class="stf-button stf-button-primary" routerLink="/faq">View FAQ</a>
         </div>
         <div class="contact-branch">
-            <div class="contact-card branch-card">
-                <h4>Contact the Arcanum branch</h4>
-                <button class="stf-button stf-button-secondary">Get in touch</button>
-            </div>
-            <div class="contact-card branch-card">
-                <h4>Contact the Vandalia branch</h4>
-                <button class="stf-button stf-button-secondary">Get in touch</button>
+            <div class="contact-card branch-card" *ngFor="let branch of branches" data-aos="fade-up" data-aos-duration="1000">
+                <div class="branch-card-inner" [ngStyle]="{'transform': branch.cardFlipped ? 'rotateY(180deg)' : 'rotateY(0)'}">
+                    <div class="branch-card-front">
+                        <h4>Contact the {{branch.branchName}} branch</h4>
+                        <button class="stf-button stf-button-secondary-light-bg" (click)="branch.cardFlipped= true">Get in touch</button>
+                    </div>
+                    <div class="branch-card-back">
+                        <h4 style="text-decoration: underline;">{{branch.branchName}}</h4>
+                        <table class="info-wrapper">
+                            <tr *ngFor="let contact of branch.contactMethods">
+                                <th><h4>{{contact.label}}</h4></th>
+                                <th><a [href]="'tel:' + contact.value">{{contact.value}}</a></th>
+                            </tr>
+                        </table>
+                        <a class="stf-button stf-button-secondary" style="margin-top: 2rem" [href]="'mailto:' + contactEmail">Email us</a>
+                        <button class="back-btn" (click)="branch.cardFlipped = false">
+                            <svg-icon [name]="SvgIcon.ARROW" [height]="1"></svg-icon>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="contact-card">
-            <div style="text-align: center; width: calc(50% - 5rem);">
+        <div class="contact-card" data-aos="fade-up" data-aos-duration="1000">
+            <div class="text-wrapper">
                 <h2>Looking for a career?</h2><br/>
                 <span stlye="font-weight: 600">Apply today to join the STF team!</span>
             </div>
-            <button class="stf-button stf-button-primary">Apply</button>
+            <a class="stf-button stf-button-primary">Apply</a>
         </div>
-        <div class="contact-card">
-            <div style="text-align: center; width: calc(50% - 5rem);">
+        <div class="contact-card" data-aos="fade-up" data-aos-duration="1000">
+            <div class="text-wrapper">
                 <h2>Still have questions?</h2><br/>
                 <span stlye="font-weight: 600">Get in touch with our team and we will assist you as soon as posisble</span>
             </div>

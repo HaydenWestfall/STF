@@ -19,12 +19,13 @@
             list-style: none;
             overflow-x: scroll;
             scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
             -ms-overflow-style: none;  /* Internet Explorer 10+ */
             scrollbar-width: none;  /* Firefox */
             grid-auto-columns: 22rem;
             grid-column-gap: 6rem;
             padding: 5vh 12vw;
-
+            cursor: pointer;
             
             &::-webkit-scrollbar { 
                 display: none;  /* Safari and Chrome */
@@ -49,6 +50,11 @@
                     font-weight: 600;
                 }
             }
+        }
+
+        .active {
+            cursor: grabbing;
+            cursor: -webkit-grabbing;
         }
         
         svg-icon {
@@ -78,12 +84,12 @@
     .review-wrapper {
         .review-list-wrapper {
             .review-list {
-                grid-auto-columns: 70vw;
+                grid-auto-columns: 62vw;
                 grid-column-gap: 5vw;
-                padding: 5vh 15vw;
+                padding: 5vh 17vw;
     
                 .review {
-                    width: 70vw;
+                    width: 62vw;
                     scroll-snap-align: center;
     
                     div {

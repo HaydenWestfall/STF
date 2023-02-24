@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-hero-section',
@@ -8,6 +9,7 @@ import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 })
 export class HeroSectionComponent implements OnInit {
   SvgIcon = SvgIcon;
+  env = environment;
 
   test = ['The Easiest Way To', 'Buy Low Cost', 'Insurance'];
 

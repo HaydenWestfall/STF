@@ -4,6 +4,6 @@
         <span class="header" data-aos="fade-up"data-aos-easing="ease-out" data-aos-duration="800">{{selectedBanner.message}}</span>
     </stf-header>
 
-    <a *ngIf="bannerType === 'getQuote'" class="stf-button stf-button-primary" [href]="selectedBanner.callback">{{selectedBanner.button}}</a>
+    <a *ngIf="bannerType === 'getQuote'" class="stf-button stf-button-primary" [href]="selectedBanner.callback" target="_blank">{{selectedBanner.button}}</a>
     <a *ngIf="bannerType === 'contactUs'" class="stf-button stf-button-primary" [routerLink]="selectedBanner.callback">{{selectedBanner.button}}</a>
 </div>

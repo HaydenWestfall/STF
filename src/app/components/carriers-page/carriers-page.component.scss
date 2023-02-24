@@ -23,7 +23,6 @@
             align-items: center;
             flex-direction: column;
             gap: 2.5rem;
-            width: 100%;
 
             .description {
                 font-size: 1.1rem;
@@ -53,32 +52,30 @@
             position: sticky;
             display: flex;
             align-items: center;
+            justify-content: center;
             width: 100%;
-            margin-top: 6rem;
-            padding: 0 2rem 0 2rem;
-            top: 4.5rem;
-            z-index: 1000;
+            top: 0;
+            z-index: 5;
+            background-color: white;
+            height: 5rem;
+            box-shadow: 0 2px 8px 0 rgb(0 0 0 / 14%);
+            transition: all 250ms ease-in-out;
 
             .search-wrapper {
                 position: relative;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
                 max-width: 60rem;
                 width: 100%;
-
+                padding: 0 2rem;
 
                 .search-icon {
                     color: #979797;
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    left: 2rem;
                 }
     
                 .clear-icon {
                     color: #979797;
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    right: 2rem;
                     border-radius: 50%;
                     height: 2rem;
                     width: 2rem;
@@ -86,9 +83,10 @@
                     align-items: center;
                     justify-content: center;
                     cursor: pointer;
+                    transition: background-color 300ms ease-in-out;
                     background-color: white;
-                    transition: background-color 250ms ease-in-out;
-                    background-color: white;
+                    flex-shrink: 0;
+                    padding: 0 0 2px 0;
     
                     &:hover {
                         background-color: var(--surface-1);
@@ -99,10 +97,9 @@
                     height: fit-content;
                     width: 100%;
                     background-color: white;
-                    border-radius: 50px;
-                    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.143);
-                    padding: 1rem 2.5rem 1rem 4.5rem;
                     border: none;
+
+                    &:focus {outline:none;}
                 }
             }
         }

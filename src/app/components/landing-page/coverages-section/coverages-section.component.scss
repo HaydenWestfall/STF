@@ -12,11 +12,13 @@
         list-style: none;
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
         -ms-overflow-style: none;  /* Internet Explorer 10+ */
         scrollbar-width: none;  /* Firefox */
         grid-auto-columns: 17rem;
         grid-column-gap: 1.25rem;
-        padding: 5vh 8vw;
+        padding: 15vh 8vw;
+        cursor: pointer;
 
         &::-webkit-scrollbar { 
             display: none;  /* Safari and Chrome */
@@ -56,6 +58,7 @@
                     &:first-child {
                         font-weight: 700;
                         font-size: 1.2rem;
+                        word-spacing: 100vw;
                     }
 
                     &:nth-child(2) {
@@ -68,23 +71,29 @@
 
                 a {
                     padding: 0.5rem 1.5rem;
-                    margin-top: 2rem;
+                    margin: 2rem 0;
                 }
             }
         }
+    }
+
+    .active {
+        cursor: grabbing;
+        cursor: -webkit-grabbing;
     }
 }
 
 @media only screen and (max-width: 768px) {
     .coverages {
         .coverage-list {
-            grid-auto-columns: 70vw;
+            grid-auto-columns: 66vw;
             grid-column-gap: 5vw;
-            padding: 5vh 15vw;
+            padding: 15vh 17vw;
 
             .coverage {
-                width: 70vw;
+                width: 66vw;
                 scroll-snap-align: center;
+                height: 48vh;
 
                 .icon {
                     height: 10rem;
@@ -95,17 +104,19 @@
                     span {
                         &:first-child {
                             font-weight: 700;
-                            font-size: 6vw
+                            font-size: 6vw;
                         }
     
                         &:nth-child(2) {
                             font-size: 3vw;
+                            max-width: 90%;
                         }
                     }
 
                     a {
                         width: 60%;
                         padding: 1rem;
+                        font-size: 3.2vw;
                     }
                 }
             }
