@@ -34,7 +34,13 @@
 
             .text-wrapper {
                 text-align: center;
-                width: calc(50% - 5rem)
+                width: calc(50% - 5rem);
+
+                span {
+                    &:last-child {
+                        font-family: Maison Neue Book, sans-serif;
+                    }
+                }
             }
         }
 

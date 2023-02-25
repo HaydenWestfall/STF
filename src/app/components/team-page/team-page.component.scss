@@ -63,12 +63,16 @@
 
                 .photo-wrapper {
                     position: absolute;
-                    top: -4rem;
+                    top: clamp(-4rem, -7vw, -1rem);
                     left: 50%;
                     transform: translateX(-50%);
                     background-color: #9DA4BC;
-                    height: 16rem;
-                    width: 16rem;
+                    height: 30vw;
+                    width: 30vw;
+                    max-height: 16rem;
+                    max-width: 16rem;
+                    min-height: 10rem;
+                    min-width: 10rem;
                     border-radius: 50%;
                     box-shadow: 0 15px 80px 0 #272d3f72, 0 0 1px 0 #0d669342;
                     overflow: hidden;
@@ -76,7 +80,7 @@
                     justify-content: center;
 
                     .person-fg {
-                        position: absolute;
+                        position: relative;
                         object-fit: cover;
                         height: 100%;
                         bottom: 0;
@@ -104,7 +108,8 @@
                 }
 
                 .employee-description {
-                    font-size: 0.9rem;
+                    font-family: Maison Neue Book, sans-serif;
+                    font-size: 0.95rem;
                     font-weight: 500;
 
                 }
@@ -152,7 +157,7 @@
             }
 
             .person-fg {
-                position: absolute;
+                position: relative;
                 object-fit: cover;
                 height: 100%;
                 bottom: 0;
@@ -162,12 +167,13 @@
         span {
             font-weight: 600;
             font-size: 0.8rem;
+            white-space: nowrap;
         }
     }
 }
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 920px) {
     .coverage-wrapper {
     
         .coverage-header {
@@ -180,22 +186,21 @@
         }
     
         .team-wrapper {
-            grid-auto-columns: 70vw;
+            grid-auto-columns: 80vw;
             grid-column-gap: 5vw;
-            padding: 5vh 15vw;
+            padding: 5vh 10vw;
             padding-top: 15rem;
     
             .team-member {
                 flex-direction: column;
-                width: 70vw;
+                width: 80vw;
                 scroll-snap-align: center;
                 align-items: center;
-                padding: 0 2rem;
-                min-height: 40rem;
+                padding: 0 2rem 2rem 2rem;
     
                 .employee-photo {
                     width: 22rem;
-                    height: 15rem;
+                    height: 12rem;
     
                     .photo-wrapper {
     
@@ -205,10 +210,11 @@
                 }
     
                 .employee-description {
-                    gap: 3rem;
+                    gap: 1.5rem;
+                    font-size: 0.8rem;
 
                     .employee-title {
-                        font-size: clamp(2rem, 6vw, 3.5rem);
+                        font-size: clamp(1.5rem, 5.5vw, 3.5rem);
     
                         .employee-sub-header {
                             font-size: clamp(0.5rem, 2vw, 0.7rem);
@@ -227,6 +233,7 @@
         .employee-list {
             overflow-x: auto;
             scroll-snap-type: x mandatory;
+            justify-content: flex-start;
         }
     
         .thumbnail-wrapper {

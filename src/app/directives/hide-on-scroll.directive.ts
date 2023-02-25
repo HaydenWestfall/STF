@@ -61,6 +61,11 @@ export class HideOnScrollDirective implements AfterViewInit, OnDestroy {
   @Input() scrollingElementSelector: string = '';
 
   /**
+   * Disable the hiding feature of this directive.
+   */
+  @Input() dontHide: boolean = false;
+
+  /**
    * Emitted when the element is hidden.
    */
   @Output() eventElementHidden = new EventEmitter<void>();
@@ -105,7 +110,7 @@ export class HideOnScrollDirective implements AfterViewInit, OnDestroy {
       // compare this and the last element to figure out scrolling direction
       map(([y1, y2]): ScrollDirection => {
         // Catch case on mobile where scroll pos goes negative
-        if (y1 <= 0 || y2 <0) { return ScrollDirection.Up; }
+        if (y1 <= 0 || y2 <=0 || this.dontHide) { return ScrollDirection.Up; }
         return (y2 < y1 ? ScrollDirection.Up : ScrollDirection.Down)
 
       }),

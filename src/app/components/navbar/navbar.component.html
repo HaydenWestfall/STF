@@ -1,7 +1,7 @@
 
 <div class="navbar-wrapper" hideOnScroll (eventElementHidden)="selectedLink = null" 
     [ngClass]="navbarClass" propertyUsedToHide="transform" (eventElementShown)="stf.navIsShowing = true"
-    (eventElementHidden)="stf.navIsShowing = false"
+    (eventElementHidden)="stf.navIsShowing = false" [dontHide]="showNav"
     (mouseenter)="mouseEnterNavbar()" (mouseleave)="mouseLeaveNavbar()">
     <div class="navbar">
         <div class="links" *ngIf="showNav || !mediaQuery.matches" @panelSlideIn>

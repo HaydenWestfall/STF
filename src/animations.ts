@@ -3,8 +3,8 @@ import { animate, animateChild, group, query, stagger, style, transition, trigge
 export const fade = trigger('fade', [
     transition(":enter", [
         style({ opacity: 0 }),
-        animate( "{{fadeTime}}ms ease-in-out", style({ opacity: 1 }))
-    ], {params: {fadeTime: 500}}),
+        animate( "{{fadeTime}}ms ease-in-out", style({ opacity: '{{opacityVal}}' }))
+    ], {params: {fadeTime: 500, opacityVal: 1}}),
     transition(":leave", [
         style({ opacity: 1 }),
         animate( "{{fadeTime}}ms ease-in-out", style({ opacity: 0 }))

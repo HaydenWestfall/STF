@@ -115,11 +115,14 @@
                 .strength-text {
                     position: absolute;
                     top: 50%;
-                    width: 25rem;
-                    font-size: 0.9rem;
+                    max-width: 25rem;
+                    width: 33vw;
+                    font-size: clamp(0.75rem, 1.5vw, 1.1rem);
                     color: white;
                     font-weight: 500;
                     height: 10rem;
+                    left: 11rem;
+                    text-align: left;
 
                     .text-accent {
                         position: absolute;
@@ -131,14 +134,15 @@
                         background-color: var(--primary-color);
                     }
 
-                    .align-left {
-                        left: 0;
-                        right: unset
+                    .pos-left {
+                        right: 0;
+                        left: unset
                     }
                 }
 
                 .align-left {
                     right: 11rem;
+                    left: unset;
                     text-align: right;
                 }
             }
@@ -164,10 +168,12 @@
 
         .carriers-wrapper {
             display: flex;
+            justify-content: center;
             margin-top: 10rem;
             flex-wrap: wrap;
             max-width: 65rem;
             gap: 1rem;
+            padding: 0 1rem;
 
             .carrier {
                 display: flex;
@@ -237,16 +243,17 @@
                         font-size: clamp(1rem, 1.1rem, 1.2rem);
                         width: 72vw;
                         left: 10rem;
+
+                        .pos-left {
+                            right: unset;
+                            left: 0
+                        }
                     }
 
                     .align-left {
                         right: unset;
                         left: 9rem;
                         text-align: left;
-                    }
-
-                    .align-right {
-                        left: 9rem !important;
                     }
                 }
     
@@ -259,6 +266,11 @@
         .carriers-section {
             .carriers-wrapper {
                 justify-content: center;
+
+                .carrier {
+                    width: 40vw;
+                    height: 40vw;
+                }
             }
         }
     }
