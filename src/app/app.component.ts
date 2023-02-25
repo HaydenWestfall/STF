@@ -25,7 +25,6 @@ export class AppComponent implements OnInit {
         this.navigationType = event.navigationTrigger;
       }
       if (event instanceof NavigationEnd && this.navigationType !== 'popstate') {
-        console.log('scrolltop');
         window.scrollTo(0, 0);
       }
     });

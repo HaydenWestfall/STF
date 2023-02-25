@@ -49,7 +49,7 @@ export class NavbarComponent implements OnInit {
       {icon: SvgIcon.AUTO_INSURANCE, iconSize: 3.5, label: 'Auto\nInsurance', navigateTo: '/coverages/auto'},
       {icon: SvgIcon.HOME_INSURANCE, iconSize: 3.5, label: 'Home\nInsurance', navigateTo: '/coverages/home'},
       {icon: SvgIcon.FARM_INSURANCE, iconSize: 3.5, label: 'Farm\nInsurance', navigateTo: '/coverages/farm'},
-      {icon: SvgIcon.COMMERCIAL_INSURANCE, iconSize: 3.5, label: 'Commercial\nInsurance', navigateTo: '/coverages/commercial'},
+      {icon: SvgIcon.COMMERCIAL_INSURANCE, iconSize: 2.5, label: 'Commercial\nInsurance', navigateTo: '/coverages/commercial'},
       {icon: SvgIcon.RECREATIONAL_INSRUANCE, iconSize: 3.5, label: 'Recreational\nInsurance', navigateTo: '/coverages/recreational'},
       {icon: SvgIcon.LIFE_INSURANCE, iconSize: 3.5, label: 'Life\nInsurance', navigateTo: '/coverages/life'},
       {icon: SvgIcon.HEALTH_INSURANCE, iconSize: 2.5, label: 'Health\nInsurance', navigateTo: 'health'},

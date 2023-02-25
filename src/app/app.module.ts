@@ -28,6 +28,7 @@ import { AboutPageComponent } from './components/about-page/about-page.component
 import { TeamPageComponent } from './components/team-page/team-page.component';
 import { GetQuoteComponent } from './components/get-quote/get-quote.component';
 import { BannerComponent } from './components/banner/banner.component';
+import { HideOnScrollDirective } from './directives/hide-on-scroll.directive';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { BannerComponent } from './components/banner/banner.component';
     AboutPageComponent,
     TeamPageComponent,
     GetQuoteComponent,
-    BannerComponent
+    BannerComponent,
+    HideOnScrollDirective
   ],
   imports: [
     BrowserModule,

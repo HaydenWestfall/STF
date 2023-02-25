@@ -28,9 +28,4 @@ export class HeroSectionComponent implements OnInit {
       path.style.strokeDashoffset = 0;
     }, 2000);
   }
-
-  getQuote() {
-    console.log('get ');
-    
-  }
 }

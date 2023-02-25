@@ -73,6 +73,12 @@ html body {
     font-weight: 100;
 }
 
+@font-face {
+    font-family: 'Maison Neue Book';
+    src: url(./assets/fonts/Maison-Neue-Book.ttf) format('truetype');
+    font-weight: 400;
+}
+
 [data-aos=fade-up] {
     transform: translate3d(0,50px,0);
 }
@@ -85,7 +91,7 @@ html body {
 }
 
 html {
-
+    scroll-behavior: smooth;
 }
 
 .section {
@@ -159,17 +165,14 @@ html {
 @media only screen and (max-width: 768px) {
     .stf-button {
         width: 40%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 500px;
         padding: 2.2rem 0;
-        font-weight: 700;
         font-size: 3.8vw;
-        max-height: 3.5rem;
-        cursor: pointer;
-        text-decoration: none;
-        transition: background-color .25s linear, border-color .25s linear;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .stf-button {
+        padding: 1.5rem 0;
     }
 }
 

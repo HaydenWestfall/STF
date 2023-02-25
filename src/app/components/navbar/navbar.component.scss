@@ -91,18 +91,18 @@
         display: flex;
         justify-content: center;
         background-color: white;
-        padding: 0 6rem;
+        padding: 0rem 6rem;
         overflow: hidden;
         box-shadow: 0px 10px 10px 0 rgb(0 0 0 / 6%);
 
         .navbar-options {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
-            border-bottom: 1px solid var(--surface-1);
-            height: 15rem;
+            flex-wrap: wrap;
             gap: 0.5rem;
             overflow: hidden;
+            min-height: 15rem;
         
             .navbar-option {
                 flex-shrink: 0;
@@ -151,6 +151,49 @@
 
 
 
+    @media only screen and (max-width: 1060px) {
+        .navbar {
+            padding: 0 5rem;
+
+            .logo {
+                left: 5rem;
+                transform: unset;
+            }
+
+            .links {
+                margin-left: 6rem;
+
+                .get-quote {
+
+                    a {
+                    }
+                }
+
+                .link {
+
+                    span {
+                    }
+
+                    svg-icon {
+                    }
+                }
+
+                .contact-us {
+                }
+
+                .slide-in-panel {
+
+                    .slide-in-header {
+                    }
+
+                    .option-list {
+                        .option {
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 
 
@@ -174,7 +217,7 @@
                 flex-direction: column;
                 gap: 0rem;
                 background-color: white;
-                padding-top: 7.25rem;
+                padding-top: 4rem;
 
                 .get-quote {
                     display: flex;
@@ -195,7 +238,7 @@
                         cursor: pointer;
                         font-size: clamp(15px, 4vw, 1.5rem);
                         width: 40%; 
-                        padding: 2.25rem 0;
+                        padding: 1.25rem 0;
                         flex-shrink: 1;
                         transition: background .25s linear, border-color .25s linear;
 
@@ -284,12 +327,12 @@
                 color: var(--secondary-color);
         
                 .line {
-                    transition: y 150ms ease-in 150ms, rotate 150ms ease-in, opacity 0ms 150ms;
+                    transition: y 150ms ease-in 150ms, transform 150ms ease-in, opacity 0ms 150ms;
                     transform-origin: center;
                 }
 
                 &[aria-expanded="true"] .line {
-                    transition: y 150ms ease-in, rotate 150ms ease-in 150ms, opacity 0ms 150ms;
+                    transition: y 150ms ease-in, transform 150ms ease-in 150ms, opacity 0ms 150ms;
                 }
 
                 &[aria-expanded="true"] :is(.top, .bottom) {
@@ -301,11 +344,11 @@
                 }
 
                 &[aria-expanded="true"] .top {
-                    rotate: 45deg;
+                    transform: rotate(45deg);
                 }
 
                 &[aria-expanded="true"] .bottom {
-                    rotate: -45deg;
+                    transform: rotate(-45deg);
                 }
             }
 

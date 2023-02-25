@@ -14,6 +14,8 @@
 
         svg-icon {
             color: black;
+            cursor: pointer;
+            height: fit-content;
         }
 
         .footer-section {
@@ -42,7 +44,7 @@
         .copyright-text {
             display: flex;
             gap: 1rem;
-            font-size: 0.8rem;
+            font-size: 0.65rem;
             color: gray;
             line-height: 1rem;
         }
@@ -54,7 +56,7 @@
 
             a {
                 color: var(--primary-text-color);
-                
+
                 svg {
                     height: 1.5rem;
                 }
@@ -107,7 +109,14 @@
             gap: 4rem;
         
             .copyright-text {
-                align-items: unset;
+                flex-direction: column;
+                gap: 0;
+
+                span {
+                    &:last-child {
+                        padding-left: 0.75rem;
+                    }
+                }
             }
 
             .socials {

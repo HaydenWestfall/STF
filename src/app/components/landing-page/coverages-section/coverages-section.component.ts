@@ -52,6 +52,5 @@ export class CoveragesSectionComponent {
     const x = event.pageX - this.coverageList.nativeElement.offsetLeft;
     const walk = (x - this.startX) * 3; //scroll-fast
     this.coverageList.nativeElement.scrollLeft = this.scrollLeft - walk;
-    console.log(walk);
   }
 }

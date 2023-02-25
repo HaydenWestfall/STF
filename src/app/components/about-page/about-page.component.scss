@@ -39,6 +39,10 @@
         color: rgb(56, 56, 56);
         margin: 20rem 0 0 0;
 
+        .description {
+            font-family: Maison Neue Book, sans-serif;
+        }
+
         .statistics {
             display: flex;
             justify-content: center;
@@ -204,6 +208,10 @@
             max-width: 80vw;
             font-size: 1.6rem;
             font-weight: 500;
+
+            .description {
+                font-size: 1rem;
+            }
     
             .statistics {
                 flex-direction: column;
@@ -233,8 +241,12 @@
 
                     .align-left {
                         right: unset;
-                        left: 10rem;
+                        left: 9rem;
                         text-align: left;
+                    }
+
+                    .align-right {
+                        left: 9rem !important;
                     }
                 }
     

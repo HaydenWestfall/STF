@@ -1,23 +1,23 @@
 
-<div class="navbar-wrapper" ngxHideOnScroll (eventElementHidden)="selectedLink = null"
+<div class="navbar-wrapper" hideOnScroll (eventElementHidden)="selectedLink = null" 
     [ngClass]="navbarClass" propertyUsedToHide="transform" (eventElementShown)="stf.navIsShowing = true"
     (eventElementHidden)="stf.navIsShowing = false"
     (mouseenter)="mouseEnterNavbar()" (mouseleave)="mouseLeaveNavbar()">
     <div class="navbar">
         <div class="links" *ngIf="showNav || !mediaQuery.matches" @panelSlideIn>
             <div class="get-quote">
-                <span>Want an instant quote?</span>
-                <a class="stf-button stf-button-primary" (click)="selectedLink = null" routerLink="/quote">
-                Get Quote
+                <span>Want a quote?</span>
+                <a class="stf-button stf-button-primary" (click)="selectedLink = null" [href]="quoteLink" target="_blank">
+                    Get Quote
                 </a>
             </div>
             <div class="link" #about (click)="selectedLink = aboutLinks"
-             [ngClass]="{'selectedLink': selectedLink === aboutLinks}">
+                [ngClass]="{'selectedLink': selectedLink === aboutLinks}">
                 <span>About</span>
                 <svg-icon [name]="SvgIcon.ANGLE" [width]="1.25" [height]="1.25"></svg-icon>
             </div>
             <div class="link" #coverage (click)="selectedLink = coverageLinks"
-            [ngClass]="{'selectedLink': selectedLink === coverageLinks}">
+                [ngClass]="{'selectedLink': selectedLink === coverageLinks}">
                 <span>Coverage</span>
                 <svg-icon [name]="SvgIcon.ANGLE" [width]="1.25" [height]="1.25"></svg-icon>
             </div>
@@ -25,7 +25,7 @@
                 <span>Payments | Claims</span>
                 <svg-icon [name]="SvgIcon.ANGLE" [width]="1.25" [height]="1.25"></svg-icon>
             </div>
-            <div class="contact-us">Contact Us</div>
+            <a class="contact-us" (click)="selectLink('/contact')">Contact Us</a>
 
             <li class="slide-in-panel" *ngIf="mediaQuery.matches && selectedLink" @panelSlideIn>
                 <span class="slide-in-header">{{selectedLink.title}}</span>
@@ -38,7 +38,7 @@
         <svg-icon class="logo" [name]="SvgIcon.LOGO" [width]="4" (click)="selectLink('/home')"></svg-icon>
 
         <a id="desktop-getQuote" class="stf-button stf-button-primary" style="padding: 0.5rem 1rem; font-size: 0.75rem;"
-            (click)="selectedLink = null" routerLink="/quote">
+            (click)="selectedLink = null" [href]="quoteLink" target="_blank">
             Get Quote
         </a>
 
@@ -50,7 +50,7 @@
               <rect class="line bottom" width="80" height="10" x="10" y="65" rx="5" fill="currentColor"></rect>
             </svg>
           </button>
-        <svg-icon id="left-icon" *ngIf="selectedLink && mediaQuery.matches" [name]="SvgIcon.ANGLE" [height]="1.5"
+        <svg-icon id="left-icon" *ngIf="selectedLink && mediaQuery.matches" [name]="SvgIcon.ANGLE" [height]="1.5" [width]="0.75"
             (click)="selectedLink = null" [@fade]="{value: selectedLink ? ':leave' : ':enter',
             params: {fadeTime: '275'}}"></svg-icon>
     </div>

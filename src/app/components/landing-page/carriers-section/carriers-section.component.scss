@@ -14,9 +14,10 @@
         gap: 2rem;
 
         .description {
+            font-family: Maison Neue Book, sans-serif;
             width: 25rem;
             text-align: center;
-            color: #dbe3ffb8;
+            color: #e5eafeb8;
         }
     }
 
@@ -35,7 +36,7 @@
             padding: 2rem;
             flex-shrink: 0;
             height: 10rem;
-            background-color: rgb(255, 255, 255, .03);
+            background-color: rgb(169 169 169 / 3%);
             color: white;
 
             img {
@@ -44,11 +45,11 @@
         }
 
         .animate-left {
-            animation: move-marquee-left 50000ms linear infinite;
+            animation: move-marquee-left 60000ms linear infinite;
         }
 
         .animate-right {
-            animation: move-marquee-right 50000ms linear infinite;
+            animation: move-marquee-right 60000ms linear infinite;
         }
     }
 
@@ -75,9 +76,11 @@
     .carriers {
         .carrier-header {
             gap: 3rem;
+            padding: 15rem 0 8rem 0;
 
             .description {
-                font-size: 5vw;
+                font-size: clamp(1rem, 4vw, 20rem);
+                max-width: 75vw;
             }
 
             .button-wrapper {

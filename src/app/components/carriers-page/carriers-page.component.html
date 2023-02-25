@@ -17,12 +17,12 @@
     <div class="carriers-list">
         <div class="input-wrapper" [ngStyle]="{'top': stf.navIsShowing ? '4.25rem' : '0rem'}">
             <div class="search-wrapper">
-                <svg-icon class="search-icon" [name]="SvgIcon.SEARCH" [height]="1"></svg-icon>
+                <svg-icon class="search-icon" [name]="SvgIcon.SEARCH" [height]="1" [width]="1"></svg-icon>
                 <input placeholder="Search for your carrier..." (keyup.enter)="searchCarriers()" [(ngModel)]="searchText">
-                <svg-icon class="clear-icon" [name]="SvgIcon.TIMES" [width]="0.6" (click)="clearSearch()"></svg-icon>
+                <svg-icon class="clear-icon" [name]="SvgIcon.TIMES" [width]="0.6" (click)="clearSearch()" *ngIf="searchText"></svg-icon>
             </div>
         </div>
-        <div class="carriers-wrapper">
+        <div class="carriers-wrapper" *ngIf="foundCarriers.length">
             <div class="carrier" *ngFor="let carrier of foundCarriers" [@itemAnim]>
                 <div class="image-wrapper">
                     <img [src]="carrier.logo" />
@@ -40,6 +40,10 @@
                     <a class="stf-button stf-button-primary card-button" [href]="carrier.claimsLink" target="_blank">Claims</a>
                 </div>
             </div>
+        </div>
+        <div class="no-results-wrapper" *ngIf="!foundCarriers.length">
+            <h1>No Results Found</h1>
+            <span>Sorry we do not have any carriers that match your search criteria</span>
         </div>
     </div>
 </div>

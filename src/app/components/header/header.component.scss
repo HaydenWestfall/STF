@@ -26,5 +26,14 @@
     justify-content: center;
     white-space: pre-wrap;
     color: var(--primary-text-color);
-    max-width: 75vw;
+    max-width: 85vw;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    ::ng-deep .header {
+        font-size: clamp(2rem, 9vw, 20rem);
+        line-height: clamp(2.5rem, 12vw, 20rem)
+    }
 }

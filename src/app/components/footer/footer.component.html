@@ -1,7 +1,7 @@
 
 <div class="section footer-wrapper">
     <div class="footer">
-        <svg-icon [name]="SvgIcon.LOGO_WATERMARK" [height]="2"></svg-icon>
+        <svg-icon [name]="SvgIcon.LOGO_WATERMARK" [height]="2" [width]="5.2" (click)="handleLinkClick('/home')"></svg-icon>
         <div *ngFor="let footerSection of footerSections" class="footer-section">
             {{footerSection.header}}
             <a *ngFor="let sectionLink of footerSection.subHeaders" (click)="handleLinkClick(sectionLink)">
@@ -12,8 +12,8 @@
 
     <div class="copyright">
         <div class="copyright-text">
-            <svg-icon [name]="SvgIcon.COPYRIGHT" [height]="1"></svg-icon>
-            <span>Spieles Troutwine Fount Insurance Group, 2023<br/>Site Designed by Hayden Westfall</span>
+            <span>© Spieles Troutwine Fount Insurance Group, 2023</span>
+            <span>Site Designed by Hayden Westfall</span>
         </div>
         <div class="socials">
             <a href="https://twitter.com/SrlAgency" target="_blank" style="color: var(--secondary-color)">

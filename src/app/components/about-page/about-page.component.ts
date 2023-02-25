@@ -27,9 +27,6 @@ export class AboutPageComponent implements AfterViewInit {
 
   observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.target.id === 'statistic1') {
-        console.log(entry.intersectionRatio);
-      }
       if (entry.isIntersecting && entry.target.id === 'statistic1') {
         this.runYearsOfServiceCounter();
       } else if (entry.isIntersecting && entry.target.id === 'statistic2') {
@@ -70,8 +67,6 @@ export class AboutPageComponent implements AfterViewInit {
       this.familiesProtected = this.familiesProtected + 50;
       if(this.familiesProtected == 5000) {
         clearInterval(familiesProtectedInterval);
-        console.log('done');
-        
       }
       this.cd.detectChanges();
     }, 750 / 100);
