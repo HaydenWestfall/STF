@@ -17,13 +17,13 @@
 
     <div class="marquee">
         <div class="carrier animate-left" *ngFor="let carrier of carriers1">
-            <img [src]="carrier.image" [alt]="carrier.image" />
+            <img [src]="carrier" [alt]="carrier" />
         </div>
     </div>
 
     <div class="marquee" style="justify-content: flex-end;">
         <div class="carrier animate-right" *ngFor="let carrier of carriers2">
-            <img [src]="carrier.image" [alt]="carrier.image" />
+            <img [src]="carrier" [alt]="carrier" />
         </div>
     </div>
 </div>

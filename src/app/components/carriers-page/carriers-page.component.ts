@@ -176,10 +176,11 @@ export class CarriersPageComponent {
 
   clearSearch(): void {
     this.searchText = '';
-    this.searchCarriers();
+    this.foundCarriers = structuredClone(this.carriers);
   }
 
-  searchCarriers(): void {
-    this.foundCarriers = this.carriers.filter(x => x.name.includes(this.searchText))
+  searchCarriers(key: KeyboardEvent): void {
+    if (key.key === 'Enter')
+      this.foundCarriers = this.carriers.filter(x => x.name.includes(this.searchText.toLowerCase()))
   }
 }

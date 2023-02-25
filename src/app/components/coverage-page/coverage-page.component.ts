@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { fade } from 'src/animations';
+import { Coverage } from 'src/app/models/Coverage';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 
 @Component({
@@ -10,13 +11,11 @@ import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
   animations: [fade]
 })
 export class CoveragePageComponent {
-
   SvgIcon = SvgIcon;
   refreshing = false;
   coveragesPath = '../../../assets/img/coverages/';
-
-  coverageType: any;
-  coverageTypes: any[] = [
+  coverageType: Coverage;
+  coverageTypes: Coverage[] = [
     {
       id: 'auto',
       coverageTitle: 'Auto Insurance',

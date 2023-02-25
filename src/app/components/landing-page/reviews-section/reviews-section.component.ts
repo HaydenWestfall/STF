@@ -1,5 +1,7 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Review } from 'src/app/models/Review';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-reviews-section',
@@ -11,8 +13,9 @@ export class ReviewsSectionComponent implements AfterViewInit {
   isDown = false;
   startX: number;
   scrollLeft: number;
+  reviewLink = environment.reviewLink;
 
-  reviews: any[] = [
+  reviews: Review[] = [
     { reviewer: 'Curt Garrison', review: 'Excellent customer service. Jamie is always on it. Prompt responses. Always looking to find the most cost effective solutions for their customers.' },
     { reviewer: 'Ty Figel', review: 'Great local business. Tracy is great to work with and always prompt.' },
     { reviewer: 'Ryan Clark', review: 'Great customer service, and good rates.' },
@@ -25,7 +28,6 @@ export class ReviewsSectionComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.reviewList.nativeElement.scrollLeft = this.reviewList.nativeElement.offsetWidth / 2;
-    
   }
 
   @HostListener('mousedown', ['$event'])

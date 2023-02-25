@@ -18,7 +18,7 @@
         <div class="input-wrapper" [ngStyle]="{'top': stf.navIsShowing ? '4.25rem' : '0rem'}">
             <div class="search-wrapper">
                 <svg-icon class="search-icon" [name]="SvgIcon.SEARCH" [height]="1" [width]="1"></svg-icon>
-                <input placeholder="Search for your carrier..." (keyup.enter)="searchCarriers()" [(ngModel)]="searchText">
+                <input placeholder="Search for your carrier..." (keyup)="searchCarriers($event)" [(ngModel)]="searchText">
                 <svg-icon class="clear-icon" [name]="SvgIcon.TIMES" [width]="0.6" (click)="clearSearch()" *ngIf="searchText"></svg-icon>
             </div>
         </div>
@@ -48,4 +48,3 @@
     </div>
 </div>
 <app-banner bannerType="contactUs"></app-banner>
-<app-footer></app-footer>

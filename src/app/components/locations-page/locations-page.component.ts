@@ -10,7 +10,6 @@ import { Location } from 'src/app/models/Location';
 })
 export class LocationsPageComponent {
   basePath = '../../../assets/img/locations/';
-
   locations: Location[] = [
     {
       name: 'Arcanum',

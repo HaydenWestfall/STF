@@ -193,41 +193,14 @@
 @media only screen and (max-width: 768px) {
     .carriers-wrapper {
         .carrier-header {
-    
-            img {
-            }
-    
             .overlay-header {
-    
                 .description {
                     max-width: 60vw;
                 }
             }
-    
-            .scroll-indicator {
-            }
         }
     
         .carriers-list {
-    
-            .input-wrapper {
-
-                .search-wrapper {
-    
-                    .search-icon {
-                    }
-        
-                    .clear-icon {
-        
-                        &:hover {
-                        }
-                    }
-        
-                    input {
-                    }
-                }
-            }
-    
             .carriers-wrapper {
                 gap: 1.5rem;
                 justify-content: center;
@@ -253,13 +226,6 @@
         
                     .carrier-info {
                         margin: 3rem 0;
-        
-                        span {
-
-                        }
-        
-                        a {
-                        }
                     }
                     
                     .carrier-actions {

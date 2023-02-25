@@ -10,9 +10,6 @@ import { environment } from 'src/environments/environment.development';
 export class ContactPageComponent {
   SvgIcon = SvgIcon;
   contactEmail = environment.contactEmail;
-  flipArcanumCard = false;
-  flipVandaliaCard = false;
-
   branches = [
     {
       branchName: 'Arcanum',

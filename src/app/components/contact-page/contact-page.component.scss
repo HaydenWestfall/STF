@@ -139,12 +139,7 @@
 
 @media only screen and (max-width: 768px) {
     .contact-wrapper {
-    
-        .sub-text {
-        }
-    
         .contact-cards {
-    
             .contact-card {
                 flex-direction: column;
                 gap: 3rem;
@@ -163,38 +158,10 @@
     
             .contact-branch {
                 flex-direction: column;
-    
-                .branch-card {
-    
-                    .branch-card-inner {
-                    }
-                }
-    
-                .branch-card:hover .branch-card-inner {
-                }
-                
-                .branch-card-front, .branch-card-back {
-                }
                 
                 .branch-card-front {
-    
-                    .info-wrapper {
-                    }
-
                     button {
                         padding: 1.2rem 0;
-                    }
-                }
-                
-                .branch-card-back {
-                }
-    
-                tr {
-                    th {
-                        &:first-child {
-                        }
-                        &:last-child {
-                        }
                     }
                 }
             }

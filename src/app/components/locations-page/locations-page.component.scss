@@ -110,13 +110,6 @@ $bg-height: 70vh;
 
 @media only screen and (max-width: 768px) {
     .locations-section {
-
-        .section-header {
-        }
-
-        .gradient-overlay {
-        }
-
         .overlay-header {
             max-width: 75vw;
 
@@ -140,18 +133,6 @@ $bg-height: 70vh;
                 .information {
                     width: unset;
                     height: 23rem;
-
-                    .address {
-                    }
-        
-                    .number-label {
-                    }
-        
-                    .number {
-                    }
-        
-                    .hours {
-                    }
                 }
 
                 .location-img {

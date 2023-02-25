@@ -175,16 +175,6 @@
 
 @media only screen and (max-width: 920px) {
     .coverage-wrapper {
-    
-        .coverage-header {
-    
-            .overlay-header {
-            }
-    
-            img {
-            }
-        }
-    
         .team-wrapper {
             grid-auto-columns: 80vw;
             grid-column-gap: 5vw;
@@ -201,12 +191,6 @@
                 .employee-photo {
                     width: 22rem;
                     height: 12rem;
-    
-                    .photo-wrapper {
-    
-                        .person-fg {
-                        }
-                    }
                 }
     
                 .employee-description {
@@ -220,13 +204,7 @@
                             font-size: clamp(0.5rem, 2vw, 0.7rem);
                         }
                     }
-    
-                    .employee-description {
-                    }
                 }
-            }
-    
-            .next-prev-icon {
             }
         }
     
@@ -242,15 +220,6 @@
             .thumbnail-image {
                 min-height: 6rem;
                 min-width: 6rem;
-    
-                &:hover {
-                }
-    
-                .person-fg {
-                }
-            }
-    
-            span {
             }
         }
     }

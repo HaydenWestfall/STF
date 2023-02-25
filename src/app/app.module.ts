@@ -9,10 +9,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SvgIconsComponent } from './utility/svg-icons/svg-icons.component';
 import { HeroSectionComponent } from './components/landing-page/hero-section/hero-section.component';
 import { AboutSectionComponent } from './components/landing-page/about-section/about-section.component';
-import { NetworkSectionComponent } from './components/landing-page/network-section/network-section.component';
 import { CarriersSectionComponent } from './components/landing-page/carriers-section/carriers-section.component';
 import { ReviewsSectionComponent } from './components/landing-page/reviews-section/reviews-section.component';
-import { ContactSectionComponent } from './components/landing-page/contact-section/contact-section.component';
 import { SplitPipe } from './pipes/split.pipe';
 import { HeaderComponent } from './components/header/header.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
@@ -26,7 +24,6 @@ import { FormsModule } from '@angular/forms';
 import { LocationsPageComponent } from './components/locations-page/locations-page.component';
 import { AboutPageComponent } from './components/about-page/about-page.component';
 import { TeamPageComponent } from './components/team-page/team-page.component';
-import { GetQuoteComponent } from './components/get-quote/get-quote.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { HideOnScrollDirective } from './directives/hide-on-scroll.directive';
 
@@ -38,10 +35,8 @@ import { HideOnScrollDirective } from './directives/hide-on-scroll.directive';
     SvgIconsComponent,
     HeroSectionComponent,
     AboutSectionComponent,
-    NetworkSectionComponent,
     CarriersSectionComponent,
     ReviewsSectionComponent,
-    ContactSectionComponent,
     CoveragesSectionComponent,
     SplitPipe,
     HeaderComponent,
@@ -53,7 +48,6 @@ import { HideOnScrollDirective } from './directives/hide-on-scroll.directive';
     LocationsPageComponent,
     AboutPageComponent,
     TeamPageComponent,
-    GetQuoteComponent,
     BannerComponent,
     HideOnScrollDirective
   ],

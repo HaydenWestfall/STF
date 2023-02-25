@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     AOS.init({
-      // once: true
+      once: true
     });
   
     this.router.events.subscribe((event) => {
@@ -25,7 +25,11 @@ export class AppComponent implements OnInit {
         this.navigationType = event.navigationTrigger;
       }
       if (event instanceof NavigationEnd && this.navigationType !== 'popstate') {
-        window.scrollTo(0, 0);
+        window.scroll({
+          top: 0,
+          left: 0,
+          behavior: 'auto'
+        })
       }
     });
   }

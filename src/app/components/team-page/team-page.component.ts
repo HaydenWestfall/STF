@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { fade } from 'src/animations';
+import { Employee } from 'src/app/models/Employee';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 
 @Component({
@@ -11,11 +12,11 @@ import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 export class TeamPageComponent {
   SvgIcon = SvgIcon
   basePath = '../../../assets/img/meetTheTeam';
-  team: any[] = [
+  team: Employee[] = [
     {
       id: 'tracy',
       name: 'Tracy Fout',
-      postiion: 'OWNER',
+      position: 'OWNER',
       img: '/tracyFout.png',
       description: `Tracy is the other half of the co-owning duo here at SRL. Tracy’s outgoing
       and ambitious personality has been his motivation to pursue sales and marketing for the
@@ -25,7 +26,7 @@ export class TeamPageComponent {
     {
       id: 'victoria',
       name: 'Victoria Bowman',
-      postiion: 'AGENT',
+      position: 'AGENT',
       img: '/victoriaBowman.png',
       description: `Tracy is the other half of the co-owning duo here at SRL. Tracy’s outgoing
       and ambitious personality has been his motivation to pursue sales and marketing for the
@@ -35,7 +36,7 @@ export class TeamPageComponent {
     {
       id: 'lane',
       name: 'Lane Byrne',
-      postiion: 'AGENT',
+      position: 'AGENT',
       img: '/laneByrne.png',
       description: `Tracy is the other half of the co-owning duo here at SRL. Tracy’s outgoing
       and ambitious personality has been his motivation to pursue sales and marketing for the
@@ -45,7 +46,7 @@ export class TeamPageComponent {
     {
       id: 'emily',
       name: 'Emily Wagner',
-      postiion: 'AGENT',
+      position: 'AGENT',
       img: '/emilyWagner.png',
       description: `Tracy is the other half of the co-owning duo here at SRL. Tracy’s outgoing
       and ambitious personality has been his motivation to pursue sales and marketing for the
@@ -55,7 +56,7 @@ export class TeamPageComponent {
     {
       id: 'cole',
       name: 'Cole Burrell',
-      postiion: 'AGENT',
+      position: 'AGENT',
       img: '/coleBurrell.png',
       description: `Tracy is the other half of the co-owning duo here at SRL. Tracy’s outgoing
       and ambitious personality has been his motivation to pursue sales and marketing for the
@@ -65,7 +66,7 @@ export class TeamPageComponent {
     {
       id: 'trevor',
       name: 'Trevor Fry',
-      postiion: 'AGENT',
+      position: 'AGENT',
       img: '/trevorFry.png',
       description: `Tracy is the other half of the co-owning duo here at SRL. Tracy’s outgoing
       and ambitious personality has been his motivation to pursue sales and marketing for the
@@ -75,7 +76,7 @@ export class TeamPageComponent {
     {
       id: 'karen',
       name: 'Karen Bratton',
-      postiion: 'AGENT',
+      position: 'AGENT',
       img: '/karenBratton.png',
       description: `Tracy is the other half of the co-owning duo here at SRL. Tracy’s outgoing
       and ambitious personality has been his motivation to pursue sales and marketing for the

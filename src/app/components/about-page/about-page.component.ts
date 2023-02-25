@@ -1,5 +1,4 @@
-import { ViewportScroller } from '@angular/common';
-import { AfterViewInit, ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
 import { fade } from 'src/animations';
 
 @Component({
@@ -10,11 +9,14 @@ import { fade } from 'src/animations';
 })
 export class AboutPageComponent implements AfterViewInit {
   basePath = '../../../assets/img/about/';
-  yearsOfService = 0;
-  familiesProtected = 0;
-  customerRatings = 0;
-
   basePathCarriers = '../../../assets/img/carrier-about/';
+  strengths: any = [
+    'We do not work for any single insurance company - we work for YOU. We analyze your special needs and circumstance and find the very best coverage for your situation.',
+    'We keep ourselves abreast of what\'s new in the industry because we work with so many different companies. We keep on top of things for you and make sure your coverages are up-to-date, providing you with the best your money can buy.',
+    'We can provide you with prompt and fair claims assistance because of our special relationships with the array of companies we represent. We make sure they give you the most responsive and fast service available.',
+    'We continually educate ourselves to remain competitive in the industry. This way, you can count on us for well-informed insurance advice and counsel.',
+    'The company believes that buying or selling insurance policies is more than just about price, they look for value in serving clients\' needs and aim to find the most suitable product instead of fulfilling a company quota.'
+  ]
   carriers = [
     this.basePathCarriers + 'commonwealth.png',
     this.basePathCarriers + 'encova.png',
@@ -23,7 +25,11 @@ export class AboutPageComponent implements AfterViewInit {
     this.basePathCarriers + 'progressive.png',
     this.basePathCarriers + 'safeco.png',
     this.basePathCarriers + 'auto-owners.png',
-  ]
+  ];
+
+  yearsOfService = 0;
+  familiesProtected = 0;
+  customerRatings = 0;
 
   observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -37,9 +43,7 @@ export class AboutPageComponent implements AfterViewInit {
     });
   });
 
-  @ViewChild('statistic') statistic: HTMLElement;
-
-  constructor(public cd: ChangeDetectorRef, public scrollToView: ViewportScroller) { }
+  constructor(public cd: ChangeDetectorRef) { }
 
   ngAfterViewInit() {
     this.observer.observe(document.getElementById('statistic1'));
