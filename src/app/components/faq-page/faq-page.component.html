@@ -1,16 +1,16 @@
 
 <div class="faq-wrapper">
 
-    <div class="faq-title">
+    <section class="faq-title">
         <stf-header>
-            <span class="sub-header" style="color: #deeaff80">FAQ</span>
-            <span class="header" style="color: white" data-aos="fade-up" data-aos-duration="1000">Questions?</span>
+            <h6 class="sub-header" style="color: #deeaff80">FAQ</h6>
+            <h1 class="header" style="color: white" data-aos="fade-up" data-aos-duration="1000">Questions?</h1>
         </stf-header>
     
-        <span class="sub-text" data-aos="fade" data-aos-easing="ease-out" data-aos-duration="800" data-aos-delay="600">How can we help?</span>
-    </div>
+        <p class="sub-text" data-aos="fade" data-aos-easing="ease-out" data-aos-duration="800" data-aos-delay="600">Scroll down to see some of our most frequently asked questions.</p>
+    </section>
 
-    <div class="questions">
+    <section class="questions">
         <div class="faq" *ngFor="let question of faqs" (click)="question.expanded = !question.expanded">
             <div class="question">
                 <h3 style="height: 3rem">{{question.question}}</h3>
@@ -24,7 +24,7 @@
             </div>
         </div>
 
-    </div>
+    </section>
 </div>
 
 <app-banner bannerType="contactUs"></app-banner>

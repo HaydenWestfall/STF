@@ -1,15 +1,15 @@
 
 <div class="section coverage-wrapper">
-    <div class="coverage-header">
+    <section class="coverage-header">
         <img [@fade]="{value: ':enter', params: {fadeTime: '500ms 850'}}" [src]="basePath + '/teamPage_bg.png'" />
         <div class="gradient-overlay"></div>
         <stf-header class="overlay-header">
-            <span class="sub-header">TEAM</span>
-            <span class="header" data-aos="fade-up" data-aos-duration="1000">Meet the Team.</span>
+            <h6>TEAM</h6>
+            <h1 data-aos="fade-up" data-aos-duration="1000">Meet the Team.</h1>
         </stf-header>
-    </div>
+    </section>
 
-    <div class="team-wrapper">
+    <section class="team-wrapper">
         <div class="team-member" *ngFor="let employee of team" [attr.id]="employee.id">
             <div class="employee-photo">
                 <div class="photo-wrapper">
@@ -24,14 +24,14 @@
                 <span class="employee-description">{{employee.description}}</span>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="employee-list">
+    <section class="employee-list">
         <div class="thumbnail-wrapper" *ngFor="let employee of team">
             <div class="thumbnail-image" (click)="scrollEmployeeIntoView(employee.id)">
                 <img [src]="basePath + employee.img" class="person-fg">
             </div>
             <span>{{employee.name}}</span>
         </div>
-    </div>
+    </section>
 </div>

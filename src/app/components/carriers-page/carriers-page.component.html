@@ -1,20 +1,20 @@
 
 <div class="section carriers-wrapper">
-    <div class="carrier-header">
+    <section class="carrier-header">
         <img [@fade]="{value: ':enter', params: {fadeTime: '850'}}" [src]="basePath + 'carriers_bg.png'" />
         <div class="overlay-header">
             <stf-header>
-                <span class="sub-header" style="color: #deeaff80">CARRIERS</span>
-                <span class="header" style="color: white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">Find your carrier</span>
+                <h6 style="color: #deeaff80">CARRIERS</h6>
+                <h1 style="color: white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">Find your carrier</h1>
             </stf-header>
-            <span class="description" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1200">
+            <p class="description" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1200">
                 Below is a list of our carriers and information so that you can submit a claim, get in touch, or make a payment.
-            </span>
+            </p>
         </div>
         <svg-icon [name]="SvgIcon.ANGLE" [width]="1" class="scroll-indicator"
         data-aos="fade-down" data-aos-duration="1000" data-aos-delay="1200"></svg-icon>
-    </div>
-    <div class="carriers-list">
+    </section>
+    <section class="carriers-list">
         <div class="input-wrapper" [ngStyle]="{'top': stf.navIsShowing ? '4.25rem' : '0rem'}">
             <div class="search-wrapper">
                 <svg-icon class="search-icon" [name]="SvgIcon.SEARCH" [height]="1" [width]="1"></svg-icon>
@@ -25,7 +25,7 @@
         <div class="carriers-wrapper" *ngIf="foundCarriers.length">
             <div class="carrier" *ngFor="let carrier of foundCarriers" [@itemAnim]>
                 <div class="image-wrapper">
-                    <img [src]="carrier.logo" />
+                    <img [src]="carrier.logo" [alt]="carrier.name" />
                 </div>
                 <div class="carrier-info">
                     <div>
@@ -45,6 +45,6 @@
             <h1>No Results Found</h1>
             <span>Sorry we do not have any carriers that match your search criteria</span>
         </div>
-    </div>
+    </section>
 </div>
 <app-banner bannerType="contactUs"></app-banner>

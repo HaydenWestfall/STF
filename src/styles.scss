@@ -18,6 +18,17 @@ html body {
     --surface-4: #707070;
 }
 
+:root {
+    --step--2: clamp(0.78rem, calc(0.66rem + 0.59vw), 1.12rem);
+    --step--1: clamp(0.94rem, calc(0.78rem + 0.80vw), 1.40rem);
+    --step-0: clamp(1.13rem, calc(0.91rem + 1.09vw), 1.75rem);
+    --step-1: clamp(1.35rem, calc(1.06rem + 1.46vw), 2.19rem);
+    --step-2: clamp(1.62rem, calc(1.23rem + 1.94vw), 2.73rem);
+    --step-3: clamp(1.94rem, calc(1.43rem + 2.56vw), 3.42rem);
+    --step-4: clamp(2.33rem, calc(1.66rem + 3.37vw), 4.27rem);
+    --step-5: clamp(2.80rem, calc(1.92rem + 4.42vw), 5.34rem);
+  }
+
 /* Type Faces */
 @font-face {
     font-family: 'helios-antique';
@@ -92,6 +103,60 @@ html body {
 
 html {
     
+}
+
+h1 {
+    font-family: 'helios-antique';
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: clamp(2.9rem, 5.6vw, 4.7rem);
+    display: flex;
+    font-weight: 800;
+    line-height: 4.7rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    white-space: pre-wrap;
+    color: var(--primary-text-color);
+    max-width: 85vw;
+}
+
+h2 {
+    font-family: 'helios-antique';
+    font-size: 1.5em;
+    margin-block-start: 0.83rem;
+    margin-block-end: 0.83rem;
+}
+
+h6 {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    font-family: 'helios-antique';
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 2.6px;
+    color: var(--secondary-text-color);
+    text-transform: uppercase;
+}
+
+p {
+    font-family: Maison Neue Book, sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    line-height: 1.875rem;
+    text-align: center;
+    max-width: 50vw;
+    font-weight: 500;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: clamp(2rem, 9vw, 20rem);
+        line-height: clamp(2.5rem, 12vw, 20rem);
+    }
+
+    p {
+        max-width: 85vw;
+    }
 }
 
 .section {

@@ -1,21 +1,21 @@
 
 <div class="section about-wrapper">
-    <div class="about-header">
+    <section class="about-header">
         <img class="section-header" [src]="basePath + 'about.png'"[@fade]="{value: ':enter', params: {fadeTime: '500ms 850'}}" />
         <stf-header>
-            <span class="sub-header">ABOUT</span>
-            <span class="header" data-aos="fade-up" data-aos-easing="ease-out" data-aos-duration="800">Get to know us.</span>
+            <h6>ABOUT</h6>
+            <h1 data-aos="fade-up" data-aos-easing="ease-out" data-aos-duration="800">Get to know us.</h1>
         </stf-header>
-    </div>
+    </section>
 
-    <div class="about-description">
+    <section class="about-description">
         <stf-header>
-            <span class="sub-header">ABOUT</span>
-            <span class="header" data-aos="fade-up" data-aos-duration="1000">Who is STF?</span>
+            <h6>ABOUT</h6>
+            <h1 data-aos="fade-up" data-aos-duration="1000">Who is STF?</h1>
         </stf-header>
-        <div class="description" data-aos="fade-up" data-aos-duration="1000" data-aos-ease="ease-in-out" data-aos-delay="250">
+        <p data-aos="fade-up" data-aos-duration="1000" data-aos-ease="ease-in-out" data-aos-delay="250">
             We are an independent insurance agency in Arcanum, Ohio. As an independent agency, we work for our clients to find the right coverage at competitive prices by leveraging their strong relationships with multiple markets and providers. We prioritize personal service and take the time to understand the needs of you.
-        </div>
+        </p>
         <div class="statistics">
             <div class="statistic" id="statistic1">
                 <span>{{yearsOfService}}+</span>
@@ -30,12 +30,12 @@
                 <span>Customer Ratings</span>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="strengths-section">
+    <section class="strengths-section">
         <stf-header>
-            <span class="sub-header" style="color: #5F718D">STRENGTHS</span>
-            <span class="header" style="color: white" data-aos="fade-up" data-aos-duration="1000">Why STF is right for you.</span>
+            <h6 class="sub-header" style="color: #5F718D">STRENGTHS</h6>
+            <h1 class="header" style="color: white" data-aos="fade-up" data-aos-duration="1000">Why STF is right for you.</h1>
         </stf-header>
         <span class="description" data-aos="fade-up" data-aos-duration="1000" data-aos-ease="ease-in-out" data-aos-delay="250">
             Here are some of the reasons that we beleive STF is the right choice for you
@@ -50,12 +50,12 @@
                 </div>
                 <div class="line"></div>
             </div>
-    </div>
+    </section>
 
-    <div class="carriers-section">
+    <section class="carriers-section">
         <stf-header>
-            <span class="sub-header">OUR CARRIERS</span>
-            <span class="header" data-aos="fade-up" data-aos-duration="1000">What we carry.</span>
+            <h6 class="sub-header">OUR CARRIERS</h6>
+            <h1 class="header" data-aos="fade-up" data-aos-duration="1000">What we carry.</h1>
         </stf-header>
 
         <div class="carriers-wrapper">
@@ -66,7 +66,7 @@
                 <span class="more-text">and many more</span>
             </div>
         </div>
-    </div>
+    </section>
 </div>
 
 <app-banner bannerType="getQuote"></app-banner>

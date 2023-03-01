@@ -14,11 +14,9 @@
         background-color: var(--secondary-color);
 
         .sub-text { 
-            display: inline-block;
             margin: 2rem;
-            font-size: 0.9rem;
-            font-weight: 500;
             color: #dbe3ffb8;
+            max-width: 25vw;
         }
     }
 

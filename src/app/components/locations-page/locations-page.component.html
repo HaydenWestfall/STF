@@ -2,17 +2,17 @@
 <div class="section locations-section">
     <img class="section-header" [src]="basePath + 'map_bg.png'" [@fade]="{value: ':enter', params: {fadeTime: '500ms 1200', opacityVal: 0.375}}" />
     <div class="gradient-overlay"></div>
-    <div class="overlay-header">
+    <section class="overlay-header">
         <stf-header>
-            <span class="sub-header">LOCATIONS</span>
-            <span class="header" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="800">Where you can find us</span>
+            <h6>LOCATIONS</h6>
+            <h1 data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="800">Where you can find us</h1>
         </stf-header>
-    </div>
-    <div class="locations-wrapper" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="800" data-aos-delay="600" data-aos-anchor=".header">
+    </section>
+    <section class="locations-wrapper" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="800" data-aos-delay="600" data-aos-anchor=".header">
         <div class="location" *ngFor="let location of locations">
             <div class="information">
                 <div>
-                    <h1>{{location.name}}</h1>
+                    <h2>{{location.name}}</h2>
                     <span class="address">{{location.address}}</span><br/>
                 </div>
                 <div>
@@ -27,8 +27,8 @@
                     </div>
                 </div>
             </div>
-            <img class="location-img" [src]="location.image">
+            <img class="location-img" [src]="location.image" [alt]="location.name">
         </div>
-    </div>
+    </section>
 </div>
 <app-banner bannerType="contactUs"></app-banner>

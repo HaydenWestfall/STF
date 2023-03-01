@@ -18,7 +18,7 @@ export class CarriersPageComponent {
 
   carriers: Carrier[] = [
     {
-      name: 'auto owners',
+      name: 'Auto Owners Insurance',
       logo: this.carriersPath + 'auto-owners.png',
       phone: '800-346-0346',
       claims: '1-888-252-4626',
@@ -26,7 +26,7 @@ export class CarriersPageComponent {
       claimsLink: 'https://www.auto-owners.com/claims/report-a-claim'
     },
     {
-      name: 'buckeye',
+      name: 'Buckeye Insurance Group',
       logo: this.carriersPath + 'buckeye.png',
       phone: '937-778-5000',
       claims: '1-937-778-5022',
@@ -34,7 +34,7 @@ export class CarriersPageComponent {
       claimsLink: 'https://www.buckeye-ins.com/claims'
     },
     {
-      name: 'celina',
+      name: 'Celina Insurance Group',
       logo: this.carriersPath + 'celina.png',
       phone: '800-552-5181',
       claims: '800-231-2318',
@@ -42,7 +42,7 @@ export class CarriersPageComponent {
       claimsLink: 'https://www2.celinainsurance.com/claims/'
     },
     {
-      name: 'cna',
+      name: 'CNA Insurance',
       logo: this.carriersPath + 'cna.png',
       phone: '1-800-262-2000',
       claims: '877-262-2727',
@@ -50,7 +50,7 @@ export class CarriersPageComponent {
       claimsLink: 'https://www.cna.com/web/guest/cna/claims-center'
     },
     {
-      name: 'commonwealth',
+      name: 'Commonwealth Insurance',
       logo: this.carriersPath + 'commonwealth.png',
       phone: '(877) 603 1310',
       claims: '877-603-1310',
@@ -58,7 +58,7 @@ export class CarriersPageComponent {
       claimsLink: 'https://www.commonwealthcasualty.com/file-a-claim'
     },
     {
-      name: 'dairyland',
+      name: 'Dairyland Insurance',
       logo: this.carriersPath + 'dairyland.png',
       phone: '800-334-0090',
       claims: '800-334-0090',
@@ -66,7 +66,7 @@ export class CarriersPageComponent {
       claimsLink: 'https://www.dairylandinsurance.com/auto/claims'
     },
     {
-      name: 'donegal',
+      name: 'Donegal Insurance Group',
       logo: this.carriersPath + 'donegal.png',
       phone: '(800) 877-0600',
       claims: '(800) 877-9006',
@@ -74,7 +74,7 @@ export class CarriersPageComponent {
       claimsLink: 'https://www.donegalgroup.com/customer-services/claim-services'
     },
     {
-      name: 'encova',
+      name: 'Encova Insurance',
       logo: this.carriersPath + 'encova.png',
       phone: '800-876-6642',
       claims: '800-876-8766',
@@ -82,7 +82,7 @@ export class CarriersPageComponent {
       claimsLink: 'https://www.encova.com/pay-bill/'
     },
     {
-      name: 'foremost',
+      name: 'Foremost Insurance Group',
       logo: this.carriersPath + 'foremost.png',
       phone: '800-527-3907',
       claims: '800-274-7865',
@@ -90,7 +90,7 @@ export class CarriersPageComponent {
       claimsLink: 'https://claims.foremost.com/cmp/s/filealoss?SO=03'
     },
     {
-      name: 'german farmers',
+      name: 'German Farmers Insurance',
       logo: this.carriersPath + 'german-farmers.png',
       phone: '(419) 753-2575',
       claims: '',
@@ -98,7 +98,7 @@ export class CarriersPageComponent {
       claimsLink: 'https://gfmic.com/file-a-claim/'
     },
     {
-      name: 'grinnell',
+      name: 'Grinnell Mutual Insurance Group',
       logo: this.carriersPath + 'grinnell.png',
       phone: '800-362-2041',
       claims: '877-467-2252',
@@ -106,7 +106,7 @@ export class CarriersPageComponent {
       claimsLink: 'https://www.grinnellmutual.com/claims/report-a-claim'
     },
     {
-      name: 'hagerty',
+      name: 'Hagerty Insurance',
       logo: this.carriersPath + 'hagerty.png',
       phone: '877-922-9701',
       claims: '800-385-0274',
@@ -114,7 +114,7 @@ export class CarriersPageComponent {
       claimsLink: 'https://login.hagerty.com/identity/Login?ReturnUrl=%2Fidentity%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3DProd%2520Usa%2520Direct%257CTransactional%26redirect_uri%3Dhttps%253A%252F%252Fwww.hagerty.com%252Foidc%252Fcallback%26response_type%3Dcode%2520id_token%26scope%3Dopenid%2520profile%2520email%2520offline_access%2520ProcessApi%2520PartialTrust%2520Customer%2520FullTrust%26state%3DOpenIdConnect.AuthenticationProperties%253DcCNMDa0BJ_2VlX_0LEp4Tlp5LFuq1NAw3FrkrDpVRlmzlfQKiBTaTxTmDn6PT7eI32VJJoFr0K_XD6JE8kHrbG_mbHOXksHGphzl6lq7P6XBrc3KCe3usWWbFjlO3vUw4e1Pp5XybbF6-yK5MPfXhfi8vHhdeqzkqdbmkz8kkqik3ucu39Un7zmMptnbSj88nL4zq58YWnCWJWF1t1xsLTIk5IpRa8pE1_hsqYqjTkfMQBIXyDUc9O3eZYfUjTN6IQ-hAAorG6_QWosc7qFARDY9h_iSmVBQKMmaZQHOKF39QPwi%26response_mode%3Dform_post%26nonce%3D638127173158879980.YzVlN2E2Y2ItNWNiOS00YTQ4LWI0OTItNWE0ZDg5Yzg0OTVkNmE4Njc5MDEtMDdjYS00MzQ0LTk0ZmQtYjY5YTIxZGU3YTE3%26acr_values%3DFullTrust%2520Customer%26prompt%3Dlogin%26Hagerty.ct%3D9IY5Oe6u0kyy9B0LWEz5wA%26x-client-SKU%3DID_NET45%26x-client-ver%3D5.3.0.0%26suppressed_prompt%3Dlogin'
     },
     {
-      name: 'hastings mutual',
+      name: 'Hastings Mutual Insurance Company',
       logo: this.carriersPath + 'hastings-mutual.png',
       phone: '(800) 442-8277',
       claims: '(800) 442-8277',
@@ -122,7 +122,7 @@ export class CarriersPageComponent {
       claimsLink: 'https://www.hastingsmutual.com/report-a-claim'
     },
     {
-      name: 'pekin',
+      name: 'Pekin Insurance',
       logo: this.carriersPath + 'pekin.png',
       phone: '800-322-0160',
       claims: '888-735-4611',
@@ -130,7 +130,7 @@ export class CarriersPageComponent {
       claimsLink: 'https://www.pekininsurance.com/client-service/customer-center/file-a-claim'
     },
     {
-      name: 'progressive',
+      name: 'Progressive Insurance',
       logo: this.carriersPath + 'progressive.png',
       phone: '1-855-347-3939',
       claims: '1-888-671-4405',
@@ -138,7 +138,7 @@ export class CarriersPageComponent {
       claimsLink: 'https://www.progressive.com/'
     },
     {
-      name: 'safeco',
+      name: 'Safeco Insurance',
       logo: this.carriersPath + 'safeco.png',
       phone: '1-800-332-3226',
       claims: '1-800-332-3226',
@@ -146,7 +146,7 @@ export class CarriersPageComponent {
       claimsLink: 'https://customer.safeco.com/accountmanager/account/login'
     },
     {
-      name: 'trexis',
+      name: 'Trexis Insurance',
       logo: this.carriersPath + 'trexis.png',
       phone: '1-877-384-7466',
       claims: '',
@@ -154,7 +154,7 @@ export class CarriersPageComponent {
       claimsLink: 'https://www.trexis.com/#LoginReportClaim'
     },
     {
-      name: 'utica',
+      name: 'Utica National Insurance Group',
       logo: this.carriersPath + 'utica.png',
       phone: '800-598-8422',
       claims: '800-216-1420',
@@ -162,7 +162,7 @@ export class CarriersPageComponent {
       claimsLink: 'https://www.uticanational.com/claimsresourcecenter/'
     },
     {
-      name: 'wayne',
+      name: 'Wayne Insurance Group',
       logo: this.carriersPath + 'wayne.png',
       phone: '330-345-8100',
       claims: '800-680-9111',

@@ -7,22 +7,4 @@
     flex-direction: column;
     gap: 5rem;
     margin: 20vh 0 40vh;
-
-    .about-description {
-        font-family: Maison Neue Book, sans-serif;
-        text-align: center;
-        max-width: 50vw;
-        font-size: 1.25rem;
-        line-height: 1.875rem;
-        font-weight: 500;
-    }
-}
-
-
-@media only screen and (max-width: 768px) {
-    .about {
-        .about-description {
-            max-width: 85vw;
-        }
-    }
 }

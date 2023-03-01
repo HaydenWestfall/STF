@@ -1,9 +1,9 @@
 
-<div class="section contact">
+<section class="section contact">
     <stf-header>
-        <span class="header" data-aos="fade-up"data-aos-easing="ease-out" data-aos-duration="800">{{selectedBanner.message}}</span>
+        <h1 data-aos="fade-up"data-aos-easing="ease-out" data-aos-duration="800">{{selectedBanner.message}}</h1>
     </stf-header>
 
     <a *ngIf="bannerType === 'getQuote'" class="stf-button stf-button-primary" [href]="selectedBanner.callback" target="_blank">{{selectedBanner.button}}</a>
     <a *ngIf="bannerType === 'contactUs'" class="stf-button stf-button-primary" [routerLink]="selectedBanner.callback">{{selectedBanner.button}}</a>
-</div>
+</section>

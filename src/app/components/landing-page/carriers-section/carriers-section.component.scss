@@ -14,9 +14,7 @@
         gap: 2rem;
 
         .description {
-            font-family: Maison Neue Book, sans-serif;
             width: 25rem;
-            text-align: center;
             color: #e5eafeb8;
         }
     }
@@ -79,7 +77,6 @@
             padding: 15rem 0 8rem 0;
 
             .description {
-                font-size: clamp(1rem, 4vw, 20rem);
                 max-width: 75vw;
             }
 
