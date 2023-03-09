@@ -16,16 +16,18 @@ export class HeroSectionComponent implements OnInit {
   constructor(public cd: ChangeDetectorRef) {}
 
   ngOnInit() {
-    let path = document.getElementById('text-accent') as any;
-    let pathLength = path.getTotalLength();
-    path.style.strokeDasharray = pathLength;
-    path.style.strokeDashoffset = pathLength;
-
-    setTimeout(() => {
-      path.classList.add('anim');
+    if (typeof document !== 'undefined') {
+      let path = document.getElementById('text-accent') as any;
       let pathLength = path.getTotalLength();
       path.style.strokeDasharray = pathLength;
-      path.style.strokeDashoffset = 0;
-    }, 2000);
+      path.style.strokeDashoffset = pathLength;
+  
+      setTimeout(() => {
+        path.classList.add('anim');
+        let pathLength = path.getTotalLength();
+        path.style.strokeDasharray = pathLength;
+        path.style.strokeDashoffset = 0;
+      }, 2000);
+    }
   }
 }

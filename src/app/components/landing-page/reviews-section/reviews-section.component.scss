@@ -62,19 +62,23 @@
             cursor: -webkit-grabbing;
         }
         
-        svg-icon {
+        svg {
             position: absolute;
             color: var(--surface-2);
         }
 
         .top-quote {
             top: 3rem;
-            left: 5rem
+            left: 5rem;
+            height: 4rem;
+            width: 4rem;
         }
 
         .bottom-quote {
             bottom: -5rem;
-            right: 5rem
+            right: 5rem;
+            height: 4rem;
+            width: 4rem;
         }
     }
 

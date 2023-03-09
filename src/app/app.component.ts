@@ -12,38 +12,38 @@ import { routeAnimations } from 'src/animations';
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'stf';
   navigationType: string;
-
-  prefersDarkScheme: MediaQueryList = window.matchMedia("(prefers-color-scheme: dark)");
+  prefersDarkScheme: MediaQueryList;
 
   constructor(private router: Router, private contexts: ChildrenOutletContexts) {
-    this.prefersDarkScheme.addEventListener('change', this.handleFaviconTheme);
+    if (typeof window !== 'undefined') {
+      this.prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+      this.prefersDarkScheme.addEventListener('change', this.handleFaviconTheme);
+    }
   }
 
   ngOnInit() {
-    AOS.init({
-      once: true
-    });
-  
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationStart) {
-        this.navigationType = event.navigationTrigger;
-      }
-      if (event instanceof NavigationEnd && this.navigationType !== 'popstate') {
-        window.scroll({
-          top: 0,
-          left: 0,
-          behavior: 'auto'
-        })
-      }
-    });
+    if (typeof document !== 'undefined') {
+      AOS.init({ once: true });
+    
+      this.router.events.subscribe((event) => {
+        if (event instanceof NavigationStart)
+          this.navigationType = event.navigationTrigger;
+        if (event instanceof NavigationEnd && this.navigationType !== 'popstate')
+          window.scroll({ top: 0, left: 0, behavior: 'auto' });
+      });
+    }
   }
 
   ngAfterViewInit(): void {
-    this.handleFaviconTheme();
+    if (typeof document !== 'undefined') {
+      this.handleFaviconTheme();
+    }
   }
 
   handleFaviconTheme(): void {
     const favicon = document.querySelector('link[rel="icon"]');
-    favicon['href'] = (this.prefersDarkScheme?.matches) ? './assets/favicon/favicon_white.png' : './assets/favicon/favicon_black.png';
+    favicon['href'] = (window.matchMedia("(prefers-color-scheme: dark)")?.matches)
+      ? './assets/favicon/favicon_white.png'
+      : './assets/favicon/favicon_black.png';
   }
 }

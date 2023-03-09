@@ -52,7 +52,7 @@ import { HideOnScrollDirective } from './directives/hide-on-scroll.directive';
     HideOnScrollDirective
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     NgxHideOnScrollModule,

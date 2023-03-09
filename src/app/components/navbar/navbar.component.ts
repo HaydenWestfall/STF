@@ -17,9 +17,10 @@ export class NavbarComponent implements OnInit {
   SvgIcon = SvgIcon;
   showNav = false;
   navbarClass = 'transparent';
+  basePath = '../../../assets/img/icons/';
   selectedLink: Link = null;
   whiteNavbarRoute = false;
-  mediaQuery: MediaQueryList = window.matchMedia('(max-width: 768px)');
+  mediaQuery: MediaQueryList;
   quoteLink = environment.quoteLink;
 
   aboutLinks: Link = {
@@ -31,12 +32,12 @@ export class NavbarComponent implements OnInit {
       'Locations'
     ],
     dropdown: [
-      {icon: SvgIcon.LOGO_WATERMARK, iconSize: 1.5, label: 'About', navigateTo: '/about'},
-      {icon: SvgIcon.SHIELD, iconSize: 3, label: 'Carriers', navigateTo: '/carriers'},
-      {icon: SvgIcon.TEAM, iconSize: 2.5, label: 'Team', navigateTo: '/team'},
-      {icon: SvgIcon.LOCATION, iconSize: 2.5, label: 'Locations', navigateTo: '/locations'},
-      {icon: SvgIcon.FAQ, iconSize: 2.5, label: 'FAQ', navigateTo: '/faq'},
-      {icon: SvgIcon.CONTACT, iconSize: 2.5, label: 'Contact', navigateTo: '/contact'}
+      {icon: this.basePath + 'about.png', iconSize: 2, label: 'About', navigateTo: '/about'},
+      {icon: this.basePath + 'carriers.png', iconSize: 2.75, label: 'Carriers', navigateTo: '/carriers'},
+      {icon: this.basePath + 'meet_the_team.png', iconSize: 2.75, label: 'Team', navigateTo: '/team'},
+      {icon: this.basePath + 'locations.png', iconSize: 2.5, label: 'Locations', navigateTo: '/locations'},
+      {icon: this.basePath + 'faq.png', iconSize: 2.25, label: 'FAQ', navigateTo: '/faq'},
+      {icon: this.basePath + 'contact.png', iconSize: 2.25, label: 'Contact', navigateTo: '/contact'}
     ]
   };
 
@@ -51,13 +52,13 @@ export class NavbarComponent implements OnInit {
       'Farm Insurance'
     ],
     dropdown: [
-      {icon: SvgIcon.AUTO_INSURANCE, iconSize: 2.25, label: 'Auto\nInsurance', navigateTo: '/coverages/auto'},
-      {icon: SvgIcon.HOME_INSURANCE, iconSize: 2.25, label: 'Home\nInsurance', navigateTo: '/coverages/home'},
-      {icon: SvgIcon.FARM_INSURANCE, iconSize: 2.5, label: 'Farm\nInsurance', navigateTo: '/coverages/farm'},
-      {icon: SvgIcon.COMMERCIAL_INSURANCE, iconSize: 2.5, label: 'Commercial\nInsurance', navigateTo: '/coverages/commercial'},
-      {icon: SvgIcon.RECREATIONAL_INSRUANCE, iconSize: 2.5, label: 'Recreational\nInsurance', navigateTo: '/coverages/recreational'},
-      {icon: SvgIcon.LIFE_INSURANCE, iconSize: 2.5, label: 'Life\nInsurance', navigateTo: '/coverages/life'},
-      {icon: SvgIcon.HEALTH_INSURANCE, iconSize: 2.5, label: 'Health\nInsurance', navigateTo: 'health'},
+      {icon: this.basePath + 'auto.png', iconSize: 2.5, label: 'Auto\nInsurance', navigateTo: '/coverages/auto'},
+      {icon: this.basePath + 'home.png', iconSize: 2.5, label: 'Home\nInsurance', navigateTo: '/coverages/home'},
+      {icon: this.basePath + 'farm.png', iconSize: 2.5, label: 'Farm\nInsurance', navigateTo: '/coverages/farm'},
+      {icon: this.basePath + 'commercial.png', iconSize: 2.5, label: 'Commercial\nInsurance', navigateTo: '/coverages/commercial'},
+      {icon: this.basePath + 'recreational.png', iconSize: 2.5, label: 'Recreational\nInsurance', navigateTo: '/coverages/recreational'},
+      {icon: this.basePath + 'life.png', iconSize: 2.5, label: 'Life\nInsurance', navigateTo: '/coverages/life'},
+      {icon: this.basePath + 'health.png', iconSize: 2.5, label: 'Health\nInsurance', navigateTo: 'health'},
     ]
   };
 
@@ -70,7 +71,11 @@ export class NavbarComponent implements OnInit {
     ]
   }
 
-  constructor(public router: Router, private elementRef: ElementRef, public stf: StfService) { }
+  constructor(public router: Router, private elementRef: ElementRef, public stf: StfService) {
+    if (typeof window !== 'undefined') {
+      this.mediaQuery = window.matchMedia('(max-width: 768px)');
+    }
+  }
 
   ngOnInit() {
     this.router.events.subscribe(event => {
@@ -104,6 +109,9 @@ export class NavbarComponent implements OnInit {
   }
 
   navbarStyleSelector(): string {
+    if (typeof window === 'undefined') {
+      return null;
+    }
     return (window.scrollY < 70 && !this.whiteNavbarRoute) ? 'clear-navbar' : 'white-navbar';
   }
 

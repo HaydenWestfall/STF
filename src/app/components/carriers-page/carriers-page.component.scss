@@ -42,6 +42,7 @@
             left: 50%;
             transform: translateX(-50%) rotate(270deg);
             color: var(--primary-color);
+            width: 1rem;
         }
     }
 
@@ -75,6 +76,8 @@
                 padding: 0 2rem;
 
                 .search-icon {
+                    height: 1rem;
+                    width: 1rem;
                     color: #979797;
                 }
     
@@ -82,7 +85,7 @@
                     color: #979797;
                     border-radius: 50%;
                     height: 2rem;
-                    width: 2rem;
+                    width: 0.65rem;
                     display: flex;
                     align-items: center;
                     justify-content: center;

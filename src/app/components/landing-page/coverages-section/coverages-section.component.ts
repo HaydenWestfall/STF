@@ -10,18 +10,19 @@ import { environment } from 'src/environments/environment.development';
 })
 export class CoveragesSectionComponent {
   SvgIcon = SvgIcon;
+  basePath = '../../../assets/img/icons/';
   isDown = false;
   startX: number;
   scrollLeft: number;
 
   coverages: CoverageCard[] = [
-    {icon: this.SvgIcon.AUTO_INSURANCE, iconSize: 2.75, title: 'Auto', description: 'Collision, Liability, Roadside, and more', link: '/coverages/auto'},
-    {icon: this.SvgIcon.HOME_INSURANCE, iconSize: 2.6, title: 'Home', description: 'Home, Other structures, Property, and more', link: '/coverages/home'},
-    {icon: this.SvgIcon.FARM_INSURANCE, iconSize: 2.75, title: 'Farm', description: 'Crops, Farmhouse, Equipment, and more', link: '/coverages/farm'},
-    {icon: this.SvgIcon.COMMERCIAL_INSURANCE, iconSize: 2.5, title: 'Commercial', description: 'Bonds, Liabilty, Property Insurance, and more', link: '/coverages/commercial'},
-    {icon: this.SvgIcon.RECREATIONAL_INSRUANCE, iconSize: 3, title: 'Recreational', description: 'Boats, ATVs, Golf carts, and more', link: '/coverages/recreational'},
-    {icon: this.SvgIcon.LIFE_INSURANCE, iconSize: 3, title: 'Life', description: 'Term Life, Universal life, whole life, and more', link: '/coverages/life'},
-    {icon: this.SvgIcon.HEALTH_INSURANCE, iconSize: 2.5, title: 'Health', description: 'Term Life, Universal life, whole life, and more', externalLink: environment.healthInsuranceLink},
+    {icon: this.basePath + 'auto.png', iconSize: 2.75, title: 'Auto', description: 'Collision, Liability, Roadside, and more', link: '/coverages/auto'},
+    {icon: this.basePath + 'home.png', iconSize: 2.6, title: 'Home', description: 'Home, Other structures, Property, and more', link: '/coverages/home'},
+    {icon: this.basePath + 'farm.png', iconSize: 2.75, title: 'Farm', description: 'Crops, Farmhouse, Equipment, and more', link: '/coverages/farm'},
+    {icon: this.basePath + 'commercial.png', iconSize: 2.5, title: 'Commercial', description: 'Bonds, Liabilty, Property Insurance, and more', link: '/coverages/commercial'},
+    {icon: this.basePath + 'recreational.png', iconSize: 3, title: 'Recreational', description: 'Boats, ATVs, Golf carts, and more', link: '/coverages/recreational'},
+    {icon: this.basePath + 'life.png', iconSize: 3, title: 'Life', description: 'Term Life, Universal life, whole life, and more', link: '/coverages/life'},
+    {icon: this.basePath + 'health.png', iconSize: 2.5, title: 'Health', description: 'Term Life, Universal life, whole life, and more', externalLink: environment.healthInsuranceLink},
   ];
 
   @ViewChild('coverageList') coverageList: ElementRef;
