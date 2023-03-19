@@ -10,8 +10,7 @@ import { LocationsPageComponent } from './components/locations-page/locations-pa
 import { TeamPageComponent } from './components/team-page/team-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: LandingPageComponent, data: { animation: 'fadeRoute' } },
+  { path: '', component: LandingPageComponent, data: { animation: 'fadeRoute' } },
   { path: 'about', component: AboutPageComponent, data: { animation: 'fadeRoute' } },
   { path: 'team', component: TeamPageComponent, data: { animation: 'fadeRoute' } },
   { path: 'locations', component: LocationsPageComponent, data: { animation: 'fadeRoute' } },
