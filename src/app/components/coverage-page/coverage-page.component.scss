@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
 
     .coverage-header {
         position: relative;
@@ -25,7 +26,8 @@
         }
 
         .home {
-            margin-top: -15rem;
+            margin-top: -20vh;
+            margin-bottom: 10rem;
         }
 
         .life {
@@ -55,9 +57,21 @@
         justify-content: center;
         align-items: center;
         max-width: 75vw;
+        margin-top: 5rem;
 
         .text {
             font-size: 1.1rem;
+        }
+    }
+
+    .banner-message {
+        margin: 50vh 0;
+        text-align: center;
+        max-width: 75vw;
+
+        h1 {
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            line-height: clamp(2.9rem, 5.6vw, 4.7rem);
         }
     }
 
@@ -68,7 +82,7 @@
         justify-content: center;
         align-items: center;
         width: 100vw;
-        margin: 25vh 0 10rem 0;
+        margin: 0 0 10rem 0;
 
         .coverage-card {
             display: flex;
@@ -89,7 +103,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                font-size: 4vw;
+                font-size: 3.5vw;
                 font-weight: 800;
                 line-height: 4.5vw;
             }
@@ -97,6 +111,23 @@
 
         .reverse {
             flex-direction: row-reverse;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 1250px) {
+    .coverage-wrapper {
+        .coverage-cards {
+            .coverage-card {
+                img {
+                    width: 50vw;
+                }
+    
+                div {
+                    padding: 4rem;
+                }
+            }
         }
     }
 }

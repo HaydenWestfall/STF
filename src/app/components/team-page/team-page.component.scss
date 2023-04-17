@@ -23,8 +23,8 @@
             display:inline-block;
             object-fit: cover;
             width: 100vw;
-            height: 100vh;
             pointer-events: none;
+            margin-top: -10vw;
         }
     }
 
@@ -41,9 +41,12 @@
         grid-auto-columns: 76vw;
         grid-column-gap: 12vw;
         padding: 10rem 24vw;
+        margin-top: -12rem;
+        border-radius: 50px;
+        background-color: white;
 
         .team-member {
-            border-radius: 10px;
+            border-radius: 25px;
             background-color: white;
             font-size: 1.1rem;
             font-family: 'helios-antique';
@@ -82,8 +85,8 @@
                     .person-fg {
                         position: relative;
                         object-fit: cover;
-                        height: 100%;
-                        bottom: 0;
+                        height: 120%;
+                        bottom: 20px;
                     }
                 }
             }
@@ -129,8 +132,9 @@
         background-color: #f4f4f4;
         display: flex;
         gap: 5rem;
-        padding: 2rem 4rem;
+        padding: 4rem 4rem;
         justify-content: center;
+        flex-wrap: wrap;
     }
 
     .thumbnail-wrapper {
@@ -172,14 +176,30 @@
     }
 }
 
+@media only screen and (max-width: 1350px) {
+    .coverage-wrapper {
+        .coverage-header {
+            img {
+               margin-top: -2vw; 
+            }
+        }
+    }
+}
 
 @media only screen and (max-width: 920px) {
     .coverage-wrapper {
+        .coverage-header {
+            img {
+               margin-top: 0; 
+            }
+        }
+
         .team-wrapper {
             grid-auto-columns: 80vw;
             grid-column-gap: 5vw;
             padding: 5vh 10vw;
-            padding-top: 15rem;
+            padding-top: 15vh;
+            margin-top: 0;
     
             .team-member {
                 flex-direction: column;
@@ -208,18 +228,26 @@
             }
         }
     
-        .employee-list {
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            justify-content: flex-start;
-        }
-    
         .thumbnail-wrapper {
             scroll-snap-align: center;
     
             .thumbnail-image {
                 min-height: 6rem;
                 min-width: 6rem;
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .coverage-wrapper {
+        .coverage-header {
+            img {
+               margin-top: 46vh;
+               width: calc(100% - 20vw);
+               border-radius: 15px;
+               margin-left: 10vw;
             }
         }
     }

@@ -72,16 +72,14 @@ export class NavbarComponent implements OnInit {
   }
 
   constructor(public router: Router, private elementRef: ElementRef, public stf: StfService) {
-    if (typeof window !== 'undefined') {
-      this.mediaQuery = window.matchMedia('(max-width: 768px)');
-    }
+    this.mediaQuery = window.matchMedia('(max-width: 768px)');
   }
 
   ngOnInit() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         const url = event['url'];
-        this.whiteNavbarRoute = (['/carriers', '/faq', '/locations'].includes(url)) ? true : false;
+        this.whiteNavbarRoute = (['/carriers', '/faq', '/locations', '/team'].includes(url)) ? true : false;
         this.navbarClass = this.navbarStyleSelector();
       }
     });

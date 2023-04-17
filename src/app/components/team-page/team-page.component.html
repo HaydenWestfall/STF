@@ -1,11 +1,11 @@
 
 <div class="section coverage-wrapper">
     <section class="coverage-header">
-        <img [@fade]="{value: ':enter', params: {fadeTime: '500ms 850'}}" [src]="basePath + '/teamPage_bg.png'" />
+        <img [@fade]="{value: ':enter', params: {fadeTime: '500ms 850'}}" [src]="basePath + '/team_photo' + (mediaQuery.matches ? '.png' : '_tall2.png')" />
         <div class="gradient-overlay"></div>
         <stf-header class="overlay-header">
-            <h6>TEAM</h6>
-            <h1 data-aos="fade-up" data-aos-duration="1000">Meet the Team.</h1>
+            <h6 [ngStyle]="{'color': mediaQuery.matches ? 'var(--secondary-text-color)' : 'white'}">TEAM</h6>
+            <h1 [ngStyle]="{'color': mediaQuery.matches ? 'var(--primary-text-color)' : 'white'}" data-aos="fade-up" data-aos-duration="1000">Meet the Team.</h1>
         </stf-header>
     </section>
 

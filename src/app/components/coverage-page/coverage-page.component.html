@@ -2,7 +2,7 @@
 <div class="section coverage-wrapper">
     <section class="coverage-header" *ngIf="!refreshing">
         <img [@fade]="{value: ':enter', params: {fadeTime: '500ms 850'}}" [src]="coverageType?.coverageImage" [ngClass]="coverageType?.id" />
-        <div class="gradient-overlay"></div>
+        <div class="gradient-overlay" [ngClass]="coverageType?.id"></div>
         <stf-header class="overlay-header">
             <h6>INSURANCE</h6>
             <h1 data-aos="fade-up" data-aos-duration="1000">{{coverageType?.coverageTitle}}</h1>
@@ -18,6 +18,12 @@
         </stf-header>
 
         <p data-aos="fade-up" data-aos-duration="1000">{{coverageType?.description}}</p>
+    </section>
+
+    <section class="banner-message">
+        <h1 data-aos="fade-up" data-aos-duration="1000">
+            Give one of our experienced agents a call today to make sure you are properly covered.
+        </h1>
     </section>
 
 

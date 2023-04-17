@@ -10,10 +10,13 @@ import { environment } from 'src/environments/environment.development';
 export class HeroSectionComponent implements OnInit {
   SvgIcon = SvgIcon;
   env = environment;
+  mediaQuery: MediaQueryList;
 
   test = ['The Easiest Way To', 'Buy Low Cost', 'Insurance'];
 
-  constructor(public cd: ChangeDetectorRef) {}
+  constructor(public cd: ChangeDetectorRef) {
+    this.mediaQuery = window.matchMedia('(max-width: 768px)');
+  }
 
   ngOnInit() {
     if (typeof document !== 'undefined') {

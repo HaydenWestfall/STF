@@ -121,13 +121,13 @@
             height: 40vw;
             
             img {
-                height: 100%;
-                width: 100%;
+                width: calc(100% - 4rem);
+                margin-left: 2rem;
                 object-fit: cover;
                 border-radius: 0;
                 border: none;
                 right: unset;
-                margin: 0;
+                border-radius: 10px;
             }
         }
     }
