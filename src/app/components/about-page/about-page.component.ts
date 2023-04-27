@@ -69,7 +69,7 @@ export class AboutPageComponent implements AfterViewInit {
   
     let familiesProtectedInterval: any = setInterval(()=>{
       this.familiesProtected = this.familiesProtected + 50;
-      if(this.familiesProtected == 5000) {
+      if(this.familiesProtected == 3000) {
         clearInterval(familiesProtectedInterval);
       }
       this.cd.detectChanges();

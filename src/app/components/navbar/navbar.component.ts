@@ -36,7 +36,7 @@ export class NavbarComponent implements OnInit {
       {icon: this.basePath + 'carriers.png', iconSize: 2.75, label: 'Carriers', navigateTo: '/carriers'},
       {icon: this.basePath + 'meet_the_team.png', iconSize: 2.75, label: 'Team', navigateTo: '/team'},
       {icon: this.basePath + 'locations.png', iconSize: 2.5, label: 'Locations', navigateTo: '/locations'},
-      {icon: this.basePath + 'faq.png', iconSize: 2.25, label: 'FAQ', navigateTo: '/faq'},
+      // {icon: this.basePath + 'faq.png', iconSize: 2.25, label: 'FAQ', navigateTo: '/faq'},
       {icon: this.basePath + 'contact.png', iconSize: 2.25, label: 'Contact', navigateTo: '/contact'}
     ]
   };

@@ -14,8 +14,7 @@ export class ContactPageComponent {
     {
       branchName: 'Arcanum',
       contactMethods: [
-        {label: 'Phone: ', value: '937-692-8310'},
-        {label: 'Fax: ', value: '937-278-9132'}
+        {label: 'Phone: ', value: '937-692-8310'}
       ],
       email: this.contactEmail,
       cardFlipped: false

@@ -12,6 +12,12 @@ export class HeroSectionComponent implements OnInit {
   env = environment;
   mediaQuery: MediaQueryList;
 
+  contactInfo = [
+    {label: 'Arcanum', type: 'tel', value: this.env.arcanumPhoneNumber},
+    {label: 'Vandalia', type: 'tel', value: this.env.vandaliaPhoneNumber},
+    {label: 'Email', type: 'mailto', value: this.env.contactEmail},
+  ]
+
   test = ['The Easiest Way To', 'Buy Low Cost', 'Insurance'];
 
   constructor(public cd: ChangeDetectorRef) {
