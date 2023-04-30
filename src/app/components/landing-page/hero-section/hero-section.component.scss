@@ -117,6 +117,7 @@
 @media only screen and (max-width: 768px) {
     .hero {
         flex-direction: column;
+        overflow: unset;
 
         .text {
             padding-left: 0;
@@ -140,8 +141,34 @@
                 }
             }
 
+            .contact-wrapper {
+                flex-direction: column;
+                align-items: center;
+                margin: 3rem 0;
+                gap: 0.75rem;
+
+                .contact-info {
+                    align-items: center;
+    
+                    span {
+                        font-size: 0.7rem;
+                        color: #9e9e9e;
+                    }
+    
+                    a {
+                        font-weight: 500;
+                        color: #2A61CC;
+                        font-size: 0.8rem;
+                    }
+    
+                    .divider {
+                        display: none;
+                    }
+                }
+            }
+
             .button-group {
-                margin-top: 8rem;
+                margin-top: 0;
                 flex-direction: column;
                 align-items: center;
             }

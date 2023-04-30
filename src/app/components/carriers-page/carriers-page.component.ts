@@ -180,6 +180,6 @@ export class CarriersPageComponent {
 
   searchCarriers(key: KeyboardEvent): void {
     if (key.key === 'Enter')
-      this.foundCarriers = this.carriers.filter(x => x.name.includes(this.searchText.toLowerCase()))
+      this.foundCarriers = this.carriers.filter(x => x.name.toLowerCase().includes(this.searchText.toLowerCase()));
   }
 }

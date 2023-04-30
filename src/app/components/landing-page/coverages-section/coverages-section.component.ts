@@ -22,7 +22,7 @@ export class CoveragesSectionComponent {
     {icon: this.basePath + 'commercial.png', iconSize: 2.5, title: 'Commercial', description: 'Bonds, Liabilty, Property Insurance, and more', link: '/coverages/commercial'},
     {icon: this.basePath + 'recreational.png', iconSize: 3, title: 'Recreational', description: 'Boats, ATVs, Golf carts, and more', link: '/coverages/recreational'},
     {icon: this.basePath + 'life.png', iconSize: 3, title: 'Life', description: 'Term Life, Universal life, whole life, and more', link: '/coverages/life'},
-    {icon: this.basePath + 'health.png', iconSize: 2.5, title: 'Health', description: 'Term Life, Universal life, whole life, and more', externalLink: environment.healthInsuranceLink},
+    {icon: this.basePath + 'health.png', iconSize: 2.5, title: 'Health', description: 'Health insurance and Med Supplements', externalLink: environment.healthInsuranceLink},
   ];
 
   @ViewChild('coverageList') coverageList: ElementRef;

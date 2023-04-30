@@ -1,7 +1,7 @@
 
 <section class="section hero">
     <div class="text">
-        <span class="hero-subHeader" data-aos="fade"data-aos-easing="ease-in-out" data-aos-duration="800">MEET STF</span>
+        <span class="hero-subHeader" data-aos="fade" data-aos-easing="ease-in-out" data-aos-duration="800">MEET STF</span>
         <div class="hero-header">
             <div class="hero-header-line" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="800" data-aos-delay="200">The Easiest Way To</div>
             <div class="hero-header-line" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="800" data-aos-delay="300">
@@ -13,7 +13,7 @@
             </div>
             <div class="hero-header-line" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="800" data-aos-delay="400">Insurance</div>
         </div>
-        <div class="contact-wrapper">
+        <div class="contact-wrapper" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="800" data-aos-delay="500">
             <div class="contact-info" *ngFor="let info of contactInfo; let i = index">
                 <span>{{info.label}}</span>
                 <a [href]="info.type + ':' + info.value">{{info.value}}</a>
@@ -26,6 +26,6 @@
         </div>
     </div>
     <div class="image" data-aos="fade" data-aos-easing="ease-in-out" data-aos-duration="1200" data-aos-delay="250">
-        <img [src]="'../../../../assets/img/hero_image' + (mediaQuery.matches ? '_mobile.png' : '.png')" alt="STF Team Photoß"/>
+        <img [src]="'../../../../assets/img/hero_image' + (mediaQuery.matches ? '_mobile.png' : '.png')" alt="STF Team Photo"/>
     </div>
 </section>

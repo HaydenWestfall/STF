@@ -19,10 +19,8 @@ export class TeamPageComponent {
       name: 'Tracy Fout',
       position: 'OWNER',
       img: '/tracy.webp',
-      description: `Tracy is the other half of the co-owning duo here at SRL. Tracy’s outgoing
-      and ambitious personality has been his motivation to pursue sales and marketing for the
-      last 18 years. In 2018, He and James chose to take on the new adventure of SRL-Troutwine
-      by combining Shockey, Ryan, Long Insurance with Keith Troutwine Insurance.`
+      description: `Hi there, my name is Tracy Fout, and I am the owner of STF Insurance Group. I have been working in the insurance industry for over 10 years. I was born and raised in Arcanum, which is where I still live today. When I'm not working in the office, you can catch me in the field farming. On the rare occasion I have some free time, I enjoy spending it with my family while soaking up the sun in Florida.  
+      As the owner of STF Insurance Group, I am committed to providing the best possible service to my clients. I take great pride in helping people find the right insurance policies to meet their needs and protect the things that matter most to them. It's a job that I truly love, and I look forward to continuing to serve my community for many years to come.`
     },
     {
       id: 'victoria',
@@ -80,6 +78,6 @@ export class TeamPageComponent {
   }
 
   scrollEmployeeIntoView(element: string): void {
-    document.getElementById(element).scrollIntoView({behavior: "smooth", block: "nearest", inline: "center"});
+    document.getElementById(element).scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
   }
 }

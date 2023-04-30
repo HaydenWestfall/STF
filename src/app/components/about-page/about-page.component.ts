@@ -73,7 +73,7 @@ export class AboutPageComponent implements AfterViewInit {
         clearInterval(familiesProtectedInterval);
       }
       this.cd.detectChanges();
-    }, 750 / 100);
+    }, 750 / 60);
   }
 
   runYearsOfServiceCounter(): void {

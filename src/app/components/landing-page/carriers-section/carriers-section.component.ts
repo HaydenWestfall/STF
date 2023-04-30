@@ -24,6 +24,10 @@ export class CarriersSectionComponent {
     this.imgPath + 'celina.png',
     this.imgPath + 'cna.png',
     this.imgPath + 'commonwealth.png',
+    this.imgPath + 'dairyland.png',
+    this.imgPath + 'donegal.png',
+    this.imgPath + 'encova.png',
+    this.imgPath + 'foremost.png',
   ];
 
   carriers2: string[] = [
@@ -41,5 +45,9 @@ export class CarriersSectionComponent {
     this.imgPath + 'hastings-mutual.png',
     this.imgPath + 'pekin.png',
     this.imgPath + 'progressive.png',
+    this.imgPath + 'safeco.png',
+    this.imgPath + 'trexis.png',
+    this.imgPath + 'utica-national.png',
+    this.imgPath + 'wayne.png',
   ];
 }
