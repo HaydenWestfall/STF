@@ -140,10 +140,16 @@
                 object-position: 34%;
             }
         }
+
+        .banner-message {
+            h1 {
+                font-size: clamp(2rem, 4vw, 4rem);
+            }
+        }
     
         .coverage-cards {
             flex-direction: column;
-            gap: 15vh;
+            gap: 20vh;
     
             .coverage-card {
                 flex-direction: column-reverse;
@@ -159,7 +165,7 @@
                     max-width: 75vw;
                     font-size: 8vw;
                     line-height: 10vw;
-                    padding: 5rem 0;
+                    padding: 3rem 0;
                 }
             }
         }

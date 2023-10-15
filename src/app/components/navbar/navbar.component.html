@@ -7,7 +7,7 @@
         <div class="links" *ngIf="showNav || !mediaQuery?.matches" @panelSlideIn>
             <div class="get-quote">
                 <span>Want a quote?</span>
-                <a class="stf-button stf-button-primary" (click)="selectedLink = null" [href]="quoteLink" target="_blank">
+                <a class="stf-button stf-button-primary" (click)="selectedLink = null" routerLink="quoteRedirect">
                     Get Quote
                 </a>
             </div>
@@ -51,7 +51,7 @@
         </svg>
 
         <a id="desktop-getQuote" class="stf-button stf-button-primary" style="padding: 0.5rem 1rem; font-size: 0.75rem;"
-            (click)="selectedLink = null" [href]="quoteLink" target="_blank">
+            (click)="selectedLink = null" routerLink="quoteRedirect">
             Get Quote
         </a>
 

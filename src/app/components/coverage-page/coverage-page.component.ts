@@ -19,66 +19,66 @@ export class CoveragePageComponent {
     {
       id: 'auto',
       coverageTitle: 'Auto Insurance',
-      coverageImage: this.coveragesPath + 'auto/auto.png',
+      coverageImage: this.coveragesPath + 'auto/auto.webp',
       description: 'Your vehicle is a central part of your lifestyle. It is your connection between all of the important places you go every day. We will create the perfect insurance plan for you that is tailored to the coverage you need. A few coverage options include: collision and comprehensive coverage, liability coverage, road trouble service, additional expense coverage, and lease/load gap coverage.',
       informationCards: [
-        {image: this.coveragesPath + 'auto/card1.png', description: 'Uninsured and Underinsured Property Damage'},
-        {image: this.coveragesPath + 'auto/card2.png', description: 'Rental Car Reimbursement Coverage'},
-        {image: this.coveragesPath + 'auto/card3.png', description: 'GAP coverage'}
+        {image: this.coveragesPath + 'auto/card1.webp', description: 'Uninsured and Underinsured Property Damage'},
+        {image: this.coveragesPath + 'auto/card2.webp', description: 'Rental Car Reimbursement Coverage'},
+        {image: this.coveragesPath + 'auto/card3.webp', description: 'GAP coverage'}
       ]
     },
     {
       id: 'home',
       coverageTitle: 'Home Insurance',
-      coverageImage: this.coveragesPath + 'home/home.png',
+      coverageImage: this.coveragesPath + 'home/home.webp',
       description: 'The urge to protect our homes, the place where we lay our heads and raise our children, is universal. We help keep the castle safe and sound with comprehensive coverage that guards against theft, fire, and storm damage. We also insure other properties, including apartments, condos, mobile homes and property owned by your business.',
       informationCards: [
-        {image: this.coveragesPath + 'home/card1.png', description: 'Scheduled Personal Property'},
-        {image: this.coveragesPath + 'home/card2.png', description: 'Accurate Replacement Cost Coverage'},
-        {image: this.coveragesPath + 'home/card3.png', description: 'Schedule Detached Structures'}
+        {image: this.coveragesPath + 'home/card1.webp', description: 'Scheduled Personal Property'},
+        {image: this.coveragesPath + 'home/card2.webp', description: 'Accurate Replacement Cost Coverage'},
+        {image: this.coveragesPath + 'home/card3.webp', description: 'Schedule Detached Structures'}
       ]
     },
     {
       id: 'farm',
       coverageTitle: 'Farm Insurance',
-      coverageImage: this.coveragesPath + 'farm/farm.png',
+      coverageImage: this.coveragesPath + 'farm/farm.webp',
       description: 'From hobby farms to commercial agriculture exposures such as feed and seed dealers, it is important to identify risks associated with whatever it is you produce. We know farming and commercial farm exposures is unique to the state of Ohio. We proudly represent top-rated insurance carriers that are specific to agribusiness to ensure you get the coverage you need at a price you can afford.',
       informationCards: [
-        {image: this.coveragesPath + 'farm/card1.png', description: 'Peak Season and Crop Storage Coverage'},
-        {image: this.coveragesPath + 'farm/card2.png', description: 'Schedule Farm Equipment'},
-        {image: this.coveragesPath + 'farm/card3.png', description: 'Schedule ATVs and Rangers'}
+        {image: this.coveragesPath + 'farm/card1.webp', description: 'Peak Season and Crop Storage Coverage'},
+        {image: this.coveragesPath + 'farm/card2.webp', description: 'Schedule Farm Equipment'},
+        {image: this.coveragesPath + 'farm/card3.webp', description: 'Schedule ATVs and Rangers'}
       ]
     },
     {
       id: 'commercial',
       coverageTitle: 'Commercial Insurance',
-      coverageImage: this.coveragesPath + 'commercial/commercial.png',
+      coverageImage: this.coveragesPath + 'commercial/commercial.webp',
       description: 'We understand how much time, money, and effort it takes to build & maintain a successful business. Protecting your investment from losses beyond your control is a responsibility we take very seriously. We can offer coverage in many areas for your business.',
       informationCards: [
-        {image: this.coveragesPath + 'commercial/card1.png', description: 'Scheduled Tools and Work Equipment'},
-        {image: this.coveragesPath + 'commercial/card2.png', description: 'Scheduled Business Inventory'},
-        {image: this.coveragesPath + 'commercial/card3.png', description: 'Cyber Liability Coverage'}
+        {image: this.coveragesPath + 'commercial/card1.webp', description: 'Scheduled Tools and Work Equipment'},
+        {image: this.coveragesPath + 'commercial/card2.webp', description: 'Scheduled Business Inventory'},
+        {image: this.coveragesPath + 'commercial/card3.webp', description: 'Cyber Liability Coverage'}
       ]
     },
     {
       id: 'life',
       coverageTitle: 'Life Insurance',
-      coverageImage: this.coveragesPath + 'life/life.png',
+      coverageImage: this.coveragesPath + 'life/life.webp',
       description: 'Life and Health insurance have many variables and decisions; such as, how much is enough and what type of policy best fits your need and your family\'s. Needs vary for Life insurance and each type of policy has its advantages. Depending on your life or health insurance needs, we will provide you with the most comprehensive plan based on your individual or group\'s current or future financial needs.',
       informationCards: [
-        {image: this.coveragesPath + 'life/card1.png', description: 'Whole Life'},
-        {image: this.coveragesPath + 'life/card2.png', description: 'Term Life'},
+        {image: this.coveragesPath + 'life/card1.webp', description: 'Whole Life'},
+        {image: this.coveragesPath + 'life/card2.webp', description: 'Term Life'},
       ]
     },
     {
       id: 'recreational',
       coverageTitle: 'Recreational Insurance',
-      coverageImage: this.coveragesPath + 'recreational/recreational2.png',
+      coverageImage: this.coveragesPath + 'recreational/recreational2.webp',
       description: 'Needs filled in.',
       informationCards: [
-        {image: this.coveragesPath + 'recreational/card1.png', description: 'Protect fun things like motorcycles'},
-        {image: this.coveragesPath + 'recreational/card2.png', description: 'or your boats'},
-        {image: this.coveragesPath + 'recreational/card3.png', description: 'or even your golf cart'}
+        {image: this.coveragesPath + 'recreational/card1.webp', description: 'Protect fun things like motorcycles'},
+        {image: this.coveragesPath + 'recreational/card2.webp', description: 'or your boats'},
+        {image: this.coveragesPath + 'recreational/card3.webp', description: 'or even your golf cart'}
       ]
     }
   ];

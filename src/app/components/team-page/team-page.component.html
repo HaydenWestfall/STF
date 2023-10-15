@@ -1,7 +1,7 @@
 
 <div class="section coverage-wrapper">
     <section class="coverage-header">
-        <img [@fade]="{value: ':enter', params: {fadeTime: '500ms 850'}}" [src]="basePath + '/team_photo' + (mediaQuery.matches ? '.png' : '_tall.png')" />
+        <img [@fade]="{value: ':enter', params: {fadeTime: '500ms 850'}}" [src]="basePath + '/team_photo' + (mediaQuery.matches ? '.webp' : '_tall.webp')" />
         <div class="gradient-overlay"></div>
         <stf-header class="overlay-header">
             <h6 [ngStyle]="{'color': mediaQuery.matches ? 'var(--secondary-text-color)' : 'white'}">TEAM</h6>
@@ -35,3 +35,4 @@
         </div>
     </section>
 </div>
+<app-banner bannerType="contactUs"></app-banner>

@@ -7,6 +7,7 @@ import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
 export class StfService {
 
   navIsShowing = true;
+  history: string[] = [];
 
   constructor(private title: Title, private metaTags: Meta) { }
 
@@ -15,7 +16,15 @@ export class StfService {
   }
 
   addMetaTags(metaTags: MetaDefinition[]) {
-    console.log(metaTags);
     metaTags.forEach(tag => this.metaTags.updateTag(tag));
+  }
+
+  pushRouteHistory(routeUrl: string): void {
+    this.history.unshift(routeUrl.substring(1, routeUrl.length));
+    if (this.history.length > 3) {
+      this.history.pop();
+    }
+
+    console.log(this.history)
   }
 }

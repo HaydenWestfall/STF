@@ -14,7 +14,7 @@ export class LocationsPageComponent {
     {
       name: 'Arcanum',
       address: '21 W George St Arcanum, OH 45304',
-      image: this.basePath + 'arcanum.png',
+      image: this.basePath + 'arcanum.webp',
       contactMethods: [
         {
           type: 'tel:',
@@ -37,7 +37,7 @@ export class LocationsPageComponent {
     {
       name: 'Vandalia',
       address: '415 S Dixie Dr, Vandalia, OH 45377',
-      image: this.basePath + 'vandalia.png',
+      image: this.basePath + 'vandalia.webp',
       contactMethods: [
         {
           type: 'tel:',

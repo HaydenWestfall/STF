@@ -12,7 +12,7 @@ export class BannerComponent implements OnInit {
 
   selectedBanner: any;
   bannerTypes: any[] = [
-    { id: 'getQuote', message: 'Like what you see?', button: 'Get Quote', callback: environment.quoteLink },
+    { id: 'getQuote', message: 'Like what you see?', button: 'Get Quote', callback: '/quoteRedirect' },
     { id: 'contactUs', message: 'Have a question?', button: 'Contact us', callback: '/contact' },
   ];
 

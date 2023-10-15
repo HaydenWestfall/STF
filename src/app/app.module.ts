@@ -26,6 +26,7 @@ import { AboutPageComponent } from './components/about-page/about-page.component
 import { TeamPageComponent } from './components/team-page/team-page.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { HideOnScrollDirective } from './directives/hide-on-scroll.directive';
+import { QuoteRedirectComponent } from './utility/quote-redirect/quote-redirect.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { HideOnScrollDirective } from './directives/hide-on-scroll.directive';
     AboutPageComponent,
     TeamPageComponent,
     BannerComponent,
-    HideOnScrollDirective
+    HideOnScrollDirective,
+    QuoteRedirectComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

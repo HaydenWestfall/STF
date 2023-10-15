@@ -9,6 +9,7 @@ import { FaqPageComponent } from './components/faq-page/faq-page.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { LocationsPageComponent } from './components/locations-page/locations-page.component';
 import { TeamPageComponent } from './components/team-page/team-page.component';
+import { QuoteRedirectComponent } from './utility/quote-redirect/quote-redirect.component';
 
 const routes: Routes = [
   {
@@ -153,6 +154,7 @@ const routes: Routes = [
       }
     }
   },
+  { path: 'quoteRedirect', component: QuoteRedirectComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full'}
 ];
 

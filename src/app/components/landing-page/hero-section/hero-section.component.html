@@ -21,11 +21,11 @@
             </div>
         </div>
         <div class="button-group" data-aos="fade" data-aos-easing="ease-in-out" data-aos-duration="800" data-aos-delay="1600">
-            <a class="stf-button stf-button-primary" [href]="env.quoteLink" target="_blank">Get Quote</a>
+            <a class="stf-button stf-button-primary" routerLink="/quoteRedirect">Get Quote</a>
             <a class="stf-button stf-button-secondary-light-bg" routerLink="/about">Learn More</a>
         </div>
     </div>
     <div class="image" data-aos="fade" data-aos-easing="ease-in-out" data-aos-duration="1200" data-aos-delay="250">
-        <img [src]="'../../../../assets/img/hero_image' + (mediaQuery.matches ? '_mobile.png' : '.png')" alt="STF Team Photo"/>
+        <img [src]="'../../../../assets/img/hero_image' + (mediaQuery.matches ? '_mobile.webp' : '.webp')" alt="STF Team Photo"/>
     </div>
 </section>

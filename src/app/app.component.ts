@@ -4,6 +4,7 @@ import * as AOS from 'aos';
 import { filter, map, mergeMap } from 'rxjs';
 import { routeAnimations } from 'src/animations';
 import { StfService } from './services/stf.service';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,13 @@ export class AppComponent implements OnInit, AfterViewInit {
   navigationType: string;
   prefersDarkScheme: MediaQueryList;
   coverageType: string;
+
+  SEOStockTitle = 'STF Insurance Group | Protecting you with Reliable Coverage';
+  SEOStockDescription = [
+    { name: 'title', content: 'Meet the STF Insurance Group' },
+    { name: 'description', content: 'Protect your family and assets with comprehensive insurance coverage from STF Insurance Group. Our expert agents offer a wide range of policies, including auto, home, farm, health, commercial, recreational, and life insurance, tailored to your unique needs. Contact us today to learn more and get a free quote.' },
+    { name: 'url', content: environment.appUrl + '/' }
+  ]
 
   constructor(private router: Router, private contexts: ChildrenOutletContexts, public activatedRoute: ActivatedRoute,
     public stfService: StfService) {
@@ -34,7 +42,6 @@ export class AppComponent implements OnInit, AfterViewInit {
           this.navigationType = e.navigationTrigger;
         if (e instanceof NavigationEnd && this.navigationType !== 'popstate')
           window.scroll({ top: 0, left: 0, behavior: 'auto' });
-
         return e instanceof NavigationEnd
       }),
       map(e => this.activatedRoute),
@@ -44,7 +51,10 @@ export class AppComponent implements OnInit, AfterViewInit {
       }),
       filter((route) => route.outlet === 'primary'),
       mergeMap((route) => route.data ),
-    ).subscribe(data => this.loadSEO(data));
+    ).subscribe(data => { 
+      this.loadSEO(data);
+      this.stfService.pushRouteHistory(this.router.url);
+    });
   }
 
   loadSEO(data): void {
@@ -54,8 +64,10 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.stfService.addTitle(seoData[coverageType + 'Title']);
       this.stfService.addMetaTags(seoData[coverageType + 'MetaTags']);
     } else {
-      this.stfService.addTitle(seoData['title']);
-      this.stfService.addMetaTags(seoData['metaTags']);
+      const title = (seoData) ? seoData.title : this.SEOStockTitle;
+      const desc = (seoData) ? seoData.metaTags : this.SEOStockDescription;
+      this.stfService.addTitle(title);
+      this.stfService.addMetaTags(desc);
     }
   }
 
