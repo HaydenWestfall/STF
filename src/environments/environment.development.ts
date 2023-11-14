@@ -1,5 +1,5 @@
 export const environment = {
-    quoteLink: 'https://secure.consumerratequotes.com/ConsumerV2?id=57848',
+    quoteLink: 'https://secure.consumerratequotes.com/ConsumerV2?id=60277',
     contactEmail: 'agency@stf-ins.com',
     arcanumPhoneNumber: "937-692-8310",
     vandaliaPhoneNumber: "937-890-5426",
