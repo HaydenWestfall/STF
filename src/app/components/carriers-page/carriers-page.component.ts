@@ -121,14 +121,6 @@ export class CarriersPageComponent {
       claimsLink: 'https://www.hastingsmutual.com/report-a-claim'
     },
     {
-      name: 'Pekin Insurance',
-      logo: this.basePath + 'pekin.png',
-      phone: '800-322-0160',
-      claims: '888-735-4611',
-      payments: 'https://webpay.1tech.net/PayMyBill/Account/Login',
-      claimsLink: 'https://www.pekininsurance.com/client-service/customer-center/file-a-claim'
-    },
-    {
       name: 'Progressive Insurance',
       logo: this.basePath + 'progressive.png',
       phone: '1-855-347-3939',
@@ -151,14 +143,6 @@ export class CarriersPageComponent {
       claims: '',
       payments: 'https://www.trexis.com/',
       claimsLink: 'https://www.trexis.com/#LoginReportClaim'
-    },
-    {
-      name: 'Utica National Insurance Group',
-      logo: this.basePath + 'utica.png',
-      phone: '800-598-8422',
-      claims: '800-216-1420',
-      payments: 'https://www.uticanational.com/make-a-payment/',
-      claimsLink: 'https://www.uticanational.com/claimsresourcecenter/'
     },
     {
       name: 'Wayne Insurance Group',

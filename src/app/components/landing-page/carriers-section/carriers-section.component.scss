@@ -43,6 +43,7 @@
         }
 
         .animate-left {
+            // animation: move-marquee-left 60000ms linear infinite;
             animation: move-marquee-left 60000ms linear infinite;
         }
 
@@ -56,7 +57,7 @@
             transform: translateX(0);
         }
         100% {
-            transform: translateX(calc(-900% - 4.5rem));
+            transform: translateX(calc(-800% - 4rem));
         }
     }
 
@@ -65,7 +66,7 @@
             transform: translateX(0);
         }
         100% {
-            transform: translateX(calc(900% + 4.5rem));
+            transform: translateX(calc(800% + 4rem));
         }
     }
 }

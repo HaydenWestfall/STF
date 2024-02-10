@@ -40,8 +40,8 @@ export class FooterComponent {
   ];
 
   socials: Social[] = [
-    // { icon: this.basePath + 'twitter.png', url: 'https://twitter.com/SrlAgency', height: 1.5, width: 1.5 },
-    { icon: this.basePath + 'instagram.png', url: 'https://www.instagram.com/srl_troutwine/?hl=en', height: 1.5, width: 1.5 },
+    { icon: this.basePath + 'twitter.png', url: 'https://twitter.com/STF_Insurance', height: 1.5, width: 1.5 },
+    { icon: this.basePath + 'instagram.png', url: 'https://www.instagram.com/stf_insurance_group', height: 1.5, width: 1.5 },
     { icon: this.basePath + 'facebook.png', url: 'https://www.facebook.com/srltroutwineinsurance', height: 1.5, width: 1.5 },
     // { icon: this.basePath + 'linkedin.png', url: 'https://www.linkedin.com/company/keith-troutwine-agency-inc-/about/', height: 1.5, width: 1.5 },
     { icon: this.basePath + 'youtube.png', url: 'https://www.youtube.com/channel/UCVr6GAX21zuMgNn6g-A0G1g', height: 1.5, width: 1.9 }
