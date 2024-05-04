@@ -22,20 +22,20 @@ export class TeamPageComponent {
       description: `Hi there, my name is Tracy Fout, and I am the owner of STF Insurance Group. I have been working in the insurance industry for over 10 years. I was born and raised in Arcanum, which is where I still live today. When I'm not working in the office, you can catch me in the field farming. On the rare occasion I have some free time, I enjoy spending it with my family while soaking up the sun in Florida.  
       As the owner of STF Insurance Group, I am committed to providing the best possible service to my clients. I take great pride in helping people find the right insurance policies to meet their needs and protect the things that matter most to them. It's a job that I truly love, and I look forward to continuing to serve my community for many years to come.`
     },
-    {
-      id: 'victoria',
-      name: 'Victoria Bowman',
-      position: 'AGENT',
-      img: '/victoria.webp',
-      description: `Hi, I'm Victoria Bowman and I'm proud to say that I've been a part of the STF Insurance team since 2019. As the office manager, I take pride in keeping things organized and running smoothly. In addition to my work at STF, I also serve as the event coordinator for our non-profit organization, Give Thanks Foundation. I was born and raised in Greenville, and still call Darke County home today. I have a deep connection to my community and strive to make a positive impact in any way I can. In my free time, I love spending time with my family and creating new memories with them. Being open-minded is a big part of who I am, and I'm always excited to try new things and learn from new experiences. I am fortunate to get to work with such a great team here at STF Insurance and strive to provide the best service possible to our clients.`
-    },
-    {
-      id: 'lane',
-      name: 'Lane Byrne',
-      position: 'AGENT',
-      img: '/lane.webp',
-      description: `Hi there, I'm Lane Byrne and I'm proud to have been a part of this company since 2021. I was born and raised in Arcanum, my hometown, and I have a deep appreciation for the community and its people. In my free time, I enjoy watching my favorite sports teams, the Dayton Flyers and the Cincinnati Bengals. I also have a passion for coaching high school baseball for Arcanum, helping to develop young athletes and pass on my love for the game. When it's time to relax, I love to vacation in Florida, soaking up the sun and enjoying the beautiful scenery. I'm committed to working hard and contributing to the success of this company, and I'm grateful to be a part of such a great team.`
-    },
+    // {
+    //   id: 'victoria',
+    //   name: 'Victoria Bowman',
+    //   position: 'AGENT',
+    //   img: '/victoria.webp',
+    //   description: `Hi, I'm Victoria Bowman and I'm proud to say that I've been a part of the STF Insurance team since 2019. As the office manager, I take pride in keeping things organized and running smoothly. In addition to my work at STF, I also serve as the event coordinator for our non-profit organization, Give Thanks Foundation. I was born and raised in Greenville, and still call Darke County home today. I have a deep connection to my community and strive to make a positive impact in any way I can. In my free time, I love spending time with my family and creating new memories with them. Being open-minded is a big part of who I am, and I'm always excited to try new things and learn from new experiences. I am fortunate to get to work with such a great team here at STF Insurance and strive to provide the best service possible to our clients.`
+    // },
+    // {
+    //   id: 'lane',
+    //   name: 'Lane Byrne',
+    //   position: 'AGENT',
+    //   img: '/lane.webp',
+    //   description: `Hi there, I'm Lane Byrne and I'm proud to have been a part of this company since 2021. I was born and raised in Arcanum, my hometown, and I have a deep appreciation for the community and its people. In my free time, I enjoy watching my favorite sports teams, the Dayton Flyers and the Cincinnati Bengals. I also have a passion for coaching high school baseball for Arcanum, helping to develop young athletes and pass on my love for the game. When it's time to relax, I love to vacation in Florida, soaking up the sun and enjoying the beautiful scenery. I'm committed to working hard and contributing to the success of this company, and I'm grateful to be a part of such a great team.`
+    // },
     {
       id: 'emily',
       name: 'Emily Wagner',
@@ -78,6 +78,6 @@ export class TeamPageComponent {
   }
 
   scrollEmployeeIntoView(element: string): void {
-    document.getElementById(element).scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
+    document.getElementById(element).scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
   }
 }

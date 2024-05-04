@@ -18,13 +18,13 @@ export class AboutPageComponent implements AfterViewInit {
     'The company believes that buying or selling insurance policies is more than just about price, they look for value in serving clients\' needs and aim to find the most suitable product instead of fulfilling a company quota.'
   ]
   carriers = [
-    this.basePathCarriers + 'commonwealth.webp',
-    this.basePathCarriers + 'encova.webp',
-    this.basePathCarriers + 'grinnell.webp',
-    this.basePathCarriers + 'celina.webp',
-    this.basePathCarriers + 'progressive.webp',
-    this.basePathCarriers + 'safeco.webp',
-    this.basePathCarriers + 'auto-owners.webp',
+    this.basePathCarriers + 'commonwealth.png',
+    this.basePathCarriers + 'encova.png',
+    this.basePathCarriers + 'grinnell.png',
+    this.basePathCarriers + 'celina.png',
+    this.basePathCarriers + 'progressive.png',
+    this.basePathCarriers + 'safeco.png',
+    this.basePathCarriers + 'auto-owners.png',
   ];
 
   yearsOfService = 0;
@@ -53,11 +53,12 @@ export class AboutPageComponent implements AfterViewInit {
 
   runCustomerRatingCounter(): void {
     this.customerRatings = 0;
-    
-    let cusotmerRatingsInterval: any = setInterval(()=>{
+
+    let cusotmerRatingsInterval: any = setInterval(() => {
       this.customerRatings = Math.round((this.customerRatings + 0.1) * 10) / 10
-      
-      if(this.customerRatings == 4.5) {
+
+      if (this.customerRatings >= 4.5) {
+        this.customerRatings = 4.5;
         clearInterval(cusotmerRatingsInterval);
       }
       this.cd.detectChanges();
@@ -66,10 +67,11 @@ export class AboutPageComponent implements AfterViewInit {
 
   runFamiliesProtectedCounter(): void {
     this.familiesProtected = 0;
-  
-    let familiesProtectedInterval: any = setInterval(()=>{
+
+    let familiesProtectedInterval: any = setInterval(() => {
       this.familiesProtected = this.familiesProtected + 50;
-      if(this.familiesProtected == 3000) {
+      if (this.familiesProtected >= 3000) {
+        this.familiesProtected = 3000;
         clearInterval(familiesProtectedInterval);
       }
       this.cd.detectChanges();
@@ -78,10 +80,11 @@ export class AboutPageComponent implements AfterViewInit {
 
   runYearsOfServiceCounter(): void {
     this.yearsOfService = 0;
-    
-    let yearsOfServiceInterval: any = setInterval(()=>{
+
+    let yearsOfServiceInterval: any = setInterval(() => {
       this.yearsOfService++;
-      if(this.yearsOfService == 60) {
+      if (this.yearsOfService >= 60) {
+        this.yearsOfService = 60;
         clearInterval(yearsOfServiceInterval);
       }
       this.cd.detectChanges();

@@ -27,6 +27,7 @@
     "@nguniversal/express-engine": "^15.2.0",
     "aos": "^2.3.4",
     "express": "^4.15.2",
+    "gsap": "^3.12.5",
     "ngx-hide-on-scroll": "^0.2.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

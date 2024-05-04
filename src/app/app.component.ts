@@ -5,6 +5,8 @@ import { filter, map, mergeMap } from 'rxjs';
 import { routeAnimations } from 'src/animations';
 import { StfService } from './services/stf.service';
 import { environment } from 'src/environments/environment.development';
+import gsap from 'gsap';
+
 
 @Component({
   selector: 'app-root',
@@ -50,8 +52,8 @@ export class AppComponent implements OnInit, AfterViewInit {
         return route;
       }),
       filter((route) => route.outlet === 'primary'),
-      mergeMap((route) => route.data ),
-    ).subscribe(data => { 
+      mergeMap((route) => route.data),
+    ).subscribe(data => {
       this.loadSEO(data);
       this.stfService.pushRouteHistory(this.router.url);
     });

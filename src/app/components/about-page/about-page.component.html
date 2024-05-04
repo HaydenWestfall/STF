@@ -1,7 +1,7 @@
-
 <div class="section about-wrapper">
     <section class="about-header">
-        <img class="section-header" [src]="basePath + 'about.webp'"[@fade]="{value: ':enter', params: {fadeTime: '500ms 850'}}" />
+        <img class="section-header" [src]="basePath + 'about.webp'"
+            [@fade]="{value: ':enter', params: {fadeTime: '500ms 850'}}" />
         <stf-header>
             <h6>ABOUT</h6>
             <h1 data-aos="fade-up" data-aos-easing="ease-out" data-aos-duration="800">Get to know us.</h1>
@@ -14,7 +14,9 @@
             <h1 data-aos="fade-up" data-aos-duration="1000">Who is STF?</h1>
         </stf-header>
         <p data-aos="fade-up" data-aos-duration="1000" data-aos-ease="ease-in-out" data-aos-delay="250">
-            We are an independent insurance agency in Arcanum, Ohio. As an independent agency, we work for our clients to find the right coverage at competitive prices by leveraging their strong relationships with multiple markets and providers. We prioritize personal service and take the time to understand the needs of you.
+            We are an independent insurance agency in Arcanum, Ohio. As an independent agency, we work for our clients
+            to find the right coverage at competitive prices by leveraging their strong relationships with multiple
+            markets and providers. We prioritize personal service and take the time to understand the needs of you.
         </p>
         <div class="statistics">
             <div class="statistic" id="statistic1">
@@ -35,21 +37,24 @@
     <section class="strengths-section">
         <stf-header>
             <h6 class="sub-header" style="color: #5F718D">STRENGTHS</h6>
-            <h1 class="header" style="color: white" data-aos="fade-up" data-aos-duration="1000">Why STF is right for you.</h1>
+            <h1 class="header" style="color: white" data-aos="fade-up" data-aos-duration="1000">Why STF is right for
+                you.</h1>
         </stf-header>
-        <span class="description" data-aos="fade-up" data-aos-duration="1000" data-aos-ease="ease-in-out" data-aos-delay="250">
+        <span class="description" data-aos="fade-up" data-aos-duration="1000" data-aos-ease="ease-in-out"
+            data-aos-delay="250">
             Here are some of the reasons that we beleive STF is the right choice for you
         </span>
-            <div class="strengths-graphic">
-                <div class="strength-num" *ngFor="let strength of strengths; let index = index">
-                    {{index + 1}}
-                    <div class="strength-text align-right" [ngClass]="index % 2 === 0 ? 'align-right' : 'align-left'" data-aos="fade-up" data-aos-duration="1000">
-                        {{strength}}
-                        <div class="text-accent" [ngClass]="index % 2 === 0 ? 'pos-right' : 'pos-left'" ></div>
-                    </div>
+        <div class="strengths-graphic">
+            <div class="strength-num" *ngFor="let strength of strengths; let index = index">
+                {{index + 1}}
+                <div class="strength-text align-right" [ngClass]="index % 2 === 0 ? 'align-right' : 'align-left'"
+                    data-aos="fade-up" data-aos-duration="1000">
+                    {{strength}}
+                    <div class="text-accent" [ngClass]="index % 2 === 0 ? 'pos-right' : 'pos-left'"></div>
                 </div>
-                <div class="line"></div>
             </div>
+            <div class="line"></div>
+        </div>
     </section>
 
     <section class="carriers-section">
@@ -60,7 +65,7 @@
 
         <div class="carriers-wrapper">
             <div class="carrier" *ngFor="let carrier of carriers">
-                <img [src]="basePath + carrier" />
+                <img [src]="carrier" />
             </div>
             <div class="carrier">
                 <span class="more-text">and many more</span>
