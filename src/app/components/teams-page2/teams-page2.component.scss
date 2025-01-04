@@ -1,0 +1,74 @@
+.team-header {
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 30rem;
+  width: 100vw;
+  padding-top: 4.5rem;
+
+  span {
+    font-size: 1.2rem;
+  }
+}
+
+#dot-background {
+  z-index: 1;
+  width: 100vw;
+  height: fit-content;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.team-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 4rem 12rem 4rem;
+
+  .team-member-grid {
+    position: relative;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
+    gap: 2.5rem; /* Space between rows and columns */
+    padding: 2.5rem; /* Optional padding around the grid */
+
+    .team-member-card {
+      position: relative;
+      background-color: #c7d7de;
+      height: fit-content;
+      max-width: 16rem;
+
+      img {
+        width: 100%;
+      }
+
+      .team-member-info {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        width: calc(100% - 2rem);
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0.5rem;
+        background-color: #f8f8f8bf;
+        border-radius: 5px;
+        backdrop-filter: blur(10px);
+
+        #name {
+          font-weight: 600;
+          font-size: 1rem;
+        }
+
+        #position {
+          font-weight: 400;
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+}

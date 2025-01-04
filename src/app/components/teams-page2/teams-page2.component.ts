@@ -1,26 +1,21 @@
 import { Component } from '@angular/core';
-import { fade } from 'src/animations';
 import { Employee } from 'src/app/models/Employee';
-import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 
 @Component({
-  selector: 'app-team-page',
-  templateUrl: './team-page.component.html',
-  styleUrls: ['./team-page.component.scss'],
-  animations: [fade],
+  selector: 'app-teams-page2',
+  templateUrl: './teams-page2.component.html',
+  styleUrls: ['./teams-page2.component.scss'],
 })
-export class TeamPageComponent {
-  SvgIcon = SvgIcon;
+export class TeamsPage2Component {
   basePath = '../../../assets/img/meetTheTeam';
-  mediaQuery: MediaQueryList;
-  team: Employee[] = [
+  teamMembers: Employee[] = [
     {
       id: 'tracy',
       name: 'Tracy Fout',
       position: 'OWNER',
       img: '/tracy.webp',
       description: `Hi there, my name is Tracy Fout, and I am the owner of STF Insurance Group. I have been working in the insurance industry for over 10 years. I was born and raised in Arcanum, which is where I still live today. When I'm not working in the office, you can catch me in the field farming. On the rare occasion I have some free time, I enjoy spending it with my family while soaking up the sun in Florida.  
-      As the owner of STF Insurance Group, I am committed to providing the best possible service to my clients. I take great pride in helping people find the right insurance policies to meet their needs and protect the things that matter most to them. It's a job that I truly love, and I look forward to continuing to serve my community for many years to come.`,
+        As the owner of STF Insurance Group, I am committed to providing the best possible service to my clients. I take great pride in helping people find the right insurance policies to meet their needs and protect the things that matter most to them. It's a job that I truly love, and I look forward to continuing to serve my community for many years to come.`,
     },
     {
       id: 'emily',
@@ -73,16 +68,4 @@ export class TeamPageComponent {
     //   description: `Hello, I'm Heather Macy, and I joined the STF team in November of 2023. Arcanum is my hometown, and I'm proud to have graduated from both Arcanum High School and Miami University. Previously, I worked in a non-profit leadership role, but I decided to shift my focus to my family, which led me to STF. I live in Arcanum with my husband and our four children. In my free time, I enjoy working out, gardening, and most of all, spending quality time with my family. I'm excited to be part of the STF team and look forward to contributing to our success.`,
     // },
   ];
-
-  constructor() {
-    this.mediaQuery = window.matchMedia('(max-width: 768px)');
-  }
-
-  scrollEmployeeIntoView(element: string): void {
-    document.getElementById(element).scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
-      inline: 'center',
-    });
-  }
 }

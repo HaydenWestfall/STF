@@ -1,38 +1,63 @@
-
 <div class="section coverage-wrapper">
-    <section class="coverage-header">
-        <img [@fade]="{value: ':enter', params: {fadeTime: '500ms 850'}}" [src]="basePath + '/team_photo' + (mediaQuery.matches ? '.webp' : '_tall.webp')" />
-        <div class="gradient-overlay"></div>
-        <stf-header class="overlay-header">
-            <h6 [ngStyle]="{'color': mediaQuery.matches ? 'var(--secondary-text-color)' : 'white'}">TEAM</h6>
-            <h1 [ngStyle]="{'color': mediaQuery.matches ? 'var(--primary-text-color)' : 'white'}" data-aos="fade-up" data-aos-duration="1000">Meet the Team.</h1>
-        </stf-header>
-    </section>
+  <section class="coverage-header">
+    <img
+      [@fade]="{ value: ':enter', params: { fadeTime: '500ms 850' } }"
+      [src]="
+        basePath + '/team_photo' + (mediaQuery.matches ? '.webp' : '_tall.webp')
+      "
+    />
+    <div class="gradient-overlay"></div>
+    <stf-header class="overlay-header">
+      <h6
+        [ngStyle]="{
+          color: mediaQuery.matches ? 'var(--secondary-text-color)' : 'white'
+        }"
+      >
+        TEAM
+      </h6>
+      <h1
+        [ngStyle]="{
+          color: mediaQuery.matches ? 'var(--primary-text-color)' : 'white'
+        }"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        Meet the Team.
+      </h1>
+    </stf-header>
+  </section>
 
-    <section class="team-wrapper">
-        <div class="team-member" *ngFor="let employee of team" [attr.id]="employee.id">
-            <div class="employee-photo">
-                <div class="photo-wrapper">
-                    <img [src]="basePath + employee.img" class="person-fg">
-                </div>
-            </div>
-            <div class="employee-description">
-                <div class="employee-title">
-                    <div>{{employee.name}}</div>
-                    <div class="employee-sub-header">{{employee.position}}</div>
-                </div>
-                <span class="employee-description">{{employee.description}}</span>
-            </div>
+  <section class="team-wrapper">
+    <div
+      class="team-member"
+      *ngFor="let employee of team"
+      [attr.id]="employee.id"
+    >
+      <div class="employee-photo">
+        <div class="photo-wrapper">
+          <img [src]="basePath + employee.img" class="person-fg" />
         </div>
-    </section>
+      </div>
+      <div class="employee-description">
+        <div class="employee-title">
+          <div>{{ employee.name }}</div>
+          <div class="employee-sub-header">{{ employee.position }}</div>
+        </div>
+        <span class="employee-description">{{ employee.description }}</span>
+      </div>
+    </div>
+  </section>
 
-    <section class="employee-list">
-        <div class="thumbnail-wrapper" *ngFor="let employee of team">
-            <div class="thumbnail-image" (click)="scrollEmployeeIntoView(employee.id)">
-                <img [src]="basePath + employee.img" class="person-fg">
-            </div>
-            <span>{{employee.name}}</span>
-        </div>
-    </section>
+  <section class="employee-list">
+    <div class="thumbnail-wrapper" *ngFor="let employee of team">
+      <div
+        class="thumbnail-image"
+        (click)="scrollEmployeeIntoView(employee.id)"
+      >
+        <img [src]="basePath + employee.img" class="person-fg" />
+      </div>
+      <span>{{ employee.name }}</span>
+    </div>
+  </section>
 </div>
 <app-banner bannerType="contactUs"></app-banner>

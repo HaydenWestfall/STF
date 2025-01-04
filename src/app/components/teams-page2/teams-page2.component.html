@@ -1,0 +1,33 @@
+<img id="dot-background" src="../../../assets/stf-dot-bg.jpg" />
+<div class="section team-header">
+  <stf-header>
+    <h6>OUR TEAM</h6>
+    <h1
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      style="
+        font-size: clamp(2.5rem, 3vw, 4rem);
+        line-height: clamp(2.9rem, 3.6vw, 4.7rem);
+      "
+    >
+      We bring a wealth of skills and experience<br />
+      from a wide range of backgrounds
+    </h1>
+  </stf-header>
+  <span data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+    Our goal is simple; hire great people and give them<br />
+    the resources and support to do their best work</span
+  >
+</div>
+
+<div class="team-wrapper">
+  <div class="team-member-grid">
+    <div class="team-member-card" *ngFor="let teamMember of teamMembers">
+      <img [src]="basePath + teamMember.img" />
+      <div class="team-member-info">
+        <span id="name">{{ teamMember.name }}</span>
+        <span id="position">{{ teamMember.position }}</span>
+      </div>
+    </div>
+  </div>
+</div>
