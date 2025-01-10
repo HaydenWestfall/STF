@@ -1,31 +1,124 @@
-
 <section class="section hero">
-    <div class="text">
-        <span class="hero-subHeader" data-aos="fade" data-aos-easing="ease-in-out" data-aos-duration="800">MEET STF</span>
-        <div class="hero-header">
-            <div class="hero-header-line" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="800" data-aos-delay="200">The Easiest Way To</div>
-            <div class="hero-header-line" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="800" data-aos-delay="300">
-                <span>Buy </span>
-                <span style="color: var(--primary-color)">Low Cost</span>
-                <svg viewBox="0 0 535 142">
-                    <path id="text-accent" d="M86.3915 28.456C145.892 15.456 310.191 -2.74398 465.391 28.456C620.591 59.656 464.629 115.374 366 129C290 139.5 182.5 144 68.5002 122C-37.4588 101.552 11 49.5 48 24.5C91.5 -4.89188 141.609 -2.49986 259 28.4561"/>
-                </svg>
-            </div>
-            <div class="hero-header-line" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="800" data-aos-delay="400">Insurance</div>
-        </div>
-        <div class="contact-wrapper" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="800" data-aos-delay="500">
-            <div class="contact-info" *ngFor="let info of contactInfo; let i = index">
-                <span>{{info.label}}</span>
-                <a [href]="info.type + ':' + info.value">{{info.value}}</a>
-                <div class="divider" *ngIf="i !== contactInfo.length - 1"></div>
-            </div>
-        </div>
-        <div class="button-group" data-aos="fade" data-aos-easing="ease-in-out" data-aos-duration="800" data-aos-delay="1600">
-            <a class="stf-button stf-button-primary" routerLink="/quoteRedirect">Get Quote</a>
-            <a class="stf-button stf-button-secondary-light-bg" routerLink="/about">Learn More</a>
-        </div>
+  <div class="text">
+    <span
+      class="hero-subHeader"
+      data-aos="fade"
+      data-aos-easing="ease-in-out"
+      data-aos-duration="800"
+      >MEET STF</span
+    >
+    <div class="hero-header">
+      <div
+        class="hero-header-line"
+        data-aos="fade-up"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="800"
+        data-aos-delay="200"
+      >
+        The Easiest Way To Buy
+      </div>
+      <div
+        class="hero-header-line"
+        data-aos="fade-up"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="800"
+        data-aos-delay="300"
+      >
+        <span style="color: var(--primary-color)">Low Cost</span>
+        <svg viewBox="0 0 535 142">
+          <path
+            id="text-accent"
+            d="M86.3915 28.456C145.892 15.456 310.191 -2.74398 465.391 28.456C620.591 59.656 464.629 115.374 366 129C290 139.5 182.5 144 68.5002 122C-37.4588 101.552 11 49.5 48 24.5C91.5 -4.89188 141.609 -2.49986 259 28.4561"
+          />
+        </svg>
+        <span> Insurance</span>
+      </div>
     </div>
-    <div class="image" data-aos="fade" data-aos-easing="ease-in-out" data-aos-duration="1200" data-aos-delay="250">
-        <img [src]="'../../../../assets/img/hero_image' + (mediaQuery.matches ? '_mobile.webp' : '.webp')" alt="STF Team Photo"/>
+    <div
+      class="contact-wrapper"
+      data-aos="fade-up"
+      data-aos-easing="ease-in-out"
+      data-aos-duration="800"
+      data-aos-delay="400"
+    >
+      <ng-container *ngFor="let info of contactInfo; let i = index">
+        <div class="contact-info">
+          <span>{{ info.label }}</span>
+          <a [href]="info.type + ':' + info.value">{{ info.value }}</a>
+        </div>
+        <div class="divider" *ngIf="i !== contactInfo.length - 1"></div>
+      </ng-container>
     </div>
+    <div
+      class="button-group"
+      data-aos="fade"
+      data-aos-easing="ease-in-out"
+      data-aos-duration="800"
+      data-aos-delay="1600"
+    >
+      <a class="stf-button stf-button-primary" routerLink="/quoteRedirect"
+        >Get Quote</a
+      >
+      <a class="stf-button stf-button-secondary-light-bg" routerLink="/about"
+        >Learn More</a
+      >
+    </div>
+  </div>
+
+  <div class="location-images-wrapper">
+    <div class="location-images">
+      <div></div>
+      <div></div>
+      <div class="location-grid-wrapper">
+        <img
+          class="location"
+          src="../../../../assets/img/locations/arcanum.webp"
+          alt="Arcanum Office"
+        />
+      </div>
+    </div>
+    <div class="location-images">
+      <div></div>
+      <div class="location-grid-wrapper">
+        <img
+          class="location"
+          src="../../../../assets/img/locations/arcanum.webp"
+          alt="Arcanum Office"
+        />
+      </div>
+      <div class="location-grid-wrapper">
+        <img
+          class="location"
+          src="../../../../assets/img/locations/vandalia.webp"
+          alt="Arcanum Office"
+        />
+      </div>
+    </div>
+    <div class="location-images">
+      <div class="location-grid-wrapper">
+        <img
+          class="location"
+          src="../../../../assets/img/locations/stf.png"
+          alt="Arcanum Office"
+        />
+      </div>
+      <div class="location-grid-wrapper">
+        <img
+          class="location"
+          src="../../../../assets/img/locations/debrozi.png"
+          alt="Arcanum Office"
+        />
+      </div>
+      <div class="location-grid-wrapper">
+        <img
+          class="location"
+          src="../../../../assets/img/locations/js.png"
+          alt="Arcanum Office"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="background"></div>
+  <div class="gradient"></div>
 </section>

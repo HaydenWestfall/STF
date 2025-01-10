@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment.development';
 @Component({
   selector: 'app-hero-section',
   templateUrl: './hero-section.component.html',
-  styleUrls: ['./hero-section.component.scss']
+  styleUrls: ['./hero-section.component.scss'],
 })
 export class HeroSectionComponent implements OnInit {
   SvgIcon = SvgIcon;
@@ -13,10 +13,10 @@ export class HeroSectionComponent implements OnInit {
   mediaQuery: MediaQueryList;
 
   contactInfo = [
-    {label: 'Arcanum', type: 'tel', value: this.env.arcanumPhoneNumber},
-    {label: 'Vandalia', type: 'tel', value: this.env.vandaliaPhoneNumber},
-    {label: 'Email', type: 'mailto', value: this.env.contactEmail},
-  ]
+    { label: 'Arcanum', type: 'tel', value: this.env.arcanumPhoneNumber },
+    { label: 'Vandalia', type: 'tel', value: this.env.vandaliaPhoneNumber },
+    { label: 'Debrozi', type: 'tel', value: this.env.vandaliaPhoneNumber },
+  ];
 
   test = ['The Easiest Way To', 'Buy Low Cost', 'Insurance'];
 
@@ -30,7 +30,7 @@ export class HeroSectionComponent implements OnInit {
       let pathLength = path.getTotalLength();
       path.style.strokeDasharray = pathLength;
       path.style.strokeDashoffset = pathLength;
-  
+
       setTimeout(() => {
         path.classList.add('anim');
         let pathLength = path.getTotalLength();
