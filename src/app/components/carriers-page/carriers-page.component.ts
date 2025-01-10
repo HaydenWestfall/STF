@@ -5,10 +5,11 @@ import { StfService } from 'src/app/services/stf.service';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 
 @Component({
-  selector: 'app-carriers-page',
-  templateUrl: './carriers-page.component.html',
-  styleUrls: ['./carriers-page.component.scss'],
-  animations: [fade, itemAnim]
+    selector: 'app-carriers-page',
+    templateUrl: './carriers-page.component.html',
+    styleUrls: ['./carriers-page.component.scss'],
+    animations: [fade, itemAnim],
+    standalone: false
 })
 export class CarriersPageComponent {
   SvgIcon = SvgIcon;

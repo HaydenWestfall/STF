@@ -4,10 +4,11 @@ import { Employee } from 'src/app/models/Employee';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 
 @Component({
-  selector: 'app-team-page',
-  templateUrl: './team-page.component.html',
-  styleUrls: ['./team-page.component.scss'],
-  animations: [fade],
+    selector: 'app-team-page',
+    templateUrl: './team-page.component.html',
+    styleUrls: ['./team-page.component.scss'],
+    animations: [fade],
+    standalone: false
 })
 export class TeamPageComponent {
   SvgIcon = SvgIcon;

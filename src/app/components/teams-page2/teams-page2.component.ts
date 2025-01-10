@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { Employee } from 'src/app/models/Employee';
 
 @Component({
-  selector: 'app-teams-page2',
-  templateUrl: './teams-page2.component.html',
-  styleUrls: ['./teams-page2.component.scss'],
+    selector: 'app-teams-page2',
+    templateUrl: './teams-page2.component.html',
+    styleUrls: ['./teams-page2.component.scss'],
+    standalone: false
 })
 export class TeamsPage2Component {
   basePath = '../../../assets/img/meetTheTeam';

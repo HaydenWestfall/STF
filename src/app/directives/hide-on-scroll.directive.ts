@@ -17,7 +17,8 @@ import { isPlatformServer } from '@angular/common';
  * The `hideOnScroll` directive allows you to hide an html element (e.g. navbar) on scroll down and show it again on scroll up.
  */
 @Directive({
-  selector: '[hideOnScroll]'
+    selector: '[hideOnScroll]',
+    standalone: false
 })
 export class HideOnScrollDirective implements AfterViewInit, OnDestroy {
 

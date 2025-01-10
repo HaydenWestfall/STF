@@ -4,10 +4,11 @@ import { FAQ } from 'src/app/models/FAQ';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 
 @Component({
-  selector: 'app-faq-page',
-  templateUrl: './faq-page.component.html',
-  styleUrls: ['./faq-page.component.scss'],
-  animations: [growHeight]
+    selector: 'app-faq-page',
+    templateUrl: './faq-page.component.html',
+    styleUrls: ['./faq-page.component.scss'],
+    animations: [growHeight],
+    standalone: false
 })
 export class FaqPageComponent {
   SvgIcon = SvgIcon;

@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 
 @Component({
-  selector: 'app-banner',
-  templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.scss']
+    selector: 'app-banner',
+    templateUrl: './banner.component.html',
+    styleUrls: ['./banner.component.scss'],
+    standalone: false
 })
 export class BannerComponent implements OnInit {
 

@@ -4,9 +4,10 @@ import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 import { environment } from 'src/environments/environment.development';
 
 @Component({
-  selector: 'app-coverages-section',
-  templateUrl: './coverages-section.component.html',
-  styleUrls: ['./coverages-section.component.scss']
+    selector: 'app-coverages-section',
+    templateUrl: './coverages-section.component.html',
+    styleUrls: ['./coverages-section.component.scss'],
+    standalone: false
 })
 export class CoveragesSectionComponent {
   SvgIcon = SvgIcon;

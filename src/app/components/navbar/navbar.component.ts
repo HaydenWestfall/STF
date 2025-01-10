@@ -8,10 +8,11 @@ import { environment } from 'src/environments/environment.development';
 import { panelSlideIn } from './navbar.animation';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
-  animations: [panelSlideIn, fade, growHeight, fadeInPlace]
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.scss'],
+    animations: [panelSlideIn, fade, growHeight, fadeInPlace],
+    standalone: false
 })
 export class NavbarComponent implements OnInit {
   SvgIcon = SvgIcon;

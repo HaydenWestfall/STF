@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-carriers-section',
-  templateUrl: './carriers-section.component.html',
-  styleUrls: ['./carriers-section.component.scss']
+    selector: 'app-carriers-section',
+    templateUrl: './carriers-section.component.html',
+    styleUrls: ['./carriers-section.component.scss'],
+    standalone: false
 })
 export class CarriersSectionComponent {
 

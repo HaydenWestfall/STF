@@ -17,10 +17,11 @@ import gsap from 'gsap';
 import Lenis from 'lenis';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  animations: [routeAnimations],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    animations: [routeAnimations],
+    standalone: false
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'stf';

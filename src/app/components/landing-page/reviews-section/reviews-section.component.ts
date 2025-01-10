@@ -4,9 +4,10 @@ import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 import { environment } from 'src/environments/environment.development';
 
 @Component({
-  selector: 'app-reviews-section',
-  templateUrl: './reviews-section.component.html',
-  styleUrls: ['./reviews-section.component.scss']
+    selector: 'app-reviews-section',
+    templateUrl: './reviews-section.component.html',
+    styleUrls: ['./reviews-section.component.scss'],
+    standalone: false
 })
 export class ReviewsSectionComponent implements AfterViewInit {
   SvgIcon = SvgIcon;

@@ -3,9 +3,10 @@ import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 import { environment } from 'src/environments/environment.development';
 
 @Component({
-  selector: 'app-hero-section',
-  templateUrl: './hero-section.component.html',
-  styleUrls: ['./hero-section.component.scss'],
+    selector: 'app-hero-section',
+    templateUrl: './hero-section.component.html',
+    styleUrls: ['./hero-section.component.scss'],
+    standalone: false
 })
 export class HeroSectionComponent implements OnInit {
   SvgIcon = SvgIcon;

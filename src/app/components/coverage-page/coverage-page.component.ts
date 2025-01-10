@@ -5,10 +5,11 @@ import { Coverage } from 'src/app/models/Coverage';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 
 @Component({
-  selector: 'app-coverage-page',
-  templateUrl: './coverage-page.component.html',
-  styleUrls: ['./coverage-page.component.scss'],
-  animations: [fade]
+    selector: 'app-coverage-page',
+    templateUrl: './coverage-page.component.html',
+    styleUrls: ['./coverage-page.component.scss'],
+    animations: [fade],
+    standalone: false
 })
 export class CoveragePageComponent {
   SvgIcon = SvgIcon;

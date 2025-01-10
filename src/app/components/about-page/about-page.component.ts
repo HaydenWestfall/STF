@@ -2,10 +2,11 @@ import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
 import { fade } from 'src/animations';
 
 @Component({
-  selector: 'app-about-page',
-  templateUrl: './about-page.component.html',
-  styleUrls: ['./about-page.component.scss'],
-  animations: [fade]
+    selector: 'app-about-page',
+    templateUrl: './about-page.component.html',
+    styleUrls: ['./about-page.component.scss'],
+    animations: [fade],
+    standalone: false
 })
 export class AboutPageComponent implements AfterViewInit {
   basePath = '../../../assets/img/about/';

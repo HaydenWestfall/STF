@@ -3,10 +3,11 @@ import { fade } from 'src/animations';
 import { Location } from 'src/app/models/Location';
 
 @Component({
-  selector: 'app-locations-page',
-  templateUrl: './locations-page.component.html',
-  styleUrls: ['./locations-page.component.scss'],
-  animations: [fade]
+    selector: 'app-locations-page',
+    templateUrl: './locations-page.component.html',
+    styleUrls: ['./locations-page.component.scss'],
+    animations: [fade],
+    standalone: false
 })
 export class LocationsPageComponent {
   basePath = '../../../assets/img/locations/';
