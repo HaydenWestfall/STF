@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,7 +17,6 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { CoveragesSectionComponent } from './components/landing-page/coverages-section/coverages-section.component';
 import { FaqPageComponent } from './components/faq-page/faq-page.component';
 import { CoveragePageComponent } from './components/coverage-page/coverage-page.component';
-import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 import { CarriersPageComponent } from './components/carriers-page/carriers-page.component';
 import { FormsModule } from '@angular/forms';
 import { LocationsPageComponent } from './components/locations-page/locations-page.component';
@@ -53,16 +51,10 @@ import { TeamsPage2Component } from './components/teams-page2/teams-page2.compon
     BannerComponent,
     HideOnScrollDirective,
     QuoteRedirectComponent,
-    TeamsPage2Component
+    TeamsPage2Component,
   ],
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    NgxHideOnScrollModule,
-    FormsModule
-  ],
+  imports: [AppRoutingModule, BrowserAnimationsModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
