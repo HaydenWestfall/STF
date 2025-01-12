@@ -5,23 +5,23 @@ import {
   NavigationEnd,
   NavigationStart,
   Router,
-  RouterEvent,
-  RouterOutlet,
 } from '@angular/router';
 import * as AOS from 'aos';
 import { filter, map, mergeMap } from 'rxjs';
 import { routeAnimations } from 'src/animations';
 import { StfService } from './services/stf.service';
 import { environment } from 'src/environments/environment.development';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
+import { CustomEase } from 'gsap/CustomEase';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    animations: [routeAnimations],
-    standalone: false
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  animations: [routeAnimations],
+  standalone: false,
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'stf';
@@ -67,6 +67,11 @@ export class AppComponent implements OnInit, AfterViewInit {
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
+
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(CustomEase);
+    CustomEase.create('myCustomEase', 'M0,0 C0.87,0 0.13,1 1,1');
+    CustomEase.create('myCustomEaseOut', 'M0,0 C0.13,0 0.87,1 1,1');
 
     this.router.events
       .pipe(

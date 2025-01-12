@@ -1,23 +1,31 @@
-import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  inject,
+} from '@angular/core';
 import { fade } from 'src/animations';
+import { StfService } from 'src/app/services/stf.service';
 
 @Component({
-    selector: 'app-about-page',
-    templateUrl: './about-page.component.html',
-    styleUrls: ['./about-page.component.scss'],
-    animations: [fade],
-    standalone: false
+  selector: 'app-about-page',
+  templateUrl: './about-page.component.html',
+  styleUrls: ['./about-page.component.scss'],
+  animations: [fade],
+  standalone: false,
 })
 export class AboutPageComponent implements AfterViewInit {
+  stfService = inject(StfService);
+
   basePath = '../../../assets/img/about/';
   basePathCarriers = '../../../assets/img/carrier-about/';
-  strengths: any = [
+  strengths: any[] = [
     'We do not work for any single insurance company - we work for YOU. We analyze your special needs and circumstance and find the very best coverage for your situation.',
-    'We keep ourselves abreast of what\'s new in the industry because we work with so many different companies. We keep on top of things for you and make sure your coverages are up-to-date, providing you with the best your money can buy.',
+    "We keep ourselves abreast of what's new in the industry because we work with so many different companies. We keep on top of things for you and make sure your coverages are up-to-date, providing you with the best your money can buy.",
     'We can provide you with prompt and fair claims assistance because of our special relationships with the array of companies we represent. We make sure they give you the most responsive and fast service available.',
     'We continually educate ourselves to remain competitive in the industry. This way, you can count on us for well-informed insurance advice and counsel.',
-    'The company believes that buying or selling insurance policies is more than just about price, they look for value in serving clients\' needs and aim to find the most suitable product instead of fulfilling a company quota.'
-  ]
+    "The company believes that buying or selling insurance policies is more than just about price, they look for value in serving clients' needs and aim to find the most suitable product instead of fulfilling a company quota.",
+  ];
   carriers = [
     this.basePathCarriers + 'commonwealth.png',
     this.basePathCarriers + 'encova.png',
@@ -44,19 +52,27 @@ export class AboutPageComponent implements AfterViewInit {
     });
   });
 
-  constructor(public cd: ChangeDetectorRef) { }
+  constructor(public cd: ChangeDetectorRef) {}
 
   ngAfterViewInit() {
     this.observer.observe(document.getElementById('statistic1'));
     this.observer.observe(document.getElementById('statistic2'));
     this.observer.observe(document.getElementById('statistic3'));
+
+    this.stfService.animateBackground('#about-header-bg');
+    this.stfService.animateText('#about-header');
+    this.stfService.animateText('#about-subHeader');
+    this.stfService.animateText('#about-description');
+    this.stfService.animateText('#strength-header');
+    this.stfService.animateText('#strength-description');
+    this.stfService.animateText('#carrier-header');
   }
 
   runCustomerRatingCounter(): void {
     this.customerRatings = 0;
 
     let cusotmerRatingsInterval: any = setInterval(() => {
-      this.customerRatings = Math.round((this.customerRatings + 0.1) * 10) / 10
+      this.customerRatings = Math.round((this.customerRatings + 0.1) * 10) / 10;
 
       if (this.customerRatings >= 4.5) {
         this.customerRatings = 4.5;

@@ -31,20 +31,20 @@
 
       .hero-header-line {
         position: relative;
-        line-height: 6vw;
+        line-height: 5.75vw;
         white-space: nowrap;
       }
 
       svg {
         position: absolute;
-        bottom: -0.5vw;
-        left: -2.25vw;
-        height: 8vw;
+        bottom: 0vw;
+        left: -1.45vw;
+        height: 6vw;
 
         path {
           stroke-dasharray: 0;
           stroke-dashoffset: 0;
-          stroke-width: 7;
+          stroke-width: 8;
           stroke: var(--primary-color);
           stroke-linecap: round;
           fill: none;

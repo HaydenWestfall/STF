@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, inject } from '@angular/core';
 import { Employee } from 'src/app/models/Employee';
+import { StfService } from 'src/app/services/stf.service';
 
 @Component({
-    selector: 'app-teams-page2',
-    templateUrl: './teams-page2.component.html',
-    styleUrls: ['./teams-page2.component.scss'],
-    standalone: false
+  selector: 'app-teams-page2',
+  templateUrl: './teams-page2.component.html',
+  styleUrls: ['./teams-page2.component.scss'],
+  standalone: false,
 })
-export class TeamsPage2Component {
+export class TeamsPage2Component implements AfterViewInit {
+  stfService = inject(StfService);
   basePath = '../../../assets/img/meetTheTeam';
   teamMembers: Employee[] = [
     {
@@ -69,4 +71,10 @@ export class TeamsPage2Component {
     //   description: `Hello, I'm Heather Macy, and I joined the STF team in November of 2023. Arcanum is my hometown, and I'm proud to have graduated from both Arcanum High School and Miami University. Previously, I worked in a non-profit leadership role, but I decided to shift my focus to my family, which led me to STF. I live in Arcanum with my husband and our four children. In my free time, I enjoy working out, gardening, and most of all, spending quality time with my family. I'm excited to be part of the STF team and look forward to contributing to our success.`,
     // },
   ];
+
+  ngAfterViewInit(): void {
+    this.stfService.animateText('#team-header', 0);
+    this.stfService.animateText('#team-description', 0.5);
+    this.stfService.animateText('#team', 1);
+  }
 }

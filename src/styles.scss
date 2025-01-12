@@ -59,10 +59,6 @@ html body {
   font-weight: 400;
 }
 
-[data-aos="fade-up"] {
-  transform: translate3d(0, 50px, 0);
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -205,14 +201,4 @@ p {
   .stf-button {
     padding: 1.5rem 0;
   }
-}
-
-body[data-aos-delay="75"] [data-aos],
-[data-aos][data-aos][data-aos-delay="75"] {
-  transition-delay: 75ms;
-}
-
-body[data-aos-delay="225"] [data-aos],
-[data-aos][data-aos][data-aos-delay="225"] {
-  transition-delay: 225ms;
 }

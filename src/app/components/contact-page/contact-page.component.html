@@ -1,52 +1,96 @@
-
 <div class="contact-wrapper">
-    <stf-header>
-        <h6>CONTACT</h6>
-        <h1 data-aos="fade-up" data-aos-duration="1000">We'd love to hear from you.</h1>
-    </stf-header>
+  <stf-header>
+    <h6>CONTACT</h6>
+    <h1 id="contact-header">We'd love to hear from you.</h1>
+  </stf-header>
 
-    <p class="sub-text" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">How can we help?</p>
-    <svg-icon [name]="SvgIcon.ANGLE" [width]="1" style="transform: rotate(270deg); color: var(--primary-color)"
-    class="sub-text" data-aos="fade" data-aos-duration="1500" data-aos-delay="1250"></svg-icon>
+  <p class="sub-text" id="contact-description">How can we help?</p>
+  <svg
+    class="scroll-indicator"
+    id="scroll-indicator"
+    width="30"
+    height="17"
+    viewBox="0 0 30 17"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M29.1582 0.7549C28.625 0.271391 27.9037 0 27.1519 0C26.4 0 25.6787 0.271391 25.1455 0.7549L14.9289 9.94478L4.85448 0.7549C4.32127 0.271391 3.59998 0 2.84814 0C2.0963 0 1.37501 0.271391 0.841803 0.7549C0.575064 0.996233 0.363347 1.28335 0.218866 1.5997C0.0743853 1.91605 0 2.25536 0 2.59807C0 2.94077 0.0743853 3.28009 0.218866 3.59643C0.363347 3.91278 0.575064 4.1999 0.841803 4.44124L12.9083 15.4483C13.1728 15.6916 13.4876 15.8848 13.8344 16.0166C14.1812 16.1484 14.5532 16.2162 14.9289 16.2162C15.3045 16.2162 15.6765 16.1484 16.0233 16.0166C16.3701 15.8848 16.6849 15.6916 16.9494 15.4483L29.1582 4.44124C29.4249 4.1999 29.6366 3.91278 29.7811 3.59643C29.9256 3.28009 30 2.94077 30 2.59807C30 2.25536 29.9256 1.91605 29.7811 1.5997C29.6366 1.28335 29.4249 0.996233 29.1582 0.7549Z"
+      fill="#EF6C23"
+    />
+  </svg>
 
-
-    <section class="contact-cards" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-        <div class="contact-card">
-            <div class="text-wrapper">
-                <h2>General question?</h2><br/>
-                <span>Check out our FAQ page</span>
-            </div>
-            <a class="stf-button stf-button-primary" routerLink="/faq">View FAQ</a>
+  <section class="contact-cards" id="contact-body">
+    <div class="contact-card">
+      <div class="text-wrapper">
+        <h2>General question?</h2>
+        <br />
+        <span>Check out our FAQ page</span>
+      </div>
+      <a class="stf-button stf-button-primary" routerLink="/faq">View FAQ</a>
+    </div>
+    <div class="contact-branch">
+      <div class="contact-card branch-card" *ngFor="let branch of branches">
+        <div
+          class="branch-card-inner"
+          [ngStyle]="{
+            transform: branch.cardFlipped ? 'rotateY(180deg)' : 'rotateY(0)'
+          }"
+        >
+          <div class="branch-card-front">
+            <h4>Contact the {{ branch.branchName }} branch</h4>
+            <button
+              class="stf-button stf-button-secondary-light-bg"
+              (click)="branch.cardFlipped = true"
+            >
+              Get in touch
+            </button>
+          </div>
+          <div class="branch-card-back">
+            <h4 style="text-decoration: underline">{{ branch.branchName }}</h4>
+            <table class="info-wrapper">
+              <tr *ngFor="let contact of branch.contactMethods">
+                <th>
+                  <h4>{{ contact.label }}</h4>
+                </th>
+                <th>
+                  <a [href]="'tel:' + contact.value">{{ contact.value }}</a>
+                </th>
+              </tr>
+            </table>
+            <a
+              class="stf-button stf-button-secondary"
+              style="margin-top: 2rem"
+              [href]="'mailto:' + contactEmail"
+              >Email us</a
+            >
+            <button class="back-btn" (click)="branch.cardFlipped = false">
+              <svg-icon
+                [name]="SvgIcon.ARROW"
+                [height]="1"
+                [width]="1"
+              ></svg-icon>
+            </button>
+          </div>
         </div>
-        <div class="contact-branch">
-            <div class="contact-card branch-card" *ngFor="let branch of branches">
-                <div class="branch-card-inner" [ngStyle]="{'transform': branch.cardFlipped ? 'rotateY(180deg)' : 'rotateY(0)'}">
-                    <div class="branch-card-front">
-                        <h4>Contact the {{branch.branchName}} branch</h4>
-                        <button class="stf-button stf-button-secondary-light-bg" (click)="branch.cardFlipped= true">Get in touch</button>
-                    </div>
-                    <div class="branch-card-back">
-                        <h4 style="text-decoration: underline;">{{branch.branchName}}</h4>
-                        <table class="info-wrapper">
-                            <tr *ngFor="let contact of branch.contactMethods">
-                                <th><h4>{{contact.label}}</h4></th>
-                                <th><a [href]="'tel:' + contact.value">{{contact.value}}</a></th>
-                            </tr>
-                        </table>
-                        <a class="stf-button stf-button-secondary" style="margin-top: 2rem" [href]="'mailto:' + contactEmail">Email us</a>
-                        <button class="back-btn" (click)="branch.cardFlipped = false">
-                            <svg-icon [name]="SvgIcon.ARROW" [height]="1" [width]="1"></svg-icon>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="contact-card">
-            <div class="text-wrapper">
-                <h2>Still have questions?</h2><br/>
-                <span stlye="font-weight: 600">Get in touch with our team and we will assist you as soon as posisble</span>
-            </div>
-            <a h class="stf-button stf-button-primary" [href]="'mailto:' + contactEmail" target="_blank">Email Us</a>
-        </div>
-    </section>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="text-wrapper">
+        <h2>Still have questions?</h2>
+        <br />
+        <span stlye="font-weight: 600"
+          >Get in touch with our team and we will assist you as soon as
+          posisble</span
+        >
+      </div>
+      <a
+        h
+        class="stf-button stf-button-primary"
+        [href]="'mailto:' + contactEmail"
+        target="_blank"
+        >Email Us</a
+      >
+    </div>
+  </section>
 </div>

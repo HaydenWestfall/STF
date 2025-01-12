@@ -1,30 +1,44 @@
-
 <div class="faq-wrapper">
+  <section class="faq-title">
+    <stf-header>
+      <h6 class="sub-header" style="color: #deeaff80">FAQ</h6>
+      <h1 class="header" style="color: white" id="faq-header">Questions?</h1>
+    </stf-header>
 
-    <section class="faq-title">
-        <stf-header>
-            <h6 class="sub-header" style="color: #deeaff80">FAQ</h6>
-            <h1 class="header" style="color: white" data-aos="fade-up" data-aos-duration="1000">Questions?</h1>
-        </stf-header>
-    
-        <p class="sub-text" data-aos="fade" data-aos-easing="ease-out" data-aos-duration="800" data-aos-delay="600">Scroll down to see some of our most frequently asked questions.</p>
-    </section>
+    <p class="sub-text" id="faq-description">
+      Scroll down to see some of our most frequently asked questions.
+    </p>
+  </section>
 
-    <section class="questions">
-        <div class="faq" *ngFor="let question of faqs" (click)="question.expanded = !question.expanded">
-            <div class="question">
-                <h3 style="height: 3rem">{{question.question}}</h3>
-                <div class="icon" [ngClass]="question.expanded ? 'icon-open' : 'icon-close'">
-                    <svg-icon *ngIf="!question.expanded" [name]="SvgIcon.PLUS" [width]="0.6"></svg-icon>
-                    <svg-icon *ngIf="question.expanded" [name]="SvgIcon.TIMES" [width]="0.6"></svg-icon>
-                </div>
-            </div>
-            <div class="answer" *ngIf="question.expanded" @growHeight>
-                {{question.answer}}
-            </div>
+  <section class="questions" id="faq-questions">
+    <div
+      class="faq"
+      *ngFor="let question of faqs"
+      (click)="question.expanded = !question.expanded"
+    >
+      <div class="question">
+        <h3 style="height: 3rem">{{ question.question }}</h3>
+        <div
+          class="icon"
+          [ngClass]="question.expanded ? 'icon-open' : 'icon-close'"
+        >
+          <svg-icon
+            *ngIf="!question.expanded"
+            [name]="SvgIcon.PLUS"
+            [width]="0.6"
+          ></svg-icon>
+          <svg-icon
+            *ngIf="question.expanded"
+            [name]="SvgIcon.TIMES"
+            [width]="0.6"
+          ></svg-icon>
         </div>
-
-    </section>
+      </div>
+      <div class="answer" *ngIf="question.expanded" @growHeight>
+        {{ question.answer }}
+      </div>
+    </div>
+  </section>
 </div>
 
 <app-banner bannerType="contactUs"></app-banner>

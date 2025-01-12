@@ -1,29 +1,9 @@
 <section class="section hero">
   <div class="text">
-    <span
-      class="hero-subHeader"
-      data-aos="fade"
-      data-aos-easing="ease-in-out"
-      data-aos-duration="800"
-      >MEET STF</span
-    >
-    <div class="hero-header">
-      <div
-        class="hero-header-line"
-        data-aos="fade-up"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="800"
-        data-aos-delay="200"
-      >
-        The Easiest Way To Buy
-      </div>
-      <div
-        class="hero-header-line"
-        data-aos="fade-up"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="800"
-        data-aos-delay="300"
-      >
+    <span id="meet-stf" class="hero-subHeader">MEET STF</span>
+    <div id="hero-1" class="hero-header">
+      <div class="hero-header-line">The Easiest Way To Buy</div>
+      <div class="hero-header-line">
         <span style="color: var(--primary-color)">Low Cost</span>
         <svg viewBox="0 0 535 142">
           <path
@@ -34,13 +14,7 @@
         <span> Insurance</span>
       </div>
     </div>
-    <div
-      class="contact-wrapper"
-      data-aos="fade-up"
-      data-aos-easing="ease-in-out"
-      data-aos-duration="800"
-      data-aos-delay="400"
-    >
+    <div id="contact-agencies" class="contact-wrapper">
       <ng-container *ngFor="let info of contactInfo; let i = index">
         <div class="contact-info">
           <span>{{ info.label }}</span>
@@ -49,13 +23,7 @@
         <div class="divider" *ngIf="i !== contactInfo.length - 1"></div>
       </ng-container>
     </div>
-    <div
-      class="button-group"
-      data-aos="fade"
-      data-aos-easing="ease-in-out"
-      data-aos-duration="800"
-      data-aos-delay="1600"
-    >
+    <div id="actions" class="button-group">
       <a class="stf-button stf-button-primary" routerLink="/quoteRedirect"
         >Get Quote</a
       >

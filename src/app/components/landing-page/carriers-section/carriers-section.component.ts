@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, inject } from '@angular/core';
+import { gsap } from 'gsap';
+import { StfService } from 'src/app/services/stf.service';
 
 @Component({
-    selector: 'app-carriers-section',
-    templateUrl: './carriers-section.component.html',
-    styleUrls: ['./carriers-section.component.scss'],
-    standalone: false
+  selector: 'app-carriers-section',
+  templateUrl: './carriers-section.component.html',
+  styleUrls: ['./carriers-section.component.scss'],
+  standalone: false,
 })
-export class CarriersSectionComponent {
+export class CarriersSectionComponent implements AfterViewInit {
+  stfService = inject(StfService);
 
   imgPath = '../../../../assets/img/carrier-marquee/';
 
@@ -47,4 +50,12 @@ export class CarriersSectionComponent {
     this.imgPath + 'wayne.png',
     this.imgPath + 'foremost.png',
   ];
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.stfService.animateText('#carrier-section-header');
+      this.stfService.animateText('#carrier-section-header');
+      this.stfService.animateText('#carrier-section-action');
+    }, 250);
+  }
 }
