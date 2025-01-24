@@ -9,22 +9,26 @@
     position: relative;
     width: 100%;
 
-    .review-list {
+    .review-scroll-wrapper {
       margin-top: 8rem;
       position: relative;
+      height: 50vh;
       width: 100%;
-      display: grid;
-      grid-auto-flow: column;
-      list-style: none;
-      overflow-x: scroll;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -ms-overflow-style: none; /* Internet Explorer 10+ */
-      scrollbar-width: none; /* Firefox */
-      grid-auto-columns: 20rem;
-      grid-column-gap: 6rem;
-      padding: 5vh 12vw;
-      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .review-list {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: fit-content;
+      display: flex;
+      gap: 6rem;
+      padding-top: 2rem;
+
+      &.animate {
+        transition: transform 0.75s ease-in-out;
+      }
 
       &::-webkit-scrollbar {
         display: none; /* Safari and Chrome */
@@ -32,7 +36,8 @@
 
       .review {
         width: 100%;
-        min-height: 42vh;
+        height: 42vh;
+        width: 20rem;
         border-radius: 0.625rem;
         overflow: hidden;
         scroll-snap-align: center;

@@ -5,10 +5,12 @@
   </stf-header>
 
   <div class="review-list-wrapper">
-    <div class="review-list" #reviewList>
-      <div class="review" *ngFor="let review of reviews">
-        <span>{{ review.review }}</span>
-        <span>{{ review.reviewer }}</span>
+    <div class="review-scroll-wrapper">
+      <div id="auto-scroller" class="review-list" #reviewList>
+        <div class="review" *ngFor="let review of reviews">
+          <span>{{ review.review }}</span>
+          <span>{{ review.reviewer }}</span>
+        </div>
       </div>
     </div>
     <svg class="top-quote" viewBox="0 0 111 101" fill="none">
