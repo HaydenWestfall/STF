@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -21,11 +20,10 @@ import { CarriersPageComponent } from './components/carriers-page/carriers-page.
 import { FormsModule } from '@angular/forms';
 import { LocationsPageComponent } from './components/locations-page/locations-page.component';
 import { AboutPageComponent } from './components/about-page/about-page.component';
-import { TeamPageComponent } from './components/team-page/team-page.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { HideOnScrollDirective } from './directives/hide-on-scroll.directive';
 import { QuoteRedirectComponent } from './utility/quote-redirect/quote-redirect.component';
-import { TeamsPage2Component } from './components/teams-page2/teams-page2.component';
+import { TeamsPageComponent } from './components/teams-page/teams-page.component';
 
 @NgModule({
   declarations: [
@@ -47,11 +45,10 @@ import { TeamsPage2Component } from './components/teams-page2/teams-page2.compon
     CarriersPageComponent,
     LocationsPageComponent,
     AboutPageComponent,
-    TeamPageComponent,
     BannerComponent,
     HideOnScrollDirective,
     QuoteRedirectComponent,
-    TeamsPage2Component,
+    TeamsPageComponent,
   ],
   imports: [AppRoutingModule, BrowserAnimationsModule, FormsModule],
   providers: [],

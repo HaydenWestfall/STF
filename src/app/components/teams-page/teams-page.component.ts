@@ -1,14 +1,14 @@
-import { AfterViewInit, Component, inject } from '@angular/core';
+import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
 import { Employee } from 'src/app/models/Employee';
 import { StfService } from 'src/app/services/stf.service';
 
 @Component({
-  selector: 'app-teams-page2',
-  templateUrl: './teams-page2.component.html',
-  styleUrls: ['./teams-page2.component.scss'],
+  selector: 'app-teams-page',
+  templateUrl: './teams-page.component.html',
+  styleUrls: ['./teams-page.component.scss'],
   standalone: false,
 })
-export class TeamsPage2Component implements AfterViewInit {
+export class TeamsPageComponent implements OnInit {
   stfService = inject(StfService);
   basePath = '../../../assets/img/meetTheTeam';
   teamMembers: Employee[] = [
@@ -55,26 +55,19 @@ export class TeamsPage2Component implements AfterViewInit {
       img: '/jessy.webp',
       description: `My name is Jessy Short and I am an Independent Medicare Agent. As an Agent since 2016, I have assisted seniors make sense of Medicare and help make sure they are taken care of while on Medicare. In my spare time I enjoy the outdoors, all sports and spending time with my family.`,
     },
-    // {
-    //   id: 'hannah',
-    //   name: 'Hannah Smith',
-    //   position: 'AGENT',
-    //   img: '/jessy.webp',
-    //   description: `Hi, my name is Hannah Smith. I am proud to be a part of the STF Insurance Group since the beginning of 2024. I was born and raised in the Arcanum area and now reside here with my fiancé, Cody. I am an Arcanum and Wright State University graduate, I found my passion for insurance shortly after graduating from Wright State. I came to STF as a licensed agent with 2 years of prior experience specializing in auto, home and life insurance. I am passionate about educating clients on the importance of insurance and helping them make informed decisions that bring peace of mind and protect what matters most. I look forward to serving our community for many years.`,
-    // },
-    // ,
-    // {
-    //   id: 'heather',
-    //   name: 'Heather Macy',
-    //   position: 'AGENT',
-    //   img: '/jessy.webp',
-    //   description: `Hello, I'm Heather Macy, and I joined the STF team in November of 2023. Arcanum is my hometown, and I'm proud to have graduated from both Arcanum High School and Miami University. Previously, I worked in a non-profit leadership role, but I decided to shift my focus to my family, which led me to STF. I live in Arcanum with my husband and our four children. In my free time, I enjoy working out, gardening, and most of all, spending quality time with my family. I'm excited to be part of the STF team and look forward to contributing to our success.`,
-    // },
   ];
 
-  ngAfterViewInit(): void {
-    this.stfService.animateText('#team-header', 0);
-    this.stfService.animateText('#team-description', 0.5);
-    this.stfService.animateText('#team', 1);
+  ngOnInit(): void {
+    this.stfService.setLoadState('#team-header', 50);
+    this.stfService.setLoadState('#team-description', 50);
+    this.stfService.setLoadState('#team', 50);
+
+    this.stfService.animateBackground('#dot-bg', 0);
+    this.stfService.animateBackground('#gradients', 0);
+    setTimeout(() => {
+      this.stfService.animateText('#team-header', 0);
+      this.stfService.animateText('#team-description', 0.5);
+      this.stfService.animateText('#team', 1);
+    }, 250);
   }
 }

@@ -54,7 +54,7 @@ export class CarriersSectionComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.stfService.animateText('#carrier-section-header');
-      this.stfService.animateText('#carrier-section-header');
+      this.stfService.animateText('#carrier-section-description');
       this.stfService.animateText('#carrier-section-action');
     }, 250);
   }

@@ -29,9 +29,16 @@ export class ContactPageComponent implements AfterViewInit {
   ];
 
   ngAfterViewInit(): void {
-    this.stfService.animateText('#contact-header', 0);
-    this.stfService.animateText('#contact-description', 0.4, true);
-    this.stfService.animateText('#scroll-indicator', 0.8, true);
-    this.stfService.animateText('#contact-body', 1.2, true);
+    this.stfService.setLoadState('#contact-header', 50);
+    this.stfService.setLoadState('#contact-description', 50);
+    this.stfService.setLoadState('#scroll-indicator', 50);
+    this.stfService.setLoadState('#contact-body', 50);
+
+    setTimeout(() => {
+      this.stfService.animateText('#contact-header', 0);
+      this.stfService.animateText('#contact-description', 0.3, true);
+      this.stfService.animateText('#scroll-indicator', 0.6, true);
+      this.stfService.animateText('#contact-body', 0.9, true);
+    }, 250);
   }
 }

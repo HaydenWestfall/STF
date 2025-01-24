@@ -59,13 +59,15 @@ export class AboutPageComponent implements AfterViewInit {
     this.observer.observe(document.getElementById('statistic2'));
     this.observer.observe(document.getElementById('statistic3'));
 
-    this.stfService.animateBackground('#about-header-bg');
-    this.stfService.animateText('#about-header');
-    this.stfService.animateText('#about-subHeader');
-    this.stfService.animateText('#about-description');
-    this.stfService.animateText('#strength-header');
-    this.stfService.animateText('#strength-description');
-    this.stfService.animateText('#carrier-header');
+    setTimeout(() => {
+      this.stfService.animateBackground('#about-header-bg');
+      this.stfService.animateText('#about-header');
+      this.stfService.animateText('#about-subHeader');
+      this.stfService.animateText('#about-description');
+      this.stfService.animateText('#strength-header');
+      this.stfService.animateText('#strength-description');
+      this.stfService.animateText('#carrier-header');
+    });
   }
 
   runCustomerRatingCounter(): void {

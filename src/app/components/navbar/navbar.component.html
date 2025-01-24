@@ -1,14 +1,11 @@
 <header
-  class="navbar-wrapper white-navbar"
+  class="navbar-wrapper"
   hideOnScroll
   (eventElementHidden)="selectedLink = null"
-  [ngClass]="navbarClass"
   propertyUsedToHide="transform"
   (eventElementShown)="stf.navIsShowing = true"
   (eventElementHidden)="stf.navIsShowing = false"
   [dontHide]="showNav"
-  (mouseenter)="mouseEnterNavbar()"
-  (mouseleave)="mouseLeaveNavbar()"
 >
   <div class="navbar">
     <div class="links" *ngIf="showNav || !mediaQuery?.matches" @panelSlideIn>
@@ -180,7 +177,6 @@
   <div
     class="navbar-overlay"
     @growHeight
-    (@growHeight.done)="mouseLeaveNavbar()"
     *ngIf="selectedLink && !mediaQuery?.matches"
   >
     <div class="navbar-options">

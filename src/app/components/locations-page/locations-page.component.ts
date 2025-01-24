@@ -54,11 +54,34 @@ export class LocationsPageComponent implements AfterViewInit {
         { label: 'Weekends', value: 'CLOSED' },
       ],
     },
+    {
+      name: 'Vandalia',
+      address: '415 S Dixie Dr, Vandalia, OH 45377',
+      image: this.basePath + 'vandalia.webp',
+      contactMethods: [
+        {
+          type: 'tel:',
+          value: '937-890-5426',
+          displayType: 'phone',
+          displayValue: '(937) 890 - 5426',
+        },
+      ],
+      hours: [
+        { label: 'Weekdays', value: '8:30AM - 4:30PM' },
+        { label: 'Weekends', value: 'CLOSED' },
+      ],
+    },
   ];
 
   ngAfterViewInit(): void {
-    this.stfService.animateBackground('#location-bg');
-    this.stfService.animateText('#location-header', 0);
-    this.stfService.animateText('#locations', 0.5, true);
+    this.stfService.animateBackground('#dot-bg', 0);
+    this.stfService.animateBackground('#gradients', 0);
+
+    this.stfService.setLoadState('#location-header', 0);
+    this.stfService.setLoadState('#locations', 0);
+    setTimeout(() => {
+      this.stfService.animateText('#location-header', 0);
+      this.stfService.animateText('#locations', 0.5, true);
+    }, 250);
   }
 }

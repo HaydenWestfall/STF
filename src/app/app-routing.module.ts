@@ -8,9 +8,8 @@ import { CoveragePageComponent } from './components/coverage-page/coverage-page.
 import { FaqPageComponent } from './components/faq-page/faq-page.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { LocationsPageComponent } from './components/locations-page/locations-page.component';
-import { TeamPageComponent } from './components/team-page/team-page.component';
 import { QuoteRedirectComponent } from './utility/quote-redirect/quote-redirect.component';
-import { TeamsPage2Component } from './components/teams-page2/teams-page2.component';
+import { TeamsPageComponent } from './components/teams-page/teams-page.component';
 
 const routes: Routes = [
   {
@@ -52,7 +51,7 @@ const routes: Routes = [
   },
   {
     path: 'team',
-    component: TeamsPage2Component,
+    component: TeamsPageComponent,
     data: {
       animation: 'fadeRoute',
       seo: {

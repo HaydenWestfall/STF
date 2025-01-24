@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
-import { fade, itemAnim } from 'src/animations';
 import { Carrier } from 'src/app/models/Carrier';
 import { StfService } from 'src/app/services/stf.service';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
@@ -9,10 +8,9 @@ import { gsap } from 'gsap';
   selector: 'app-carriers-page',
   templateUrl: './carriers-page.component.html',
   styleUrls: ['./carriers-page.component.scss'],
-  animations: [fade, itemAnim],
   standalone: false,
 })
-export class CarriersPageComponent implements AfterViewInit {
+export class CarriersPageComponent implements OnInit {
   stfService = inject(StfService);
   SvgIcon = SvgIcon;
   basePath = '../../../assets/img/carriers/';
@@ -166,11 +164,17 @@ export class CarriersPageComponent implements AfterViewInit {
 
   constructor(public stf: StfService) {}
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
+    this.stfService.setLoadState('#carrier-header', 50);
+    this.stfService.setLoadState('#carrier-description', 50);
+    this.stfService.setLoadState('#scroll-indicator', 50);
+
     this.stfService.animateBackground('#carrier-bg', 0);
-    this.stfService.animateText('#carrier-header', 0.5);
-    this.stfService.animateText('#carrier-description', 0.5);
-    this.stfService.animateText('#scroll-indicator', 1.1, true);
+    setTimeout(() => {
+      this.stfService.animateText('#carrier-header', 0.5);
+      this.stfService.animateText('#carrier-description', 0.75);
+      this.stfService.animateText('#scroll-indicator', 1.1, true);
+    });
   }
 
   clearSearch(): void {
@@ -179,9 +183,8 @@ export class CarriersPageComponent implements AfterViewInit {
   }
 
   searchCarriers(key: KeyboardEvent): void {
-    if (key.key === 'Enter')
-      this.foundCarriers = this.carriers.filter((x) =>
-        x.name.toLowerCase().includes(this.searchText.toLowerCase())
-      );
+    this.foundCarriers = this.carriers.filter((x) =>
+      x.name.toLowerCase().includes(this.searchText.toLowerCase())
+    );
   }
 }

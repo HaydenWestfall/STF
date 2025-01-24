@@ -1,14 +1,14 @@
 .hero {
   position: relative;
   height: 70vw;
-  max-height: calc(100vh - 4.5rem);
-  margin-top: 4.5rem;
+  max-height: calc(100vh);
+  padding-top: 4.5rem;
   display: flex;
   overflow: hidden;
 
   .text {
     position: absolute;
-    top: clamp(5rem, 5vw, 10rem);
+    top: clamp(9.5rem, 5vw, 14.5rem);
     left: 5rem;
     flex-grow: 1;
     display: flex;

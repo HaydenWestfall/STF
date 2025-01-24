@@ -2,12 +2,14 @@ import {
   AfterViewInit,
   ChangeDetectorRef,
   Component,
+  inject,
   OnInit,
 } from '@angular/core';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 import { environment } from 'src/environments/environment.development';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { StfService } from 'src/app/services/stf.service';
 
 @Component({
   selector: 'app-hero-section',
@@ -15,7 +17,8 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
   styleUrls: ['./hero-section.component.scss'],
   standalone: false,
 })
-export class HeroSectionComponent implements OnInit, AfterViewInit {
+export class HeroSectionComponent implements OnInit {
+  stfService = inject(StfService);
   SvgIcon = SvgIcon;
   env = environment;
   mediaQuery: MediaQueryList;
@@ -45,39 +48,34 @@ export class HeroSectionComponent implements OnInit, AfterViewInit {
         path.style.strokeDashoffset = 0;
       }, 2500);
     }
-  }
+    const timeline = gsap.timeline({ delay: 0.5 });
+    const duration = 1.25;
+    const delayOffset = 0.75;
 
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      const duration = 1.25;
-      const delayOffset = 0.75;
-      const timeline = gsap.timeline({ delay: 0.5 });
-      timeline.from('#meet-stf', {
-        opacity: 0,
-        y: 75,
-        duration: duration,
-        ease: 'power3.out',
-      });
-      timeline.from(
-        '#hero-1',
-        { opacity: 0, y: 75, duration: duration, ease: 'power3.out' },
-        `-=${duration}`
-      );
-      // timeline.from(
-      //   '#hero-2',
-      //   { opacity: 0, y: 30, duration: duration, ease: 'circ.out' },
-      //   `-=${delayOffset}`
-      // );
-      timeline.from(
-        '#contact-agencies',
-        { opacity: 0, y: 25, duration: duration, ease: 'power3.out' },
-        `-=${delayOffset}`
-      );
-      timeline.from(
-        '#actions',
-        { opacity: 0, y: 10, duration: duration, ease: 'power3.out' },
-        `-=${duration - 0.5}`
-      );
+    this.stfService.setLoadState('#meet-stf', 75);
+    this.stfService.setLoadState('#hero-1', 75);
+    this.stfService.setLoadState('#contact-agencies', 25);
+    this.stfService.setLoadState('#actions', 10);
+    timeline.to('#meet-stf', {
+      opacity: 1,
+      y: 0,
+      duration: duration,
+      ease: 'power3.out',
     });
+    timeline.to(
+      '#hero-1',
+      { opacity: 1, y: 0, duration: duration, ease: 'power3.out' },
+      `-=${duration}`
+    );
+    timeline.to(
+      '#contact-agencies',
+      { opacity: 1, y: 0, duration: duration, ease: 'power3.out' },
+      `-=${delayOffset}`
+    );
+    timeline.to(
+      '#actions',
+      { opacity: 1, y: 0, duration: duration, ease: 'power3.out' },
+      `-=${duration - 0.5}`
+    );
   }
 }

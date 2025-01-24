@@ -6,9 +6,8 @@ import {
   NavigationStart,
   Router,
 } from '@angular/router';
-import * as AOS from 'aos';
 import { filter, map, mergeMap } from 'rxjs';
-import { routeAnimations } from 'src/animations';
+import { routeTransitionAnimations } from 'src/animations';
 import { StfService } from './services/stf.service';
 import { environment } from 'src/environments/environment.development';
 import { gsap } from 'gsap';
@@ -20,7 +19,7 @@ import Lenis from 'lenis';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [routeAnimations],
+  animations: [routeTransitionAnimations],
   standalone: false,
 })
 export class AppComponent implements OnInit, AfterViewInit {
@@ -58,8 +57,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    AOS.init({ once: true });
-
     const lenis = new Lenis();
     lenis.on('scroll', (e: any) => {});
     function raf(time: any) {

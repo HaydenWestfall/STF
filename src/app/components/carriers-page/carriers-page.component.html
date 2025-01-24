@@ -60,7 +60,7 @@
       </div>
     </div>
     <div class="carriers-wrapper" *ngIf="foundCarriers.length">
-      <div class="carrier" *ngFor="let carrier of foundCarriers" [@itemAnim]>
+      <div class="carrier" *ngFor="let carrier of foundCarriers">
         <div class="image-wrapper">
           <img [src]="carrier.logo" [alt]="carrier.name" />
         </div>

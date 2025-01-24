@@ -26,6 +26,14 @@ export class StfService {
     }
   }
 
+  setLoadState(id: string, yPosition: number) {
+    gsap.set(id, { opacity: 0, y: yPosition });
+  }
+
+  animateTitleText(id: string) {
+    gsap.to(id, { opacity: 1, y: 0, duration: 1.25, ease: 'power3.out' });
+  }
+
   animateText(id: string, delay?: number, disableScrollTrigger?: boolean) {
     const scrollTrigger = {
       trigger: id,
