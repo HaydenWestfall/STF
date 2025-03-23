@@ -6,7 +6,7 @@
   flex-direction: column;
   gap: 1.5rem;
   height: 30rem;
-  width: 100vw;
+  width: 100%;
   padding-top: 4.5rem;
 
   h1 {
@@ -43,6 +43,7 @@
   width: 100%;
   z-index: 0;
   background-image: linear-gradient(to bottom, transparent, white);
+  overflow: hidden;
 
   .gradient1 {
     position: absolute;
@@ -76,12 +77,16 @@
 
     .team-member-card {
       position: relative;
+      display: flex;
       background-color: #c7d7de;
       height: fit-content;
       max-width: 16rem;
+      cursor: pointer;
 
       img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
       .team-member-info {
@@ -106,6 +111,106 @@
           font-weight: 500;
           font-size: 0.7rem;
         }
+      }
+    }
+  }
+}
+
+.blurb-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.142);
+  cursor: pointer;
+
+  .blurb-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6rem;
+    max-width: 50rem;
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(28px);
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    margin-top: 4rem;
+    cursor: auto;
+
+    .employee-info {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      .employee-info-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+
+        :first-child {
+          font-size: 1.45rem;
+          font-weight: 700;
+        }
+
+        :nth-child(2) {
+          font-size: 0.8rem;
+          font-weight: 400;
+        }
+      }
+    }
+
+    img {
+      border-radius: 100%;
+      object-fit: cover;
+      height: 10rem;
+      width: 10rem;
+      object-position: 50% 10%;
+    }
+
+    .description-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .description {
+        font-size: 0.85rem;
+        line-height: 1.45rem;
+        font-weight: 400;
+      }
+    }
+
+    span {
+      text-align: justify;
+    }
+
+    button {
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      border-radius: 100%;
+      background-color: white;
+      border: 1px solid rgb(221, 221, 221);
+      box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.122);
+      height: 2.5rem;
+      width: 2.5rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken($color: #ffffff, $amount: 5);
+      }
+
+      &:hover {
+        background-color: darken($color: #ffffff, $amount: 2);
       }
     }
   }
@@ -168,13 +273,45 @@
           width: calc(100% - 1rem);
 
           #name {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
           }
 
           #position {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
           }
         }
+      }
+    }
+  }
+
+  .blurb-wrapper {
+    .blurb-content {
+      max-width: unset;
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      gap: 2rem;
+      padding: 2rem 1.5rem;
+      margin: 0;
+
+      .description-wrapper {
+        .description {
+          font-size: 0.75rem;
+          line-height: 1.2rem;
+          font-weight: 400;
+        }
+      }
+
+      button {
+        top: unset;
+        right: unset;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 4rem;
+        width: 4rem;
+        font-size: 1rem;
+        color: black;
       }
     }
   }

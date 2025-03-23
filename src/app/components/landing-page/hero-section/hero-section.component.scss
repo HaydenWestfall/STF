@@ -164,6 +164,41 @@
   }
 }
 
+@media only screen and (max-width: 1050px) {
+  .hero {
+    height: 100vh;
+    max-height: calc(100vh);
+    align-items: flex-end;
+    flex-direction: column;
+
+    .text {
+      position: relative;
+      top: unset;
+      left: unset;
+      flex-grow: 1;
+      display: flex;
+      width: 100%;
+      padding-top: 4rem;
+
+      align-items: center;
+    }
+
+    .location-images-wrapper {
+      height: fit-content;
+
+      .location-images {
+        grid-template-rows: unset;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        &:nth-child(1),
+        &:nth-child(2) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .hero {
     flex-direction: column;

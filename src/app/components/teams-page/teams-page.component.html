@@ -20,7 +20,10 @@
 <div class="team-wrapper" id="team">
   <div class="team-member-grid">
     <div class="team-member-card" *ngFor="let teamMember of teamMembers">
-      <img [src]="basePath + teamMember.img" />
+      <img
+        [src]="basePath + teamMember.img"
+        (click)="selectedMember = teamMember"
+      />
       <div class="team-member-info">
         <span id="name">{{ teamMember.name }}</span>
         <span id="position">{{ teamMember.position }}</span>
@@ -30,3 +33,31 @@
 </div>
 
 <app-banner bannerType="contactUs"></app-banner>
+
+<div
+  class="blurb-wrapper"
+  *ngIf="selectedMember"
+  (click)="selectedMember = null"
+>
+  <div class="blurb-content" (click)="$event.stopPropagation()">
+    <div class="employee-info">
+      <img
+        [src]="basePath + selectedMember.img"
+        [alt]="selectedMember.name + ' headshot'"
+      />
+      <div class="employee-info-wrapper">
+        <span>{{ selectedMember.name }}</span>
+        <span>{{ selectedMember.position }}</span>
+      </div>
+    </div>
+
+    <div class="description-wrapper">
+      <span
+        class="description"
+        *ngFor="let para of selectedMember.description"
+        >{{ para }}</span
+      >
+    </div>
+    <button (click)="selectedMember = null">X</button>
+  </div>
+</div>
