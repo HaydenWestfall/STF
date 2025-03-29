@@ -14,6 +14,7 @@ export class AboutSectionComponent implements AfterViewInit {
     setTimeout(() => {
       this.stfService.animateText('#about-section-header');
       this.stfService.animateText('#about-section-description');
+      this.stfService.animateText('#about-section-action');
     }, 250);
   }
 }

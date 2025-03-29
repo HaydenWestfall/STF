@@ -1,35 +1,39 @@
 <section class="section coverages">
-  <stf-header>
+  <div class="header">
     <h6>COVERAGES</h6>
-    <h1 id="coverage-section-header">Expert customer service.</h1>
-  </stf-header>
+    <h1 id="coverage-section-header">
+      Expert Guidance and Exceptional Customer Service
+    </h1>
+  </div>
 
   <div class="coverage-list" #coverageList>
     <div class="coverage" *ngFor="let coverage of coverages; let i = index">
-      <div class="icon">
-        <img
-          [src]="coverage.icon"
-          alt="coverage.title"
-          style="height: 2.75rem"
-        />
+      <div class="coverage-info">
+        <div class="icon">
+          <img
+            [src]="coverage.icon"
+            alt="coverage.title"
+            style="height: 1.5rem"
+          />
+        </div>
+        <div class="information">
+          <span>{{ coverage.title }}</span>
+          <span>{{ coverage.description }}</span>
+        </div>
       </div>
-      <div class="information">
-        <span>{{ coverage.title }}</span>
-        <span>{{ coverage.description }}</span>
-        <a
-          *ngIf="coverage.link"
-          class="stf-button stf-button-primary"
-          [routerLink]="coverage.link"
-          >Learn More</a
-        >
-        <a
-          *ngIf="coverage.externalLink"
-          class="stf-button stf-button-primary"
-          [href]="coverage.externalLink"
-          target="_blank"
-          >Learn More</a
-        >
-      </div>
+      <a
+        *ngIf="coverage.link"
+        class="stf-button stf-button-primary"
+        [routerLink]="coverage.link"
+        >Learn More</a
+      >
+      <a
+        *ngIf="coverage.externalLink"
+        class="stf-button stf-button-primary"
+        [href]="coverage.externalLink"
+        target="_blank"
+        >Learn More</a
+      >
     </div>
   </div>
 </section>

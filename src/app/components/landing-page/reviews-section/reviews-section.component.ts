@@ -155,7 +155,10 @@ export class ReviewsSectionComponent implements AfterViewInit, OnDestroy {
   }
 
   calculateFocusReviewCenter(index: number): number {
-    return (320 + 96) * index + 160;
+    const cardWidth =
+      window.innerWidth < 768 ? window.innerWidth - 7 * 16 : 20 * 16;
+    const cardGap = window.innerWidth < 768 ? 2 * 16 : 6 * 16;
+    return (cardWidth + cardGap) * index + cardWidth / 2;
   }
 
   ngOnDestroy(): void {

@@ -37,7 +37,7 @@ export class StfService {
   animateText(id: string, delay?: number, disableScrollTrigger?: boolean) {
     const scrollTrigger = {
       trigger: id,
-      start: 'top 80%',
+      start: 'top 85%',
       scrub: false,
     };
     gsap.fromTo(

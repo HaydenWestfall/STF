@@ -26,6 +26,12 @@ export class ContactPageComponent implements AfterViewInit {
       email: this.contactEmail,
       cardFlipped: false,
     },
+    {
+      branchName: 'Middletown',
+      contactMethods: [{ label: 'Phone: ', value: '513-423-4696' }],
+      email: this.contactEmail,
+      cardFlipped: false,
+    },
   ];
 
   ngAfterViewInit(): void {

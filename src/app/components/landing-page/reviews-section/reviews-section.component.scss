@@ -99,14 +99,16 @@
 @media only screen and (max-width: 768px) {
   .review-wrapper {
     .review-list-wrapper {
+      .review-scroll-wrapper {
+        height: 60vh;
+      }
+
       .review-list {
-        grid-auto-columns: 62vw;
-        grid-column-gap: 5vw;
-        padding: 5vh 17vw;
+        gap: 2rem;
 
         .review {
-          width: 62vw;
-          scroll-snap-align: center;
+          height: 50vh;
+          width: calc(100vw - 7rem);
 
           div {
             text-align: center;

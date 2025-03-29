@@ -55,19 +55,19 @@ export class LocationsPageComponent implements AfterViewInit {
       ],
     },
     {
-      name: 'Vandalia',
-      address: '415 S Dixie Dr, Vandalia, OH 45377',
+      name: 'Middletown',
+      address: '1820 1st Ave, Middletown, OH 45044',
       image: this.basePath + 'vandalia.webp',
       contactMethods: [
         {
           type: 'tel:',
-          value: '937-890-5426',
+          value: '513-423-4696',
           displayType: 'phone',
-          displayValue: '(937) 890 - 5426',
+          displayValue: '(513) 423 - 4696',
         },
       ],
       hours: [
-        { label: 'Weekdays', value: '8:30AM - 4:30PM' },
+        { label: 'Weekdays', value: '8:30AM - 4:00PM' },
         { label: 'Weekends', value: 'CLOSED' },
       ],
     },

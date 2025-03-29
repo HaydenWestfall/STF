@@ -5,7 +5,7 @@
   propertyUsedToHide="transform"
   (eventElementShown)="stf.navIsShowing = true"
   (eventElementHidden)="stf.navIsShowing = false"
-  [dontHide]="showNav"
+  [dontHide]="!mediaQuery.matches"
 >
   <div class="navbar">
     <div class="links" *ngIf="showNav || !mediaQuery?.matches" @panelSlideIn>

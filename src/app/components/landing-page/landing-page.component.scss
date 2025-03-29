@@ -1,0 +1,38 @@
+.branding-wrapper {
+  position: relative;
+  max-width: 100%;
+  display: flex;
+
+  .scroll-wrapper {
+    height: 100%;
+    flex-grow: 1;
+  }
+
+  .static-images {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    z-index: 5000;
+    position: sticky;
+    top: 0;
+    padding-top: 4.5rem;
+    gap: 7px;
+
+    img {
+      height: 100%;
+      object-fit: cover; /* Ensures images fill the td without distortion */
+      display: block; /* Prevents inline spacing issues */
+      aspect-ratio: 1 / 1; /* Ensures images stay square */
+      height: calc(33.3% - (14px / 3));
+      border: 1px solid rgb(140, 140, 140);
+    }
+  }
+}
+
+@media only screen and (max-width: 1340px) {
+  .branding-wrapper {
+    .static-images {
+      display: none;
+    }
+  }
+}

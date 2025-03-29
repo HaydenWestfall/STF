@@ -1,7 +1,7 @@
 .hero {
   position: relative;
-  height: 70vw;
-  max-height: calc(100vh);
+  height: 100vh;
+  width: 100%;
   padding-top: 4.5rem;
   display: flex;
   overflow: hidden;
@@ -98,44 +98,33 @@
     z-index: 1000;
     display: flex;
     justify-content: flex-end;
-    gap: 7px;
     width: 100%;
     height: 100%;
     z-index: 5;
+    gap: 7px;
+    padding-right: 7px;
 
-    .location-images {
-      display: grid;
-      gap: 7px;
-      grid-template-rows: repeat(
-        3,
-        minmax(0, 1fr)
-      ); /* Adjust row heights if needed */
-      grid-template-columns: 1fr; /* One column */
-      justify-content: center;
-      align-content: center;
+    .static-images {
       height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-end;
+      gap: 7px;
 
-      div {
-        aspect-ratio: 1 / 1; /* Ensures each cell is a square */
-        height: 100%; /* Each square takes full width of its column */
-      }
-
-      .location-grid-wrapper {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      img {
         height: 100%;
-        width: 100%;
-        border: 1px solid rgb(210, 210, 210);
-
-        .location {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
+        object-fit: cover; /* Ensures images fill the td without distortion */
+        display: block; /* Prevents inline spacing issues */
+        aspect-ratio: 1 / 1; /* Ensures images stay square */
+        height: calc(33.3% - (14px / 3));
+        border: 1px solid rgb(140, 140, 140);
       }
     }
+  }
+
+  .mobile-images-wrapper {
+    display: none;
   }
 
   .background {
@@ -161,51 +150,85 @@
     width: 100%;
     z-index: 0;
     background-image: linear-gradient(to bottom, transparent, white);
+    overflow: hidden;
+
+    .gradient2 {
+      position: absolute;
+      left: 28rem;
+      top: 0;
+      height: 50rem;
+      transform: translateX(-125%) rotate(-15deg);
+    }
+    .gradient1 {
+      position: absolute;
+      right: -3rem;
+      top: 0;
+      height: 50rem;
+      transform: translateX(30%) rotate(60deg);
+      opacity: 0.75;
+    }
   }
 }
 
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1340px) {
   .hero {
-    height: 100vh;
-    max-height: calc(100vh);
-    align-items: flex-end;
-    flex-direction: column;
-
-    .text {
-      position: relative;
-      top: unset;
-      left: unset;
-      flex-grow: 1;
-      display: flex;
-      width: 100%;
-      padding-top: 4rem;
-
-      align-items: center;
-    }
-
     .location-images-wrapper {
-      height: fit-content;
-
-      .location-images {
-        grid-template-rows: unset;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-
-        &:nth-child(1),
-        &:nth-child(2) {
-          display: none;
-        }
-      }
+      padding-right: 0;
     }
   }
 }
+
+// @media only screen and (max-width: 1050px) {
+//   .hero {
+//     height: 100vh;
+//     max-height: calc(100vh);
+//     align-items: flex-end;
+//     flex-direction: column;
+
+//     .text {
+//       position: relative;
+//       top: unset;
+//       left: unset;
+//       flex-grow: 1;
+//       display: flex;
+//       width: 100%;
+//       padding-top: 4rem;
+
+//       align-items: center;
+//     }
+
+//     .location-images-wrapper {
+//       height: fit-content;
+
+//       .location-images {
+//         grid-template-rows: unset;
+//         grid-template-columns: repeat(3, minmax(0, 1fr));
+
+//         &:nth-child(1),
+//         &:nth-child(2) {
+//           display: none;
+//         }
+//       }
+//     }
+//   }
+// }
 
 @media only screen and (max-width: 768px) {
   .hero {
     flex-direction: column;
     overflow: unset;
+    padding-top: 0;
+    height: unset;
+    min-height: 90vh;
 
     .text {
       padding-left: 0;
+      position: relative;
+      left: unset;
+      top: unset;
+      padding-top: 8rem;
+      height: unset;
+      padding-bottom: 4rem;
 
       .hero-subHeader {
         text-align: center;
@@ -220,24 +243,25 @@
         }
 
         svg {
-          bottom: -1vw;
+          bottom: 9vw;
           left: 37.5vw;
           height: 12.5vw;
         }
       }
 
       .contact-wrapper {
-        flex-direction: column;
         align-items: center;
+        justify-content: center;
         margin: 3rem 0;
         gap: 0.75rem;
 
         .contact-info {
           align-items: center;
+          gap: 0.75rem;
 
           span {
             font-size: 0.7rem;
-            color: #9e9e9e;
+            color: #4f4f4f;
           }
 
           a {
@@ -254,24 +278,47 @@
 
       .button-group {
         margin-top: 0;
-        flex-direction: column;
-        align-items: center;
+        justify-content: center;
       }
     }
 
-    .image {
+    .location-images-wrapper {
+      display: none;
+    }
+
+    .mobile-images-wrapper {
+      display: flex;
+      gap: 0.25rem;
+      padding: 0.25rem;
       position: relative;
-      width: 100vw;
-      height: 40vw;
+      z-index: 6;
+      background-color: white;
 
       img {
-        width: calc(100% - 4rem);
-        margin-left: 2rem;
-        object-fit: cover;
-        border-radius: 0;
-        border: none;
-        right: unset;
-        border-radius: 10px;
+        flex: 1;
+        width: calc(
+          (100% - 2rem) / 3
+        ); /* Ensures three images fit while considering gaps */
+        aspect-ratio: 1 / 1; /* Keeps the images square */
+        object-fit: cover; /* Ensures images fill the area */
+      }
+    }
+
+    .gradient {
+      .gradient2 {
+        position: absolute;
+        left: 13rem;
+        top: 0;
+        height: 28rem;
+        transform: translateX(-125%) rotate(-15deg);
+      }
+      .gradient1 {
+        position: absolute;
+        right: -6rem;
+        top: 6rem;
+        height: 27rem;
+        transform: translateX(30%) rotate(60deg);
+        opacity: 0.75;
       }
     }
   }

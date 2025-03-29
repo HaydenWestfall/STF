@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   ChangeDetectorRef,
   Component,
+  HostListener,
   inject,
   OnInit,
 } from '@angular/core';
@@ -23,6 +24,9 @@ export class HeroSectionComponent implements OnInit {
   env = environment;
   mediaQuery: MediaQueryList;
 
+  isMobileView: boolean;
+  firstLine = 'The Easiest Way To';
+
   contactInfo = [
     { label: 'Arcanum', type: 'tel', value: this.env.arcanumPhoneNumber },
     { label: 'Vandalia', type: 'tel', value: this.env.vandaliaPhoneNumber },
@@ -32,7 +36,7 @@ export class HeroSectionComponent implements OnInit {
   test = ['The Easiest Way To', 'Buy Low Cost', 'Insurance'];
 
   constructor(public cd: ChangeDetectorRef) {
-    this.mediaQuery = window.matchMedia('(max-width: 768px)');
+    this.setHeroText();
   }
 
   ngOnInit() {
@@ -56,6 +60,7 @@ export class HeroSectionComponent implements OnInit {
     this.stfService.setLoadState('#hero-1', 75);
     this.stfService.setLoadState('#contact-agencies', 25);
     this.stfService.setLoadState('#actions', 10);
+    this.stfService.setLoadState('#mobile-branding-images', 10);
     timeline.to('#meet-stf', {
       opacity: 1,
       y: 0,
@@ -77,5 +82,26 @@ export class HeroSectionComponent implements OnInit {
       { opacity: 1, y: 0, duration: duration, ease: 'power3.out' },
       `-=${duration - 0.5}`
     );
+
+    console.log(this.isMobileView);
+    if (this.isMobileView) {
+      timeline.to(
+        '#mobile-branding-images',
+        { opacity: 1, y: 0, duration: duration, ease: 'power3.out' },
+        `-=${duration - 0.5}`
+      );
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.setHeroText();
+  }
+
+  setHeroText(): void {
+    this.isMobileView = window.innerWidth < 768;
+    this.firstLine = this.isMobileView
+      ? 'The Easiest Way To'
+      : 'The Easiest Way To Buy';
   }
 }
