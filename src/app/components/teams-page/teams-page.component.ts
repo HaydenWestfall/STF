@@ -64,7 +64,7 @@ export class TeamsPageComponent implements OnInit {
       position: 'AGENT',
       img: '/colleen-hill.jpg',
       description: [
-        `My name is Jessy Short and I am an Independent Medicare Agent. As an Agent since 2016, I have assisted seniors make sense of Medicare and help make sure they are taken care of while on Medicare. In my spare time I enjoy the outdoors, all sports and spending time with my family.`,
+        `I was born and raised in Middletown, Ohio to Seve and Wendy Dobrozsi.  My father worked for Dobrozsi my entire childhood up until he retired, as did my grandfather Emrie Dobrozsi.  I am a member of Holy Family Parish, Kiwanis, and also volunteer for Sounds of Sunset during the summer.  I am honored to be the third generation to continue with Dobrozsi Insurance and hope to continue the great service my family business has given for the past 100 years.`,
       ],
     },
     {
@@ -91,16 +91,7 @@ export class TeamsPageComponent implements OnInit {
       position: 'AGENT',
       img: '/heather-debrozsi.jpg',
       description: [
-        `My name is Jessy Short and I am an Independent Medicare Agent. As an Agent since 2016, I have assisted seniors make sense of Medicare and help make sure they are taken care of while on Medicare. In my spare time I enjoy the outdoors, all sports and spending time with my family.`,
-      ],
-    },
-    {
-      id: 'heatherMacy',
-      name: 'Heather Macy',
-      position: 'AGENT',
-      img: '/heather-macy.jpg',
-      description: [
-        `Hello, I'm Heather Macy, and I joined the STF team in November of 2023. Arcanum is my hometown, and I'm proud to have graduated from both Arcanum High School and Miami University. Previously, I worked in a non-profit leadership role, but I decided to shift my focus to my family, which led me to STF. I live in Arcanum with my husband and our four children. In my free time, I enjoy working out, gardening, and most of all, spending quality time with my family. I'm excited to be part of the STF team and look forward to contributing to our success.`,
+        `Heather was born and raised in the Middletown area.  She is a graduate of Edgewood High School and attended Miami University.  She has worked in the administrative/customer service industry for over 20 years.  She was a real estate agent with HER Realtors for 10 years before transitioning to the insurance industry.  She has been with her husband Patrick Dobrozsi for over 20 years, and they stay busy raising their 2 children together.`,
       ],
     },
     {
