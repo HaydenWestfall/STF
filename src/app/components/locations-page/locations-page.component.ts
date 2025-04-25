@@ -57,7 +57,7 @@ export class LocationsPageComponent implements AfterViewInit {
     {
       name: 'Middletown',
       address: '1820 1st Ave, Middletown, OH 45044',
-      image: this.basePath + 'vandalia.webp',
+      image: this.basePath + 'middletown.webp',
       contactMethods: [
         {
           type: 'tel:',
