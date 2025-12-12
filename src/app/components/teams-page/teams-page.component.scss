@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .team-header {
   z-index: 5;
   display: flex;
@@ -206,11 +208,11 @@
       cursor: pointer;
 
       &:hover {
-        background-color: darken($color: #ffffff, $amount: 5);
+        background-color: color.adjust(#ffffff, $lightness: -5%);
       }
 
       &:hover {
-        background-color: darken($color: #ffffff, $amount: 2);
+        background-color: color.adjust(#ffffff, $lightness: -2%);
       }
     }
   }

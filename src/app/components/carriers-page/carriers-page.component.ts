@@ -51,22 +51,6 @@ export class CarriersPageComponent implements OnInit {
       claimsLink: 'https://www.cna.com/web/guest/cna/claims-center',
     },
     {
-      name: 'Commonwealth Insurance',
-      logo: this.basePath + 'commonwealth.png',
-      phone: '(877) 603 1310',
-      claims: '877-603-1310',
-      payments: 'https://customer.commonwealthcasualty.com/',
-      claimsLink: 'https://www.commonwealthcasualty.com/file-a-claim',
-    },
-    {
-      name: 'Dairyland Insurance',
-      logo: this.basePath + 'dairyland.png',
-      phone: '800-334-0090',
-      claims: '800-334-0090',
-      payments: 'https://my.dairylandinsurance.com/web/login',
-      claimsLink: 'https://www.dairylandinsurance.com/auto/claims',
-    },
-    {
       name: 'Donegal Insurance Group',
       logo: this.basePath + 'donegal.png',
       phone: '(800) 877-0600',
@@ -90,6 +74,15 @@ export class CarriersPageComponent implements OnInit {
       claims: '800-274-7865',
       payments: 'https://www.myforemostaccount.com/PrimaryAuthn/?ref=fpo',
       claimsLink: 'https://claims.foremost.com/cmp/s/filealoss?SO=03',
+    },
+    {
+      name: 'Geico',
+      logo: this.basePath + 'geico.png',
+      phone: '800-207-7847',
+      claims: '800-207-7847',
+      payments: 'https://www.geico.com/information/make-a-payment/',
+      claimsLink:
+        'https://claims.geico.com/ClaimsExpress/Locate?_branch_match_id=1528167739799788358&_branch_referrer=H4sIAAAAAAAAAwXB0Q2AIAwFwI3ov4lxCAcwBQo0IpDXJv45u3fNfdlGVEXTDLxW6DpuMmfXRKmzPkaZrcXJyMcHKQLoqFfEfE2wn1wY%2BgMbvR48SAAAAA%3D%3D',
     },
     {
       name: 'German Farmers Insurance',
@@ -125,6 +118,14 @@ export class CarriersPageComponent implements OnInit {
       payments:
         'https://services.hastingsmutual.com//Authentication/Login?ReturnUrl=https://www.hastingsmutual.com/policyholder-dashboard/make-a-payment',
       claimsLink: 'https://www.hastingsmutual.com/report-a-claim',
+    },
+    {
+      name: 'Mapfre',
+      logo: this.basePath + 'mapfre.png',
+      phone: '855-627-3737',
+      claims: '855-627-3737',
+      payments: 'https://payments.mapfreinsurance.com',
+      claimsLink: 'https://mcr.mapfreinsurance.com/claims/',
     },
     {
       name: 'Progressive Insurance',

@@ -23,15 +23,6 @@ export class TeamsPageComponent implements OnInit {
       ],
     },
     {
-      id: 'emily',
-      name: 'Emily Wagner',
-      position: 'AGENT',
-      img: '/emily-wagner.jpg',
-      description: [
-        `Hi, my name is Emily Wagner and I am proud to be a part of the STF team since the beginning of 2023. As a mother of five, I understand the value of hard work and dedication and bring those values to everything I do. Along with my work at STF, I am also heavily involved in the local community of Arcanum and the school. I love watching my kids' sports and activities and being a part of their growth and development. As the Youth Wrestling Director for Arcanum, I am committed to helping young athletes develop their skills and reach their full potential. I am also heavily involved in the junior high and high school programs, where I support the wrestlers and coaches in any way I can. Overall, I am passionate about being a positive force in the community and helping young people grow and thrive.`,
-      ],
-    },
-    {
       id: 'cole',
       name: 'Cole Burrell',
       position: 'AGENT',
@@ -47,24 +38,6 @@ export class TeamsPageComponent implements OnInit {
       img: '/trevor-fry.jpg',
       description: [
         `Hi, Im Trevor Fry. I started with STF Insurance Group in 2022. I graduated college from IU East with a degree in business administration. I enjoy spending my spare time with my family and friends. I also enjoy watching the Cincinnati Bengals and Reds. I look forward to helping you with all of your insurance needs.`,
-      ],
-    },
-    {
-      id: 'karen',
-      name: 'Karen Bratton',
-      position: 'AGENT',
-      img: '/karen-bratton.jpg',
-      description: [
-        `Hi, I'm Karen Bratton (Spieles) and I have been in the insurance business for 38 years. I have 2 great daughters, 2 grandsons, and 2 son-in-laws that I am very proud of. I have lived in the Vandalia/Butler area my entire life and can say that it has been a great place to raise my family.`,
-      ],
-    },
-    {
-      id: 'colleen',
-      name: 'Colleen Hill',
-      position: 'AGENT',
-      img: '/colleen-hill.jpg',
-      description: [
-        `I was born and raised in Middletown, Ohio to Seve and Wendy Dobrozsi.  My father worked for Dobrozsi my entire childhood up until he retired, as did my grandfather Emrie Dobrozsi.  I am a member of Holy Family Parish, Kiwanis, and also volunteer for Sounds of Sunset during the summer.  I am honored to be the third generation to continue with Dobrozsi Insurance and hope to continue the great service my family business has given for the past 100 years.`,
       ],
     },
     {
@@ -105,11 +78,11 @@ export class TeamsPageComponent implements OnInit {
     },
     {
       id: 'katie',
-      name: 'Katie Ressler',
+      name: 'Katie Fry',
       position: 'AGENT',
-      img: '/katie-ressler.jpg',
+      img: '/katie-fry.jpg',
       description: [
-        `My name is Katie Ressler. I am happy to be working alongside Jessy Short since 2023. I graduated from Indiana University East with a bachelors in Business Administration. In my free time, I enjoy spending time with my family and friends.`,
+        `My name is Katie Fry. I am happy to be working alongside Jessy Short since 2023. I graduated from Indiana University East with a bachelors in Business Administration. In my free time, I enjoy spending time with my family and friends.`,
       ],
     },
     {
@@ -121,6 +94,28 @@ export class TeamsPageComponent implements OnInit {
         `I am a lifelong resident of Darke County with a deep-rooted family history in farming. I live in Arcanum with my wife and three daughters. I joined STF Insurance Group to work with our farming community, specializing in crop insurance. In my free time, I enjoy watching my daughters' sporting events and spending time with friends and family.`,
       ],
     },
+
+    // {
+    //   id: 'emilie',
+    //   name: 'Emilie Fout',
+    //   position: 'AGENT',
+    //   img: '/emilie-fout.jpg',
+    //   description: [``],
+    // },
+    // {
+    //   id: 'kayla',
+    //   name: 'Kayla Marker',
+    //   position: 'AGENT',
+    //   img: '/kayla-marker.jpg',
+    //   description: [``],
+    // },
+    // {
+    //   id: 'chasta',
+    //   name: 'Chasta Driskell',
+    //   position: 'AGENT',
+    //   img: '/chasta-driskell.jpg',
+    //   description: [``],
+    // },
   ];
   selectedMember: Employee = null;
 
