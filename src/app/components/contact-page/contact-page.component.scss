@@ -1,170 +1,179 @@
-
 .contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-top: 9rem;
+  align-items: center;
+  background-color: #fff9f5;
+
+  .sub-text {
+    display: inline-block;
+    margin: 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .scroll-indicator {
+    position: relative;
+    color: var(--primary-color);
+    margin-top: 3rem;
+    width: 1.5rem;
+  }
+
+  .contact-cards {
     display: flex;
     flex-direction: column;
-    padding-top: 9rem;
-    align-items: center;
-    background-color: #FFF9F5;
+    gap: 1rem;
+    width: 100%;
+    max-width: 65rem;
+    margin: 9rem 0;
+    padding: 0 3rem;
 
-    .sub-text { 
-        display: inline-block;
-        margin: 2rem;
-        font-size: 0.9rem;
-        font-weight: 500;
+    .contact-card {
+      border-radius: 6px;
+      background-color: white;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4rem 5rem;
+      box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.122);
+
+      .text-wrapper {
+        text-align: center;
+        width: calc(50% - 5rem);
+
+        span {
+          &:last-child {
+            font-family: Maison Neue Book, sans-serif;
+          }
+        }
+      }
     }
 
-    .contact-cards {
+    .contact-branch {
+      width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 1rem;
+
+      .branch-card {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 0;
+        height: 14rem;
+
+        .branch-card-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          transition: transform 0.6s;
+          transform-style: preserve-3d;
+        }
+      }
+
+      .branch-card:hover .branch-card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .branch-card-front,
+      .branch-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 6px;
+      }
+
+      .branch-card-front {
+        background-color: white;
+        box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.122);
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-        width: 100%;
-        max-width: 65rem;
-        margin: 9rem 0;
-        padding: 0 3rem;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
 
-        .contact-card {
-            border-radius: 6px;
-            background-color: white;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 4rem 5rem;
-            box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.122);
-
-            .text-wrapper {
-                text-align: center;
-                width: calc(50% - 5rem);
-
-                span {
-                    &:last-child {
-                        font-family: Maison Neue Book, sans-serif;
-                    }
-                }
-            }
+        .info-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
         }
+      }
 
-        .contact-branch {
-            width: 100%;
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 1rem;
+      .branch-card-back {
+        position: relative;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.122);
+        transform: rotateY(180deg);
+        border-radius: 6px;
 
-            .branch-card {
-                flex-direction: column;
-                align-items: center;
-                gap: 2rem;
-                box-shadow: none;
-                background-color: transparent;
-                padding: 0;
-                height: 14rem;
-
-                .branch-card-inner {
-                    position: relative;
-                    width: 100%;
-                    height: 100%;
-                    text-align: center;
-                    transition: transform 0.6s;
-                    transform-style: preserve-3d;
-                }
-            }
-
-            .branch-card:hover .branch-card-inner {
-              transform: rotateY(180deg);
-            }
-            
-            .branch-card-front, .branch-card-back {
-              position: absolute;
-              width: 100%;
-              height: 100%;
-              -webkit-backface-visibility: hidden;
-              backface-visibility: hidden;
-              border-radius: 6px;
-            }
-            
-            .branch-card-front {
-                background-color: white;
-                box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.122);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 2rem;
-
-                .info-wrapper {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 1rem;
-                }
-            }
-            
-            .branch-card-back {
-                position: relative;
-                background-color: white;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.122);
-                transform: rotateY(180deg);
-                border-radius: 6px;
-
-                .back-btn {
-                    position: absolute;
-                    top: 1.7rem;
-                    left: 2rem;
-                    outline: transparent;
-                    background-color: transparent;
-                    border: none;
-                    cursor: pointer;
-                }
-            }
-
-            tr {
-                th {
-                    &:first-child {
-                        text-align: right;
-                    }
-                    &:last-child {
-                        text-align: start;
-                        padding-left: 1rem;
-                        font-weight: 500;
-                    }
-                }
-            }
+        .back-btn {
+          position: absolute;
+          top: 1.7rem;
+          left: 2rem;
+          outline: transparent;
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
         }
+      }
+
+      tr {
+        th {
+          &:first-child {
+            text-align: right;
+          }
+          &:last-child {
+            text-align: start;
+            padding-left: 1rem;
+            font-weight: 500;
+          }
+        }
+      }
     }
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    .contact-wrapper {
-        .contact-cards {
-            .contact-card {
-                flex-direction: column;
-                gap: 3rem;
-                padding: 4rem 2rem;
+  .contact-wrapper {
+    .contact-cards {
+      padding: 0 1rem;
 
-                .text-wrapper {
-                    text-align: center;
-                    width: 100%;
-                }
-                a {
-                    font-size: 3.2vw;
-                    width: 50%;
-                    padding: 1.5rem 0;
-                }
-            }
-    
-            .contact-branch {
-                flex-direction: column;
-                
-                .branch-card-front {
-                    button {
-                        padding: 1.2rem 0;
-                    }
-                }
-            }
+      .contact-card {
+        flex-direction: column;
+        gap: 3rem;
+        padding: 4rem 2rem;
+
+        .text-wrapper {
+          text-align: center;
+          width: 100%;
         }
+        a {
+          font-size: 3.2vw;
+          width: 50%;
+          padding: 1.5rem 0;
+        }
+      }
+
+      .contact-branch {
+        flex-direction: column;
+
+        .branch-card-front {
+          button {
+            padding: 1.2rem 0;
+          }
+        }
+      }
     }
+  }
 }

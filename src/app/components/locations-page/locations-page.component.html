@@ -1,34 +1,49 @@
-
+<div id="dot-bg" class="background"></div>
+<div id="gradients" class="gradient">
+  <img class="gradient1" src="../../../assets/img/gradient_1.png" />
+  <img class="gradient2" src="../../../assets/img/gradient_2.png" />
+</div>
 <div class="section locations-section">
-    <img class="section-header" [src]="basePath + 'map_bg.webp'" [@fade]="{value: ':enter', params: {fadeTime: '500ms 1200', opacityVal: 0.375}}" />
-    <div class="gradient-overlay"></div>
-    <section class="overlay-header">
-        <stf-header>
-            <h6>LOCATIONS</h6>
-            <h1 data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="800">Where you can find us</h1>
-        </stf-header>
-    </section>
-    <section class="locations-wrapper" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="800" data-aos-delay="600" data-aos-anchor=".header">
-        <div class="location" *ngFor="let location of locations">
-            <div class="information">
-                <div>
-                    <h2>{{location.name}}</h2>
-                    <span class="address">{{location.address}}</span><br/>
-                </div>
-                <div>
-                    <div *ngFor="let contactMethod of location.contactMethods">
-                        <span class="number-label">{{contactMethod.displayType}}</span><br/>
-                        <a class="number" [href]="contactMethod.type + contactMethod.value">{{contactMethod.displayValue}}</a><br/>
-                    </div>
-                    <span class="number-label">HOURS</span><br/>
-                    <div *ngFor="let hourSet of location.hours">
-                        <span class="hours" style="margin-right: 2rem">{{hourSet.label}}</span>
-                        <span class="hours" style="font-family: Maison Neue Book, sans-serif">{{hourSet.value}}</span>
-                    </div>
-                </div>
-            </div>
-            <img class="location-img" [src]="location.image" [alt]="location.name">
+  <div class="gradient-overlay"></div>
+  <section class="overlay-header">
+    <stf-header>
+      <h6>LOCATIONS</h6>
+      <h1 id="location-header">Where you can find us</h1>
+    </stf-header>
+  </section>
+  <section class="locations-wrapper" id="locations">
+    <div class="location" *ngFor="let location of locations">
+      <div class="information">
+        <div>
+          <h2>{{ location.name }}</h2>
+          <span class="address">{{ location.address }}</span
+          ><br />
         </div>
-    </section>
+        <div>
+          <div *ngFor="let contactMethod of location.contactMethods">
+            <span class="number-label">{{ contactMethod.displayType }}</span
+            ><br />
+            <a
+              class="number"
+              [href]="contactMethod.type + contactMethod.value"
+              >{{ contactMethod.displayValue }}</a
+            ><br />
+          </div>
+          <span class="number-label">HOURS</span><br />
+          <div *ngFor="let hourSet of location.hours">
+            <span class="hours" style="margin-right: 2rem">{{
+              hourSet.label
+            }}</span>
+            <span
+              class="hours"
+              style="font-family: Maison Neue Book, sans-serif"
+              >{{ hourSet.value }}</span
+            >
+          </div>
+        </div>
+      </div>
+      <img class="location-img" [src]="location.image" [alt]="location.name" />
+    </div>
+  </section>
 </div>
 <app-banner bannerType="contactUs"></app-banner>

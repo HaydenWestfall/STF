@@ -2,251 +2,205 @@
 
 /* Color Cheme */
 html body {
-    --primary-color: #EF6C23;
-    --primary-color-accent: #F6A577;
-    --secondary-color: #273051;
-    --secondary-color-acccent: #f1f3fb;
-    --tertiary-color: #ebf5f9;
+  --primary-color: #ef6c23;
+  --primary-color-accent: #f6a577;
+  --secondary-color: #273051;
+  --secondary-color-acccent: #f1f3fb;
+  --tertiary-color: #ebf5f9;
 
-    --primary-text-color: #1D243C;
-    --secondary-text-color: #3f4959cc;
+  --primary-text-color: #1d243c;
+  --secondary-text-color: #3f4959cc;
 
-    --surface-0: white;
-    --surface-1: #F1F1F1;
-    --surface-2: #F2F2F2;
-    --surface-3: #dcdcdc;
-    --surface-4: #707070;
+  --surface-0: white;
+  --surface-1: #f1f1f1;
+  --surface-2: #f2f2f2;
+  --surface-3: #dcdcdc;
+  --surface-4: #707070;
 }
 
 :root {
-    --step--2: clamp(0.78rem, calc(0.66rem + 0.59vw), 1.12rem);
-    --step--1: clamp(0.94rem, calc(0.78rem + 0.80vw), 1.40rem);
-    --step-0: clamp(1.13rem, calc(0.91rem + 1.09vw), 1.75rem);
-    --step-1: clamp(1.35rem, calc(1.06rem + 1.46vw), 2.19rem);
-    --step-2: clamp(1.62rem, calc(1.23rem + 1.94vw), 2.73rem);
-    --step-3: clamp(1.94rem, calc(1.43rem + 2.56vw), 3.42rem);
-    --step-4: clamp(2.33rem, calc(1.66rem + 3.37vw), 4.27rem);
-    --step-5: clamp(2.80rem, calc(1.92rem + 4.42vw), 5.34rem);
-  }
-
-/* Type Faces */
-@font-face {
-    font-family: 'helios-antique';
-    src: url(./assets/fonts/Helios-Antique-Heavy.otf) format('opentype');
-    font-weight: 900;
+  --step--2: clamp(0.78rem, calc(0.66rem + 0.59vw), 1.12rem);
+  --step--1: clamp(0.94rem, calc(0.78rem + 0.8vw), 1.4rem);
+  --step-0: clamp(1.13rem, calc(0.91rem + 1.09vw), 1.75rem);
+  --step-1: clamp(1.35rem, calc(1.06rem + 1.46vw), 2.19rem);
+  --step-2: clamp(1.62rem, calc(1.23rem + 1.94vw), 2.73rem);
+  --step-3: clamp(1.94rem, calc(1.43rem + 2.56vw), 3.42rem);
+  --step-4: clamp(2.33rem, calc(1.66rem + 3.37vw), 4.27rem);
+  --step-5: clamp(2.8rem, calc(1.92rem + 4.42vw), 5.34rem);
 }
 
 @font-face {
-    font-family: 'helios-antique';
-    src: url(./assets/fonts/Helios-Antique-Black.otf) format('opentype');
-    font-weight: 800;
+  font-family: "helios-antique";
+  src: url(./assets/fonts/Helios-Antique-Black.woff2) format("woff2");
+  font-weight: 800;
 }
 
 @font-face {
-    font-family: 'helios-antique';
-    src: url(./assets/fonts/Helios-Antique-Bold.otf) format('opentype');
-    font-weight: 700;
+  font-family: "helios-antique";
+  src: url(./assets/fonts/Helios-Antique-Bold.woff2) format("woff2");
+  font-weight: 700;
 }
 
 @font-face {
-    font-family: 'helios-antique';
-    src: url(./assets/fonts/Helios-Antique-Semi-Bold.otf) format('opentype');
-    font-weight: 600;
+  font-family: "helios-antique";
+  src: url(./assets/fonts/Helios-Antique-Semi-Bold.woff2) format("woff2");
+  font-weight: 600;
 }
 
 @font-face {
-    font-family: 'helios-antique';
-    src: url(./assets/fonts/Helios-Antique-Medium.otf) format('opentype');
-    font-weight: 500;
+  font-family: "helios-antique";
+  src: url(./assets/fonts/Helios-Antique-Medium.woff2) format("woff2");
+  font-weight: 500;
 }
 
 @font-face {
-    font-family: 'helios-antique';
-    src: url(./assets/fonts/Helios-Antique-Regular.otf) format('opentype');
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: 'helios-antique';
-    src: url(./assets/fonts/Helios-Antique-Light.otf) format('opentype');
-    font-weight: 300;
-}
-
-@font-face {
-    font-family: 'helios-antique';
-    src: url(./assets/fonts/Helios-Antique-Ultra-Light.otf) format('opentype');
-    font-weight: 200;
-}
-
-@font-face {
-    font-family: 'helios-antique';
-    src: url(./assets/fonts/Helios-Antique-Thin.otf) format('opentype');
-    font-weight: 100;
-}
-
-@font-face {
-    font-family: 'Maison Neue Book';
-    src: url(./assets/fonts/Maison-Neue-Book.ttf) format('truetype');
-    font-weight: 400;
-}
-
-[data-aos=fade-up] {
-    transform: translate3d(0,50px,0);
+  font-family: "Maison Neue Book";
+  src: url(./assets/fonts/Maison-Neue-Book.woff2) format("woff2");
+  font-weight: 400;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: "helios-antique";
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "helios-antique";
+  box-sizing: border-box;
 }
 
 html {
-    
 }
 
 h1 {
-    font-family: 'helios-antique';
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: clamp(2.9rem, 5.6vw, 4.7rem);
-    display: flex;
-    font-weight: 800;
-    line-height: 4.7rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    white-space: pre-wrap;
-    color: var(--primary-text-color);
-    max-width: 85vw;
+  font-family: "helios-antique";
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: clamp(2.9rem, 5.6vw, 4.7rem);
+  display: flex;
+  font-weight: 800;
+  line-height: 4.7rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  // white-space: pre-wrap;
+  color: var(--primary-text-color);
+  max-width: 85vw;
 }
 
 h2 {
-    font-family: 'helios-antique';
-    font-size: 1.5em;
-    margin-block-start: 0.83rem;
-    margin-block-end: 0.83rem;
+  font-family: "helios-antique";
+  font-size: 1.5em;
+  margin-block-start: 0.83rem;
+  margin-block-end: 0.83rem;
 }
 
 h6 {
-    display: inline-block;
-    margin-bottom: 1.5rem;
-    font-family: 'helios-antique';
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 2.6px;
-    color: var(--secondary-text-color);
-    text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-family: "helios-antique";
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 2.6px;
+  color: var(--secondary-text-color);
+  text-transform: uppercase;
 }
 
 p {
-    font-family: Maison Neue Book, sans-serif;
-    font-size: clamp(1rem, 1.5vw, 1.25rem);
-    line-height: 1.875rem;
-    text-align: center;
-    max-width: 50vw;
-    font-weight: 500;
+  font-family: Maison Neue Book, sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.875rem;
+  text-align: center;
+  max-width: 50vw;
+  font-weight: 500;
 }
 
-
-
 @media only screen and (max-width: 768px) {
-    h1 {
-        font-size: clamp(2rem, 9vw, 20rem);
-        line-height: clamp(2.5rem, 12vw, 20rem);
-    }
+  h1 {
+    font-size: clamp(2rem, 9vw, 20rem);
+    line-height: clamp(2.5rem, 12vw, 20rem);
+    width: 90vw;
+    max-width: unset;
+  }
 
-    p {
-        max-width: 85vw;
-    }
+  p {
+    max-width: 85vw;
+  }
 }
 
 .section {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 }
 
 .stf-button {
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 500px;
-    padding: 0.7rem 1.75rem;
-    font-weight: 700;
-    font-size: 0.9rem;
-    max-height: 3.5rem;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color .25s linear, border-color .25s linear;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 500px;
+  padding: 0.7rem 1.75rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  max-height: 3.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.25s linear, border-color 0.25s linear;
 }
 
 .stf-button-primary {
-    background-color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    color: white;
+  background-color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  color: white;
 
-    &:hover {
-        background-color: transparent;
-        color: var(--secondary-color);
-        border: 2px solid var(--surface-4);
-    }
+  &:hover {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--surface-4);
+  }
 }
 
 .stf-button-primary-dark-bg {
-    background-color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    color: white;
+  background-color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  color: white;
 
-    &:hover {
-        background-color: var(--secondary-color-acccent);
-        color: var(--secondary-color);
-        border: 2px solid var(--secondary-color-acccent);;
-    }
+  &:hover {
+    background-color: var(--secondary-color-acccent);
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color-acccent);
+  }
 }
 
 .stf-button-secondary {
-    background-color: transparent;
-    border: 2px solid var(--surface-4);
-    color: var(--secondary-color);
+  background-color: transparent;
+  border: 2px solid var(--surface-4);
+  color: var(--secondary-color);
 
-    &:hover {
-        background-color: var(--surface-3);
-        color: white;
-        border: 2px solid var(--surface-3);
-    }
+  &:hover {
+    background-color: var(--surface-3);
+    color: white;
+    border: 2px solid var(--surface-3);
+  }
 }
 
 .stf-button-secondary-light-bg {
-    background-color: transparent;
-    border: 2px solid var(--surface-3);
-    color: var(--secondary-color);
+  background-color: transparent;
+  border: 2px solid var(--surface-3);
+  color: var(--secondary-color);
 
-    &:hover {
-        background-color: var(--surface-3);
-        color: var(--secondary-color);
-        border: 2px solid var(--surface-3);
-    }
+  &:hover {
+    background-color: var(--surface-3);
+    color: var(--secondary-color);
+    border: 2px solid var(--surface-3);
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    .stf-button {
-        width: 40%;
-        padding: 2.2rem 0;
-        font-size: 3.8vw;
-    }
+  .stf-button {
+    width: 40%;
+    padding: 2.2rem 0;
+    font-size: 3.8vw;
+  }
 }
 
 @media only screen and (max-width: 500px) {
-    .stf-button {
-        padding: 1.5rem 0;
-    }
-}
-
-body[data-aos-delay='75'] [data-aos],
-[data-aos][data-aos][data-aos-delay='75']{
-  transition-delay: 75ms;
-}
-
-body[data-aos-delay='225'] [data-aos],
-[data-aos][data-aos][data-aos-delay='225']{
-  transition-delay: 225ms;
+  .stf-button {
+    padding: 1.5rem 0;
+  }
 }

@@ -1,0 +1,64 @@
+<div id="dot-bg" class="background"></div>
+<div id="gradients" class="gradient">
+  <img class="gradient1" src="../../../assets/img/gradient_1.png" />
+  <img class="gradient2" src="../../../assets/img/gradient_2.png" />
+</div>
+<div class="section team-header">
+  <stf-header>
+    <h6>OUR TEAM</h6>
+    <h1 id="team-header">
+      We bring a wealth of skills and experience<br />
+      from a wide range of backgrounds
+    </h1>
+  </stf-header>
+  <span id="team-description">
+    Our goal is simple; hire great people and give them<br />
+    the resources and support to do their best work</span
+  >
+</div>
+
+<div class="team-wrapper" id="team">
+  <div class="team-member-grid">
+    <div class="team-member-card" *ngFor="let teamMember of teamMembers">
+      <img
+        [src]="basePath + teamMember.img"
+        (click)="selectedMember = teamMember"
+      />
+      <div class="team-member-info">
+        <span id="name">{{ teamMember.name }}</span>
+        <span id="position">{{ teamMember.position }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-banner bannerType="contactUs"></app-banner>
+
+<div
+  class="blurb-wrapper"
+  *ngIf="selectedMember"
+  (click)="selectedMember = null"
+>
+  <div class="blurb-content" (click)="$event.stopPropagation()">
+    <div class="employee-info">
+      <img
+        [src]="basePath + selectedMember.img"
+        [alt]="selectedMember.name + ' headshot'"
+        loading="lazy"
+      />
+      <div class="employee-info-wrapper">
+        <span>{{ selectedMember.name }}</span>
+        <span>{{ selectedMember.position }}</span>
+      </div>
+    </div>
+
+    <div class="description-wrapper">
+      <span
+        class="description"
+        *ngFor="let para of selectedMember.description"
+        >{{ para }}</span
+      >
+    </div>
+    <button (click)="selectedMember = null">X</button>
+  </div>
+</div>

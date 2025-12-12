@@ -1,173 +1,180 @@
-
 .coverage-wrapper {
-    min-height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+
+  .coverage-header {
+    position: relative;
+    width: 100vw;
+
+    .overlay-header {
+      position: absolute;
+      top: 8rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    img {
+      position: relative;
+      display: inline-block;
+      object-fit: cover;
+      width: 100vw;
+      height: 120vh;
+    }
+
+    .home {
+      margin-top: -20vh;
+      margin-bottom: 10rem;
+    }
+
+    .life {
+    }
+
+    .commercial {
+      margin-top: 5rem;
+    }
+
+    .gradient-overlay {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      background: linear-gradient(to top, white, transparent 30%);
+    }
+  }
+
+  .coverage-description {
+    margin: auto;
+    max-width: 55rem;
+    text-align: center;
     display: flex;
     flex-direction: column;
+    gap: 3rem;
+    justify-content: center;
     align-items: center;
-    overflow-x: hidden;
+    max-width: 75vw;
+    margin-top: 5rem;
 
-    .coverage-header {
-        position: relative;
-        width: 100vw;
+    .text {
+      font-size: 1.1rem;
+    }
+  }
 
-        .overlay-header {
-            position: absolute;
-            top: 8rem;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+  .banner-message {
+    margin: 50vh 0;
+    text-align: center;
+    max-width: 75vw;
 
+    h1 {
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      line-height: clamp(2.9rem, 5.6vw, 4.7rem);
+    }
+  }
+
+  .coverage-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 40vh;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    margin: 0 0 10rem 0;
+
+    .coverage-card {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      max-width: 75rem;
+
+      img {
+        object-fit: cover;
+        width: 38vw;
+        height: 80vh;
+        border-radius: 8px;
+        flex-shrink: 0;
+      }
+
+      div {
+        padding: 6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3.5vw;
+        font-weight: 800;
+        line-height: 4.5vw;
+      }
+    }
+
+    .reverse {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  .coverage-wrapper {
+    .coverage-cards {
+      .coverage-card {
         img {
-            position: relative;
-            display:inline-block;
-            object-fit: cover;
-            width: 100vw;
-            height: 120vh;
+          width: 50vw;
         }
 
-        .home {
-            margin-top: -20vh;
-            margin-bottom: 10rem;
+        div {
+          padding: 4rem;
         }
+      }
+    }
+  }
+}
 
-        .life {
-        }
-
-        .commercial {
-            margin-top: 5rem;
-        }
-
-        .gradient-overlay {
-            position:absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            background: linear-gradient(to top, white, transparent 30%);
-        }
+@media only screen and (max-width: 768px) {
+  .coverage-wrapper {
+    .coverage-header {
+      .life {
+        object-position: 34%;
+      }
     }
 
     .coverage-description {
-        margin:auto;
-        max-width: 55rem;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-        justify-content: center;
-        align-items: center;
-        max-width: 75vw;
-        margin-top: 5rem;
+      max-width: 90%;
 
-        .text {
-            font-size: 1.1rem;
-        }
+      .text {
+        font-size: 1.1rem;
+      }
     }
 
     .banner-message {
-        margin: 50vh 0;
-        text-align: center;
-        max-width: 75vw;
+      max-width: 90vw;
 
-        h1 {
-            font-size: clamp(2.5rem, 4vw, 4rem);
-            line-height: clamp(2.9rem, 5.6vw, 4.7rem);
-        }
+      h1 {
+        font-size: clamp(2rem, 4vw, 4rem);
+      }
     }
 
     .coverage-cards {
-        display: flex;
-        flex-direction: column;
-        gap: 40vh;
-        justify-content: center;
+      flex-direction: column;
+      gap: 20vh;
+
+      .coverage-card {
+        flex-direction: column-reverse;
         align-items: center;
-        width: 100vw;
-        margin: 0 0 10rem 0;
 
-        .coverage-card {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-            max-width: 75rem;
-
-            img {
-                object-fit: cover;
-                width: 38vw;
-                height: 80vh;
-                border-radius: 8px;
-                flex-shrink: 0;
-            }
-
-            div {
-                padding: 6rem;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 3.5vw;
-                font-weight: 800;
-                line-height: 4.5vw;
-            }
+        img {
+          height: 50vh;
+          width: 80vw;
         }
 
-        .reverse {
-            flex-direction: row-reverse;
+        div {
+          text-align: center !important;
+          max-width: 75vw;
+          font-size: 8vw;
+          line-height: 10vw;
+          padding: 3rem 0;
         }
+      }
     }
-}
-
-
-@media only screen and (max-width: 1250px) {
-    .coverage-wrapper {
-        .coverage-cards {
-            .coverage-card {
-                img {
-                    width: 50vw;
-                }
-    
-                div {
-                    padding: 4rem;
-                }
-            }
-        }
-    }
-}
-
-
-@media only screen and (max-width: 768px) {
-    .coverage-wrapper {
-        .coverage-header {
-            .life {
-                object-position: 34%;
-            }
-        }
-
-        .banner-message {
-            h1 {
-                font-size: clamp(2rem, 4vw, 4rem);
-            }
-        }
-    
-        .coverage-cards {
-            flex-direction: column;
-            gap: 20vh;
-    
-            .coverage-card {
-                flex-direction: column-reverse;
-                align-items: center;
-    
-                img {
-                    height: 50vh;
-                    width: 80vw;
-                }
-    
-                div {
-                    text-align: center !important;
-                    max-width: 75vw;
-                    font-size: 8vw;
-                    line-height: 10vw;
-                    padding: 3rem 0;
-                }
-            }
-        }
-    }
+  }
 }

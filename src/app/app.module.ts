@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -18,15 +16,14 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { CoveragesSectionComponent } from './components/landing-page/coverages-section/coverages-section.component';
 import { FaqPageComponent } from './components/faq-page/faq-page.component';
 import { CoveragePageComponent } from './components/coverage-page/coverage-page.component';
-import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 import { CarriersPageComponent } from './components/carriers-page/carriers-page.component';
 import { FormsModule } from '@angular/forms';
 import { LocationsPageComponent } from './components/locations-page/locations-page.component';
 import { AboutPageComponent } from './components/about-page/about-page.component';
-import { TeamPageComponent } from './components/team-page/team-page.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { HideOnScrollDirective } from './directives/hide-on-scroll.directive';
 import { QuoteRedirectComponent } from './utility/quote-redirect/quote-redirect.component';
+import { TeamsPageComponent } from './components/teams-page/teams-page.component';
 
 @NgModule({
   declarations: [
@@ -48,19 +45,13 @@ import { QuoteRedirectComponent } from './utility/quote-redirect/quote-redirect.
     CarriersPageComponent,
     LocationsPageComponent,
     AboutPageComponent,
-    TeamPageComponent,
     BannerComponent,
     HideOnScrollDirective,
-    QuoteRedirectComponent
+    QuoteRedirectComponent,
+    TeamsPageComponent,
   ],
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    NgxHideOnScrollModule,
-    FormsModule
-  ],
+  imports: [AppRoutingModule, BrowserAnimationsModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
