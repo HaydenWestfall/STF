@@ -27,7 +27,7 @@ export class AboutPageComponent implements AfterViewInit {
     "The company believes that buying or selling insurance policies is more than just about price, they look for value in serving clients' needs and aim to find the most suitable product instead of fulfilling a company quota.",
   ];
   carriers = [
-    this.basePathCarriers + 'commonwealth.png',
+    this.basePathCarriers + 'geico.png',
     this.basePathCarriers + 'encova.png',
     this.basePathCarriers + 'grinnell.png',
     this.basePathCarriers + 'celina.png',

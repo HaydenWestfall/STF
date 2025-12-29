@@ -30,7 +30,7 @@ export class HeroSectionComponent implements OnInit {
   contactInfo = [
     { label: 'Arcanum', type: 'tel', value: this.env.arcanumPhoneNumber },
     { label: 'Vandalia', type: 'tel', value: this.env.vandaliaPhoneNumber },
-    { label: 'Debrozi', type: 'tel', value: this.env.vandaliaPhoneNumber },
+    { label: 'Dobrozsi', type: 'tel', value: this.env.middletownPhoneNumber },
   ];
 
   test = ['The Easiest Way To', 'Buy Low Cost', 'Insurance'];

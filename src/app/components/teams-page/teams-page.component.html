@@ -21,7 +21,13 @@
   <div class="team-member-grid">
     <div class="team-member-card" *ngFor="let teamMember of teamMembers">
       <img
+        *ngIf="teamMember.img"
         [src]="basePath + teamMember.img"
+        (click)="selectedMember = teamMember"
+      />
+      <img
+        *ngIf="!teamMember.img"
+        [src]="basePath + '/stock-user.png'"
         (click)="selectedMember = teamMember"
       />
       <div class="team-member-info">
@@ -42,7 +48,14 @@
   <div class="blurb-content" (click)="$event.stopPropagation()">
     <div class="employee-info">
       <img
+        *ngIf="selectedMember.img"
         [src]="basePath + selectedMember.img"
+        [alt]="selectedMember.name + ' headshot'"
+        loading="lazy"
+      />
+      <img
+        *ngIf="!selectedMember.img"
+        [src]="basePath + '/stock-user.png'"
         [alt]="selectedMember.name + ' headshot'"
         loading="lazy"
       />
