@@ -94,28 +94,30 @@ export class TeamsPageComponent implements OnInit {
         `I am a lifelong resident of Darke County with a deep-rooted family history in farming. I live in Arcanum with my wife and three daughters. I joined STF Insurance Group to work with our farming community, specializing in crop insurance. In my free time, I enjoy watching my daughters' sporting events and spending time with friends and family.`,
       ],
     },
-
-    // {
-    //   id: 'emilie',
-    //   name: 'Emilie Fout',
-    //   position: 'AGENT',
-    //   img: '/emilie-fout.jpg',
-    //   description: [``],
-    // },
-    // {
-    //   id: 'kayla',
-    //   name: 'Kayla Marker',
-    //   position: 'AGENT',
-    //   img: '/kayla-marker.jpg',
-    //   description: [``],
-    // },
-    // {
-    //   id: 'chasta',
-    //   name: 'Chasta Driskell',
-    //   position: 'AGENT',
-    //   img: '/chasta-driskell.jpg',
-    //   description: [``],
-    // },
+    {
+      id: 'emilie',
+      name: 'Emilie Fout',
+      position: 'AGENT',
+      description: [
+        `Hello, my name is Emilie Fout. I joined the STF team in 2025 after spending a year at Cedarville University studying communication. I was born and raised in Arcanum and plan to continue building my life right here in this community. Outside of work, I enjoy coaching and spending time with my family and friends. I’m passionate about creating meaningful connections and helping others whenever I can. I look forward to serving this community for many years to come.`,
+      ],
+    },
+    {
+      id: 'kayla',
+      name: 'Kayla Marker',
+      position: 'AGENT',
+      description: [
+        `Hello everyone, my name is Kayla Marker. I joined the STF team in 2025 after working as a licensed Crop Claims Field Adjuster. I am a graduate of Ansonia High School and Northeast Iowa Community College, where I earned a degree in Agricultural Business. Outside of work, you can usually find me with my family in the cattle barn or enjoying time with friends. I’m passionate about helping others feel confident and protected, and my goal as your agent is to provide coverage that is clear, affordable, and tailored to your specific needs.`,
+      ],
+    },
+    {
+      id: 'chasta',
+      name: 'Chasta Driskell',
+      position: 'AGENT',
+      description: [
+        `Hi, my name is Chasta Driskell. I have been with STF Insurance Group since the end of 2025. I was born and raised in Indiana and now live in Arcanum with my fiancé, and my daughter. I came to STF Insurance Group after a few months of experience in insurance specializing in auto and home insurance. I look forward to helping you with any need you may have in the future. Reach out if you ever need any assistance. `,
+      ],
+    },
   ];
   selectedMember: Employee = null;
 

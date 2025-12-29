@@ -81,8 +81,7 @@ export class CarriersPageComponent implements OnInit {
       phone: '800-207-7847',
       claims: '800-207-7847',
       payments: 'https://www.geico.com/information/make-a-payment/',
-      claimsLink:
-        'https://claims.geico.com/ClaimsExpress/Locate?_branch_match_id=1528167739799788358&_branch_referrer=H4sIAAAAAAAAAwXB0Q2AIAwFwI3ov4lxCAcwBQo0IpDXJv45u3fNfdlGVEXTDLxW6DpuMmfXRKmzPkaZrcXJyMcHKQLoqFfEfE2wn1wY%2BgMbvR48SAAAAA%3D%3D',
+      claimsLink: 'https://claims.geico.com/ReportClaim#/',
     },
     {
       name: 'German Farmers Insurance',
