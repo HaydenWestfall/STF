@@ -51,11 +51,11 @@ export class TeamsPageComponent implements OnInit {
     },
     {
       id: 'hannah',
-      name: 'Hannah Smith',
+      name: 'Hannah Ruby',
       position: 'AGENT',
       img: '/hannah-smith.jpg',
       description: [
-        `Hi, my name is Hannah Smith. I am proud to be a part of the STF Insurance Group since the beginning of 2024. I was born and raised in the Arcanum area and now reside here with my fiancé, Cody. I am an Arcanum and Wright State University graduate, I found my passion for insurance shortly after graduating from Wright State. I came to STF as a licensed agent with 2 years of prior experience specializing in auto, home and life insurance. I am passionate about educating clients on the importance of insurance and helping them make informed decisions that bring peace of mind and protect what matters most. I look forward to serving our community for many years.`,
+        `Hi, my name is Hannah Ruby. I am proud to be a part of the STF Insurance Group since the beginning of 2024. I was born and raised in the Arcanum area and now reside here with my husband, Cody. I am an Arcanum and Wright State University graduate, I found my passion for insurance shortly after graduating from Wright State. I came to STF as a licensed agent with 2 years of prior experience specializing in auto, home and life insurance. I am passionate about educating clients on the importance of insurance and helping them make informed decisions that bring peace of mind and protect what matters most. I look forward to serving our community for many years.`,
       ],
     },
     {
@@ -104,18 +104,10 @@ export class TeamsPageComponent implements OnInit {
     },
     {
       id: 'kayla',
-      name: 'Kayla Marker',
+      name: 'Kayla Godown',
       position: 'AGENT',
       description: [
-        `Hello everyone, my name is Kayla Marker. I joined the STF team in 2025 after working as a licensed Crop Claims Field Adjuster. I am a graduate of Ansonia High School and Northeast Iowa Community College, where I earned a degree in Agricultural Business. Outside of work, you can usually find me with my family in the cattle barn or enjoying time with friends. I’m passionate about helping others feel confident and protected, and my goal as your agent is to provide coverage that is clear, affordable, and tailored to your specific needs.`,
-      ],
-    },
-    {
-      id: 'chasta',
-      name: 'Chasta Driskell',
-      position: 'AGENT',
-      description: [
-        `Hi, my name is Chasta Driskell. I have been with STF Insurance Group since the end of 2025. I was born and raised in Indiana and now live in Arcanum with my fiancé, and my daughter. I came to STF Insurance Group after a few months of experience in insurance specializing in auto and home insurance. I look forward to helping you with any need you may have in the future. Reach out if you ever need any assistance. `,
+        `Hey there, I'm Kayla Godown! I was born and raised in Darke County and currently live in New Madison with my husband. I graduated from Ansonia High School and earned a degree in Agricultural Business from North East Iowa Community College. I grew up on a cow-calf and show cattle operation, and agriculture continues to be a big part of my life. Being involved in farming has given me a strong understanding of the needs of local families and farmers. At STF Insurance Group, I enjoy helping customers find the right coverage for their farm, home, auto, and business. My goal is to make insurance simple, provide great service, and help protect what matters most to you.`,
       ],
     },
   ];
