@@ -1,14 +1,43 @@
 .hero {
   position: relative;
-  background: radial-gradient(
-      60rem 34rem at 88% 6%,
-      rgba(239, 108, 35, 0.09),
-      transparent 62%
-    ),
-    linear-gradient(180deg, var(--navy-50) 0%, #fff 72%);
+  background: linear-gradient(180deg, var(--navy-50) 0%, #fff 74%);
   overflow: hidden;
 
+  &__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+
+    &--a {
+      top: -8rem;
+      right: -6rem;
+      width: 32rem;
+      height: 32rem;
+      background: radial-gradient(
+        circle,
+        rgba(239, 108, 35, 0.16),
+        transparent 68%
+      );
+    }
+
+    &--b {
+      bottom: -10rem;
+      left: -8rem;
+      width: 30rem;
+      height: 30rem;
+      background: radial-gradient(
+        circle,
+        rgba(39, 48, 81, 0.1),
+        transparent 70%
+      );
+    }
+  }
+
   &__inner {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;
     gap: clamp(2rem, 5vw, 4.5rem);
@@ -30,6 +59,10 @@
     .btn-group {
       margin-top: 2rem;
     }
+  }
+
+  &__accent {
+    color: var(--brand-600);
   }
 
   &__assurances {
@@ -54,25 +87,70 @@
     }
   }
 
+  /* ---------- Layered media ---------- */
   &__media {
     position: relative;
+    z-index: 1;
+    isolation: isolate;
   }
 
   &__photo {
+    position: relative;
+    z-index: 2;
     border-radius: var(--radius-xl);
     overflow: hidden;
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--border);
+    clip-path: inset(0% 0% 0% 0%);
+    will-change: transform;
 
     img {
+      display: block;
       width: 100%;
-      height: clamp(20rem, 34vw, 28rem);
+      height: clamp(22rem, 34vw, 30rem);
       object-fit: cover;
     }
   }
 
+  &__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      transparent 42%,
+      rgba(20, 26, 44, 0.28)
+    );
+    pointer-events: none;
+  }
+
+  &__panel {
+    position: absolute;
+    z-index: 1;
+    inset: 2.25rem -1.5rem -1.75rem 2.75rem;
+    border-radius: var(--radius-xl);
+    background: linear-gradient(
+      150deg,
+      var(--brand-500) 0%,
+      var(--brand-300) 100%
+    );
+    box-shadow: var(--shadow-md);
+  }
+
+  &__dots {
+    position: absolute;
+    z-index: 1;
+    top: -1.25rem;
+    left: -1.25rem;
+    width: 8.5rem;
+    height: 8.5rem;
+    background-image: radial-gradient(var(--brand-200) 1.6px, transparent 1.6px);
+    background-size: 14px 14px;
+    opacity: 0.75;
+  }
+
   &__badge {
     position: absolute;
+    z-index: 3;
     left: -1.5rem;
     bottom: -1.75rem;
     background-color: #fff;
@@ -83,6 +161,7 @@
     display: grid;
     gap: 0.15rem;
     max-width: 15rem;
+    will-change: transform;
   }
 
   &__stars {
@@ -105,7 +184,65 @@
     color: var(--ink-subtle);
   }
 
+  /* ---------- Anniversary seal ---------- */
+  &__seal {
+    position: absolute;
+    z-index: 3;
+    top: -1.9rem;
+    right: -1.6rem;
+    width: 6.75rem;
+    height: 6.75rem;
+    display: grid;
+    place-items: center;
+    background-color: #fff;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    box-shadow: var(--shadow-md);
+    will-change: transform;
+  }
+
+  &__seal-ring {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    text {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      fill: var(--navy-700);
+      text-transform: uppercase;
+    }
+  }
+
+  &__seal-core {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    line-height: 1;
+
+    strong {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--brand-500);
+    }
+
+    span {
+      margin-top: 0.15rem;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ink-subtle);
+    }
+  }
+
+  /* ---------- Stats bar ---------- */
   &__stats {
+    position: relative;
+    z-index: 1;
     border-top: 1px solid var(--border);
     background-color: rgba(255, 255, 255, 0.7);
   }
@@ -129,6 +266,7 @@
     font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.375rem);
     line-height: 1;
     color: var(--brand-500);
+    font-variant-numeric: tabular-nums;
   }
 
   &__label {
@@ -148,6 +286,10 @@
     max-width: 42rem;
   }
 
+  .hero__media {
+    max-width: 40rem;
+  }
+
   .hero__badge {
     left: auto;
     right: 1rem;
@@ -163,12 +305,35 @@
 
 @media (max-width: 640px) {
   .hero__photo img {
-    height: 16rem;
+    height: 17rem;
+  }
+
+  .hero__dots {
+    display: none;
+  }
+
+  .hero__panel {
+    inset: 1.5rem -1rem -1.25rem 1.75rem;
   }
 
   .hero__badge {
-    right: 0.75rem;
+    right: 0.5rem;
     padding: 0.875rem 1rem;
+  }
+
+  .hero__seal {
+    width: 5.25rem;
+    height: 5.25rem;
+    top: -1.25rem;
+    right: -0.5rem;
+  }
+
+  .hero__seal-ring text {
+    font-size: 12px;
+  }
+
+  .hero__seal-core strong {
+    font-size: 1rem;
   }
 
   .hero .btn-group .btn {

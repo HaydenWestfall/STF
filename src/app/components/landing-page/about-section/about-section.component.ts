@@ -28,5 +28,10 @@ export class AboutSectionComponent {
       description:
         'Values, vehicles and businesses change. We re-check your coverage and re-market your policy when the numbers stop making sense.',
     },
+    {
+      title: 'Advice that keeps you ahead',
+      description:
+        'We stay on top of regulatory and market shifts so your protection keeps pace with changing risks, costs, and opportunities.',
+    },
   ];
 }

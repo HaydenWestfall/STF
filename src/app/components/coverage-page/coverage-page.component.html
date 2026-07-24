@@ -1,17 +1,20 @@
 <ng-container *ngIf="coverage as cov">
   <!-- Hero -->
-  <section class="coverage-hero">
+  <section class="coverage-hero" [class.coverage-hero--anim]="animate" #hero>
+    <span class="coverage-hero__glow" aria-hidden="true"></span>
+    <span class="coverage-hero__grid" aria-hidden="true"></span>
+
     <div class="container coverage-hero__inner">
       <div class="coverage-hero__text">
-        <ol class="breadcrumb">
+        <ol class="breadcrumb" data-hero="rise">
           <li><a routerLink="/">Home</a></li>
           <li>Insurance</li>
           <li>{{ cov.name }}</li>
         </ol>
-        <span class="eyebrow eyebrow--light">{{ cov.category }}</span>
-        <h1>{{ cov.name }}</h1>
-        <p>{{ cov.tagline }}</p>
-        <div class="btn-group">
+        <span class="eyebrow eyebrow--light" data-hero="rise">{{ cov.category }}</span>
+        <h1 data-hero="rise">{{ cov.name }}</h1>
+        <p data-hero="rise">{{ cov.tagline }}</p>
+        <div class="btn-group" data-hero="rise">
           <a class="btn btn--primary btn--lg" routerLink="/quoteRedirect"
             >Get a Free Quote</a
           >
@@ -21,17 +24,37 @@
         </div>
       </div>
 
-      <div class="coverage-hero__media">
-        <img
-          [src]="cov.heroImage"
-          [alt]="cov.name + ' from STF Insurance Group'"
-        />
+      <div class="coverage-hero__media" #media>
+        <span class="coverage-hero__panel" data-depth="12" aria-hidden="true"></span>
+        <span class="coverage-hero__dots" data-depth="-16" aria-hidden="true"></span>
+
+        <div class="coverage-hero__frame" data-depth="6">
+          <img
+            [src]="cov.heroImage"
+            [alt]="cov.name + ' from STF Insurance Group'"
+          />
+        </div>
+
+        <div
+          class="coverage-hero__badge"
+          data-hero="pop"
+          data-depth="28"
+          *ngIf="cov.quickFacts?.length"
+        >
+          <span class="coverage-hero__badge-icon">
+            <img [src]="cov.icon" alt="" aria-hidden="true" />
+          </span>
+          <div>
+            <span class="coverage-hero__badge-label">{{ cov.quickFacts[0].label }}</span>
+            <span class="coverage-hero__badge-value">{{ cov.quickFacts[0].value }}</span>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="coverage-hero__facts">
       <div class="container coverage-hero__facts-inner">
-        <div class="fact" *ngFor="let fact of cov.quickFacts">
+        <div class="fact" *ngFor="let fact of cov.quickFacts" data-hero="rise">
           <span class="fact__label">{{ fact.label }}</span>
           <span class="fact__value">{{ fact.value }}</span>
         </div>

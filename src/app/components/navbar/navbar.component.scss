@@ -188,6 +188,17 @@
   box-shadow: var(--shadow-lg);
   animation: dropdown-in 160ms ease-out;
   z-index: 20;
+
+  /* Invisible bridge that spans the gap between the trigger and the panel so
+     the pointer never crosses a dead zone that would collapse the menu. */
+  &::before {
+    content: '';
+    position: absolute;
+    top: -0.5rem;
+    left: 0;
+    right: 0;
+    height: 0.5rem;
+  }
 }
 
 @keyframes dropdown-in {

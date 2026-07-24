@@ -70,13 +70,13 @@ export class FooterComponent {
   socials: Social[] = [
     {
       icon: this.basePath + 'facebook.png',
-      url: 'https://www.facebook.com/srltroutwineinsurance',
+      url: 'https://www.facebook.com/STF.Insurance.Group',
       height: 1.5,
       width: 1.5,
     },
     {
       icon: this.basePath + 'instagram.png',
-      url: 'https://www.instagram.com/stf_insurance_group',
+      url: 'https://www.instagram.com/agencies_of_stf_insurancegroup/',
       height: 1.5,
       width: 1.5,
     },

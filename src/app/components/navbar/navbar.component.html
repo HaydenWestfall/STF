@@ -54,7 +54,7 @@
             *ngFor="let group of navGroups"
             [class.has-menu]="group.children?.length"
             (mouseenter)="openMenuFor(group)"
-            (mouseleave)="openMenu = null"
+            (mouseleave)="scheduleClose()"
           >
             <a
               *ngIf="!group.children?.length"

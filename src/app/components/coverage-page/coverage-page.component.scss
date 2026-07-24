@@ -5,24 +5,45 @@
   color: #fff;
   overflow: hidden;
 
-  &::before {
-    content: "";
+  &__glow {
     position: absolute;
-    top: -14rem;
-    right: -10rem;
+    top: -12rem;
+    right: -8rem;
     width: 34rem;
     height: 34rem;
     border-radius: 50%;
     background: radial-gradient(
       circle,
-      rgba(239, 108, 35, 0.3),
-      transparent 65%
+      rgba(239, 108, 35, 0.32),
+      transparent 66%
     );
+    filter: blur(20px);
     pointer-events: none;
+    z-index: 0;
+  }
+
+  &__grid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.05) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(
+      70% 70% at 70% 20%,
+      #000 0%,
+      transparent 75%
+    );
+    mask-image: radial-gradient(70% 70% at 70% 20%, #000 0%, transparent 75%);
+    pointer-events: none;
+    z-index: 0;
   }
 
   &__inner {
     position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
     gap: clamp(2rem, 5vw, 4rem);
@@ -50,20 +71,109 @@
     }
   }
 
+  /* ---------- Layered media ---------- */
   &__media {
+    position: relative;
+    z-index: 1;
+    isolation: isolate;
+  }
+
+  &__frame {
+    position: relative;
+    z-index: 2;
     border-radius: var(--radius-xl);
     overflow: hidden;
     box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    clip-path: inset(0% 0% 0% 0%);
+    will-change: transform;
 
     img {
+      display: block;
       width: 100%;
-      height: clamp(16rem, 26vw, 22rem);
+      height: clamp(18rem, 28vw, 24rem);
       object-fit: cover;
+    }
+  }
+
+  &__panel {
+    position: absolute;
+    z-index: 1;
+    inset: 2rem -1.5rem -1.75rem 2.5rem;
+    border-radius: var(--radius-xl);
+    background: linear-gradient(
+      150deg,
+      var(--brand-500) 0%,
+      var(--brand-600) 100%
+    );
+    opacity: 0.9;
+  }
+
+  &__dots {
+    position: absolute;
+    z-index: 1;
+    top: -1.25rem;
+    left: -1.25rem;
+    width: 8rem;
+    height: 8rem;
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.35) 1.6px,
+      transparent 1.6px
+    );
+    background-size: 14px 14px;
+  }
+
+  &__badge {
+    position: absolute;
+    z-index: 3;
+    left: -1.5rem;
+    bottom: -1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    background-color: #fff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 0.875rem 1.125rem;
+    will-change: transform;
+
+    &-icon {
+      display: grid;
+      place-items: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      flex-shrink: 0;
+      border-radius: var(--radius);
+      background-color: var(--brand-50);
+
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    &-label {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+    }
+
+    &-value {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--navy-800);
     }
   }
 
   &__facts {
     position: relative;
+    z-index: 1;
     border-top: 1px solid rgba(255, 255, 255, 0.14);
     background-color: rgba(0, 0, 0, 0.15);
   }
@@ -415,6 +525,10 @@
     grid-template-columns: 1fr;
   }
 
+  .coverage-hero__media {
+    max-width: 38rem;
+  }
+
   .overview__aside {
     position: static;
     grid-template-columns: 1fr 1fr;
@@ -435,6 +549,20 @@
   .coverage-hero__facts-inner {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .coverage-hero__dots {
+    display: none;
+  }
+
+  .coverage-hero__panel {
+    inset: 1.5rem -1rem -1.25rem 1.75rem;
+  }
+
+  .coverage-hero__badge {
+    left: auto;
+    right: 0.75rem;
+    bottom: -1.25rem;
   }
 
   .overview__aside,

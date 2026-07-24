@@ -100,6 +100,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ];
 
   private routerSub: Subscription;
+  private closeTimer: ReturnType<typeof setTimeout> | null = null;
 
   constructor(public router: Router, private elementRef: ElementRef) {}
 
@@ -111,6 +112,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.routerSub?.unsubscribe();
+    this.clearCloseTimer();
     this.setBodyLock(false);
   }
 
@@ -136,8 +138,28 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   openMenuFor(group: NavGroup): void {
+    this.clearCloseTimer();
     if (group.children?.length) {
       this.openMenu = group.id;
+    }
+  }
+
+  /**
+   * Close the open dropdown after a short grace period. This lets the pointer
+   * travel from the trigger to the overlay without the menu snapping shut.
+   */
+  scheduleClose(): void {
+    this.clearCloseTimer();
+    this.closeTimer = setTimeout(() => {
+      this.openMenu = null;
+      this.closeTimer = null;
+    }, 180);
+  }
+
+  private clearCloseTimer(): void {
+    if (this.closeTimer) {
+      clearTimeout(this.closeTimer);
+      this.closeTimer = null;
     }
   }
 
@@ -161,6 +183,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   closeAll(): void {
+    this.clearCloseTimer();
     this.openMenu = null;
     this.openAccordion = null;
     this.mobileNavOpen = false;
