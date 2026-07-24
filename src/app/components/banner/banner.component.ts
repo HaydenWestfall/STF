@@ -1,5 +1,14 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
-import { gsap } from 'gsap';
+import { Component, Input, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment.development';
+
+interface BannerContent {
+  id: string;
+  eyebrow: string;
+  message: string;
+  supporting: string;
+  button: string;
+  callback: string;
+}
 
 @Component({
   selector: 'app-banner',
@@ -7,62 +16,36 @@ import { gsap } from 'gsap';
   styleUrls: ['./banner.component.scss'],
   standalone: false,
 })
-export class BannerComponent implements OnInit, AfterViewInit {
-  @Input('bannerType') bannerType: string = '';
+export class BannerComponent implements OnInit {
+  @Input('bannerType') bannerType: string = 'getQuote';
 
-  selectedBanner: any;
-  bannerTypes: any[] = [
+  env = environment;
+  selectedBanner: BannerContent;
+
+  bannerTypes: BannerContent[] = [
     {
       id: 'getQuote',
-      message: 'Like what you see?',
-      button: 'Get Quote',
+      eyebrow: 'Free quote',
+      message: 'See what the right coverage actually costs',
+      supporting:
+        'Send us a few details and an agent will compare your options across our carriers. No cost, no obligation, no automated runaround.',
+      button: 'Get a Quote',
       callback: '/quoteRedirect',
     },
     {
       id: 'contactUs',
-      message: 'Have a question?',
-      button: 'Contact us',
+      eyebrow: 'Talk to us',
+      message: 'Have a question about your policy?',
+      supporting:
+        'Call the office nearest you or send us a message. A licensed agent — not a call center — will get back to you.',
+      button: 'Contact Us',
       callback: '/contact',
     },
   ];
 
   ngOnInit(): void {
-    this.selectedBanner = this.bannerTypes.find(
-      (x) => x.id === this.bannerType
-    );
-  }
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      gsap.fromTo(
-        '#banner-header',
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: '#banner-header',
-            start: 'top 80%',
-            scrub: false,
-          },
-        }
-      );
-      gsap.fromTo(
-        '#banner-action',
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: '#banner-action',
-            start: 'top 80%',
-            scrub: false,
-          },
-        }
-      );
-    }, 250);
+    this.selectedBanner =
+      this.bannerTypes.find((x) => x.id === this.bannerType) ??
+      this.bannerTypes[0];
   }
 }

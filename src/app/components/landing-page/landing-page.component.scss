@@ -1,38 +1,150 @@
-.branding-wrapper {
-  position: relative;
-  max-width: 100%;
-  display: flex;
+/* ---------------- How it works ---------------- */
+.process {
+  background-color: var(--navy-800);
+  color: #fff;
 
-  .scroll-wrapper {
-    height: 100%;
-    flex-grow: 1;
+  h2,
+  h3 {
+    color: #fff;
   }
 
-  .static-images {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    z-index: 990;
-    position: sticky;
-    top: 0;
-    padding-top: 4.5rem;
-    gap: 7px;
+  .lede,
+  p {
+    color: rgba(255, 255, 255, 0.72);
+  }
 
-    img {
-      height: 100%;
-      object-fit: cover; /* Ensures images fill the td without distortion */
-      display: block; /* Prevents inline spacing issues */
-      aspect-ratio: 1 / 1; /* Ensures images stay square */
-      height: calc(33.3% - (14px / 3));
-      border: 1px solid rgb(140, 140, 140);
+  .eyebrow {
+    color: var(--brand-300);
+  }
+
+  &__steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    list-style: none;
+    counter-reset: step;
+  }
+
+  &__step {
+    position: relative;
+    padding: 2rem 1.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--radius-lg);
+    background-color: rgba(255, 255, 255, 0.04);
+
+    h3 {
+      font-size: 1.125rem;
+      margin: 1rem 0 0.625rem;
+    }
+
+    p {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+    }
+  }
+
+  &__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--radius);
+    background-color: var(--brand-500);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1rem;
+  }
+
+  &__action {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+
+  &__note {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.7);
+
+    a {
+      color: var(--brand-300);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      text-decoration: none;
+
+      &:hover {
+        color: #fff;
+      }
     }
   }
 }
 
-@media only screen and (max-width: 1340px) {
-  .branding-wrapper {
-    .static-images {
-      display: none;
+/* ---------------- Offices ---------------- */
+.offices {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  &__card {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  &__photo {
+    aspect-ratio: 16 / 10;
+    background-color: var(--surface-tint);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
+  }
+
+  &__body {
+    padding: 1.5rem;
+  }
+
+  &__address {
+    font-size: 0.9375rem;
+    margin-top: 0.625rem;
+  }
+
+  &__hours {
+    font-size: 0.875rem;
+    color: var(--ink-subtle);
+    margin-top: 0.25rem;
+  }
+
+  &__phone {
+    display: inline-block;
+    margin-top: 0.875rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--brand-600);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--brand-700);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  }
+
+  &__action {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .process__steps,
+  .offices__grid {
+    grid-template-columns: 1fr;
   }
 }

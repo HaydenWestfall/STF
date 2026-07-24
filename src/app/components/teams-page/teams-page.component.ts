@@ -1,6 +1,5 @@
-import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Employee } from 'src/app/models/Employee';
-import { StfService } from 'src/app/services/stf.service';
 
 @Component({
   selector: 'app-teams-page',
@@ -8,9 +7,8 @@ import { StfService } from 'src/app/services/stf.service';
   styleUrls: ['./teams-page.component.scss'],
   standalone: false,
 })
-export class TeamsPageComponent implements OnInit {
-  stfService = inject(StfService);
-  basePath = '../../../assets/img/meetTheTeam';
+export class TeamsPageComponent {
+  basePath = 'assets/img/meetTheTeam';
   teamMembers: Employee[] = [
     {
       id: 'tracy',
@@ -113,15 +111,27 @@ export class TeamsPageComponent implements OnInit {
   ];
   selectedMember: Employee = null;
 
-  ngOnInit(): void {
-    this.stfService.setLoadState('#team-header', 50);
-    this.stfService.setLoadState('#team-description', 50);
-    this.stfService.setLoadState('#team', 50);
+  openMember(member: Employee): void {
+    this.selectedMember = member;
+    this.setBodyLock(true);
+  }
 
-    setTimeout(() => {
-      this.stfService.animateText('#team-header', 0);
-      this.stfService.animateText('#team-description', 0.4);
-      this.stfService.animateText('#team', 0.8);
-    }, 250);
+  closeMember(): void {
+    this.selectedMember = null;
+    this.setBodyLock(false);
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    if (this.selectedMember) this.closeMember();
+  }
+
+  photoFor(member: Employee): string {
+    return this.basePath + (member.img ?? '/stock-user.png');
+  }
+
+  private setBodyLock(locked: boolean): void {
+    if (typeof document === 'undefined') return;
+    document.body.classList.toggle('nav-open', locked);
   }
 }

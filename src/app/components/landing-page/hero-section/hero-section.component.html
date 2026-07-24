@@ -1,83 +1,62 @@
-<section class="section hero">
-  <div class="text">
-    <span id="meet-stf" class="hero-subHeader">MEET STF</span>
-    <div id="hero-1" class="hero-header">
-      <div class="hero-header-line">{{ firstLine }}</div>
-      <div class="hero-header-line">
-        <span *ngIf="isMobileView">Buy </span>
-        <span style="color: var(--primary-color)">Low Cost</span>
-        <svg viewBox="0 0 535 142">
-          <path
-            id="text-accent"
-            d="M86.3915 28.456C145.892 15.456 310.191 -2.74398 465.391 28.456C620.591 59.656 464.629 115.374 366 129C290 139.5 182.5 144 68.5002 122C-37.4588 101.552 11 49.5 48 24.5C91.5 -4.89188 141.609 -2.49986 259 28.4561"
-          />
-        </svg>
-        <span *ngIf="!isMobileView"> Insurance</span>
-        <div *ngIf="isMobileView" class="hero-header-line">Insurance</div>
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <span class="pill">Independent Agency &middot; Arcanum, Ohio</span>
+      <h1>Insurance that protects everything you've worked for.</h1>
+      <p class="lede">
+        STF Insurance Group is an independent agency, which means we work for
+        you &mdash; not for one insurance company. We compare coverage from more
+        than 20 top-rated carriers, explain the differences in plain English,
+        and stay with you at renewal and at claim time.
+      </p>
+
+      <div class="btn-group">
+        <a class="btn btn--primary btn--lg" routerLink="/quoteRedirect"
+          >Get a Free Quote</a
+        >
+        <a class="btn btn--secondary btn--lg" routerLink="/contact"
+          >Talk to an Agent</a
+        >
+      </div>
+
+      <ul class="hero__assurances">
+        <li *ngFor="let item of assurances">
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <path
+              d="M10 0a10 10 0 1 0 0 20A10 10 0 0 0 10 0Zm4.7 7.7-5.4 5.4a1 1 0 0 1-1.4 0L5.3 10.5a1 1 0 1 1 1.4-1.4l1.9 1.9 4.7-4.7a1 1 0 0 1 1.4 1.4Z"
+              fill="currentColor"
+            />
+          </svg>
+          <span>{{ item }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="hero__media">
+      <div class="hero__photo">
+        <img
+          src="assets/img/locations/arcanum.webp"
+          alt="STF Insurance Group office in downtown Arcanum, Ohio"
+          width="1189"
+          height="723"
+        />
+      </div>
+      <div class="hero__badge">
+        <div class="hero__stars" aria-hidden="true">★★★★★</div>
+        <span class="hero__rating">4.5 out of 5</span>
+        <span class="hero__rating-label"
+          >Average rating from local customers</span
+        >
       </div>
     </div>
-    <div id="contact-agencies" class="contact-wrapper">
-      <ng-container *ngFor="let info of contactInfo; let i = index">
-        <div class="contact-info">
-          <span>{{ info.label }}</span>
-          <a [href]="info.type + ':' + info.value">{{ info.value }}</a>
-        </div>
-        <div class="divider" *ngIf="i !== contactInfo.length - 1"></div>
-      </ng-container>
-    </div>
-    <div id="actions" class="button-group">
-      <a class="stf-button stf-button-primary" routerLink="/quoteRedirect"
-        >Get Quote</a
-      >
-      <a class="stf-button stf-button-secondary-light-bg" routerLink="/about"
-        >Learn More</a
-      >
-    </div>
   </div>
 
-  <div class="location-images-wrapper">
-    <div class="static-images">
-      <img
-        class="location"
-        src="../../../../assets/img/locations/arcanum.webp"
-        alt="Arcanum Office"
-      />
+  <div class="hero__stats">
+    <div class="container hero__stats-inner">
+      <div class="stat" *ngFor="let stat of stats">
+        <span class="stat__value">{{ stat.value }}</span>
+        <span class="stat__label">{{ stat.label }}</span>
+      </div>
     </div>
-    <div class="static-images">
-      <img
-        class="location"
-        src="../../../../assets/img/locations/middletown.webp"
-        alt="Middletown Office"
-      />
-      <img
-        class="location"
-        src="../../../../assets/img/locations/vandalia.webp"
-        alt="Vandalia Office"
-      />
-    </div>
-  </div>
-
-  <div id="mobile-branding-images" class="mobile-images-wrapper">
-    <img
-      class="location"
-      src="../../../../assets/img/locations/debrozi.webp"
-      alt="Debrozi Logo"
-    />
-    <img
-      class="location"
-      src="../../../../assets/img/locations/stf.webp"
-      alt="STF Logo"
-    />
-    <img
-      class="location"
-      src="../../../../assets/img/locations/js.webp"
-      alt="Jessie Short Logo"
-    />
-  </div>
-
-  <div class="background"></div>
-  <div class="gradient">
-    <img class="gradient1" src="../../../assets/img/gradient_1.png" />
-    <img class="gradient2" src="../../../assets/img/gradient_2.png" />
   </div>
 </section>

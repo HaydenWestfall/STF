@@ -10,7 +10,6 @@ import { AboutSectionComponent } from './components/landing-page/about-section/a
 import { CarriersSectionComponent } from './components/landing-page/carriers-section/carriers-section.component';
 import { ReviewsSectionComponent } from './components/landing-page/reviews-section/reviews-section.component';
 import { SplitPipe } from './pipes/split.pipe';
-import { HeaderComponent } from './components/header/header.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { CoveragesSectionComponent } from './components/landing-page/coverages-section/coverages-section.component';
@@ -22,6 +21,7 @@ import { LocationsPageComponent } from './components/locations-page/locations-pa
 import { AboutPageComponent } from './components/about-page/about-page.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { HideOnScrollDirective } from './directives/hide-on-scroll.directive';
+import { RevealDirective } from './directives/reveal.directive';
 import { QuoteRedirectComponent } from './utility/quote-redirect/quote-redirect.component';
 import { TeamsPageComponent } from './components/teams-page/teams-page.component';
 
@@ -37,7 +37,6 @@ import { TeamsPageComponent } from './components/teams-page/teams-page.component
     ReviewsSectionComponent,
     CoveragesSectionComponent,
     SplitPipe,
-    HeaderComponent,
     ContactPageComponent,
     LandingPageComponent,
     FaqPageComponent,
@@ -47,6 +46,7 @@ import { TeamsPageComponent } from './components/teams-page/teams-page.component
     AboutPageComponent,
     BannerComponent,
     HideOnScrollDirective,
+    RevealDirective,
     QuoteRedirectComponent,
     TeamsPageComponent,
   ],

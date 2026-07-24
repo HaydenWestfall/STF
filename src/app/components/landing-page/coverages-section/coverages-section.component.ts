@@ -1,16 +1,6 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  HostListener,
-  inject,
-  ViewChild,
-} from '@angular/core';
+import { Component } from '@angular/core';
 import { CoverageCard } from 'src/app/models/Coverage';
-import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 import { environment } from 'src/environments/environment.development';
-import { gsap } from 'gsap';
-import { StfService } from 'src/app/services/stf.service';
 
 @Component({
   selector: 'app-coverages-section',
@@ -18,121 +8,65 @@ import { StfService } from 'src/app/services/stf.service';
   styleUrls: ['./coverages-section.component.scss'],
   standalone: false,
 })
-export class CoveragesSectionComponent implements AfterViewInit {
-  stfService = inject(StfService);
-
-  SvgIcon = SvgIcon;
-  basePath = '../../../assets/img/icons/';
-  isDown = false;
-  startX: number;
-  scrollLeft: number;
+export class CoveragesSectionComponent {
+  basePath = 'assets/img/icons/';
 
   coverages: CoverageCard[] = [
     {
       icon: this.basePath + 'auto.png',
       iconSize: 2.75,
       title: 'Auto Insurance',
-      description: 'Collision, Liability, Roadside, and more',
+      description:
+        'Liability, collision, comprehensive, uninsured motorist and roadside help for every vehicle in the driveway.',
       link: '/coverages/auto',
     },
     {
       icon: this.basePath + 'home.png',
       iconSize: 2.6,
       title: 'Home Insurance',
-      description: 'Home, Other structures, Property, and more',
+      description:
+        'Dwelling, other structures, personal property, liability and loss of use for homeowners, condos and renters.',
       link: '/coverages/home',
     },
     {
       icon: this.basePath + 'farm.png',
       iconSize: 2.75,
       title: 'Farm Insurance',
-      description: 'Crops, Farmhouse, Equipment, and more',
+      description:
+        'Farm dwellings, barns, machinery, livestock, crops and the liability that comes with an operation.',
       link: '/coverages/farm',
     },
     {
       icon: this.basePath + 'commercial.png',
       iconSize: 2.5,
       title: 'Commercial Insurance',
-      description: 'Bonds, Liabilty, Property Insurance, and more',
+      description:
+        'General liability, commercial property, business auto, workers compensation, bonds and cyber.',
       link: '/coverages/commercial',
     },
     {
       icon: this.basePath + 'recreational.png',
       iconSize: 3,
       title: 'Recreational Insurance',
-      description: 'Boats, ATVs, Golf carts, and much more',
+      description:
+        'Boats, RVs, campers, motorcycles, ATVs, golf carts and collector cars — on and off the road.',
       link: '/coverages/recreational',
     },
     {
       icon: this.basePath + 'life.png',
       iconSize: 3,
       title: 'Life Insurance',
-      description: 'Term Life, Universal life, whole life, and more',
+      description:
+        'Term, whole and final expense coverage that keeps your family financially steady.',
       link: '/coverages/life',
     },
     {
       icon: this.basePath + 'health.png',
       iconSize: 2.5,
-      title: 'Health Insurance',
-      description: 'Health insurance and Med Supplements',
+      title: 'Health & Medicare',
+      description:
+        'Individual health plans, Medicare Advantage and Medicare supplement guidance from a licensed specialist.',
       externalLink: environment.healthInsuranceLink,
     },
   ];
-
-  @ViewChild('coverageList') coverageList: ElementRef;
-
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      const cards =
-        this.coverageList.nativeElement.querySelectorAll('.coverage');
-
-      this.stfService.animateText('#coverage-section-header');
-      gsap.fromTo(
-        cards,
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.65,
-          ease: 'power2.out',
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: this.coverageList.nativeElement,
-            start: 'top 80%',
-            scrub: false,
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-    }, 250);
-  }
-
-  @HostListener('mousedown', ['$event'])
-  onMouseDown(event: MouseEvent) {
-    this.isDown = true;
-    this.coverageList.nativeElement.classList.add('active');
-    this.startX = event.pageX - this.coverageList.nativeElement.offsetLeft;
-    this.scrollLeft = this.coverageList.nativeElement.scrollLeft;
-  }
-
-  @HostListener('mouseleave', ['$event'])
-  onMouseLeave(event: MouseEvent) {
-    this.isDown = false;
-    this.coverageList.nativeElement.classList.remove('active');
-  }
-
-  @HostListener('mouseup', ['$event'])
-  onMouseUp(event: MouseEvent) {
-    this.isDown = false;
-    this.coverageList.nativeElement.classList.remove('active');
-  }
-
-  @HostListener('mousemove', ['$event'])
-  onMouseMove(event: MouseEvent) {
-    if (!this.isDown) return;
-    event.preventDefault();
-    const x = event.pageX - this.coverageList.nativeElement.offsetLeft;
-    const walk = (x - this.startX) * 3; //scroll-fast
-    this.coverageList.nativeElement.scrollLeft = this.scrollLeft - walk;
-  }
 }

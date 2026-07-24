@@ -1,206 +1,755 @@
-/* You can add global styles to this file, and also import other style files */
+/* =============================================================
+   STF Insurance Group — Global stylesheet / design system
+   Light mode only. Brand palette and logo preserved.
+   ============================================================= */
 
-/* Color Cheme */
-html body {
-  --primary-color: #ef6c23;
-  --primary-color-accent: #f6a577;
-  --secondary-color: #273051;
-  --secondary-color-acccent: #f1f3fb;
-  --tertiary-color: #ebf5f9;
-
-  --primary-text-color: #1d243c;
-  --secondary-text-color: #3f4959cc;
-
-  --surface-0: white;
-  --surface-1: #f1f1f1;
-  --surface-2: #f2f2f2;
-  --surface-3: #dcdcdc;
-  --surface-4: #707070;
-}
-
-:root {
-  --step--2: clamp(0.78rem, calc(0.66rem + 0.59vw), 1.12rem);
-  --step--1: clamp(0.94rem, calc(0.78rem + 0.8vw), 1.4rem);
-  --step-0: clamp(1.13rem, calc(0.91rem + 1.09vw), 1.75rem);
-  --step-1: clamp(1.35rem, calc(1.06rem + 1.46vw), 2.19rem);
-  --step-2: clamp(1.62rem, calc(1.23rem + 1.94vw), 2.73rem);
-  --step-3: clamp(1.94rem, calc(1.43rem + 2.56vw), 3.42rem);
-  --step-4: clamp(2.33rem, calc(1.66rem + 3.37vw), 4.27rem);
-  --step-5: clamp(2.8rem, calc(1.92rem + 4.42vw), 5.34rem);
-}
-
+/* ---------------------------------------------------------------
+   Fonts
+   --------------------------------------------------------------- */
 @font-face {
   font-family: "helios-antique";
   src: url(./assets/fonts/Helios-Antique-Black.woff2) format("woff2");
   font-weight: 800;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "helios-antique";
   src: url(./assets/fonts/Helios-Antique-Bold.woff2) format("woff2");
   font-weight: 700;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "helios-antique";
   src: url(./assets/fonts/Helios-Antique-Semi-Bold.woff2) format("woff2");
   font-weight: 600;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "helios-antique";
   src: url(./assets/fonts/Helios-Antique-Medium.woff2) format("woff2");
   font-weight: 500;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Maison Neue Book";
   src: url(./assets/fonts/Maison-Neue-Book.woff2) format("woff2");
   font-weight: 400;
+  font-display: swap;
+}
+
+/* ---------------------------------------------------------------
+   Design tokens
+   --------------------------------------------------------------- */
+html body {
+  /* Brand — orange */
+  --brand-50: #fef6f1;
+  --brand-100: #fce6d8;
+  --brand-200: #f8c9ac;
+  --brand-300: #f6a577;
+  --brand-500: #ef6c23;
+  --brand-600: #d95c17;
+  --brand-700: #b44a11;
+
+  /* Brand — navy */
+  --navy-900: #141a2c;
+  --navy-800: #1d243c;
+  --navy-700: #273051;
+  --navy-600: #3a456b;
+  --navy-100: #eef1f8;
+  --navy-50: #f5f7fc;
+
+  /* Text */
+  --ink: #1d243c;
+  --ink-muted: #5a6379;
+  --ink-subtle: #7f879a;
+  --ink-inverse: #ffffff;
+
+  /* Surfaces & lines */
+  --surface: #ffffff;
+  --surface-alt: #f7f8fb;
+  --surface-tint: #f1f4fa;
+  --border: #e5e8ef;
+  --border-strong: #d3d8e3;
+
+  /* Legacy aliases — kept so any missed selector still resolves */
+  --primary-color: #ef6c23;
+  --primary-color-accent: #f6a577;
+  --secondary-color: #273051;
+  --secondary-color-acccent: #f1f3fb;
+  --tertiary-color: #ebf5f9;
+  --primary-text-color: #1d243c;
+  --secondary-text-color: #5a6379;
+  --surface-0: #ffffff;
+  --surface-1: #f7f8fb;
+  --surface-2: #f1f4fa;
+  --surface-3: #d3d8e3;
+  --surface-4: #7f879a;
+
+  /* Elevation */
+  --shadow-xs: 0 1px 2px rgba(20, 26, 44, 0.06);
+  --shadow-sm: 0 1px 3px rgba(20, 26, 44, 0.08), 0 1px 2px rgba(20, 26, 44, 0.04);
+  --shadow-md: 0 6px 18px rgba(20, 26, 44, 0.08);
+  --shadow-lg: 0 16px 40px rgba(20, 26, 44, 0.12);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  /* Layout */
+  --container: 1200px;
+  --container-narrow: 860px;
+  --gutter: 1.5rem;
+  --utility-h: 2.5rem;
+  --header-h: 4.5rem;
+
+  /* Type */
+  --font-heading: "helios-antique", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Maison Neue Book", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------------------------------------------------------------
+   Base
+   --------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 * {
   margin: 0;
   padding: 0;
-  font-family: "helios-antique";
-  box-sizing: border-box;
 }
 
 html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-500);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+::selection {
+  background: var(--brand-100);
+  color: var(--navy-800);
+}
+
+/* ---------------------------------------------------------------
+   Typography
+   --------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--ink);
+  text-wrap: balance;
 }
 
 h1 {
-  font-family: "helios-antique";
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: clamp(2.9rem, 5.6vw, 4.7rem);
-  display: flex;
+  font-size: clamp(2.125rem, 1.55rem + 2.6vw, 3.5rem);
+  line-height: 1.08;
   font-weight: 800;
-  line-height: 4.7rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  // white-space: pre-wrap;
-  color: var(--primary-text-color);
-  max-width: 85vw;
+  letter-spacing: -0.02em;
 }
 
 h2 {
-  font-family: "helios-antique";
-  font-size: 1.5em;
-  margin-block-start: 0.83rem;
-  margin-block-end: 0.83rem;
+  font-size: clamp(1.625rem, 1.28rem + 1.55vw, 2.5rem);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.015em;
 }
 
-h6 {
-  display: inline-block;
-  margin-bottom: 1.5rem;
-  font-family: "helios-antique";
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 2.6px;
-  color: var(--secondary-text-color);
-  text-transform: uppercase;
+h3 {
+  font-size: clamp(1.1875rem, 1.1rem + 0.45vw, 1.4375rem);
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h4 {
+  font-size: 1.0625rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  font-weight: 700;
 }
 
 p {
-  font-family: Maison Neue Book, sans-serif;
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
-  line-height: 1.875rem;
-  text-align: center;
-  max-width: 50vw;
-  font-weight: 500;
+  font-family: var(--font-body);
+  color: var(--ink-muted);
+  line-height: 1.75;
 }
 
-@media only screen and (max-width: 768px) {
-  h1 {
-    font-size: clamp(2rem, 9vw, 20rem);
-    line-height: clamp(2.5rem, 12vw, 20rem);
-    width: 90vw;
-    max-width: unset;
-  }
+p + p {
+  margin-top: 1rem;
+}
 
-  p {
-    max-width: 85vw;
-  }
+strong,
+b {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-500);
+  margin-bottom: 0.875rem;
+}
+
+.eyebrow--light {
+  color: var(--brand-300);
+}
+
+.lede {
+  font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.1875rem);
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.muted {
+  color: var(--ink-muted);
+}
+
+.disclaimer {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--ink-subtle);
+}
+
+/* Rich text blocks */
+.prose p {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+.prose ul {
+  margin: 1.25rem 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.prose li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--ink-muted);
+  line-height: 1.7;
+}
+
+.prose li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--brand-500);
+}
+
+/* ---------------------------------------------------------------
+   Layout
+   --------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
 }
 
 .section {
   position: relative;
+  padding-block: clamp(3.25rem, 5.5vw, 5.5rem);
+}
+
+.section--tight {
+  padding-block: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.section--alt {
+  background-color: var(--surface-alt);
+}
+
+.section--tint {
+  background-color: var(--navy-50);
+}
+
+.section--navy {
+  background-color: var(--navy-800);
+  color: var(--ink-inverse);
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--ink-inverse);
+  }
+
+  p,
+  .lede {
+    color: rgba(255, 255, 255, 0.78);
+  }
+}
+
+.section-head {
+  max-width: 46rem;
+  margin-bottom: clamp(2rem, 3.5vw, 3rem);
+}
+
+.section-head--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-head p {
+  margin-top: 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid--2 {
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}
+
+.grid--3 {
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+}
+
+.grid--4 {
+  grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Buttons
+   --------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  line-height: 1;
+  padding: 0.875rem 1.5rem;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 160ms ease, border-color 160ms ease,
+    color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.btn svg {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
+
+.btn--primary {
+  background-color: var(--brand-500);
+  border-color: var(--brand-500);
+  color: #fff;
+  box-shadow: var(--shadow-xs);
+}
+
+.btn--primary:hover {
+  background-color: var(--brand-600);
+  border-color: var(--brand-600);
+}
+
+.btn--secondary {
+  background-color: #fff;
+  border-color: var(--border-strong);
+  color: var(--navy-800);
+}
+
+.btn--secondary:hover {
+  background-color: var(--surface-alt);
+  border-color: var(--navy-600);
+}
+
+.btn--light {
+  background-color: #fff;
+  border-color: #fff;
+  color: var(--navy-800);
+}
+
+.btn--light:hover {
+  background-color: var(--brand-50);
+}
+
+.btn--outline-light {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #fff;
+}
+
+.btn--outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.btn--lg {
+  padding: 1.0625rem 1.875rem;
+  font-size: 1rem;
+}
+
+.btn--sm {
+  padding: 0.625rem 1.125rem;
+  font-size: 0.8125rem;
+}
+
+.btn--block {
   width: 100%;
 }
 
-.stf-button {
-  width: fit-content;
+.btn-group {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+}
+
+/* Text link with arrow */
+.link-arrow {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 500px;
-  padding: 0.7rem 1.75rem;
+  gap: 0.4rem;
+  font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 0.9rem;
-  max-height: 3.5rem;
-  cursor: pointer;
+  font-size: 0.9375rem;
+  color: var(--brand-600);
   text-decoration: none;
-  transition: background-color 0.25s linear, border-color 0.25s linear;
+  transition: gap 160ms ease, color 160ms ease;
 }
 
-.stf-button-primary {
-  background-color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-  color: white;
-
-  &:hover {
-    background-color: transparent;
-    color: var(--secondary-color);
-    border: 2px solid var(--surface-4);
-  }
+.link-arrow::after {
+  content: "→";
+  font-size: 1.05em;
+  line-height: 1;
 }
 
+.link-arrow:hover {
+  gap: 0.65rem;
+  color: var(--brand-700);
+}
+
+/* Legacy button classes still referenced in a few templates */
+.stf-button {
+  @extend .btn;
+}
+
+.stf-button-primary,
 .stf-button-primary-dark-bg {
-  background-color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-  color: white;
-
-  &:hover {
-    background-color: var(--secondary-color-acccent);
-    color: var(--secondary-color);
-    border: 2px solid var(--secondary-color-acccent);
-  }
+  @extend .btn--primary;
 }
 
-.stf-button-secondary {
-  background-color: transparent;
-  border: 2px solid var(--surface-4);
-  color: var(--secondary-color);
-
-  &:hover {
-    background-color: var(--surface-3);
-    color: white;
-    border: 2px solid var(--surface-3);
-  }
-}
-
+.stf-button-secondary,
 .stf-button-secondary-light-bg {
-  background-color: transparent;
-  border: 2px solid var(--surface-3);
-  color: var(--secondary-color);
+  @extend .btn--secondary;
+}
 
-  &:hover {
-    background-color: var(--surface-3);
-    color: var(--secondary-color);
-    border: 2px solid var(--surface-3);
+/* ---------------------------------------------------------------
+   Cards & surfaces
+   --------------------------------------------------------------- */
+.card {
+  background-color: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+}
+
+.card--pad-sm {
+  padding: 1.25rem;
+}
+
+.card--shadow {
+  box-shadow: var(--shadow-sm);
+}
+
+a.card,
+.card--interactive {
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 180ms ease, box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+a.card:hover,
+.card--interactive:hover {
+  border-color: var(--brand-200);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.icon-badge {
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius);
+  background-color: var(--brand-50);
+  flex-shrink: 0;
+}
+
+.icon-badge img {
+  width: 1.75rem;
+  height: 1.75rem;
+  object-fit: contain;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 999px;
+  background-color: var(--brand-50);
+  color: var(--brand-700);
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+/* ---------------------------------------------------------------
+   Page hero (interior pages)
+   --------------------------------------------------------------- */
+.page-hero {
+  position: relative;
+  background-color: var(--navy-800);
+  color: #fff;
+  overflow: hidden;
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.page-hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+.page-hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(20, 26, 44, 0.94) 0%,
+    rgba(20, 26, 44, 0.82) 45%,
+    rgba(29, 36, 60, 0.55) 100%
+  );
+}
+
+.page-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero h1 {
+  color: #fff;
+  max-width: 20ch;
+}
+
+.page-hero p {
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 48ch;
+  margin-top: 1.125rem;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  list-style: none;
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.125rem;
+}
+
+.breadcrumb a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.breadcrumb li::after {
+  content: "/";
+  margin-left: 0.4rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.breadcrumb li:last-child::after {
+  content: none;
+}
+
+/* ---------------------------------------------------------------
+   Reveal-on-scroll
+   --------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 620ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .stf-button {
-    width: 40%;
-    padding: 2.2rem 0;
-    font-size: 3.8vw;
-  }
+/* ---------------------------------------------------------------
+   Utilities
+   --------------------------------------------------------------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-@media only screen and (max-width: 500px) {
-  .stf-button {
-    padding: 1.5rem 0;
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 2000;
+  background: var(--brand-500);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-decoration: none;
+  transition: top 160ms ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+@media (max-width: 640px) {
+  html body {
+    --gutter: 1.25rem;
+  }
+
+  .btn {
+    padding: 0.875rem 1.25rem;
+  }
+
+  .btn--lg {
+    padding: 1rem 1.5rem;
   }
 }

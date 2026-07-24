@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {
   ActivatedRoute,
-  ChildrenOutletContexts,
   NavigationEnd,
   NavigationStart,
   Router,
@@ -10,10 +9,6 @@ import { filter, map, mergeMap } from 'rxjs';
 import { routeTransitionAnimations } from 'src/animations';
 import { StfService } from './services/stf.service';
 import { environment } from 'src/environments/environment.development';
-import { gsap } from 'gsap';
-import { CustomEase } from 'gsap/CustomEase';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import Lenis from 'lenis';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +21,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   title = 'stf';
   navigationType: string;
   prefersDarkScheme: MediaQueryList;
-  coverageType: string;
 
   SEOStockTitle = 'STF Insurance Group | Protecting you with Reliable Coverage';
   SEOStockDescription = [
@@ -41,7 +35,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   constructor(
     private router: Router,
-    private contexts: ChildrenOutletContexts,
     public activatedRoute: ActivatedRoute,
     public stfService: StfService
   ) {
@@ -57,29 +50,16 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    const lenis = new Lenis();
-    lenis.on('scroll', (e: any) => {});
-    function raf(time: any) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.registerPlugin(CustomEase);
-    CustomEase.create('myCustomEase', 'M0,0 C0.87,0 0.13,1 1,1');
-    CustomEase.create('myCustomEaseOut', 'M0,0 C0.13,0 0.87,1 1,1');
-
     this.router.events
       .pipe(
         filter((e) => {
           if (e instanceof NavigationStart)
             this.navigationType = e.navigationTrigger;
           if (e instanceof NavigationEnd && this.navigationType !== 'popstate')
-            window.scroll({ top: 0, left: 0, behavior: 'auto' });
+            window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
           return e instanceof NavigationEnd;
         }),
-        map((e) => this.activatedRoute),
+        map(() => this.activatedRoute),
         map((route) => {
           while (route.firstChild) route = route.firstChild;
           return route;
@@ -115,6 +95,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   handleFaviconTheme(): void {
     const favicon = document.querySelector('link[rel="icon"]');
+    if (!favicon) return;
     favicon['href'] = window.matchMedia('(prefers-color-scheme: dark)')?.matches
       ? './assets/favicon/favicon_white.png'
       : './assets/favicon/favicon_black.png';

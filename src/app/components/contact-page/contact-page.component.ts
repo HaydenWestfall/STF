@@ -1,7 +1,5 @@
-import { AfterViewInit, Component, inject } from '@angular/core';
-import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
+import { Component } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { StfService } from 'src/app/services/stf.service';
 
 @Component({
   selector: 'app-contact-page',
@@ -9,42 +7,61 @@ import { StfService } from 'src/app/services/stf.service';
   styleUrls: ['./contact-page.component.scss'],
   standalone: false,
 })
-export class ContactPageComponent implements AfterViewInit {
-  stfService = inject(StfService);
-  SvgIcon = SvgIcon;
+export class ContactPageComponent {
+  env = environment;
   contactEmail = environment.contactEmail;
+
+  topics = [
+    'A new quote',
+    'A change to my policy',
+    'A billing or payment question',
+    'Reporting a claim',
+    'Something else',
+  ];
+
+  form = {
+    name: '',
+    email: '',
+    phone: '',
+    topic: this.topics[0],
+    message: '',
+  };
+
   branches = [
     {
       branchName: 'Arcanum',
-      contactMethods: [{ label: 'Phone: ', value: '937-692-8310' }],
-      email: this.contactEmail,
-      cardFlipped: false,
+      address: '21 W George St, Arcanum, OH 45304',
+      phone: environment.arcanumPhoneNumber,
+      hours: 'Mon – Fri, 8:30 AM – 4:30 PM',
     },
     {
       branchName: 'Vandalia',
-      contactMethods: [{ label: 'Phone: ', value: '937-890-5426' }],
-      email: this.contactEmail,
-      cardFlipped: false,
+      address: '415 S Dixie Dr, Vandalia, OH 45377',
+      phone: environment.vandaliaPhoneNumber,
+      hours: 'Mon – Fri, 8:30 AM – 4:30 PM',
     },
     {
       branchName: 'Middletown',
-      contactMethods: [{ label: 'Phone: ', value: '513-423-4696' }],
-      email: this.contactEmail,
-      cardFlipped: false,
+      address: '1820 1st Ave, Middletown, OH 45044',
+      phone: environment.middletownPhoneNumber,
+      hours: 'Mon – Fri, 8:30 AM – 4:00 PM',
     },
   ];
 
-  ngAfterViewInit(): void {
-    this.stfService.setLoadState('#contact-header', 50);
-    this.stfService.setLoadState('#contact-description', 50);
-    this.stfService.setLoadState('#scroll-indicator', 50);
-    this.stfService.setLoadState('#contact-body', 50);
+  /** Opens the visitor's email client with the message pre-filled. */
+  sendMessage(): void {
+    const subject = `Website enquiry — ${this.form.topic}`;
+    const body = [
+      `Name: ${this.form.name}`,
+      `Email: ${this.form.email}`,
+      `Phone: ${this.form.phone}`,
+      `Topic: ${this.form.topic}`,
+      '',
+      this.form.message,
+    ].join('\n');
 
-    setTimeout(() => {
-      this.stfService.animateText('#contact-header', 0);
-      this.stfService.animateText('#contact-description', 0.3, true);
-      this.stfService.animateText('#scroll-indicator', 0.6, true);
-      this.stfService.animateText('#contact-body', 0.9, true);
-    }, 250);
+    window.location.href = `mailto:${this.contactEmail}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
   }
 }

@@ -1,33 +1,26 @@
-<section class="section carriers">
-  <div class="carrier-header">
-    <stf-header>
-      <h6 style="color: #deeaff80">PARTNERS</h6>
-      <h1 style="color: white" id="carrier-section-header">
-        Trusted by the best
-      </h1>
-    </stf-header>
-
-    <p class="description" id="carrier-section-description">
-      With access to several of the largest and most respected companies, we are
-      confident we can find the best coverage and rates for you.
-    </p>
-
-    <div class="button-wrapper" id="carrier-section-action">
-      <a class="stf-button stf-button-primary-dark-bg" routerLink="/carriers"
-        >See the list</a
+<section class="section section--tight carriers">
+  <div class="container">
+    <div class="carriers__head" stfReveal>
+      <div>
+        <span class="eyebrow">Our carriers</span>
+        <h2>Backed by companies you already know</h2>
+        <p>
+          We place business with more than 20 regional and national carriers, so
+          you get the strength of a large company with the service of a local
+          office.
+        </p>
+      </div>
+      <a class="btn btn--secondary" routerLink="/carriers"
+        >Payments &amp; Claims</a
       >
     </div>
   </div>
 
-  <div class="marquee">
-    <div class="carrier animate-left" *ngFor="let carrier of carriers1">
-      <img [src]="carrier" [alt]="carrier" />
-    </div>
-  </div>
-
-  <div class="marquee" style="justify-content: flex-end">
-    <div class="carrier animate-right" *ngFor="let carrier of carriers2">
-      <img [src]="carrier" [alt]="carrier" />
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <div class="marquee__item" *ngFor="let carrier of marqueeCarriers">
+        <img [src]="carrier" alt="" loading="lazy" />
+      </div>
     </div>
   </div>
 </section>

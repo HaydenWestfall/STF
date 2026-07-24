@@ -1,8 +1,5 @@
-import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Carrier } from 'src/app/models/Carrier';
-import { StfService } from 'src/app/services/stf.service';
-import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
-import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-carriers-page',
@@ -10,10 +7,8 @@ import { gsap } from 'gsap';
   styleUrls: ['./carriers-page.component.scss'],
   standalone: false,
 })
-export class CarriersPageComponent implements OnInit {
-  stfService = inject(StfService);
-  SvgIcon = SvgIcon;
-  basePath = '../../../assets/img/carriers/';
+export class CarriersPageComponent {
+  basePath = 'assets/img/carriers/';
   searchText = '';
 
   carriers: Carrier[] = [
@@ -160,31 +155,17 @@ export class CarriersPageComponent implements OnInit {
       claimsLink: 'https://www.wayneinsgroup.com/submit-a-claim',
     },
   ];
-  foundCarriers: Carrier[] = structuredClone(this.carriers);
-
-  constructor(public stf: StfService) {}
-
-  ngOnInit(): void {
-    this.stfService.setLoadState('#carrier-header', 50);
-    this.stfService.setLoadState('#carrier-description', 50);
-    this.stfService.setLoadState('#scroll-indicator', 50);
-
-    this.stfService.animateBackground('#carrier-bg', 0);
-    setTimeout(() => {
-      this.stfService.animateText('#carrier-header', 0.5);
-      this.stfService.animateText('#carrier-description', 0.75);
-      this.stfService.animateText('#scroll-indicator', 1.1, true);
-    });
-  }
+  foundCarriers: Carrier[] = [...this.carriers];
 
   clearSearch(): void {
     this.searchText = '';
-    this.foundCarriers = structuredClone(this.carriers);
+    this.foundCarriers = [...this.carriers];
   }
 
-  searchCarriers(key: KeyboardEvent): void {
-    this.foundCarriers = this.carriers.filter((x) =>
-      x.name.toLowerCase().includes(this.searchText.toLowerCase())
-    );
+  searchCarriers(): void {
+    const term = this.searchText.trim().toLowerCase();
+    this.foundCarriers = term
+      ? this.carriers.filter((x) => x.name.toLowerCase().includes(term))
+      : [...this.carriers];
   }
 }

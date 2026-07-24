@@ -1,91 +1,122 @@
-<div class="section about-wrapper">
-  <section class="about-header">
-    <img
-      id="about-header-bg"
-      class="section-header"
-      [src]="basePath + 'about.webp'"
-    />
-    <stf-header>
-      <h6>ABOUT</h6>
-      <h1 id="about-header">Get to know us.</h1>
-    </stf-header>
-  </section>
-
-  <section class="about-description">
-    <stf-header>
-      <h6>ABOUT</h6>
-      <h1 id="about-subHeader">Who is STF?</h1>
-    </stf-header>
-    <p id="about-description">
-      We are an independent insurance agency in Arcanum, Ohio. As an independent
-      agency, we work for our clients to find the right coverage at competitive
-      prices by leveraging their strong relationships with multiple markets and
-      providers. We prioritize personal service and take the time to understand
-      the needs of you.
+<section class="page-hero">
+  <div class="page-hero__media">
+    <img src="assets/img/about/about.webp" alt="" aria-hidden="true" />
+  </div>
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a routerLink="/">Home</a></li>
+      <li>About</li>
+    </ol>
+    <span class="eyebrow eyebrow--light">About STF</span>
+    <h1>An independent agency built on relationships</h1>
+    <p>
+      Spieles Troutwine Fout Insurance Group has protected families, farms and
+      businesses across west-central Ohio for more than 60 years.
     </p>
-    <div class="statistics">
-      <div class="statistic" id="statistic1">
-        <span>{{ yearsOfService }}+</span>
-        <span>Years insuring families</span>
-      </div>
-      <div class="statistic" id="statistic2">
-        <span>{{ familiesProtected | number }}+</span>
-        <span>Families protected with STF</span>
-      </div>
-      <div class="statistic" id="statistic3">
-        <span>{{ customerRatings }}+</span>
-        <span>Customer Ratings</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container about-intro">
+    <div class="prose" stfReveal>
+      <span class="eyebrow">Who we are</span>
+      <h2>Local people, national markets</h2>
+      <p>
+        STF Insurance Group is an independent insurance agency headquartered in
+        Arcanum, Ohio, with additional offices in Vandalia and Middletown. As an
+        independent agency we are not tied to a single insurance company —
+        instead we hold contracts with more than 20 regional and national
+        carriers and place each client with the one that fits them best.
+      </p>
+      <p>
+        That structure matters most when something changes. A new roof, a
+        teenage driver, a business that outgrows its policy, a rate increase, or
+        a claim on your record can all make yesterday's carrier the wrong one
+        today. When that happens, we re-shop your coverage without you having to
+        find a new agent, refill out an application from scratch, or start a
+        relationship over.
+      </p>
+      <p>
+        We handle personal insurance, farm and agribusiness, commercial
+        accounts, life insurance and Medicare — which means one office can cover
+        the house, the pickup, the shop, the ground you farm and the policy that
+        protects your family if you are not here.
+      </p>
+    </div>
+
+    <div class="about-values" stfReveal>
+      <div class="about-value" *ngFor="let value of values">
+        <h3>{{ value.title }}</h3>
+        <p>{{ value.description }}</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="strengths-section">
-    <stf-header>
-      <h6 class="sub-header" style="color: #5f718d">STRENGTHS</h6>
-      <h1 class="header" style="color: white" id="strength-header">
-        Why STF is right for you.
-      </h1>
-    </stf-header>
-    <span class="description" id="strength-description">
-      Here are some of the reasons that we beleive STF is the right choice for
-      you
-    </span>
-    <div class="strengths-graphic">
-      <div
-        class="strength-num"
-        *ngFor="let strength of strengths; let index = index"
+<section class="section section--alt">
+  <div class="container">
+    <div class="about-stats">
+      <div class="about-stat" *ngFor="let stat of stats; let i = index" [stfReveal]="i">
+        <span class="about-stat__value">{{ stat.value }}</span>
+        <span class="about-stat__label">{{ stat.label }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section strengths">
+  <div class="container">
+    <div class="section-head" stfReveal>
+      <span class="eyebrow">Why work with us</span>
+      <h2>Five reasons clients stay with STF</h2>
+      <p class="lede">
+        Most of our new business comes from someone we already insure. These are
+        the reasons they give.
+      </p>
+    </div>
+
+    <ol class="strengths__list">
+      <li
+        class="strength"
+        *ngFor="let strength of strengths; let i = index"
+        [stfReveal]="i"
       >
-        {{ index + 1 }}
-        <div
-          class="strength-text align-right"
-          [ngClass]="index % 2 === 0 ? 'align-right' : 'align-left'"
-        >
-          {{ strength }}
-          <div
-            class="text-accent"
-            [ngClass]="index % 2 === 0 ? 'pos-right' : 'pos-left'"
-          ></div>
+        <span class="strength__number">{{ i + 1 }}</span>
+        <div>
+          <h3>{{ strength.title }}</h3>
+          <p>{{ strength.description }}</p>
         </div>
-      </div>
-      <div class="line"></div>
-    </div>
-  </section>
+      </li>
+    </ol>
+  </div>
+</section>
 
-  <section class="carriers-section">
-    <stf-header>
-      <h6 class="sub-header">OUR CARRIERS</h6>
-      <h1 class="header" id="carrier-header">What we carry.</h1>
-    </stf-header>
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head section-head--center" stfReveal>
+      <span class="eyebrow">Our carriers</span>
+      <h2>A few of the companies we represent</h2>
+      <p class="lede">
+        We place business with more than 20 carriers. See the full list, along
+        with payment and claim links, on our carriers page.
+      </p>
+    </div>
 
-    <div class="carriers-wrapper">
-      <div class="carrier" *ngFor="let carrier of carriers">
-        <img [src]="carrier" />
+    <div class="carrier-wall">
+      <div class="carrier-wall__item" *ngFor="let carrier of carriers">
+        <img [src]="carrier" alt="" loading="lazy" />
       </div>
-      <div class="carrier">
-        <span class="more-text">and many more</span>
+      <div class="carrier-wall__item carrier-wall__item--more">
+        <span>and many more</span>
       </div>
     </div>
-  </section>
-</div>
+
+    <div class="carrier-wall__action" stfReveal>
+      <a class="btn btn--secondary" routerLink="/carriers"
+        >View all carriers, payments &amp; claims</a
+      >
+    </div>
+  </div>
+</section>
 
 <app-banner bannerType="getQuote"></app-banner>

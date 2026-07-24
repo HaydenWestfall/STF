@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, inject } from '@angular/core';
-import { StfService } from 'src/app/services/stf.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-about-section',
@@ -7,14 +6,27 @@ import { StfService } from 'src/app/services/stf.service';
   styleUrls: ['./about-section.component.scss'],
   standalone: false,
 })
-export class AboutSectionComponent implements AfterViewInit {
-  stfService = inject(StfService);
-
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.stfService.animateText('#about-section-header');
-      this.stfService.animateText('#about-section-description');
-      this.stfService.animateText('#about-section-action');
-    }, 250);
-  }
+export class AboutSectionComponent {
+  benefits = [
+    {
+      title: 'We shop the market, you keep the choice',
+      description:
+        'Because we are independent, we can quote your risk with more than 20 carriers at once and show you the differences side by side — not just the price.',
+    },
+    {
+      title: 'One agent for the whole household',
+      description:
+        'Home, auto, farm equipment, the business truck and your life policy can all sit with one agent who knows how the pieces fit together.',
+    },
+    {
+      title: 'A real person at claim time',
+      description:
+        'When something goes wrong you call our office, not a call center. We help you open the claim and follow it through to the payment.',
+    },
+    {
+      title: 'Reviewed at every renewal',
+      description:
+        'Values, vehicles and businesses change. We re-check your coverage and re-market your policy when the numbers stop making sense.',
+    },
+  ];
 }

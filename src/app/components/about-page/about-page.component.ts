@@ -1,31 +1,72 @@
-import {
-  AfterViewInit,
-  ChangeDetectorRef,
-  Component,
-  inject,
-} from '@angular/core';
-import { fade } from 'src/animations';
-import { StfService } from 'src/app/services/stf.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-about-page',
   templateUrl: './about-page.component.html',
   styleUrls: ['./about-page.component.scss'],
-  animations: [fade],
   standalone: false,
 })
-export class AboutPageComponent implements AfterViewInit {
-  stfService = inject(StfService);
+export class AboutPageComponent {
+  basePathCarriers = 'assets/img/carrier-about/';
 
-  basePath = '../../../assets/img/about/';
-  basePathCarriers = '../../../assets/img/carrier-about/';
-  strengths: any[] = [
-    'We do not work for any single insurance company - we work for YOU. We analyze your special needs and circumstance and find the very best coverage for your situation.',
-    "We keep ourselves abreast of what's new in the industry because we work with so many different companies. We keep on top of things for you and make sure your coverages are up-to-date, providing you with the best your money can buy.",
-    'We can provide you with prompt and fair claims assistance because of our special relationships with the array of companies we represent. We make sure they give you the most responsive and fast service available.',
-    'We continually educate ourselves to remain competitive in the industry. This way, you can count on us for well-informed insurance advice and counsel.',
-    "The company believes that buying or selling insurance policies is more than just about price, they look for value in serving clients' needs and aim to find the most suitable product instead of fulfilling a company quota.",
+  stats = [
+    { value: '60+', label: 'Years insuring Ohio families' },
+    { value: '3,000+', label: 'Families & businesses protected' },
+    { value: '20+', label: 'Carriers we compare' },
+    { value: '4.5', label: 'Average customer rating' },
   ];
+
+  strengths = [
+    {
+      title: 'We work for you, not one company',
+      description:
+        'We are not captive to a single insurer. We analyze your situation and place it with whichever of our carriers fits it best — and we can move it if that changes.',
+    },
+    {
+      title: 'We stay current so you do not have to',
+      description:
+        'Working with many companies means we see how forms, endorsements and pricing shift across the market. We keep your coverage up to date rather than letting it renew on autopilot.',
+    },
+    {
+      title: 'We push claims through',
+      description:
+        'Our relationships with the companies we represent let us advocate for prompt, fair claim handling. You call our office and we help you work it to a resolution.',
+    },
+    {
+      title: 'We keep learning',
+      description:
+        'Our agents carry ongoing education in personal lines, farm, commercial, life and Medicare so the advice you get is current and specific to your situation.',
+    },
+    {
+      title: 'We look for value, not a quota',
+      description:
+        'Buying insurance is about more than the lowest number on a page. We look for the product that will actually respond when you need it, and we say so when a cheaper quote is cheaper for a reason.',
+    },
+  ];
+
+  values = [
+    {
+      title: 'Local',
+      description:
+        'Three offices, all in southwest Ohio, all staffed by people who live here.',
+    },
+    {
+      title: 'Independent',
+      description:
+        'More than 20 carrier relationships, so your options are not limited to one company.',
+    },
+    {
+      title: 'Full service',
+      description:
+        'Personal, farm, commercial, life and Medicare handled under one roof.',
+    },
+    {
+      title: 'Straightforward',
+      description:
+        'Plain-English explanations, honest trade-offs, and no pressure to buy today.',
+    },
+  ];
+
   carriers = [
     this.basePathCarriers + 'geico.png',
     this.basePathCarriers + 'encova.png',
@@ -35,78 +76,4 @@ export class AboutPageComponent implements AfterViewInit {
     this.basePathCarriers + 'safeco.png',
     this.basePathCarriers + 'auto-owners.png',
   ];
-
-  yearsOfService = 0;
-  familiesProtected = 0;
-  customerRatings = 0;
-
-  observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting && entry.target.id === 'statistic1') {
-        this.runYearsOfServiceCounter();
-      } else if (entry.isIntersecting && entry.target.id === 'statistic2') {
-        this.runFamiliesProtectedCounter();
-      } else if (entry.isIntersecting && entry.target.id === 'statistic3') {
-        this.runCustomerRatingCounter();
-      }
-    });
-  });
-
-  constructor(public cd: ChangeDetectorRef) {}
-
-  ngAfterViewInit() {
-    this.observer.observe(document.getElementById('statistic1'));
-    this.observer.observe(document.getElementById('statistic2'));
-    this.observer.observe(document.getElementById('statistic3'));
-
-    setTimeout(() => {
-      this.stfService.animateBackground('#about-header-bg');
-      this.stfService.animateText('#about-header');
-      this.stfService.animateText('#about-subHeader');
-      this.stfService.animateText('#about-description');
-      this.stfService.animateText('#strength-header');
-      this.stfService.animateText('#strength-description');
-      this.stfService.animateText('#carrier-header');
-    });
-  }
-
-  runCustomerRatingCounter(): void {
-    this.customerRatings = 0;
-
-    let cusotmerRatingsInterval: any = setInterval(() => {
-      this.customerRatings = Math.round((this.customerRatings + 0.1) * 10) / 10;
-
-      if (this.customerRatings >= 4.5) {
-        this.customerRatings = 4.5;
-        clearInterval(cusotmerRatingsInterval);
-      }
-      this.cd.detectChanges();
-    }, 750 / 45);
-  }
-
-  runFamiliesProtectedCounter(): void {
-    this.familiesProtected = 0;
-
-    let familiesProtectedInterval: any = setInterval(() => {
-      this.familiesProtected = this.familiesProtected + 50;
-      if (this.familiesProtected >= 3000) {
-        this.familiesProtected = 3000;
-        clearInterval(familiesProtectedInterval);
-      }
-      this.cd.detectChanges();
-    }, 750 / 60);
-  }
-
-  runYearsOfServiceCounter(): void {
-    this.yearsOfService = 0;
-
-    let yearsOfServiceInterval: any = setInterval(() => {
-      this.yearsOfService++;
-      if (this.yearsOfService >= 60) {
-        this.yearsOfService = 60;
-        clearInterval(yearsOfServiceInterval);
-      }
-      this.cd.detectChanges();
-    }, 750 / 60);
-  }
 }

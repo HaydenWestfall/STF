@@ -1,6 +1,4 @@
-import { AfterViewInit, Component, inject } from '@angular/core';
-import { gsap } from 'gsap';
-import { StfService } from 'src/app/services/stf.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-carriers-section',
@@ -8,54 +6,30 @@ import { StfService } from 'src/app/services/stf.service';
   styleUrls: ['./carriers-section.component.scss'],
   standalone: false,
 })
-export class CarriersSectionComponent implements AfterViewInit {
-  stfService = inject(StfService);
+export class CarriersSectionComponent {
+  imgPath = 'assets/img/carrier-marquee/';
 
-  imgPath = '../../../../assets/img/carrier-marquee/';
+  carriers: string[] = [
+    'auto-owners',
+    'buckeye',
+    'celina',
+    'cna',
+    'commonwealth',
+    'dairyland',
+    'donegal',
+    'encova',
+    'foremost',
+    'grinnell',
+    'hagerty',
+    'hastings-mutual',
+    'progressive',
+    'safeco',
+    'trexis',
+    'wayne',
+  ].map((name) => this.imgPath + name + '.png');
 
-  carriers1: string[] = [
-    this.imgPath + 'auto-owners.png',
-    this.imgPath + 'buckeye.png',
-    this.imgPath + 'celina.png',
-    this.imgPath + 'cna.png',
-    this.imgPath + 'commonwealth.png',
-    this.imgPath + 'dairyland.png',
-    this.imgPath + 'donegal.png',
-    this.imgPath + 'encova.png',
-    this.imgPath + 'auto-owners.png',
-    this.imgPath + 'buckeye.png',
-    this.imgPath + 'celina.png',
-    this.imgPath + 'cna.png',
-    this.imgPath + 'commonwealth.png',
-    this.imgPath + 'dairyland.png',
-    this.imgPath + 'donegal.png',
-    this.imgPath + 'encova.png',
-  ];
-
-  carriers2: string[] = [
-    this.imgPath + 'grinnell.png',
-    this.imgPath + 'hagerty.png',
-    this.imgPath + 'hastings-mutual.png',
-    this.imgPath + 'progressive.png',
-    this.imgPath + 'safeco.png',
-    this.imgPath + 'trexis.png',
-    this.imgPath + 'wayne.png',
-    this.imgPath + 'foremost.png',
-    this.imgPath + 'grinnell.png',
-    this.imgPath + 'hagerty.png',
-    this.imgPath + 'hastings-mutual.png',
-    this.imgPath + 'progressive.png',
-    this.imgPath + 'safeco.png',
-    this.imgPath + 'trexis.png',
-    this.imgPath + 'wayne.png',
-    this.imgPath + 'foremost.png',
-  ];
-
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.stfService.animateText('#carrier-section-header');
-      this.stfService.animateText('#carrier-section-description');
-      this.stfService.animateText('#carrier-section-action');
-    }, 250);
+  /** Duplicated once so the marquee can loop seamlessly. */
+  get marqueeCarriers(): string[] {
+    return [...this.carriers, ...this.carriers];
   }
 }
