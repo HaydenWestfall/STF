@@ -8,8 +8,8 @@ describe('QuoteRedirectComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ QuoteRedirectComponent ]
-    })
+    imports: [QuoteRedirectComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(QuoteRedirectComponent);

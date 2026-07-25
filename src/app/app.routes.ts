@@ -1,5 +1,4 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { AboutPageComponent } from './components/about-page/about-page.component';
 import { CarriersPageComponent } from './components/carriers-page/carriers-page.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
@@ -10,7 +9,7 @@ import { LocationsPageComponent } from './components/locations-page/locations-pa
 import { QuoteRedirectComponent } from './utility/quote-redirect/quote-redirect.component';
 import { TeamsPageComponent } from './components/teams-page/teams-page.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: LandingPageComponent,
@@ -140,13 +139,3 @@ const routes: Routes = [
   { path: 'quoteRedirect', component: QuoteRedirectComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, {
-      initialNavigation: 'enabledBlocking',
-    }),
-  ],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}

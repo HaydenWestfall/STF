@@ -1,10 +1,19 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { RevealDirective } from '../../directives/reveal.directive';
+import { NgFor } from '@angular/common';
+import { BannerComponent } from '../banner/banner.component';
 
 @Component({
-  selector: 'app-about-page',
-  templateUrl: './about-page.component.html',
-  styleUrls: ['./about-page.component.scss'],
-  standalone: false,
+    selector: 'app-about-page',
+    templateUrl: './about-page.component.html',
+    styleUrls: ['./about-page.component.scss'],
+    imports: [
+        RouterLink,
+        RevealDirective,
+        NgFor,
+        BannerComponent,
+    ],
 })
 export class AboutPageComponent {
   basePathCarriers = 'assets/img/carrier-about/';

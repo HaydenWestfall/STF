@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { NgSwitch, NgStyle, NgSwitchCase } from '@angular/common';
 
 export enum SvgIcon {
   ANGLE,
@@ -40,7 +41,7 @@ export enum SvgIcon {
     templateUrl: './svg-icons.component.html',
     styles: ['svg { width: 100%; height: 100% }'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    imports: [NgSwitch, NgStyle, NgSwitchCase]
 })
 export class SvgIconsComponent {
   SvgIcon = SvgIcon;

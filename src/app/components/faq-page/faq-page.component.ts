@@ -3,6 +3,10 @@ import { growHeight } from 'src/animations';
 import { FAQ } from 'src/app/models/FAQ';
 import { SeoService } from 'src/app/services/seo.service';
 import { environment } from 'src/environments/environment.development';
+import { RouterLink } from '@angular/router';
+import { NgFor, NgIf } from '@angular/common';
+import { RevealDirective } from '../../directives/reveal.directive';
+import { BannerComponent } from '../banner/banner.component';
 
 interface FaqGroup {
   title: string;
@@ -10,11 +14,17 @@ interface FaqGroup {
 }
 
 @Component({
-  selector: 'app-faq-page',
-  templateUrl: './faq-page.component.html',
-  styleUrls: ['./faq-page.component.scss'],
-  animations: [growHeight],
-  standalone: false,
+    selector: 'app-faq-page',
+    templateUrl: './faq-page.component.html',
+    styleUrls: ['./faq-page.component.scss'],
+    animations: [growHeight],
+    imports: [
+        RouterLink,
+        NgFor,
+        RevealDirective,
+        NgIf,
+        BannerComponent,
+    ],
 })
 export class FaqPageComponent implements OnInit, OnDestroy {
   private static readonly JSON_LD_ID = 'faq-jsonld';

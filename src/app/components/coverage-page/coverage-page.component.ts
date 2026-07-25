@@ -8,8 +8,8 @@ import {
   PLATFORM_ID,
   ViewChild,
 } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { isPlatformBrowser, NgIf, NgFor } from '@angular/common';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { gsap } from 'gsap';
 import { growHeight } from 'src/animations';
@@ -17,13 +17,21 @@ import { COVERAGES } from 'src/app/data/coverages';
 import { Coverage } from 'src/app/models/Coverage';
 import { SeoService } from 'src/app/services/seo.service';
 import { environment } from 'src/environments/environment.development';
+import { RevealDirective } from '../../directives/reveal.directive';
+import { BannerComponent } from '../banner/banner.component';
 
 @Component({
-  selector: 'app-coverage-page',
-  templateUrl: './coverage-page.component.html',
-  styleUrls: ['./coverage-page.component.scss'],
-  animations: [growHeight],
-  standalone: false,
+    selector: 'app-coverage-page',
+    templateUrl: './coverage-page.component.html',
+    styleUrls: ['./coverage-page.component.scss'],
+    animations: [growHeight],
+    imports: [
+        NgIf,
+        RouterLink,
+        NgFor,
+        RevealDirective,
+        BannerComponent,
+    ],
 })
 export class CoveragePageComponent implements OnInit, OnDestroy {
   env = environment;

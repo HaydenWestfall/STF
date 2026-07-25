@@ -1,11 +1,21 @@
 import { Component, HostListener } from '@angular/core';
 import { Employee } from 'src/app/models/Employee';
+import { RouterLink } from '@angular/router';
+import { NgFor, NgIf } from '@angular/common';
+import { RevealDirective } from '../../directives/reveal.directive';
+import { BannerComponent } from '../banner/banner.component';
 
 @Component({
-  selector: 'app-teams-page',
-  templateUrl: './teams-page.component.html',
-  styleUrls: ['./teams-page.component.scss'],
-  standalone: false,
+    selector: 'app-teams-page',
+    templateUrl: './teams-page.component.html',
+    styleUrls: ['./teams-page.component.scss'],
+    imports: [
+        RouterLink,
+        NgFor,
+        RevealDirective,
+        BannerComponent,
+        NgIf,
+    ],
 })
 export class TeamsPageComponent {
   basePath = 'assets/img/meetTheTeam';

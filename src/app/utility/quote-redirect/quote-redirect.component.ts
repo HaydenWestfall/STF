@@ -7,8 +7,7 @@ import { environment } from 'src/environments/environment.development';
 @Component({
     selector: 'app-quote-redirect',
     templateUrl: './quote-redirect.component.html',
-    styleUrls: ['./quote-redirect.component.scss'],
-    standalone: false
+    styleUrls: ['./quote-redirect.component.scss']
 })
 export class QuoteRedirectComponent implements OnInit{
 

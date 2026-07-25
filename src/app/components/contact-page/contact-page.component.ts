@@ -1,11 +1,20 @@
 import { Component } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
+import { RouterLink } from '@angular/router';
+import { RevealDirective } from '../../directives/reveal.directive';
+import { FormsModule } from '@angular/forms';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-contact-page',
-  templateUrl: './contact-page.component.html',
-  styleUrls: ['./contact-page.component.scss'],
-  standalone: false,
+    selector: 'app-contact-page',
+    templateUrl: './contact-page.component.html',
+    styleUrls: ['./contact-page.component.scss'],
+    imports: [
+        RouterLink,
+        RevealDirective,
+        FormsModule,
+        NgFor,
+    ],
 })
 export class ContactPageComponent {
   env = environment;

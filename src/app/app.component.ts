@@ -1,22 +1,23 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import {
-  ActivatedRoute,
-  NavigationEnd,
-  NavigationStart,
-  Router,
-} from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { filter, map, mergeMap } from 'rxjs';
 import { routeTransitionAnimations } from 'src/animations';
 import { StfService } from './services/stf.service';
 import { SeoService } from './services/seo.service';
 import { environment } from 'src/environments/environment.development';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  animations: [routeTransitionAnimations],
-  standalone: false,
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    animations: [routeTransitionAnimations],
+    imports: [
+        NavbarComponent,
+        RouterOutlet,
+        FooterComponent,
+    ],
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'stf';

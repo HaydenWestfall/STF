@@ -10,10 +10,7 @@ import {
  * Fades/slides an element into view the first time it enters the viewport.
  * Usage: <div stfReveal></div>  or  <div [stfReveal]="index"></div> to stagger.
  */
-@Directive({
-  selector: '[stfReveal]',
-  standalone: false,
-})
+@Directive({ selector: '[stfReveal]', })
 export class RevealDirective implements AfterViewInit, OnDestroy {
   @Input('stfReveal') order: number | string = 0;
 

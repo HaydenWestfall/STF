@@ -1,11 +1,23 @@
 import { Component } from '@angular/core';
 import { Carrier } from 'src/app/models/Carrier';
+import { RouterLink } from '@angular/router';
+import { RevealDirective } from '../../directives/reveal.directive';
+import { FormsModule } from '@angular/forms';
+import { NgIf, NgFor } from '@angular/common';
+import { BannerComponent } from '../banner/banner.component';
 
 @Component({
-  selector: 'app-carriers-page',
-  templateUrl: './carriers-page.component.html',
-  styleUrls: ['./carriers-page.component.scss'],
-  standalone: false,
+    selector: 'app-carriers-page',
+    templateUrl: './carriers-page.component.html',
+    styleUrls: ['./carriers-page.component.scss'],
+    imports: [
+        RouterLink,
+        RevealDirective,
+        FormsModule,
+        NgIf,
+        NgFor,
+        BannerComponent,
+    ],
 })
 export class CarriersPageComponent {
   basePath = 'assets/img/carriers/';

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
+import { RevealDirective } from '../../directives/reveal.directive';
+import { RouterLink } from '@angular/router';
 
 interface BannerContent {
   id: string;
@@ -11,10 +13,10 @@ interface BannerContent {
 }
 
 @Component({
-  selector: 'app-banner',
-  templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.scss'],
-  standalone: false,
+    selector: 'app-banner',
+    templateUrl: './banner.component.html',
+    styleUrls: ['./banner.component.scss'],
+    imports: [RevealDirective, RouterLink],
 })
 export class BannerComponent implements OnInit {
   @Input('bannerType') bannerType: string = 'getQuote';
