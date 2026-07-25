@@ -8,6 +8,7 @@ import {
 import { filter, map, mergeMap } from 'rxjs';
 import { routeTransitionAnimations } from 'src/animations';
 import { StfService } from './services/stf.service';
+import { SeoService } from './services/seo.service';
 import { environment } from 'src/environments/environment.development';
 
 @Component({
@@ -22,21 +23,16 @@ export class AppComponent implements OnInit, AfterViewInit {
   navigationType: string;
   prefersDarkScheme: MediaQueryList;
 
-  SEOStockTitle = 'STF Insurance Group | Protecting you with Reliable Coverage';
-  SEOStockDescription = [
-    { name: 'title', content: 'Meet the STF Insurance Group' },
-    {
-      name: 'description',
-      content:
-        'Protect your family and assets with comprehensive insurance coverage from STF Insurance Group. Our expert agents offer a wide range of policies, including auto, home, farm, health, commercial, recreational, and life insurance, tailored to your unique needs. Contact us today to learn more and get a free quote.',
-    },
-    { name: 'url', content: environment.appUrl + '/' },
-  ];
+  SEOStockTitle =
+    'STF Insurance Group | Independent Insurance Agency in Arcanum, Ohio';
+  SEOStockDescription =
+    'STF Insurance Group is an independent Ohio agency comparing 20+ top-rated carriers for auto, home, farm, commercial, recreational, life & health insurance. Get a free quote today.';
 
   constructor(
     private router: Router,
     public activatedRoute: ActivatedRoute,
-    public stfService: StfService
+    public stfService: StfService,
+    private seoService: SeoService
   ) {
     if (typeof window !== 'undefined') {
       this.prefersDarkScheme = window.matchMedia(
@@ -55,7 +51,11 @@ export class AppComponent implements OnInit, AfterViewInit {
         filter((e) => {
           if (e instanceof NavigationStart)
             this.navigationType = e.navigationTrigger;
-          if (e instanceof NavigationEnd && this.navigationType !== 'popstate')
+          if (
+            e instanceof NavigationEnd &&
+            this.navigationType !== 'popstate' &&
+            typeof window !== 'undefined'
+          )
             window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
           return e instanceof NavigationEnd;
         }),
@@ -73,27 +73,32 @@ export class AppComponent implements OnInit, AfterViewInit {
       });
   }
 
-  loadSEO(data): void {
-    let seoData = data['seo'];
-    if (this.router.url.startsWith('/coverages')) {
-      const coverageType = this.router.url.split('/')[2];
-      this.stfService.addTitle(seoData[coverageType + 'Title']);
-      this.stfService.addMetaTags(seoData[coverageType + 'MetaTags']);
-    } else {
-      const title = seoData ? seoData.title : this.SEOStockTitle;
-      const desc = seoData ? seoData.metaTags : this.SEOStockDescription;
-      this.stfService.addTitle(title);
-      this.stfService.addMetaTags(desc);
+  loadSEO(data: { [key: string]: any }): void {
+    // Canonical URL is derived from the active route, ignoring query/fragment.
+    const path = this.router.url.split('?')[0].split('#')[0];
+    const url = environment.appUrl + path;
+
+    let seo = data['seo'];
+    if (path.startsWith('/coverages')) {
+      const coverageType = path.split('/')[2];
+      seo = seo ? seo[coverageType] : undefined;
     }
+
+    this.seoService.update({
+      title: seo?.title ?? this.SEOStockTitle,
+      description: seo?.description ?? this.SEOStockDescription,
+      url,
+    });
   }
 
   ngAfterViewInit(): void {
-    if (typeof document !== 'undefined') {
+    if (typeof window !== 'undefined') {
       this.handleFaviconTheme();
     }
   }
 
   handleFaviconTheme(): void {
+    if (typeof window === 'undefined') return;
     const favicon = document.querySelector('link[rel="icon"]');
     if (!favicon) return;
     favicon['href'] = window.matchMedia('(prefers-color-scheme: dark)')?.matches

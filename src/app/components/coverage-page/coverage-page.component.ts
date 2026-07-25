@@ -15,6 +15,7 @@ import { gsap } from 'gsap';
 import { growHeight } from 'src/animations';
 import { COVERAGES } from 'src/app/data/coverages';
 import { Coverage } from 'src/app/models/Coverage';
+import { SeoService } from 'src/app/services/seo.service';
 import { environment } from 'src/environments/environment.development';
 
 @Component({
@@ -35,11 +36,14 @@ export class CoveragePageComponent implements OnInit, OnDestroy {
   @ViewChild('hero') heroRef?: ElementRef<HTMLElement>;
   @ViewChild('media') mediaRef?: ElementRef<HTMLElement>;
 
+  private static readonly JSON_LD_ID = 'coverage-faq-jsonld';
+
   private routeSub: Subscription;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private seo: SeoService,
     @Inject(PLATFORM_ID) platformId: object
   ) {
     const reduced =
@@ -71,11 +75,18 @@ export class CoveragePageComponent implements OnInit, OnDestroy {
 
       // Collapse any FAQ left open from the previous coverage.
       this.coverage.faqs.forEach((faq) => (faq.expanded = false));
+
+      // Expose this coverage's FAQs as FAQPage structured data.
+      this.seo.setJsonLd(
+        CoveragePageComponent.JSON_LD_ID,
+        this.seo.buildFaqSchema(this.coverage.faqs)
+      );
     });
   }
 
   ngOnDestroy(): void {
     this.routeSub?.unsubscribe();
+    this.seo.removeJsonLd(CoveragePageComponent.JSON_LD_ID);
   }
 
   get relatedCoverages(): Coverage[] {

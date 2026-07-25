@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { environment } from 'src/environments/environment.development';
 import { AboutPageComponent } from './components/about-page/about-page.component';
 import { CarriersPageComponent } from './components/carriers-page/carriers-page.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
@@ -18,16 +17,10 @@ const routes: Routes = [
     data: {
       animation: 'fadeRoute',
       seo: {
-        title: 'STF Insurance Group | Protecting you with Reliable Coverage',
-        metaTags: [
-          { name: 'title', content: 'Meet the STF Insurance Group' },
-          {
-            name: 'description',
-            content:
-              'Protect your family and assets with comprehensive insurance coverage from STF Insurance Group. Our expert agents offer a wide range of policies, including auto, home, farm, health, commercial, recreational, and life insurance, tailored to your unique needs. Contact us today to learn more and get a free quote.',
-          },
-          { name: 'url', content: environment.appUrl + '/' },
-        ],
+        title:
+          'STF Insurance Group | Independent Insurance Agency in Arcanum, Ohio',
+        description:
+          'STF Insurance Group is an independent Ohio agency comparing 20+ top-rated carriers for auto, home, farm, commercial, recreational, life & health insurance. Get a free quote today.',
       },
     },
   },
@@ -37,15 +30,9 @@ const routes: Routes = [
     data: {
       animation: 'fadeRoute',
       seo: {
-        title: 'About STF | Our Story',
-        metaTags: [
-          { name: 'title', content: 'Meet STF, The Insurance Group for you.' },
-          {
-            name: 'description',
-            content: 'Get to know STF, our insurance coverages, and our story.',
-          },
-          { name: 'url', content: environment.appUrl + '/about' },
-        ],
+        title: 'About STF Insurance Group | Our Story & Independent Difference',
+        description:
+          'For more than 60 years STF Insurance Group has protected Ohio families and businesses as an independent agency. Learn our story and what working with us is like.',
       },
     },
   },
@@ -55,16 +42,9 @@ const routes: Routes = [
     data: {
       animation: 'fadeRoute',
       seo: {
-        title: 'Meet STFs Team of Expert Agents | STF Insurance Group',
-        metaTags: [
-          { name: 'title', content: 'Get to know the STF team.' },
-          {
-            name: 'description',
-            content:
-              '"Meet the STF Insurance team - a group of experienced professionals dedicated to providing the highest level of service to our customers. Learn more about our agents and their expertise in a range of insurance specialties.',
-          },
-          { name: 'url', content: environment.appUrl + '/team' },
-        ],
+        title: 'Meet Our Team of Expert Agents | STF Insurance Group',
+        description:
+          'Meet the STF Insurance Group team — experienced local agents dedicated to finding the right coverage and standing with you at renewal and claim time.',
       },
     },
   },
@@ -74,16 +54,10 @@ const routes: Routes = [
     data: {
       animation: 'fadeRoute',
       seo: {
-        title: 'Our Locations | STF',
-        metaTags: [
-          { name: 'title', content: 'Where you can find us | STF Locations' },
-          {
-            name: 'description',
-            content:
-              'Find an STF Insurance location near you. Our trusted agents are available to provide expert insurance advice and personalized coverage solutions. Visit our locations page to find an office in your area.',
-          },
-          { name: 'url', content: environment.appUrl + '/locations' },
-        ],
+        title:
+          'Our Offices in Arcanum, Vandalia & Middletown | STF Insurance Group',
+        description:
+          'Find an STF Insurance Group office near you in Arcanum, Vandalia or Middletown, Ohio. Get addresses, phone numbers and hours for expert insurance help.',
       },
     },
   },
@@ -93,16 +67,9 @@ const routes: Routes = [
     data: {
       animation: 'fadeRoute',
       seo: {
-        title: 'Contact Us | STF',
-        metaTags: [
-          { name: 'title', content: 'Concat us, get in touch | STF' },
-          {
-            name: 'description',
-            content:
-              'Contact STF Insurance today for expert insurance advice and personalized coverage solutions. Our experienced agents are here to help you protect what matters most. Get in touch now.',
-          },
-          { name: 'url', content: environment.appUrl + '/contact' },
-        ],
+        title: 'Contact STF Insurance Group | Talk to a Local Agent',
+        description:
+          'Contact STF Insurance Group for expert advice and personalized coverage. Our experienced Ohio agents are here to help protect what matters most. Get in touch today.',
       },
     },
   },
@@ -112,19 +79,9 @@ const routes: Routes = [
     data: {
       animation: 'fadeRoute',
       seo: {
-        title: 'Frequently Asked Questions | STF',
-        metaTags: [
-          {
-            name: 'title',
-            content: 'STF Insurance FAQ - Answers to Your Insurance Questions',
-          },
-          {
-            name: 'description',
-            content:
-              'Get answers to your insurance questions on our STF Insurance FAQ page. Our experts have compiled a list of frequently asked questions to help you better understand your coverage options. Explore our page now.',
-          },
-          { name: 'url', content: environment.appUrl + '/faq' },
-        ],
+        title: 'Insurance FAQ | Your Questions Answered | STF Insurance Group',
+        description:
+          'Answers to the insurance questions we hear every week — quotes and pricing, coverage, deductibles, payments and claims — from the STF Insurance Group team.',
       },
     },
   },
@@ -134,20 +91,9 @@ const routes: Routes = [
     data: {
       animation: 'fadeRoute',
       seo: {
-        title: 'Carrriers, Claims, and Payments | STF',
-        metaTags: [
-          {
-            name: 'title',
-            content:
-              'STF Insurance Carriers - Explore Our Range of Insurance Providers',
-          },
-          {
-            name: 'description',
-            content:
-              'At STF Insurance, we work with a range of top insurance carriers to provide our customers with comprehensive coverage options. Our carriers page includes links to their websites for easy access to reporting a claim or contacting them directly. Explore our carrier options today.',
-          },
-          { name: 'url', content: environment.appUrl + '/carriers' },
-        ],
+        title: 'Payments & Claims | STF Insurance Carriers',
+        description:
+          'Make a payment or report a claim through the insurance carriers STF Insurance Group works with. Find your company and its direct payment and claims links.',
       },
     },
   },
@@ -157,102 +103,37 @@ const routes: Routes = [
     data: {
       animation: 'fadeRoute',
       seo: {
-        autoTitle:
-          "Protect Your Vehicle with STF Insurance Group's Auto Insrance | STF Insurance Group",
-        autoMetaTags: [
-          {
-            name: 'title',
-            content:
-              "Protect Your Vehicles with STF Insurance Group's Auto Insurance",
-          },
-          {
-            name: 'description',
-            content:
-              "Protect your car and your family with STF Insurance Group's auto insurance. Get comprehensive coverage that fits your needs and budget. Request a quote today!",
-          },
-          { name: 'url', content: environment.appUrl + '/coverages/auto' },
-        ],
-        homeTitle:
-          "Protect Your Home with STF Insurance Group's Home Insurance",
-        homeMetaTags: [
-          {
-            name: 'title',
-            content:
-              "Protect Your Home with STF Insurance Group's Home Insurance | STF Insurance Group",
-          },
-          {
-            name: 'description',
-            content:
-              "Your home is one of your most important investments. Protect it with STF Insurance Group's comprehensive home insurance policies. Our expert agents will work with you to customize coverage that fits your specific needs.",
-          },
-          { name: 'url', content: environment.appUrl + '/coverages/home' },
-        ],
-        farmTitle:
-          "Keep Your Farm Safe with STF Insurance Group's Farm Insurance",
-        farmMetaTags: [
-          {
-            name: 'title',
-            content:
-              "Keep Your Farm Safe with STF Insurance Group's Farm Insurance",
-          },
-          {
-            name: 'description',
-            content:
-              "Protect your farm and all that you've built with STF Insurance Group's farm insurance. Our specialized policies are designed to meet the unique needs of farmers and ranchers. Request a quote today!",
-          },
-          { name: 'url', content: environment.appUrl + '/coverages/farm' },
-        ],
-        commericalTitle:
-          "Protect Your Business with STF Insurance Group's Commercial Insurance",
-        commercialMetaTags: [
-          {
-            name: 'title',
-            content:
-              "Protect Your Business with STF Insurance Group's Commercial Insurance",
-          },
-          {
-            name: 'description',
-            content:
-              "Keep your business safe and secure with STF Insurance Group's commercial insurance policies. From liability coverage to business interruption insurance, we have everything you need to protect your investment.",
-          },
-          {
-            name: 'url',
-            content: environment.appUrl + '/coverages/commercial',
-          },
-        ],
-        recreationalTitle:
-          "Enjoy Your Recreation with STF Insurance Group's Recreational Insurance",
-        recreationalMetaTags: [
-          {
-            name: 'title',
-            content:
-              "Enjoy Your Recreation with STF Insurance Group's Recreational Insurance",
-          },
-          {
-            name: 'description',
-            content:
-              'From boats to ATVs, STF Insurance Group offers comprehensive recreational insurance coverage to keep you and your equipment protected. Get the coverage you need to enjoy your favorite hobbies worry-free.',
-          },
-          {
-            name: 'url',
-            content: environment.appUrl + '/coverages/recreational',
-          },
-        ],
-        lifeTitle:
-          "Secure Your Family's Future with STF Insurance Group's Life Insurance",
-        lifeMetaTags: [
-          {
-            name: 'title',
-            content:
-              "Secure Your Family's Future with STF Insurance Group's Life Insurance",
-          },
-          {
-            name: 'description',
-            content:
-              'Protect your loved ones with STF Insurance Group’s life insurance policies. Whether you need term life insurance or whole life insurance, our expert agents will work with you to find the coverage that fits your needs and budget.',
-          },
-          { name: 'url', content: environment.appUrl + '/coverages/life' },
-        ],
+        auto: {
+          title:
+            "Auto Insurance in Ohio | STF Insurance Group",
+          description:
+            "Protect your car and your family with auto insurance from STF Insurance Group. Comprehensive Ohio coverage that fits your needs and budget. Request a free quote today.",
+        },
+        home: {
+          title: 'Home Insurance in Ohio | STF Insurance Group',
+          description:
+            "Your home is one of your biggest investments. Protect it with customized homeowners insurance from STF Insurance Group's expert Ohio agents. Get a free quote.",
+        },
+        farm: {
+          title: 'Farm & Agribusiness Insurance in Ohio | STF Insurance Group',
+          description:
+            "Protect your farm and everything you've built with specialized farm insurance from STF Insurance Group, designed for Ohio farmers and ranchers. Request a quote.",
+        },
+        commercial: {
+          title: 'Commercial Business Insurance in Ohio | STF Insurance Group',
+          description:
+            "Keep your business secure with commercial insurance from STF Insurance Group — from liability to business interruption coverage. Protect your investment today.",
+        },
+        recreational: {
+          title: 'Recreational Vehicle Insurance in Ohio | STF Insurance Group',
+          description:
+            'From boats to ATVs, STF Insurance Group offers recreational insurance to keep you and your equipment protected. Enjoy your favorite hobbies worry-free.',
+        },
+        life: {
+          title: 'Life Insurance in Ohio | STF Insurance Group',
+          description:
+            'Protect your loved ones with term or whole life insurance from STF Insurance Group. Our expert agents find coverage that fits your needs and budget.',
+        },
       },
     },
   },

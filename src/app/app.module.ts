@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,7 +52,7 @@ import { TeamsPageComponent } from './components/teams-page/teams-page.component
     TeamsPageComponent,
   ],
   imports: [AppRoutingModule, BrowserAnimationsModule, FormsModule],
-  providers: [],
+  providers: [provideClientHydration()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

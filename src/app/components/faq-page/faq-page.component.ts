@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { growHeight } from 'src/animations';
 import { FAQ } from 'src/app/models/FAQ';
+import { SeoService } from 'src/app/services/seo.service';
 import { environment } from 'src/environments/environment.development';
 
 interface FaqGroup {
@@ -15,8 +16,12 @@ interface FaqGroup {
   animations: [growHeight],
   standalone: false,
 })
-export class FaqPageComponent {
+export class FaqPageComponent implements OnInit, OnDestroy {
+  private static readonly JSON_LD_ID = 'faq-jsonld';
+
   env = environment;
+
+  constructor(private seo: SeoService) {}
 
   groups: FaqGroup[] = [
     {
@@ -142,6 +147,18 @@ export class FaqPageComponent {
       ],
     },
   ];
+
+  ngOnInit(): void {
+    const faqs = this.groups.flatMap((group) => group.faqs);
+    this.seo.setJsonLd(
+      FaqPageComponent.JSON_LD_ID,
+      this.seo.buildFaqSchema(faqs)
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.seo.removeJsonLd(FaqPageComponent.JSON_LD_ID);
+  }
 
   toggle(faq: FAQ): void {
     faq.expanded = !faq.expanded;

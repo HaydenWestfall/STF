@@ -8,10 +8,7 @@
     "build:stats": "ng build --stats-json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "dev:ssr": "ng run stf:serve-ssr",
-    "serve:ssr": "node dist/stf/server/main.js",
-    "build:ssr": "ng build && ng run stf:server",
-    "prerender": "ng run stf:prerender"
+    "serve:prerendered": "npx http-server dist/stf/browser -p 4200"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +22,7 @@
     "@angular/platform-browser-dynamic": "^19.0.6",
     "@angular/platform-server": "^19.0.6",
     "@angular/router": "^19.0.6",
+    "@angular/ssr": "^19.0.7",
     "gsap": "^3.15.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
