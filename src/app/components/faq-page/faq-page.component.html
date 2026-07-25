@@ -15,30 +15,34 @@
 
 <section class="section">
   <div class="container container--narrow">
-    <div class="faq-group" *ngFor="let group of groups">
-      <h2 class="faq-group__title" stfReveal>{{ group.title }}</h2>
-
-      <div class="faq-list">
-        <div
-          class="faq"
-          *ngFor="let faq of group.faqs"
-          [class.is-open]="faq.expanded"
-        >
-          <button
-            type="button"
-            class="faq__question"
-            [attr.aria-expanded]="!!faq.expanded"
-            (click)="toggle(faq)"
-          >
-            <span>{{ faq.question }}</span>
-            <span class="faq__icon" aria-hidden="true"></span>
-          </button>
-          <div class="faq__answer" *ngIf="faq.expanded" @growHeight>
-            <p>{{ faq.answer }}</p>
-          </div>
+    @for (group of groups; track group) {
+      <div class="faq-group">
+        <h2 class="faq-group__title" stfReveal>{{ group.title }}</h2>
+        <div class="faq-list">
+          @for (faq of group.faqs; track faq) {
+            <div
+              class="faq"
+              [class.is-open]="faq.expanded"
+              >
+              <button
+                type="button"
+                class="faq__question"
+                [attr.aria-expanded]="!!faq.expanded"
+                (click)="toggle(faq)"
+                >
+                <span>{{ faq.question }}</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              @if (faq.expanded) {
+                <div class="faq__answer" @growHeight>
+                  <p>{{ faq.answer }}</p>
+                </div>
+              }
+            </div>
+          }
         </div>
       </div>
-    </div>
+    }
 
     <div class="faq-cta card" stfReveal>
       <div>
@@ -52,10 +56,10 @@
         <a class="btn btn--primary" routerLink="/contact">Contact Us</a>
         <a class="btn btn--secondary" [href]="'tel:' + env.arcanumPhoneNumber"
           >Call {{ env.arcanumPhoneNumber }}</a
-        >
+          >
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<app-banner bannerType="getQuote"></app-banner>
+  <app-banner bannerType="getQuote"></app-banner>

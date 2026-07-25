@@ -19,76 +19,80 @@
       <div class="btn-group" data-hero="rise">
         <a class="btn btn--primary btn--lg" routerLink="/quoteRedirect"
           >Get a Free Quote</a
-        >
-        <a class="btn btn--secondary btn--lg" routerLink="/contact"
-          >Talk to an Agent</a
-        >
-      </div>
+          >
+          <a class="btn btn--secondary btn--lg" routerLink="/contact"
+            >Talk to an Agent</a
+            >
+          </div>
 
-      <ul class="hero__assurances">
-        <li *ngFor="let item of assurances" data-hero="rise">
-          <svg viewBox="0 0 20 20" aria-hidden="true">
-            <path
-              d="M10 0a10 10 0 1 0 0 20A10 10 0 0 0 10 0Zm4.7 7.7-5.4 5.4a1 1 0 0 1-1.4 0L5.3 10.5a1 1 0 1 1 1.4-1.4l1.9 1.9 4.7-4.7a1 1 0 0 1 1.4 1.4Z"
-              fill="currentColor"
-            />
-          </svg>
-          <span>{{ item }}</span>
-        </li>
-      </ul>
-    </div>
-
-    <div class="hero__media" #media>
-      <span class="hero__panel" data-depth="12" aria-hidden="true"></span>
-      <span class="hero__dots" data-depth="-18" aria-hidden="true"></span>
-
-      <div class="hero__photo" data-depth="6">
-        <img
-          src="assets/img/locations/arcanum.webp"
-          alt="STF Insurance Group office in downtown Arcanum, Ohio"
-          width="1189"
-          height="723"
-        />
-        <span class="hero__scrim" aria-hidden="true"></span>
-      </div>
-
-      <div class="hero__badge" data-hero="pop" data-depth="26">
-        <div class="hero__stars" aria-hidden="true">★★★★★</div>
-        <span class="hero__rating">4.5 out of 5</span>
-        <span class="hero__rating-label"
-          >Average rating from local customers</span
-        >
-      </div>
-
-      <div class="hero__seal" data-hero="pop" data-depth="34" aria-hidden="true">
-        <svg class="hero__seal-ring" viewBox="0 0 200 200">
-          <defs>
-            <path
-              id="heroSealPath"
-              d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"
-              fill="none"
-            />
-          </defs>
-          <text>
-            <textPath href="#heroSealPath" startOffset="0">
-              STF INSURANCE GROUP • PROTECTING THE MIAMI VALLEY •
-            </textPath>
-          </text>
-        </svg>
-        <div class="hero__seal-core">
-          <strong>60+</strong>
-          <span>years</span>
+          <ul class="hero__assurances">
+            @for (item of assurances; track item) {
+              <li data-hero="rise">
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path
+                    d="M10 0a10 10 0 1 0 0 20A10 10 0 0 0 10 0Zm4.7 7.7-5.4 5.4a1 1 0 0 1-1.4 0L5.3 10.5a1 1 0 1 1 1.4-1.4l1.9 1.9 4.7-4.7a1 1 0 0 1 1.4 1.4Z"
+                    fill="currentColor"
+                    />
+                </svg>
+                <span>{{ item }}</span>
+              </li>
+            }
+          </ul>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="hero__stats" #statsRow>
-    <div class="container hero__stats-inner">
-      <div class="stat" *ngFor="let stat of stats">
-        <span class="stat__value" data-count>{{ stat.value }}</span>
-        <span class="stat__label">{{ stat.label }}</span>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="hero__media" #media>
+          <span class="hero__panel" data-depth="12" aria-hidden="true"></span>
+          <span class="hero__dots" data-depth="-18" aria-hidden="true"></span>
+
+          <div class="hero__photo" data-depth="6">
+            <img
+              src="assets/img/locations/arcanum.webp"
+              alt="STF Insurance Group office in downtown Arcanum, Ohio"
+              width="1189"
+              height="723"
+              />
+            <span class="hero__scrim" aria-hidden="true"></span>
+          </div>
+
+          <div class="hero__badge" data-hero="pop" data-depth="26">
+            <div class="hero__stars" aria-hidden="true">★★★★★</div>
+            <span class="hero__rating">4.5 out of 5</span>
+            <span class="hero__rating-label"
+              >Average rating from local customers</span
+              >
+            </div>
+
+            <div class="hero__seal" data-hero="pop" data-depth="34" aria-hidden="true">
+              <svg class="hero__seal-ring" viewBox="0 0 200 200">
+                <defs>
+                  <path
+                    id="heroSealPath"
+                    d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"
+                    fill="none"
+                    />
+                </defs>
+                <text>
+                  <textPath href="#heroSealPath" startOffset="0">
+                    STF INSURANCE GROUP • PROTECTING THE MIAMI VALLEY •
+                  </textPath>
+                </text>
+              </svg>
+              <div class="hero__seal-core">
+                <strong>60+</strong>
+                <span>years</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__stats" #statsRow>
+          <div class="container hero__stats-inner">
+            @for (stat of stats; track stat) {
+              <div class="stat">
+                <span class="stat__value" data-count>{{ stat.value }}</span>
+                <span class="stat__label">{{ stat.label }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      </section>

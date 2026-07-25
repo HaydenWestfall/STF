@@ -8,7 +8,7 @@ import {
   PLATFORM_ID,
   ViewChild,
 } from '@angular/core';
-import { isPlatformBrowser, NgIf, NgFor } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { gsap } from 'gsap';
@@ -26,12 +26,10 @@ import { BannerComponent } from '../banner/banner.component';
     styleUrls: ['./coverage-page.component.scss'],
     animations: [growHeight],
     imports: [
-        NgIf,
-        RouterLink,
-        NgFor,
-        RevealDirective,
-        BannerComponent,
-    ],
+    RouterLink,
+    RevealDirective,
+    BannerComponent
+],
 })
 export class CoveragePageComponent implements OnInit, OnDestroy {
   env = environment;

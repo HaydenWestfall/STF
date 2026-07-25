@@ -68,7 +68,7 @@
           <path
             d="M15.5065 0C24.0662 0 31.0131 6.94693 31.0131 15.5065C31.0131 24.0662 24.0662 31.0131 15.5065 31.0131C6.94693 31.0131 0 24.0662 0 15.5065C0 6.94693 6.94693 0 15.5065 0ZM15.5065 27.5672C22.1692 27.5672 27.5672 22.1692 27.5672 15.5065C27.5672 8.84218 22.1692 3.4459 15.5065 3.4459C8.84218 3.4459 3.4459 8.84218 3.4459 15.5065C3.4459 22.1692 8.84218 27.5672 15.5065 27.5672ZM30.1258 27.6895L35 32.562L32.562 35L27.6895 30.1258L30.1258 27.6895Z"
             fill="currentColor"
-          />
+            />
         </svg>
         <input
           type="search"
@@ -76,78 +76,87 @@
           aria-label="Search carriers"
           (input)="searchCarriers()"
           [(ngModel)]="searchText"
-        />
-        <button
-          type="button"
-          class="clear-btn"
-          *ngIf="searchText"
-          (click)="clearSearch()"
-          aria-label="Clear search"
-        >
-          <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
-            <path
-              d="M1 13L13 1M13 13L1 1"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
-          </svg>
-        </button>
+          />
+        @if (searchText) {
+          <button
+            type="button"
+            class="clear-btn"
+            (click)="clearSearch()"
+            aria-label="Clear search"
+            >
+            <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path
+                d="M1 13L13 1M13 13L1 1"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                />
+            </svg>
+          </button>
+        }
       </div>
     </div>
 
-    <div class="carrier-grid" *ngIf="foundCarriers.length">
-      <article class="card carrier" *ngFor="let carrier of foundCarriers">
-        <div class="carrier__logo">
-          <img [src]="carrier.logo" [alt]="carrier.name" loading="lazy" />
-        </div>
-        <h3>{{ carrier.name }}</h3>
-        <dl class="carrier__contacts">
-          <div>
-            <dt>Service</dt>
-            <dd><a [href]="'tel:' + carrier.phone">{{ carrier.phone }}</a></dd>
+    @if (foundCarriers.length) {
+      <div class="carrier-grid">
+        @for (carrier of foundCarriers; track carrier) {
+          <article class="card carrier">
+            <div class="carrier__logo">
+              <img [src]="carrier.logo" [alt]="carrier.name" loading="lazy" />
+            </div>
+            <h3>{{ carrier.name }}</h3>
+            <dl class="carrier__contacts">
+              <div>
+                <dt>Service</dt>
+                <dd><a [href]="'tel:' + carrier.phone">{{ carrier.phone }}</a></dd>
+              </div>
+              @if (carrier.claims) {
+                <div>
+                  <dt>Claims</dt>
+                  <dd><a [href]="'tel:' + carrier.claims">{{ carrier.claims }}</a></dd>
+                </div>
+              }
+            </dl>
+            <div class="carrier__actions">
+              <a
+                class="btn btn--primary btn--sm"
+                [href]="carrier.payments"
+                target="_blank"
+                rel="noopener"
+                >Pay a Bill</a
+                >
+                <a
+                  class="btn btn--secondary btn--sm"
+                  [href]="carrier.claimsLink"
+                  target="_blank"
+                  rel="noopener"
+                  >Report a Claim</a
+                  >
+                </div>
+              </article>
+            }
           </div>
-          <div *ngIf="carrier.claims">
-            <dt>Claims</dt>
-            <dd><a [href]="'tel:' + carrier.claims">{{ carrier.claims }}</a></dd>
+        }
+
+        @if (!foundCarriers.length) {
+          <div class="no-results">
+            <h3>No carriers found</h3>
+            <p>
+              We could not find a company matching "{{ searchText }}". Try a shorter
+              search, or call us and we will point you in the right direction.
+            </p>
+            <button type="button" class="btn btn--secondary" (click)="clearSearch()">
+              Clear search
+            </button>
           </div>
-        </dl>
-        <div class="carrier__actions">
-          <a
-            class="btn btn--primary btn--sm"
-            [href]="carrier.payments"
-            target="_blank"
-            rel="noopener"
-            >Pay a Bill</a
-          >
-          <a
-            class="btn btn--secondary btn--sm"
-            [href]="carrier.claimsLink"
-            target="_blank"
-            rel="noopener"
-            >Report a Claim</a
-          >
-        </div>
-      </article>
-    </div>
+        }
 
-    <div class="no-results" *ngIf="!foundCarriers.length">
-      <h3>No carriers found</h3>
-      <p>
-        We could not find a company matching "{{ searchText }}". Try a shorter
-        search, or call us and we will point you in the right direction.
-      </p>
-      <button type="button" class="btn btn--secondary" (click)="clearSearch()">
-        Clear search
-      </button>
-    </div>
+        <p class="disclaimer carriers-disclaimer">
+          Links open the carrier's own website in a new tab. STF Insurance Group
+          does not control those sites and payments are made directly to the
+          insurance company.
+        </p>
+      </div>
+    </section>
 
-    <p class="disclaimer carriers-disclaimer">
-      Links open the carrier's own website in a new tab. STF Insurance Group
-      does not control those sites and payments are made directly to the
-      insurance company.
-    </p>
-  </div>
-</section>
-
-<app-banner bannerType="contactUs"></app-banner>
+    <app-banner bannerType="contactUs"></app-banner>

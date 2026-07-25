@@ -1,7 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { Employee } from 'src/app/models/Employee';
 import { RouterLink } from '@angular/router';
-import { NgFor, NgIf } from '@angular/common';
+
 import { RevealDirective } from '../../directives/reveal.directive';
 import { BannerComponent } from '../banner/banner.component';
 
@@ -10,12 +10,10 @@ import { BannerComponent } from '../banner/banner.component';
     templateUrl: './teams-page.component.html',
     styleUrls: ['./teams-page.component.scss'],
     imports: [
-        RouterLink,
-        NgFor,
-        RevealDirective,
-        BannerComponent,
-        NgIf,
-    ],
+    RouterLink,
+    RevealDirective,
+    BannerComponent
+],
 })
 export class TeamsPageComponent {
   basePath = 'assets/img/meetTheTeam';

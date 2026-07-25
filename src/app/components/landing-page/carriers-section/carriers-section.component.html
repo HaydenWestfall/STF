@@ -12,15 +12,17 @@
       </div>
       <a class="btn btn--secondary" routerLink="/carriers"
         >Payments &amp; Claims</a
-      >
-    </div>
-  </div>
-
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee__track">
-      <div class="marquee__item" *ngFor="let carrier of marqueeCarriers">
-        <img [src]="carrier" alt="" loading="lazy" />
+        >
       </div>
     </div>
-  </div>
-</section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        @for (carrier of marqueeCarriers; track carrier) {
+          <div class="marquee__item">
+            <img [src]="carrier" alt="" loading="lazy" />
+          </div>
+        }
+      </div>
+    </div>
+  </section>

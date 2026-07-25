@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CoverageCard } from 'src/app/models/Coverage';
 import { environment } from 'src/environments/environment.development';
 import { RevealDirective } from '../../../directives/reveal.directive';
-import { NgFor, NgIf } from '@angular/common';
+
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -10,11 +10,9 @@ import { RouterLink } from '@angular/router';
     templateUrl: './coverages-section.component.html',
     styleUrls: ['./coverages-section.component.scss'],
     imports: [
-        RevealDirective,
-        NgFor,
-        NgIf,
-        RouterLink,
-    ],
+    RevealDirective,
+    RouterLink
+],
 })
 export class CoveragesSectionComponent {
   basePath = 'assets/img/icons/';

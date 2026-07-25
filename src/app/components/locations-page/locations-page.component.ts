@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Location } from 'src/app/models/Location';
 import { environment } from 'src/environments/environment.development';
 import { RouterLink } from '@angular/router';
-import { NgFor } from '@angular/common';
+
 import { RevealDirective } from '../../directives/reveal.directive';
 import { BannerComponent } from '../banner/banner.component';
 
@@ -11,11 +11,10 @@ import { BannerComponent } from '../banner/banner.component';
     templateUrl: './locations-page.component.html',
     styleUrls: ['./locations-page.component.scss'],
     imports: [
-        RouterLink,
-        NgFor,
-        RevealDirective,
-        BannerComponent,
-    ],
+    RouterLink,
+    RevealDirective,
+    BannerComponent
+],
 })
 export class LocationsPageComponent {
   basePath = 'assets/img/locations/';

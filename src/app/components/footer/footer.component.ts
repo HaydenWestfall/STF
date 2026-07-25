@@ -3,13 +3,13 @@ import { Router, RouterLink } from '@angular/router';
 import { FooterSection } from 'src/app/models/FooterLink';
 import { Social } from 'src/app/models/Social';
 import { environment } from 'src/environments/environment.development';
-import { NgFor } from '@angular/common';
+
 
 @Component({
     selector: 'app-footer',
     templateUrl: './footer.component.html',
     styleUrls: ['./footer.component.scss'],
-    imports: [RouterLink, NgFor],
+    imports: [RouterLink],
 })
 export class FooterComponent {
   basePath = 'assets/img/icons/';

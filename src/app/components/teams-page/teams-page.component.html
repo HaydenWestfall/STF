@@ -16,81 +16,82 @@
 <section class="section">
   <div class="container">
     <div class="team-grid">
-      <button
-        type="button"
-        class="team-card"
-        *ngFor="let teamMember of teamMembers; let i = index"
-        (click)="openMember(teamMember)"
-        [stfReveal]="i"
-      >
-        <span class="team-card__photo">
-          <img
-            [src]="photoFor(teamMember)"
-            [alt]="teamMember.name + ', ' + teamMember.position"
-            loading="lazy"
-          />
-        </span>
-        <span class="team-card__body">
-          <span class="team-card__name">{{ teamMember.name }}</span>
-          <span class="team-card__position">{{ teamMember.position }}</span>
-          <span class="team-card__cta">Read bio</span>
-        </span>
-      </button>
+      @for (teamMember of teamMembers; track teamMember; let i = $index) {
+        <button
+          type="button"
+          class="team-card"
+          (click)="openMember(teamMember)"
+          [stfReveal]="i"
+          >
+          <span class="team-card__photo">
+            <img
+              [src]="photoFor(teamMember)"
+              [alt]="teamMember.name + ', ' + teamMember.position"
+              loading="lazy"
+              />
+          </span>
+          <span class="team-card__body">
+            <span class="team-card__name">{{ teamMember.name }}</span>
+            <span class="team-card__position">{{ teamMember.position }}</span>
+            <span class="team-card__cta">Read bio</span>
+          </span>
+        </button>
+      }
     </div>
   </div>
 </section>
 
 <app-banner bannerType="contactUs"></app-banner>
 
-<div
-  class="member-modal"
-  *ngIf="selectedMember"
-  (click)="closeMember()"
-  role="dialog"
-  aria-modal="true"
->
-  <div class="member-modal__panel" (click)="$event.stopPropagation()">
-    <button
-      type="button"
-      class="member-modal__close"
-      aria-label="Close"
-      (click)="closeMember()"
+@if (selectedMember) {
+  <div
+    class="member-modal"
+    (click)="closeMember()"
+    role="dialog"
+    aria-modal="true"
     >
-      <svg viewBox="0 0 14 14" aria-hidden="true">
-        <path
-          d="M1 13L13 1M13 13L1 1"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-      </svg>
-    </button>
-
-    <div class="member-modal__header">
-      <img
-        [src]="photoFor(selectedMember)"
-        [alt]="selectedMember.name + ' headshot'"
-      />
-      <div>
-        <h2>{{ selectedMember.name }}</h2>
-        <span class="member-modal__position">{{ selectedMember.position }}</span>
-      </div>
-    </div>
-
-    <div class="member-modal__body">
-      <p *ngFor="let para of selectedMember.description">{{ para }}</p>
-    </div>
-
-    <div class="member-modal__footer">
-      <a class="btn btn--primary" routerLink="/contact" (click)="closeMember()"
-        >Contact our team</a
-      >
-      <a
-        class="btn btn--secondary"
-        routerLink="/quoteRedirect"
+    <div class="member-modal__panel" (click)="$event.stopPropagation()">
+      <button
+        type="button"
+        class="member-modal__close"
+        aria-label="Close"
         (click)="closeMember()"
-        >Get a quote</a
-      >
-    </div>
-  </div>
-</div>
+        >
+        <svg viewBox="0 0 14 14" aria-hidden="true">
+          <path
+            d="M1 13L13 1M13 13L1 1"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            />
+        </svg>
+      </button>
+      <div class="member-modal__header">
+        <img
+          [src]="photoFor(selectedMember)"
+          [alt]="selectedMember.name + ' headshot'"
+          />
+        <div>
+          <h2>{{ selectedMember.name }}</h2>
+          <span class="member-modal__position">{{ selectedMember.position }}</span>
+        </div>
+      </div>
+      <div class="member-modal__body">
+        @for (para of selectedMember.description; track para) {
+          <p>{{ para }}</p>
+        }
+      </div>
+      <div class="member-modal__footer">
+        <a class="btn btn--primary" routerLink="/contact" (click)="closeMember()"
+          >Contact our team</a
+          >
+          <a
+            class="btn btn--secondary"
+            routerLink="/quoteRedirect"
+            (click)="closeMember()"
+            >Get a quote</a
+            >
+          </div>
+        </div>
+      </div>
+    }

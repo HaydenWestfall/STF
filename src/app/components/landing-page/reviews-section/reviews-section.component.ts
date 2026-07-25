@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { Review } from 'src/app/models/Review';
 import { environment } from 'src/environments/environment.development';
 import { RevealDirective } from '../../../directives/reveal.directive';
-import { NgFor } from '@angular/common';
+
 
 @Component({
     selector: 'app-reviews-section',
     templateUrl: './reviews-section.component.html',
     styleUrls: ['./reviews-section.component.scss'],
-    imports: [RevealDirective, NgFor],
+    imports: [RevealDirective],
 })
 export class ReviewsSectionComponent {
   reviewLink = environment.reviewLink;

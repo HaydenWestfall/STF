@@ -10,15 +10,16 @@
     </div>
 
     <div class="reviews__grid">
-      <figure
-        class="card review"
-        *ngFor="let review of reviews; let i = index"
-        [stfReveal]="i"
-      >
-        <div class="review__stars" aria-label="Rated 5 out of 5">★★★★★</div>
-        <blockquote>{{ review.review }}</blockquote>
-        <figcaption>{{ review.reviewer }}</figcaption>
-      </figure>
+      @for (review of reviews; track review; let i = $index) {
+        <figure
+          class="card review"
+          [stfReveal]="i"
+          >
+          <div class="review__stars" aria-label="Rated 5 out of 5">★★★★★</div>
+          <blockquote>{{ review.review }}</blockquote>
+          <figcaption>{{ review.reviewer }}</figcaption>
+        </figure>
+      }
     </div>
 
     <div class="reviews__action" stfReveal>
@@ -28,7 +29,7 @@
         target="_blank"
         rel="noopener"
         >Leave us a review</a
-      >
+        >
+      </div>
     </div>
-  </div>
-</section>
+  </section>

@@ -11,37 +11,38 @@
     </div>
 
     <div class="coverage-grid">
-      <ng-container *ngFor="let coverage of coverages; let i = index">
-        <a
-          class="card coverage-card"
-          *ngIf="coverage.link"
-          [routerLink]="coverage.link"
-          [stfReveal]="i"
-        >
-          <span class="icon-badge">
-            <img [src]="coverage.icon" alt="" aria-hidden="true" />
-          </span>
-          <h3>{{ coverage.title }}</h3>
-          <p>{{ coverage.description }}</p>
-          <span class="link-arrow">Learn more</span>
-        </a>
-
-        <a
-          class="card coverage-card"
-          *ngIf="!coverage.link"
-          [href]="coverage.externalLink"
-          target="_blank"
-          rel="noopener"
-          [stfReveal]="i"
-        >
-          <span class="icon-badge">
-            <img [src]="coverage.icon" alt="" aria-hidden="true" />
-          </span>
-          <h3>{{ coverage.title }}</h3>
-          <p>{{ coverage.description }}</p>
-          <span class="link-arrow">Visit our Medicare site</span>
-        </a>
-      </ng-container>
+      @for (coverage of coverages; track coverage; let i = $index) {
+        @if (coverage.link) {
+          <a
+            class="card coverage-card"
+            [routerLink]="coverage.link"
+            [stfReveal]="i"
+            >
+            <span class="icon-badge">
+              <img [src]="coverage.icon" alt="" aria-hidden="true" />
+            </span>
+            <h3>{{ coverage.title }}</h3>
+            <p>{{ coverage.description }}</p>
+            <span class="link-arrow">Learn more</span>
+          </a>
+        }
+        @if (!coverage.link) {
+          <a
+            class="card coverage-card"
+            [href]="coverage.externalLink"
+            target="_blank"
+            rel="noopener"
+            [stfReveal]="i"
+            >
+            <span class="icon-badge">
+              <img [src]="coverage.icon" alt="" aria-hidden="true" />
+            </span>
+            <h3>{{ coverage.title }}</h3>
+            <p>{{ coverage.description }}</p>
+            <span class="link-arrow">Visit our Medicare site</span>
+          </a>
+        }
+      }
 
       <div class="card coverage-card coverage-card--cta" stfReveal>
         <h3>Not sure what you need?</h3>

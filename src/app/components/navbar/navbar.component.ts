@@ -9,18 +9,16 @@ import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/ro
 import { filter, Subscription } from 'rxjs';
 import { NavChild, NavGroup } from 'src/app/models/Navbar';
 import { environment } from 'src/environments/environment.development';
-import { NgFor, NgIf } from '@angular/common';
+
 
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss'],
     imports: [
-        NgFor,
-        RouterLink,
-        NgIf,
-        RouterLinkActive,
-    ],
+    RouterLink,
+    RouterLinkActive
+],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   env = environment;

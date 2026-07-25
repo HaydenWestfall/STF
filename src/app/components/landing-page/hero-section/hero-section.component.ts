@@ -6,7 +6,7 @@ import {
   PLATFORM_ID,
   ViewChild,
 } from '@angular/core';
-import { isPlatformBrowser, NgFor } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { gsap } from 'gsap';
 import { environment } from 'src/environments/environment.development';
 import { RouterLink } from '@angular/router';
@@ -15,7 +15,7 @@ import { RouterLink } from '@angular/router';
     selector: 'app-hero-section',
     templateUrl: './hero-section.component.html',
     styleUrls: ['./hero-section.component.scss'],
-    imports: [RouterLink, NgFor],
+    imports: [RouterLink],
 })
 export class HeroSectionComponent {
   env = environment;

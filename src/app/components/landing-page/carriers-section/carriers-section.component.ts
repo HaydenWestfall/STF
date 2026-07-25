@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
 import { RevealDirective } from '../../../directives/reveal.directive';
 import { RouterLink } from '@angular/router';
-import { NgFor } from '@angular/common';
+
 
 @Component({
     selector: 'app-carriers-section',
     templateUrl: './carriers-section.component.html',
     styleUrls: ['./carriers-section.component.scss'],
     imports: [
-        RevealDirective,
-        RouterLink,
-        NgFor,
-    ],
+    RevealDirective,
+    RouterLink
+],
 })
 export class CarriersSectionComponent {
   imgPath = 'assets/img/carrier-marquee/';

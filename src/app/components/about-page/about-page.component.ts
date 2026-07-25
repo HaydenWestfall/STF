@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RevealDirective } from '../../directives/reveal.directive';
-import { NgFor } from '@angular/common';
+
 import { BannerComponent } from '../banner/banner.component';
 
 @Component({
@@ -9,11 +9,10 @@ import { BannerComponent } from '../banner/banner.component';
     templateUrl: './about-page.component.html',
     styleUrls: ['./about-page.component.scss'],
     imports: [
-        RouterLink,
-        RevealDirective,
-        NgFor,
-        BannerComponent,
-    ],
+    RouterLink,
+    RevealDirective,
+    BannerComponent
+],
 })
 export class AboutPageComponent {
   basePathCarriers = 'assets/img/carrier-about/';

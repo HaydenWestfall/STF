@@ -45,10 +45,12 @@
     </div>
 
     <div class="about-values" stfReveal>
-      <div class="about-value" *ngFor="let value of values">
-        <h3>{{ value.title }}</h3>
-        <p>{{ value.description }}</p>
-      </div>
+      @for (value of values; track value) {
+        <div class="about-value">
+          <h3>{{ value.title }}</h3>
+          <p>{{ value.description }}</p>
+        </div>
+      }
     </div>
   </div>
 </section>
@@ -56,10 +58,12 @@
 <section class="section section--alt">
   <div class="container">
     <div class="about-stats">
-      <div class="about-stat" *ngFor="let stat of stats; let i = index" [stfReveal]="i">
-        <span class="about-stat__value">{{ stat.value }}</span>
-        <span class="about-stat__label">{{ stat.label }}</span>
-      </div>
+      @for (stat of stats; track stat; let i = $index) {
+        <div class="about-stat" [stfReveal]="i">
+          <span class="about-stat__value">{{ stat.value }}</span>
+          <span class="about-stat__label">{{ stat.label }}</span>
+        </div>
+      }
     </div>
   </div>
 </section>
@@ -76,17 +80,18 @@
     </div>
 
     <ol class="strengths__list">
-      <li
-        class="strength"
-        *ngFor="let strength of strengths; let i = index"
-        [stfReveal]="i"
-      >
-        <span class="strength__number">{{ i + 1 }}</span>
-        <div>
-          <h3>{{ strength.title }}</h3>
-          <p>{{ strength.description }}</p>
-        </div>
-      </li>
+      @for (strength of strengths; track strength; let i = $index) {
+        <li
+          class="strength"
+          [stfReveal]="i"
+          >
+          <span class="strength__number">{{ i + 1 }}</span>
+          <div>
+            <h3>{{ strength.title }}</h3>
+            <p>{{ strength.description }}</p>
+          </div>
+        </li>
+      }
     </ol>
   </div>
 </section>
@@ -103,9 +108,11 @@
     </div>
 
     <div class="carrier-wall">
-      <div class="carrier-wall__item" *ngFor="let carrier of carriers">
-        <img [src]="carrier" alt="" loading="lazy" />
-      </div>
+      @for (carrier of carriers; track carrier) {
+        <div class="carrier-wall__item">
+          <img [src]="carrier" alt="" loading="lazy" />
+        </div>
+      }
       <div class="carrier-wall__item carrier-wall__item--more">
         <span>and many more</span>
       </div>
@@ -114,9 +121,9 @@
     <div class="carrier-wall__action" stfReveal>
       <a class="btn btn--secondary" routerLink="/carriers"
         >View all carriers, payments &amp; claims</a
-      >
+        >
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<app-banner bannerType="getQuote"></app-banner>
+  <app-banner bannerType="getQuote"></app-banner>

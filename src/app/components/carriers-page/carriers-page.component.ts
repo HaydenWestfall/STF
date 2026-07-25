@@ -3,7 +3,7 @@ import { Carrier } from 'src/app/models/Carrier';
 import { RouterLink } from '@angular/router';
 import { RevealDirective } from '../../directives/reveal.directive';
 import { FormsModule } from '@angular/forms';
-import { NgIf, NgFor } from '@angular/common';
+
 import { BannerComponent } from '../banner/banner.component';
 
 @Component({
@@ -11,13 +11,11 @@ import { BannerComponent } from '../banner/banner.component';
     templateUrl: './carriers-page.component.html',
     styleUrls: ['./carriers-page.component.scss'],
     imports: [
-        RouterLink,
-        RevealDirective,
-        FormsModule,
-        NgIf,
-        NgFor,
-        BannerComponent,
-    ],
+    RouterLink,
+    RevealDirective,
+    FormsModule,
+    BannerComponent
+],
 })
 export class CarriersPageComponent {
   basePath = 'assets/img/carriers/';

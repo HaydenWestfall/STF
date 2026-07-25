@@ -6,10 +6,12 @@
         Independent insurance for Ohio families, farms &amp; businesses
       </p>
       <div class="utility-bar__contact">
-        <a *ngFor="let office of offices" [href]="'tel:' + office.phone">
-          <span class="office">{{ office.label }}</span>
-          <span class="number">{{ office.phone }}</span>
-        </a>
+        @for (office of offices; track office) {
+          <a [href]="'tel:' + office.phone">
+            <span class="office">{{ office.label }}</span>
+            <span class="number">{{ office.phone }}</span>
+          </a>
+        }
         <a class="email" [href]="'mailto:' + env.contactEmail">{{
           env.contactEmail
         }}</a>
@@ -26,20 +28,20 @@
           <path
             d="M54.6265 37.9813V14.6667H51H47.9667V37.9813H54.6265Z"
             fill="#EF6C23"
-          />
+            />
           <path d="M71.8003 6.03539V0H100V6.03539H71.8003Z" fill="#1D243C" />
           <path
             d="M71.8003 37.9813V14.6667H96V20.3334H77.7316V29.8648V37.9813H71.8003Z"
             fill="#1D243C"
-          />
+            />
           <path
             d="M30.1903 0.0141778V6.15363H19.9926C8.67105 6.15363 6.53437 15.6576 6.88122 20.4096H0.0133785C-0.486102 3.4273 13.1247 -0.263312 19.9926 0.0141778H30.1903Z"
             fill="#1D243C"
-          />
+            />
           <path
             d="M0.554783 37.7287V31.5893H10.7525C22.0741 31.5893 24.2107 22.0853 23.8639 17.3333H30.7317C31.2312 34.3156 17.6204 38.0062 10.7525 37.7287L0.554783 37.7287Z"
             fill="#1D243C"
-          />
+            />
         </svg>
         <span class="brand__divider" aria-hidden="true"></span>
         <span class="brand__text">
@@ -51,184 +53,195 @@
       <!-- Desktop navigation -->
       <nav class="primary-nav" aria-label="Primary">
         <ul>
-          <li
-            *ngFor="let group of navGroups"
-            [class.has-menu]="group.children?.length"
-            (mouseenter)="openMenuFor(group)"
-            (mouseleave)="scheduleClose()"
-          >
-            <a
-              *ngIf="!group.children?.length"
-              class="nav-link"
-              [routerLink]="group.route"
-              routerLinkActive="is-active"
-              >{{ group.label }}</a
-            >
-
-            <button
-              *ngIf="group.children?.length"
-              type="button"
-              class="nav-link"
-              [class.is-open]="openMenu === group.id"
-              [attr.aria-expanded]="openMenu === group.id"
-              (click)="toggleMenu(group)"
-            >
-              {{ group.label }}
-              <svg viewBox="0 0 12 8" aria-hidden="true" class="chevron">
-                <path
-                  d="M1 1.5L6 6.5L11 1.5"
-                  stroke="currentColor"
-                  stroke-width="1.75"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  fill="none"
-                />
-              </svg>
-            </button>
-
-            <!-- Mega menu -->
-            <div
-              class="dropdown dropdown--mega"
-              *ngIf="group.layout === 'mega' && openMenu === group.id"
-            >
-              <div class="dropdown__grid">
+          @for (group of navGroups; track group) {
+            <li
+              [class.has-menu]="group.children?.length"
+              (mouseenter)="openMenuFor(group)"
+              (mouseleave)="scheduleClose()"
+              >
+              @if (!group.children?.length) {
                 <a
-                  *ngFor="let child of group.children"
-                  class="mega-item"
-                  (click)="navigate(child)"
-                >
-                  <span class="icon-badge">
-                    <img [src]="child.icon" [alt]="''" aria-hidden="true" />
-                  </span>
-                  <span class="mega-item__text">
-                    <span class="mega-item__label">{{ child.label }}</span>
-                    <span class="mega-item__desc">{{ child.description }}</span>
-                  </span>
-                </a>
-              </div>
-              <div class="dropdown__footer">
-                <span>Not sure what you need? Our agents will walk you through it.</span>
-                <a class="link-arrow" routerLink="/contact">Talk to an agent</a>
-              </div>
-            </div>
+                  class="nav-link"
+                  [routerLink]="group.route"
+                  routerLinkActive="is-active"
+                  >{{ group.label }}</a
+                  >
+                }
+                @if (group.children?.length) {
+                  <button
+                    type="button"
+                    class="nav-link"
+                    [class.is-open]="openMenu === group.id"
+                    [attr.aria-expanded]="openMenu === group.id"
+                    (click)="toggleMenu(group)"
+                    >
+                    {{ group.label }}
+                    <svg viewBox="0 0 12 8" aria-hidden="true" class="chevron">
+                      <path
+                        d="M1 1.5L6 6.5L11 1.5"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        fill="none"
+                        />
+                    </svg>
+                  </button>
+                }
+                <!-- Mega menu -->
+                @if (group.layout === 'mega' && openMenu === group.id) {
+                  <div
+                    class="dropdown dropdown--mega"
+                    >
+                    <div class="dropdown__grid">
+                      @for (child of group.children; track child) {
+                        <a
+                          class="mega-item"
+                          (click)="navigate(child)"
+                          >
+                          <span class="icon-badge">
+                            <img [src]="child.icon" [alt]="''" aria-hidden="true" />
+                          </span>
+                          <span class="mega-item__text">
+                            <span class="mega-item__label">{{ child.label }}</span>
+                            <span class="mega-item__desc">{{ child.description }}</span>
+                          </span>
+                        </a>
+                      }
+                    </div>
+                    <div class="dropdown__footer">
+                      <span>Not sure what you need? Our agents will walk you through it.</span>
+                      <a class="link-arrow" routerLink="/contact">Talk to an agent</a>
+                    </div>
+                  </div>
+                }
+                <!-- Simple list menu -->
+                @if (group.layout === 'list' && openMenu === group.id) {
+                  <div
+                    class="dropdown dropdown--list"
+                    >
+                    @for (child of group.children; track child) {
+                      <a
+                        (click)="navigate(child)"
+                        >{{ child.label }}</a
+                        >
+                      }
+                    </div>
+                  }
+                </li>
+              }
+            </ul>
+          </nav>
 
-            <!-- Simple list menu -->
-            <div
-              class="dropdown dropdown--list"
-              *ngIf="group.layout === 'list' && openMenu === group.id"
-            >
-              <a
-                *ngFor="let child of group.children"
-                (click)="navigate(child)"
-                >{{ child.label }}</a
+          <div class="nav-actions">
+            <a
+              class="nav-phone"
+              [href]="'tel:' + env.arcanumPhoneNumber"
+              aria-label="Call STF Insurance"
+              >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1l-2.23 2.2Z"
+                  fill="currentColor"
+                  />
+              </svg>
+              <span class="sr-only">{{ env.arcanumPhoneNumber }}</span>
+            </a>
+            <a class="btn btn--primary nav-quote" routerLink="/quoteRedirect"
+              >Get a Quote</a
               >
             </div>
-          </li>
-        </ul>
-      </nav>
 
-      <div class="nav-actions">
-        <a
-          class="nav-phone"
-          [href]="'tel:' + env.arcanumPhoneNumber"
-          aria-label="Call STF Insurance"
-        >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1l-2.23 2.2Z"
-              fill="currentColor"
-            />
-          </svg>
-          <span class="sr-only">{{ env.arcanumPhoneNumber }}</span>
-        </a>
-        <a class="btn btn--primary nav-quote" routerLink="/quoteRedirect"
-          >Get a Quote</a
-        >
-      </div>
-
-      <button
-        type="button"
-        class="menu-toggle"
-        [attr.aria-expanded]="mobileNavOpen"
-        aria-controls="mobile-nav"
-        (click)="toggleMobileNav()"
-      >
-        <span class="sr-only">Toggle navigation menu</span>
-        <span class="bars" [class.is-open]="mobileNavOpen">
-          <span></span><span></span><span></span>
-        </span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile navigation -->
-  <div class="mobile-nav" id="mobile-nav" *ngIf="mobileNavOpen">
-    <nav aria-label="Mobile">
-      <ng-container *ngFor="let group of navGroups">
-        <a
-          *ngIf="!group.children?.length"
-          class="mobile-link"
-          [routerLink]="group.route"
-          (click)="closeAll()"
-          >{{ group.label }}</a
-        >
-
-        <div class="mobile-group" *ngIf="group.children?.length">
-          <button
-            type="button"
-            class="mobile-link"
-            [attr.aria-expanded]="openAccordion === group.id"
-            (click)="toggleAccordion(group)"
-          >
-            {{ group.label }}
-            <svg
-              viewBox="0 0 12 8"
-              aria-hidden="true"
-              class="chevron"
-              [class.is-open]="openAccordion === group.id"
-            >
-              <path
-                d="M1 1.5L6 6.5L11 1.5"
-                stroke="currentColor"
-                stroke-width="1.75"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                fill="none"
-              />
-            </svg>
-          </button>
-          <div class="mobile-sub" *ngIf="openAccordion === group.id">
-            <a
-              *ngFor="let child of group.children"
-              (click)="navigate(child)"
-              >{{ child.label }}</a
-            >
+            <button
+              type="button"
+              class="menu-toggle"
+              [attr.aria-expanded]="mobileNavOpen"
+              aria-controls="mobile-nav"
+              (click)="toggleMobileNav()"
+              >
+              <span class="sr-only">Toggle navigation menu</span>
+              <span class="bars" [class.is-open]="mobileNavOpen">
+                <span></span><span></span><span></span>
+              </span>
+            </button>
           </div>
         </div>
-      </ng-container>
-    </nav>
 
-    <div class="mobile-actions">
-      <a class="btn btn--primary btn--block btn--lg" routerLink="/quoteRedirect"
-        >Get a Quote</a
-      >
-      <a
-        class="btn btn--secondary btn--block btn--lg"
-        routerLink="/contact"
-        (click)="closeAll()"
-        >Contact Us</a
-      >
-    </div>
-
-    <div class="mobile-contact">
-      <span class="mobile-contact__label">Call an office</span>
-      <a *ngFor="let office of offices" [href]="'tel:' + office.phone">
-        <span>{{ office.label }}</span>
-        <span>{{ office.phone }}</span>
-      </a>
-      <a class="email" [href]="'mailto:' + env.contactEmail">{{
-        env.contactEmail
-      }}</a>
-    </div>
-  </div>
-</header>
+        <!-- Mobile navigation -->
+        @if (mobileNavOpen) {
+          <div class="mobile-nav" id="mobile-nav">
+            <nav aria-label="Mobile">
+              @for (group of navGroups; track group) {
+                @if (!group.children?.length) {
+                  <a
+                    class="mobile-link"
+                    [routerLink]="group.route"
+                    (click)="closeAll()"
+                    >{{ group.label }}</a
+                    >
+                  }
+                  @if (group.children?.length) {
+                    <div class="mobile-group">
+                      <button
+                        type="button"
+                        class="mobile-link"
+                        [attr.aria-expanded]="openAccordion === group.id"
+                        (click)="toggleAccordion(group)"
+                        >
+                        {{ group.label }}
+                        <svg
+                          viewBox="0 0 12 8"
+                          aria-hidden="true"
+                          class="chevron"
+                          [class.is-open]="openAccordion === group.id"
+                          >
+                          <path
+                            d="M1 1.5L6 6.5L11 1.5"
+                            stroke="currentColor"
+                            stroke-width="1.75"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            fill="none"
+                            />
+                        </svg>
+                      </button>
+                      @if (openAccordion === group.id) {
+                        <div class="mobile-sub">
+                          @for (child of group.children; track child) {
+                            <a
+                              (click)="navigate(child)"
+                              >{{ child.label }}</a
+                              >
+                            }
+                          </div>
+                        }
+                      </div>
+                    }
+                  }
+                </nav>
+                <div class="mobile-actions">
+                  <a class="btn btn--primary btn--block btn--lg" routerLink="/quoteRedirect"
+                    >Get a Quote</a
+                    >
+                    <a
+                      class="btn btn--secondary btn--block btn--lg"
+                      routerLink="/contact"
+                      (click)="closeAll()"
+                      >Contact Us</a
+                      >
+                    </div>
+                    <div class="mobile-contact">
+                      <span class="mobile-contact__label">Call an office</span>
+                      @for (office of offices; track office) {
+                        <a [href]="'tel:' + office.phone">
+                          <span>{{ office.label }}</span>
+                          <span>{{ office.phone }}</span>
+                        </a>
+                      }
+                      <a class="email" [href]="'mailto:' + env.contactEmail">{{
+                        env.contactEmail
+                      }}</a>
+                    </div>
+                  </div>
+                }
+              </header>

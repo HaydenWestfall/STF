@@ -10,15 +10,15 @@
             <path
               d="M518 279V116.5H694.5V177H588.5V279H518Z"
               fill="currentColor"
-            />
+              />
             <path
               d="M217.5 6.60079V69H142.122C76 69 66 116.837 66 151.587H0.0951044C-3.45558 30.8638 93.3006 4.62818 142.122 6.60079L217.5 6.60079Z"
               fill="currentColor"
-            />
+              />
             <path
               d="M0 278.986V216.587L75.3775 216.587C141.5 216.587 151.5 168.75 151.5 134H217.405C220.956 254.723 124.199 280.959 75.3775 278.986L0 278.986Z"
               fill="currentColor"
-            />
+              />
           </svg>
         </a>
         <p>
@@ -28,38 +28,44 @@
           protection in place.
         </p>
         <div class="footer-socials">
-          <a
-            *ngFor="let social of socials"
-            [href]="social.url"
-            target="_blank"
-            rel="noopener"
-            aria-label="STF Insurance Group social profile"
-          >
-            <img [src]="social.icon" alt="" aria-hidden="true" />
-          </a>
+          @for (social of socials; track social) {
+            <a
+              [href]="social.url"
+              target="_blank"
+              rel="noopener"
+              aria-label="STF Insurance Group social profile"
+              >
+              <img [src]="social.icon" alt="" aria-hidden="true" />
+            </a>
+          }
         </div>
       </div>
 
-      <nav
-        class="footer-links"
-        *ngFor="let footerSection of footerSections"
-        [attr.aria-label]="footerSection.header"
-      >
-        <h4>{{ footerSection.header }}</h4>
-        <ul>
-          <li *ngFor="let sectionLink of footerSection.subHeaders">
-            <a (click)="handleLinkClick(sectionLink)">{{ sectionLink.label }}</a>
-          </li>
-        </ul>
-      </nav>
+      @for (footerSection of footerSections; track footerSection) {
+        <nav
+          class="footer-links"
+          [attr.aria-label]="footerSection.header"
+          >
+          <h4>{{ footerSection.header }}</h4>
+          <ul>
+            @for (sectionLink of footerSection.subHeaders; track sectionLink) {
+              <li>
+                <a (click)="handleLinkClick(sectionLink)">{{ sectionLink.label }}</a>
+              </li>
+            }
+          </ul>
+        </nav>
+      }
 
       <div class="footer-offices">
         <h4>Our Offices</h4>
-        <div class="office" *ngFor="let office of offices">
-          <span class="office__name">{{ office.name }}</span>
-          <span class="office__address">{{ office.address }}</span>
-          <a [href]="'tel:' + office.phone">{{ office.phone }}</a>
-        </div>
+        @for (office of offices; track office) {
+          <div class="office">
+            <span class="office__name">{{ office.name }}</span>
+            <span class="office__address">{{ office.address }}</span>
+            <a [href]="'tel:' + office.phone">{{ office.phone }}</a>
+          </div>
+        }
         <a class="office-email" [href]="'mailto:' + env.contactEmail">{{
           env.contactEmail
         }}</a>
@@ -70,19 +76,19 @@
       <span
         >© {{ currentYear }} Spieles Troutwine Fout Insurance Group. All rights
         reserved.</span
-      >
-      <div class="footer-bottom__links">
-        <a routerLink="/faq">FAQ</a>
-        <a routerLink="/contact">Contact</a>
-        <a routerLink="/carriers">Payments &amp; Claims</a>
+        >
+        <div class="footer-bottom__links">
+          <a routerLink="/faq">FAQ</a>
+          <a routerLink="/contact">Contact</a>
+          <a routerLink="/carriers">Payments &amp; Claims</a>
+        </div>
       </div>
-    </div>
 
-    <p class="footer-disclaimer">
-      Coverage descriptions on this site are general summaries provided for
-      informational purposes only and are not a statement of contract. Actual
-      coverage is subject to the terms, conditions, limits and exclusions of the
-      policy as issued. Products and availability vary by carrier and state.
-    </p>
-  </div>
-</footer>
+      <p class="footer-disclaimer">
+        Coverage descriptions on this site are general summaries provided for
+        informational purposes only and are not a statement of contract. Actual
+        coverage is subject to the terms, conditions, limits and exclusions of the
+        policy as issued. Products and availability vary by carrier and state.
+      </p>
+    </div>
+  </footer>

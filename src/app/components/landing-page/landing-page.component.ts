@@ -4,7 +4,7 @@ import { HeroSectionComponent } from './hero-section/hero-section.component';
 import { CoveragesSectionComponent } from './coverages-section/coverages-section.component';
 import { AboutSectionComponent } from './about-section/about-section.component';
 import { RevealDirective } from '../../directives/reveal.directive';
-import { NgFor } from '@angular/common';
+
 import { RouterLink } from '@angular/router';
 import { CarriersSectionComponent } from './carriers-section/carriers-section.component';
 import { ReviewsSectionComponent } from './reviews-section/reviews-section.component';
@@ -15,16 +15,15 @@ import { BannerComponent } from '../banner/banner.component';
     templateUrl: './landing-page.component.html',
     styleUrls: ['./landing-page.component.scss'],
     imports: [
-        HeroSectionComponent,
-        CoveragesSectionComponent,
-        AboutSectionComponent,
-        RevealDirective,
-        NgFor,
-        RouterLink,
-        CarriersSectionComponent,
-        ReviewsSectionComponent,
-        BannerComponent,
-    ],
+    HeroSectionComponent,
+    CoveragesSectionComponent,
+    AboutSectionComponent,
+    RevealDirective,
+    RouterLink,
+    CarriersSectionComponent,
+    ReviewsSectionComponent,
+    BannerComponent
+],
 })
 export class LandingPageComponent {
   basePath = 'assets/img/locations/';

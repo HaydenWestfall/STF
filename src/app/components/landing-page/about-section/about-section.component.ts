@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
 import { RevealDirective } from '../../../directives/reveal.directive';
 import { RouterLink } from '@angular/router';
-import { NgFor } from '@angular/common';
+
 
 @Component({
     selector: 'app-about-section',
     templateUrl: './about-section.component.html',
     styleUrls: ['./about-section.component.scss'],
     imports: [
-        RevealDirective,
-        RouterLink,
-        NgFor,
-    ],
+    RevealDirective,
+    RouterLink
+],
 })
 export class AboutSectionComponent {
   benefits = [
