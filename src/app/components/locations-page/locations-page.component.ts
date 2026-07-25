@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Location } from 'src/app/models/Location';
 import { environment } from 'src/environments/environment.development';
 import { RouterLink } from '@angular/router';
@@ -10,6 +10,7 @@ import { BannerComponent } from '../banner/banner.component';
     selector: 'app-locations-page',
     templateUrl: './locations-page.component.html',
     styleUrls: ['./locations-page.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [
     RouterLink,
     RevealDirective,

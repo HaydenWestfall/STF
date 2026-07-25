@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, ChangeDetectionStrategy } from '@angular/core';
 import { Employee } from 'src/app/models/Employee';
 import { RouterLink } from '@angular/router';
 
@@ -9,6 +9,7 @@ import { BannerComponent } from '../banner/banner.component';
     selector: 'app-teams-page',
     templateUrl: './teams-page.component.html',
     styleUrls: ['./teams-page.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [
     RouterLink,
     RevealDirective,

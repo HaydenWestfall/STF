@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { RevealDirective } from '../../directives/reveal.directive';
 import { RouterLink } from '@angular/router';
@@ -16,6 +16,7 @@ interface BannerContent {
     selector: 'app-banner',
     templateUrl: './banner.component.html',
     styleUrls: ['./banner.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [RevealDirective, RouterLink],
 })
 export class BannerComponent implements OnInit {

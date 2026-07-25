@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FooterSection } from 'src/app/models/FooterLink';
 import { Social } from 'src/app/models/Social';
@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment.development';
     selector: 'app-footer',
     templateUrl: './footer.component.html',
     styleUrls: ['./footer.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [RouterLink],
 })
 export class FooterComponent {

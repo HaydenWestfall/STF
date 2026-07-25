@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Carrier } from 'src/app/models/Carrier';
 import { RouterLink } from '@angular/router';
 import { RevealDirective } from '../../directives/reveal.directive';
@@ -10,6 +10,7 @@ import { BannerComponent } from '../banner/banner.component';
     selector: 'app-carriers-page',
     templateUrl: './carriers-page.component.html',
     styleUrls: ['./carriers-page.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [
     RouterLink,
     RevealDirective,

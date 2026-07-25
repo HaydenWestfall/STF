@@ -5,6 +5,7 @@ import {
   Inject,
   PLATFORM_ID,
   ViewChild,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { gsap } from 'gsap';
@@ -15,6 +16,7 @@ import { RouterLink } from '@angular/router';
     selector: 'app-hero-section',
     templateUrl: './hero-section.component.html',
     styleUrls: ['./hero-section.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [RouterLink],
 })
 export class HeroSectionComponent {

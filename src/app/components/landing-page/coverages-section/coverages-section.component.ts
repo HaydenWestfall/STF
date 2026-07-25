@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CoverageCard } from 'src/app/models/Coverage';
 import { environment } from 'src/environments/environment.development';
 import { RevealDirective } from '../../../directives/reveal.directive';
@@ -9,6 +9,7 @@ import { RouterLink } from '@angular/router';
     selector: 'app-coverages-section',
     templateUrl: './coverages-section.component.html',
     styleUrls: ['./coverages-section.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [
     RevealDirective,
     RouterLink

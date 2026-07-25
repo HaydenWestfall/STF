@@ -4,6 +4,7 @@ import {
   HostListener,
   OnDestroy,
   OnInit,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
@@ -15,6 +16,7 @@ import { environment } from 'src/environments/environment.development';
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [
     RouterLink,
     RouterLinkActive

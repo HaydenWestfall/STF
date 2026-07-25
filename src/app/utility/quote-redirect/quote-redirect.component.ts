@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID, ChangeDetectionStrategy } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { StfService } from 'src/app/services/stf.service';
@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment.development';
 @Component({
     selector: 'app-quote-redirect',
     templateUrl: './quote-redirect.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./quote-redirect.component.scss']
 })
 export class QuoteRedirectComponent implements OnInit{

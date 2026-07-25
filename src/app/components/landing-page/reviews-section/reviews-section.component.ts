@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Review } from 'src/app/models/Review';
 import { environment } from 'src/environments/environment.development';
 import { RevealDirective } from '../../../directives/reveal.directive';
@@ -8,6 +8,7 @@ import { RevealDirective } from '../../../directives/reveal.directive';
     selector: 'app-reviews-section',
     templateUrl: './reviews-section.component.html',
     styleUrls: ['./reviews-section.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [RevealDirective],
 })
 export class ReviewsSectionComponent {

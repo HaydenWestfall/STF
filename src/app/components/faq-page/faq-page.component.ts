@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { growHeight } from 'src/animations';
 import { FAQ } from 'src/app/models/FAQ';
 import { SeoService } from 'src/app/services/seo.service';
@@ -18,6 +18,7 @@ interface FaqGroup {
     templateUrl: './faq-page.component.html',
     styleUrls: ['./faq-page.component.scss'],
     animations: [growHeight],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [
     RouterLink,
     RevealDirective,

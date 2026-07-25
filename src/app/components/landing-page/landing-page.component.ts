@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { HeroSectionComponent } from './hero-section/hero-section.component';
 import { CoveragesSectionComponent } from './coverages-section/coverages-section.component';
@@ -14,6 +14,7 @@ import { BannerComponent } from '../banner/banner.component';
     selector: 'app-landing-page',
     templateUrl: './landing-page.component.html',
     styleUrls: ['./landing-page.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [
     HeroSectionComponent,
     CoveragesSectionComponent,

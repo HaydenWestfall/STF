@@ -7,6 +7,7 @@ import {
   OnInit,
   PLATFORM_ID,
   ViewChild,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -25,6 +26,7 @@ import { BannerComponent } from '../banner/banner.component';
     templateUrl: './coverage-page.component.html',
     styleUrls: ['./coverage-page.component.scss'],
     animations: [growHeight],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [
     RouterLink,
     RevealDirective,

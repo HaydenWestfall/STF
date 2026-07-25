@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { filter, map, mergeMap } from 'rxjs';
 import { routeTransitionAnimations } from 'src/animations';
@@ -13,6 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     animations: [routeTransitionAnimations],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [
         NavbarComponent,
         RouterOutlet,

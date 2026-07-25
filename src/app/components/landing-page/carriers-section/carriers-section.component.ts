@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RevealDirective } from '../../../directives/reveal.directive';
 import { RouterLink } from '@angular/router';
 
@@ -7,6 +7,7 @@ import { RouterLink } from '@angular/router';
     selector: 'app-carriers-section',
     templateUrl: './carriers-section.component.html',
     styleUrls: ['./carriers-section.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [
     RevealDirective,
     RouterLink
