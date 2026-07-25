@@ -102,7 +102,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private routerSub: Subscription;
   private closeTimer: ReturnType<typeof setTimeout> | null = null;
 
-  constructor(public router: Router, private elementRef: ElementRef) {}
+  constructor(
+    public router: Router,
+    private elementRef: ElementRef,
+  ) {}
 
   ngOnInit(): void {
     this.routerSub = this.router.events
@@ -141,6 +144,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.clearCloseTimer();
     if (group.children?.length) {
       this.openMenu = group.id;
+    } else {
+      this.openMenu = null;
     }
   }
 

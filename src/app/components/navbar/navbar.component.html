@@ -41,6 +41,7 @@
             fill="#1D243C"
           />
         </svg>
+        <span class="brand__divider" aria-hidden="true"></span>
         <span class="brand__text">
           <span class="brand__name">STF Insurance Group</span>
           <span class="brand__sub">Independent Insurance Agency</span>
@@ -127,16 +128,22 @@
       </nav>
 
       <div class="nav-actions">
-        <a class="nav-phone" [href]="'tel:' + env.arcanumPhoneNumber">
+        <a
+          class="nav-phone"
+          [href]="'tel:' + env.arcanumPhoneNumber"
+          aria-label="Call STF Insurance"
+        >
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
               d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1l-2.23 2.2Z"
               fill="currentColor"
             />
           </svg>
-          <span>{{ env.arcanumPhoneNumber }}</span>
+          <span class="sr-only">{{ env.arcanumPhoneNumber }}</span>
         </a>
-        <a class="btn btn--primary" routerLink="/quoteRedirect">Get a Quote</a>
+        <a class="btn btn--primary nav-quote" routerLink="/quoteRedirect"
+          >Get a Quote</a
+        >
       </div>
 
       <button
