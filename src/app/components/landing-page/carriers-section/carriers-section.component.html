@@ -18,7 +18,7 @@
 
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
-        @for (carrier of marqueeCarriers; track carrier) {
+        @for (carrier of marqueeCarriers; track $index) {
           <div class="marquee__item">
             <img [src]="carrier" alt="" loading="lazy" />
           </div>
