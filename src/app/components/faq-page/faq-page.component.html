@@ -1,44 +1,65 @@
-<div class="faq-wrapper">
-  <section class="faq-title">
-    <stf-header>
-      <h6 class="sub-header" style="color: #deeaff80">FAQ</h6>
-      <h1 class="header" style="color: white" id="faq-header">Questions?</h1>
-    </stf-header>
-
-    <p class="sub-text" id="faq-description">
-      Scroll down to see some of our most frequently asked questions.
+<section class="page-hero">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a routerLink="/">Home</a></li>
+      <li>FAQ</li>
+    </ol>
+    <span class="eyebrow eyebrow--light">FAQ</span>
+    <h1>Questions we hear every week</h1>
+    <p>
+      Straight answers about quotes, coverage, payments and claims. If yours is
+      not here, call us — we would rather explain it than have you guess.
     </p>
-  </section>
+  </div>
+</section>
 
-  <section class="questions" id="faq-questions">
-    <div
-      class="faq"
-      *ngFor="let question of faqs"
-      (click)="question.expanded = !question.expanded"
-    >
-      <div class="question">
-        <h3 style="height: 3rem">{{ question.question }}</h3>
-        <div
-          class="icon"
-          [ngClass]="question.expanded ? 'icon-open' : 'icon-close'"
-        >
-          <svg-icon
-            *ngIf="!question.expanded"
-            [name]="SvgIcon.PLUS"
-            [width]="0.6"
-          ></svg-icon>
-          <svg-icon
-            *ngIf="question.expanded"
-            [name]="SvgIcon.TIMES"
-            [width]="0.6"
-          ></svg-icon>
+<section class="section">
+  <div class="container container--narrow">
+    @for (group of groups; track group) {
+      <div class="faq-group">
+        <h2 class="faq-group__title" stfReveal>{{ group.title }}</h2>
+        <div class="faq-list">
+          @for (faq of group.faqs; track faq) {
+            <div
+              class="faq"
+              [class.is-open]="faq.expanded"
+              >
+              <button
+                type="button"
+                class="faq__question"
+                [attr.aria-expanded]="!!faq.expanded"
+                (click)="toggle(faq)"
+                >
+                <span>{{ faq.question }}</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              @if (faq.expanded) {
+                <div class="faq__answer" @growHeight>
+                  <p>{{ faq.answer }}</p>
+                </div>
+              }
+            </div>
+          }
         </div>
       </div>
-      <div class="answer" *ngIf="question.expanded" @growHeight>
-        {{ question.answer }}
+    }
+
+    <div class="faq-cta card" stfReveal>
+      <div>
+        <h3>Still have a question?</h3>
+        <p>
+          Call the office nearest you or send a message and a licensed agent
+          will get back to you the next business day.
+        </p>
+      </div>
+      <div class="faq-cta__actions">
+        <a class="btn btn--primary" routerLink="/contact">Contact Us</a>
+        <a class="btn btn--secondary" [href]="'tel:' + env.arcanumPhoneNumber"
+          >Call {{ env.arcanumPhoneNumber }}</a
+          >
+        </div>
       </div>
     </div>
   </section>
-</div>
 
-<app-banner bannerType="contactUs"></app-banner>
+  <app-banner bannerType="getQuote"></app-banner>

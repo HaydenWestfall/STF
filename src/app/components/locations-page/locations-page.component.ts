@@ -1,40 +1,48 @@
-import { AfterViewInit, Component, inject } from '@angular/core';
-import { fade } from 'src/animations';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Location } from 'src/app/models/Location';
-import { StfService } from 'src/app/services/stf.service';
+import { environment } from 'src/environments/environment.development';
+import { RouterLink } from '@angular/router';
+
+import { RevealDirective } from '../../directives/reveal.directive';
+import { BannerComponent } from '../banner/banner.component';
 
 @Component({
-  selector: 'app-locations-page',
-  templateUrl: './locations-page.component.html',
-  styleUrls: ['./locations-page.component.scss'],
-  animations: [fade],
-  standalone: false,
+    selector: 'app-locations-page',
+    templateUrl: './locations-page.component.html',
+    styleUrls: ['./locations-page.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    imports: [
+    RouterLink,
+    RevealDirective,
+    BannerComponent
+],
 })
-export class LocationsPageComponent implements AfterViewInit {
-  stfService = inject(StfService);
-  basePath = '../../../assets/img/locations/';
+export class LocationsPageComponent {
+  basePath = 'assets/img/locations/';
+  env = environment;
+
   locations: Location[] = [
     {
       name: 'Arcanum',
-      address: '21 W George St Arcanum, OH 45304',
+      address: '21 W George St, Arcanum, OH 45304',
       image: this.basePath + 'arcanum.webp',
       contactMethods: [
         {
           type: 'tel:',
           value: '937-692-8310',
-          displayType: 'phone',
+          displayType: 'Phone',
           displayValue: '(937) 692 - 8310',
         },
         {
           type: 'tel:',
           value: '937-278-9132',
-          displayType: 'phone',
+          displayType: 'Alternate',
           displayValue: '(937) 278 - 9132',
         },
       ],
       hours: [
-        { label: 'Weekdays', value: '8:30AM - 4:30PM' },
-        { label: 'Weekends', value: 'CLOSED' },
+        { label: 'Monday – Friday', value: '8:30 AM – 4:30 PM' },
+        { label: 'Saturday – Sunday', value: 'Closed' },
       ],
     },
     {
@@ -45,13 +53,13 @@ export class LocationsPageComponent implements AfterViewInit {
         {
           type: 'tel:',
           value: '937-890-5426',
-          displayType: 'phone',
+          displayType: 'Phone',
           displayValue: '(937) 890 - 5426',
         },
       ],
       hours: [
-        { label: 'Weekdays', value: '8:30AM - 4:30PM' },
-        { label: 'Weekends', value: 'CLOSED' },
+        { label: 'Monday – Friday', value: '8:30 AM – 4:30 PM' },
+        { label: 'Saturday – Sunday', value: 'Closed' },
       ],
     },
     {
@@ -62,26 +70,21 @@ export class LocationsPageComponent implements AfterViewInit {
         {
           type: 'tel:',
           value: '513-423-4696',
-          displayType: 'phone',
+          displayType: 'Phone',
           displayValue: '(513) 423 - 4696',
         },
       ],
       hours: [
-        { label: 'Weekdays', value: '8:30AM - 4:00PM' },
-        { label: 'Weekends', value: 'CLOSED' },
+        { label: 'Monday – Friday', value: '8:30 AM – 4:00 PM' },
+        { label: 'Saturday – Sunday', value: 'Closed' },
       ],
     },
   ];
 
-  ngAfterViewInit(): void {
-    this.stfService.animateBackground('#dot-bg', 0);
-    this.stfService.animateBackground('#gradients', 0);
-
-    this.stfService.setLoadState('#location-header', 0);
-    this.stfService.setLoadState('#locations', 0);
-    setTimeout(() => {
-      this.stfService.animateText('#location-header', 0);
-      this.stfService.animateText('#locations', 0.5, true);
-    }, 250);
+  directionsUrl(address: string): string {
+    return (
+      'https://www.google.com/maps/search/?api=1&query=' +
+      encodeURIComponent(address)
+    );
   }
 }

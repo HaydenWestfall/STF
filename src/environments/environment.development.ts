@@ -6,5 +6,5 @@ export const environment = {
   middletownPhoneNumber: '513-423-4696',
   healthInsuranceLink: 'https://www.jshortinsurance.com',
   reviewLink: 'https://g.page/r/CSd8UHf6NTqSEBM/review',
-  appUrl: 'https://stf-ins-group.com',
+  appUrl: 'https://www.stf-ins-group.com',
 };

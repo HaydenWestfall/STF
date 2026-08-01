@@ -1,77 +1,97 @@
-<div id="dot-bg" class="background"></div>
-<div id="gradients" class="gradient">
-  <img class="gradient1" src="../../../assets/img/gradient_1.png" />
-  <img class="gradient2" src="../../../assets/img/gradient_2.png" />
-</div>
-<div class="section team-header">
-  <stf-header>
-    <h6>OUR TEAM</h6>
-    <h1 id="team-header">
-      We bring a wealth of skills and experience<br />
-      from a wide range of backgrounds
-    </h1>
-  </stf-header>
-  <span id="team-description">
-    Our goal is simple; hire great people and give them<br />
-    the resources and support to do their best work</span
-  >
-</div>
+<section class="page-hero">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a routerLink="/">Home</a></li>
+      <li>Our Team</li>
+    </ol>
+    <span class="eyebrow eyebrow--light">Our team</span>
+    <h1>The people behind your policy</h1>
+    <p>
+      Licensed agents who live in the communities they serve. Click any name to
+      read a little more about them.
+    </p>
+  </div>
+</section>
 
-<div class="team-wrapper" id="team">
-  <div class="team-member-grid">
-    <div class="team-member-card" *ngFor="let teamMember of teamMembers">
-      <img
-        *ngIf="teamMember.img"
-        [src]="basePath + teamMember.img"
-        (click)="selectedMember = teamMember"
-      />
-      <img
-        *ngIf="!teamMember.img"
-        [src]="basePath + '/stock-user.png'"
-        (click)="selectedMember = teamMember"
-      />
-      <div class="team-member-info">
-        <span id="name">{{ teamMember.name }}</span>
-        <span id="position">{{ teamMember.position }}</span>
-      </div>
+<section class="section">
+  <div class="container">
+    <div class="team-grid">
+      @for (teamMember of teamMembers; track teamMember; let i = $index) {
+        <button
+          type="button"
+          class="team-card"
+          (click)="openMember(teamMember)"
+          [stfReveal]="i"
+          >
+          <span class="team-card__photo">
+            <img
+              [src]="photoFor(teamMember)"
+              [alt]="teamMember.name + ', ' + teamMember.position"
+              loading="lazy"
+              />
+          </span>
+          <span class="team-card__body">
+            <span class="team-card__name">{{ teamMember.name }}</span>
+            <span class="team-card__position">{{ teamMember.position }}</span>
+            <span class="team-card__cta">Read bio</span>
+          </span>
+        </button>
+      }
     </div>
   </div>
-</div>
+</section>
 
 <app-banner bannerType="contactUs"></app-banner>
 
-<div
-  class="blurb-wrapper"
-  *ngIf="selectedMember"
-  (click)="selectedMember = null"
->
-  <div class="blurb-content" (click)="$event.stopPropagation()">
-    <div class="employee-info">
-      <img
-        *ngIf="selectedMember.img"
-        [src]="basePath + selectedMember.img"
-        [alt]="selectedMember.name + ' headshot'"
-        loading="lazy"
-      />
-      <img
-        *ngIf="!selectedMember.img"
-        [src]="basePath + '/stock-user.png'"
-        [alt]="selectedMember.name + ' headshot'"
-        loading="lazy"
-      />
-      <div class="employee-info-wrapper">
-        <span>{{ selectedMember.name }}</span>
-        <span>{{ selectedMember.position }}</span>
+@if (selectedMember) {
+  <div
+    class="member-modal"
+    (click)="closeMember()"
+    role="dialog"
+    aria-modal="true"
+    >
+    <div class="member-modal__panel" (click)="$event.stopPropagation()">
+      <button
+        type="button"
+        class="member-modal__close"
+        aria-label="Close"
+        (click)="closeMember()"
+        >
+        <svg viewBox="0 0 14 14" aria-hidden="true">
+          <path
+            d="M1 13L13 1M13 13L1 1"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            />
+        </svg>
+      </button>
+      <div class="member-modal__header">
+        <img
+          [src]="photoFor(selectedMember)"
+          [alt]="selectedMember.name + ' headshot'"
+          />
+        <div>
+          <h2>{{ selectedMember.name }}</h2>
+          <span class="member-modal__position">{{ selectedMember.position }}</span>
+        </div>
       </div>
-    </div>
-
-    <div class="description-wrapper">
-      <span
-        class="description"
-        *ngFor="let para of selectedMember.description"
-        >{{ para }}</span
-      >
-    </div>
-    <button (click)="selectedMember = null">X</button>
-  </div>
-</div>
+      <div class="member-modal__body">
+        @for (para of selectedMember.description; track para) {
+          <p>{{ para }}</p>
+        }
+      </div>
+      <div class="member-modal__footer">
+        <a class="btn btn--primary" routerLink="/contact" (click)="closeMember()"
+          >Contact our team</a
+          >
+          <a
+            class="btn btn--secondary"
+            routerLink="/quoteRedirect"
+            (click)="closeMember()"
+            >Get a quote</a
+            >
+          </div>
+        </div>
+      </div>
+    }

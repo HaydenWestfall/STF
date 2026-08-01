@@ -1,0 +1,13 @@
+/
+/about
+/team
+/locations
+/contact
+/faq
+/carriers
+/coverages/auto
+/coverages/home
+/coverages/farm
+/coverages/commercial
+/coverages/recreational
+/coverages/life

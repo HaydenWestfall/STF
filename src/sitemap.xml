@@ -3,80 +3,80 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://www.stf-ins-group.com/</loc>
-      <lastmod>2023-03-19T10:30:00-05:00</lastmod>
+      <lastmod>2026-07-25</lastmod>
       <changefreq>monthly</changefreq>
       <priority>1.0</priority>
    </url>
    <url>
       <loc>https://www.stf-ins-group.com/about</loc>
-      <lastmod>2023-03-19T10:30:00-05:00</lastmod>
+      <lastmod>2026-07-25</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>0.5</priority>
+      <priority>0.6</priority>
    </url>
    <url>
       <loc>https://www.stf-ins-group.com/team</loc>
-      <lastmod>2023-03-19T10:30:00-05:00</lastmod>
+      <lastmod>2026-07-25</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>0.5</priority>
+      <priority>0.6</priority>
    </url>
    <url>
       <loc>https://www.stf-ins-group.com/locations</loc>
-      <lastmod>2023-03-19T10:30:00-05:00</lastmod>
+      <lastmod>2026-07-25</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
       <loc>https://www.stf-ins-group.com/faq</loc>
-      <lastmod>2023-03-19T10:30:00-05:00</lastmod>
+      <lastmod>2026-07-25</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>0.5</priority>
+      <priority>0.6</priority>
    </url>
    <url>
       <loc>https://www.stf-ins-group.com/contact</loc>
-      <lastmod>2023-03-19T10:30:00-05:00</lastmod>
+      <lastmod>2026-07-25</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>0.5</priority>
-   </url>
-   <url>
-      <loc>https://www.stf-ins-group.com/coverages/auto</loc>
-      <lastmod>2023-03-19T10:30:00-05:00</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>1.0</priority>
-   </url>
-   <url>
-      <loc>https://www.stf-ins-group.com/coverages/home</loc>
-      <lastmod>2023-03-19T10:30:00-05:00</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>1.0</priority>
-   </url>
-   <url>
-      <loc>https://www.stf-ins-group.com/coverages/farm</loc>
-      <lastmod>2023-03-19T10:30:00-05:00</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>1.0</priority>
-   </url>
-   <url>
-      <loc>https://www.stf-ins-group.com/coverages/commercial</loc>
-      <lastmod>2023-03-19T10:30:00-05:00</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>1.0</priority>
-   </url>
-   <url>
-      <loc>https://www.stf-ins-group.com/coverages/recreational</loc>
-      <lastmod>2023-03-19T10:30:00-05:00</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>1.0</priority>
-   </url>
-   <url>
-      <loc>https://www.stf-ins-group.com/coverages/life</loc>
-      <lastmod>2023-03-19T10:30:00-05:00</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>1.0</priority>
+      <priority>0.7</priority>
    </url>
    <url>
       <loc>https://www.stf-ins-group.com/carriers</loc>
-      <lastmod>2023-03-19T10:30:00-05:00</lastmod>
+      <lastmod>2026-07-25</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>1.0</priority>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://www.stf-ins-group.com/coverages/auto</loc>
+      <lastmod>2026-07-25</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+   </url>
+   <url>
+      <loc>https://www.stf-ins-group.com/coverages/home</loc>
+      <lastmod>2026-07-25</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+   </url>
+   <url>
+      <loc>https://www.stf-ins-group.com/coverages/farm</loc>
+      <lastmod>2026-07-25</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+   </url>
+   <url>
+      <loc>https://www.stf-ins-group.com/coverages/commercial</loc>
+      <lastmod>2026-07-25</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+   </url>
+   <url>
+      <loc>https://www.stf-ins-group.com/coverages/recreational</loc>
+      <lastmod>2026-07-25</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+   </url>
+   <url>
+      <loc>https://www.stf-ins-group.com/coverages/life</loc>
+      <lastmod>2026-07-25</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
    </url>
 </urlset>

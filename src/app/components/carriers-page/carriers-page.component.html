@@ -1,101 +1,162 @@
-<div class="section carriers-wrapper">
-  <section class="carrier-header">
-    <img id="carrier-bg" [src]="basePath + 'carriers_bg.webp'" />
-    <div class="overlay-header">
-      <stf-header>
-        <h6 style="color: #deeaff80">CARRIERS</h6>
-        <h1 style="color: white" id="carrier-header">Find your carrier</h1>
-      </stf-header>
-      <p class="description" id="carrier-description">
-        Below is a list of our carriers and information so that you can submit a
-        claim, get in touch, or make a payment.
-      </p>
+<section class="page-hero">
+  <div class="page-hero__media">
+    <img src="assets/img/carriers/carriers_bg.webp" alt="" aria-hidden="true" />
+  </div>
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a routerLink="/">Home</a></li>
+      <li>Payments &amp; Claims</li>
+    </ol>
+    <span class="eyebrow eyebrow--light">Carriers</span>
+    <h1>Make a payment or report a claim</h1>
+    <p>
+      Find your insurance company below for direct links to their payment portal
+      and claims centre, plus the phone numbers you need.
+    </p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container">
+    <div class="claim-steps">
+      <div class="claim-step" stfReveal>
+        <span class="claim-step__num">1</span>
+        <div>
+          <h3>Make sure everyone is safe</h3>
+          <p>
+            Call 911 first if anyone is hurt or there is a fire, gas leak or
+            active hazard. Take photos once it is safe to do so.
+          </p>
+        </div>
+      </div>
+      <div class="claim-step" [stfReveal]="1">
+        <span class="claim-step__num">2</span>
+        <div>
+          <h3>Report it to your carrier</h3>
+          <p>
+            Use the claims number or link on your carrier's card below. Claim
+            lines are staffed 24 hours a day, including weekends.
+          </p>
+        </div>
+      </div>
+      <div class="claim-step" [stfReveal]="2">
+        <span class="claim-step__num">3</span>
+        <div>
+          <h3>Let us know</h3>
+          <p>
+            Call our office and we will track the claim with you, chase down
+            answers and step in if things stall.
+          </p>
+        </div>
+      </div>
     </div>
-    <svg
-      class="scroll-indicator"
-      id="scroll-indicator"
-      width="30"
-      height="17"
-      viewBox="0 0 30 17"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M29.1582 0.7549C28.625 0.271391 27.9037 0 27.1519 0C26.4 0 25.6787 0.271391 25.1455 0.7549L14.9289 9.94478L4.85448 0.7549C4.32127 0.271391 3.59998 0 2.84814 0C2.0963 0 1.37501 0.271391 0.841803 0.7549C0.575064 0.996233 0.363347 1.28335 0.218866 1.5997C0.0743853 1.91605 0 2.25536 0 2.59807C0 2.94077 0.0743853 3.28009 0.218866 3.59643C0.363347 3.91278 0.575064 4.1999 0.841803 4.44124L12.9083 15.4483C13.1728 15.6916 13.4876 15.8848 13.8344 16.0166C14.1812 16.1484 14.5532 16.2162 14.9289 16.2162C15.3045 16.2162 15.6765 16.1484 16.0233 16.0166C16.3701 15.8848 16.6849 15.6916 16.9494 15.4483L29.1582 4.44124C29.4249 4.1999 29.6366 3.91278 29.7811 3.59643C29.9256 3.28009 30 2.94077 30 2.59807C30 2.25536 29.9256 1.91605 29.7811 1.5997C29.6366 1.28335 29.4249 0.996233 29.1582 0.7549Z"
-        fill="#EF6C23"
-      />
-    </svg>
-  </section>
-  <section class="carriers-list">
-    <div
-      class="input-wrapper"
-      [ngStyle]="{ top: stf.navIsShowing ? '4.25rem' : '0rem' }"
-    >
+  </div>
+</section>
+
+<section class="section carriers-section">
+  <div class="container">
+    <div class="carriers-toolbar">
+      <div>
+        <h2>Our carriers</h2>
+        <p class="carriers-count">
+          Showing {{ foundCarriers.length }} of {{ carriers.length }} companies
+        </p>
+      </div>
+
       <div class="search-wrapper">
-        <svg class="search-icon" viewBox="0 0 35 35" fill="none">
+        <svg class="search-icon" viewBox="0 0 35 35" fill="none" aria-hidden="true">
           <path
             d="M15.5065 0C24.0662 0 31.0131 6.94693 31.0131 15.5065C31.0131 24.0662 24.0662 31.0131 15.5065 31.0131C6.94693 31.0131 0 24.0662 0 15.5065C0 6.94693 6.94693 0 15.5065 0ZM15.5065 27.5672C22.1692 27.5672 27.5672 22.1692 27.5672 15.5065C27.5672 8.84218 22.1692 3.4459 15.5065 3.4459C8.84218 3.4459 3.4459 8.84218 3.4459 15.5065C3.4459 22.1692 8.84218 27.5672 15.5065 27.5672ZM30.1258 27.6895L35 32.562L32.562 35L27.6895 30.1258L30.1258 27.6895Z"
             fill="currentColor"
-          />
+            />
         </svg>
         <input
+          type="search"
           placeholder="Search for your carrier..."
-          (keyup)="searchCarriers($event)"
+          aria-label="Search carriers"
+          (input)="searchCarriers()"
           [(ngModel)]="searchText"
-        />
-        <svg
-          class="clear-icon"
-          viewBox="0 0 14 14"
-          fill="none"
-          (click)="clearSearch()"
-          *ngIf="searchText"
-        >
-          <path
-            d="M1 13L13 1M13 13L1 1"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
           />
-        </svg>
+        @if (searchText) {
+          <button
+            type="button"
+            class="clear-btn"
+            (click)="clearSearch()"
+            aria-label="Clear search"
+            >
+            <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path
+                d="M1 13L13 1M13 13L1 1"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                />
+            </svg>
+          </button>
+        }
       </div>
     </div>
-    <div class="carriers-wrapper" *ngIf="foundCarriers.length">
-      <div class="carrier" *ngFor="let carrier of foundCarriers">
-        <div class="image-wrapper">
-          <img [src]="carrier.logo" [alt]="carrier.name" />
-        </div>
-        <div class="carrier-info">
-          <div>
-            <span>Phone: </span
-            ><a [href]="'tel:' + carrier.phone">{{ carrier.phone }}</a>
+
+    @if (foundCarriers.length) {
+      <div class="carrier-grid">
+        @for (carrier of foundCarriers; track carrier) {
+          <article class="card carrier">
+            <div class="carrier__logo">
+              <img [src]="carrier.logo" [alt]="carrier.name" loading="lazy" />
+            </div>
+            <h3>{{ carrier.name }}</h3>
+            <dl class="carrier__contacts">
+              <div>
+                <dt>Service</dt>
+                <dd><a [href]="'tel:' + carrier.phone">{{ carrier.phone }}</a></dd>
+              </div>
+              @if (carrier.claims) {
+                <div>
+                  <dt>Claims</dt>
+                  <dd><a [href]="'tel:' + carrier.claims">{{ carrier.claims }}</a></dd>
+                </div>
+              }
+            </dl>
+            <div class="carrier__actions">
+              <a
+                class="btn btn--primary btn--sm"
+                [href]="carrier.payments"
+                target="_blank"
+                rel="noopener"
+                >Pay a Bill</a
+                >
+                <a
+                  class="btn btn--secondary btn--sm"
+                  [href]="carrier.claimsLink"
+                  target="_blank"
+                  rel="noopener"
+                  >Report a Claim</a
+                  >
+                </div>
+              </article>
+            }
           </div>
-          <div *ngIf="carrier.claims">
-            <span>Claims: </span
-            ><a [href]="'tel:' + carrier.claims">{{ carrier.claims }}</a>
+        }
+
+        @if (!foundCarriers.length) {
+          <div class="no-results">
+            <h3>No carriers found</h3>
+            <p>
+              We could not find a company matching "{{ searchText }}". Try a shorter
+              search, or call us and we will point you in the right direction.
+            </p>
+            <button type="button" class="btn btn--secondary" (click)="clearSearch()">
+              Clear search
+            </button>
           </div>
-        </div>
-        <div class="carrier-actions">
-          <a
-            class="stf-button stf-button-primary card-button"
-            [href]="carrier.payments"
-            target="_blank"
-            >Payments</a
-          >
-          <a
-            class="stf-button stf-button-primary card-button"
-            [href]="carrier.claimsLink"
-            target="_blank"
-            >Claims</a
-          >
-        </div>
+        }
+
+        <p class="disclaimer carriers-disclaimer">
+          Links open the carrier's own website in a new tab. STF Insurance Group
+          does not control those sites and payments are made directly to the
+          insurance company.
+        </p>
       </div>
-    </div>
-    <div class="no-results-wrapper" *ngIf="!foundCarriers.length">
-      <h1>No Results Found</h1>
-      <span
-        >Sorry we do not have any carriers that match your search criteria</span
-      >
-    </div>
-  </section>
-</div>
-<app-banner bannerType="contactUs"></app-banner>
+    </section>
+
+    <app-banner bannerType="contactUs"></app-banner>

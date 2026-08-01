@@ -1,39 +1,57 @@
-<section class="section coverages">
-  <div class="header">
-    <h6>COVERAGES</h6>
-    <h1 id="coverage-section-header">
-      Expert Guidance and Exceptional Customer Service
-    </h1>
-  </div>
+<section class="section" id="coverages">
+  <div class="container">
+    <div class="section-head section-head--center" stfReveal>
+      <span class="eyebrow">What we insure</span>
+      <h2>Coverage for every part of your life</h2>
+      <p class="lede">
+        Personal, farm and commercial insurance under one roof. Pick a coverage
+        below to see what a policy typically includes, what you can add, and the
+        questions we hear most often.
+      </p>
+    </div>
 
-  <div class="coverage-list" #coverageList>
-    <div class="coverage" *ngFor="let coverage of coverages; let i = index">
-      <div class="coverage-info">
-        <div class="icon">
-          <img
-            [src]="coverage.icon"
-            alt="coverage.title"
-            style="height: 1.5rem"
-          />
-        </div>
-        <div class="information">
-          <span>{{ coverage.title }}</span>
-          <span>{{ coverage.description }}</span>
-        </div>
+    <div class="coverage-grid">
+      @for (coverage of coverages; track coverage; let i = $index) {
+        @if (coverage.link) {
+          <a
+            class="card coverage-card"
+            [routerLink]="coverage.link"
+            [stfReveal]="i"
+            >
+            <span class="icon-badge">
+              <img [src]="coverage.icon" alt="" aria-hidden="true" />
+            </span>
+            <h3>{{ coverage.title }}</h3>
+            <p>{{ coverage.description }}</p>
+            <span class="link-arrow">Learn more</span>
+          </a>
+        }
+        @if (!coverage.link) {
+          <a
+            class="card coverage-card"
+            [href]="coverage.externalLink"
+            target="_blank"
+            rel="noopener"
+            [stfReveal]="i"
+            >
+            <span class="icon-badge">
+              <img [src]="coverage.icon" alt="" aria-hidden="true" />
+            </span>
+            <h3>{{ coverage.title }}</h3>
+            <p>{{ coverage.description }}</p>
+            <span class="link-arrow">Visit our Medicare site</span>
+          </a>
+        }
+      }
+
+      <div class="card coverage-card coverage-card--cta" stfReveal>
+        <h3>Not sure what you need?</h3>
+        <p>
+          Tell us a little about your household or business and an agent will
+          build a plan around it — usually the same day.
+        </p>
+        <a class="btn btn--primary" routerLink="/quoteRedirect">Get a Quote</a>
       </div>
-      <a
-        *ngIf="coverage.link"
-        class="stf-button stf-button-primary"
-        [routerLink]="coverage.link"
-        >Learn More</a
-      >
-      <a
-        *ngIf="coverage.externalLink"
-        class="stf-button stf-button-primary"
-        [href]="coverage.externalLink"
-        target="_blank"
-        >Learn More</a
-      >
     </div>
   </div>
 </section>

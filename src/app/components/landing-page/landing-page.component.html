@@ -1,27 +1,88 @@
-<div class="branding-wrapper">
-  <div class="scroll-wrapper">
-    <app-hero-section></app-hero-section>
-    <app-about-section></app-about-section>
-    <app-coverages-section></app-coverages-section>
-  </div>
-  <div class="static-images">
-    <img
-      class="location"
-      src="../../../../assets/img/locations/stf.webp"
-      alt="Arcanum Office"
-    />
-    <img
-      class="location"
-      src="../../../../assets/img/locations/debrozi.webp"
-      alt="Vandalia Office"
-    />
-    <img
-      class="location"
-      src="../../../../assets/img/locations/js.webp"
-      alt="JS Office"
-    />
-  </div>
-</div>
-<app-carriers-section></app-carriers-section>
-<app-reviews-section></app-reviews-section>
-<app-banner bannerType="getQuote"></app-banner>
+<app-hero-section></app-hero-section>
+
+<app-coverages-section></app-coverages-section>
+
+<app-about-section></app-about-section>
+
+<!-- How it works -->
+<section class="section process">
+  <div class="container">
+    <div class="section-head section-head--center" stfReveal>
+      <span class="eyebrow">How it works</span>
+      <h2>Getting covered takes three steps</h2>
+      <p class="lede">
+        No pressure and no obligation. Most quotes come back the same business
+        day.
+      </p>
+    </div>
+
+    <ol class="process__steps">
+      @for (step of steps; track step; let i = $index) {
+        <li class="process__step" [stfReveal]="i">
+          <span class="process__number">{{ step.number }}</span>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </li>
+      }
+    </ol>
+
+    <div class="process__action" stfReveal>
+      <a class="btn btn--primary btn--lg" routerLink="/quoteRedirect"
+        >Start My Quote</a
+        >
+        <span class="process__note"
+          >Prefer to talk it through? Call
+          <a href="tel:937-692-8310">(937) 692-8310</a>.</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <app-carriers-section></app-carriers-section>
+
+    <app-reviews-section></app-reviews-section>
+
+    <!-- Offices -->
+    <section class="section offices">
+      <div class="container">
+        <div class="section-head" stfReveal>
+          <span class="eyebrow">Visit us</span>
+          <h2>Three offices across southwest Ohio</h2>
+          <p class="lede">
+            Walk-ins are welcome during business hours, and every office can help
+            with any policy we write.
+          </p>
+        </div>
+
+        <div class="offices__grid">
+          @for (office of offices; track office; let i = $index) {
+            <article
+              class="card offices__card"
+              [stfReveal]="i"
+              >
+              <div class="offices__photo">
+                <img
+                  [src]="office.image"
+                  [alt]="'STF Insurance Group ' + office.name + ' office'"
+                  loading="lazy"
+                  />
+              </div>
+              <div class="offices__body">
+                <h3>{{ office.name }}</h3>
+                <p class="offices__address">{{ office.address }}</p>
+                <p class="offices__hours">{{ office.hours }}</p>
+                <a class="offices__phone" [href]="'tel:' + office.phone">{{
+                  office.phone
+                }}</a>
+              </div>
+            </article>
+          }
+        </div>
+
+        <div class="offices__action" stfReveal>
+          <a class="link-arrow" routerLink="/locations">See directions and hours</a>
+        </div>
+      </div>
+    </section>
+
+    <app-banner bannerType="getQuote"></app-banner>

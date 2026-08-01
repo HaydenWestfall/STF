@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID, ChangeDetectionStrategy } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { StfService } from 'src/app/services/stf.service';
 import { environment } from 'src/environments/environment.development';
@@ -6,14 +7,19 @@ import { environment } from 'src/environments/environment.development';
 @Component({
     selector: 'app-quote-redirect',
     templateUrl: './quote-redirect.component.html',
-    styleUrls: ['./quote-redirect.component.scss'],
-    standalone: false
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrls: ['./quote-redirect.component.scss']
 })
 export class QuoteRedirectComponent implements OnInit{
 
-  constructor(public router: Router, public stfService: StfService) { }
+  constructor(
+    public router: Router,
+    public stfService: StfService,
+    @Inject(PLATFORM_ID) private platformId: object
+  ) { }
 
   ngOnInit() {
+    if (!isPlatformBrowser(this.platformId)) return;
     window.open(environment.quoteLink, "_blank");
     const route = (this.stfService.history.length < 1) ? '' : this.stfService.history[1];
     this.router.navigate([route]);

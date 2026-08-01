@@ -1,52 +1,272 @@
-<div class="section coverage-wrapper">
-  <section class="coverage-header" *ngIf="!refreshing">
-    <img
-      id="coverage-bg"
-      [src]="coverageType?.coverageImage"
-      [ngClass]="coverageType?.id"
-    />
-    <div class="gradient-overlay" [ngClass]="coverageType?.id"></div>
-    <stf-header class="overlay-header">
-      <h6>INSURANCE</h6>
-      <h1 id="coverage-header">{{ coverageType?.coverageTitle }}</h1>
-    </stf-header>
-  </section>
-
-  <div
-    style="height: 100vh; width: 100vw; background-color: white"
-    *ngIf="refreshing"
-  ></div>
-
-  <section class="coverage-description">
-    <stf-header>
-      <h6>INFORMATION</h6>
-      <h1 id="coverage-description-header">What we have to offer.</h1>
-    </stf-header>
-
-    <p id="coverage-description">
-      {{ coverageType?.description }}
-    </p>
-  </section>
-
-  <section class="banner-message">
-    <h1 id="coverage-banner">
-      Give one of our experienced agents a call today to make sure you are
-      properly covered.
-    </h1>
-  </section>
-
-  <section class="coverage-cards">
-    <div
-      class="coverage-card"
-      *ngFor="let coverageCard of coverageType?.informationCards; let i = index"
-      [ngClass]="i == 0 || i == 2 ? 'reverse' : ''"
-    >
-      <div [ngStyle]="{ 'text-align': i == 1 ? 'right' : '' }">
-        {{ coverageCard.description }}
-      </div>
-      <img [src]="coverageCard.image" />
-    </div>
-  </section>
-</div>
-
-<app-banner bannerType="getQuote"></app-banner>
+@if (coverage; as cov) {
+  <!-- Hero -->
+  <section class="coverage-hero" [class.coverage-hero--anim]="animate" #hero>
+    <span class="coverage-hero__glow" aria-hidden="true"></span>
+    <span class="coverage-hero__grid" aria-hidden="true"></span>
+    <div class="container coverage-hero__inner">
+      <div class="coverage-hero__text">
+        <ol class="breadcrumb" data-hero="rise">
+          <li><a routerLink="/">Home</a></li>
+          <li>Insurance</li>
+          <li>{{ cov.name }}</li>
+        </ol>
+        <span class="eyebrow eyebrow--light" data-hero="rise">{{ cov.category }}</span>
+        <h1 data-hero="rise">{{ cov.name }}</h1>
+        <p data-hero="rise">{{ cov.tagline }}</p>
+        <div class="btn-group" data-hero="rise">
+          <a class="btn btn--primary btn--lg" routerLink="/quoteRedirect"
+            >Get a Free Quote</a
+            >
+            <a class="btn btn--outline-light btn--lg" routerLink="/contact"
+              >Ask an Agent</a
+              >
+            </div>
+          </div>
+          <div class="coverage-hero__media" #media>
+            <span class="coverage-hero__panel" data-depth="12" aria-hidden="true"></span>
+            <span class="coverage-hero__dots" data-depth="-16" aria-hidden="true"></span>
+            <div class="coverage-hero__frame" data-depth="6">
+              <img
+                [src]="cov.heroImage"
+                [alt]="cov.name + ' from STF Insurance Group'"
+                />
+            </div>
+            @if (cov.quickFacts?.length) {
+              <div
+                class="coverage-hero__badge"
+                data-hero="pop"
+                data-depth="28"
+                >
+                <span class="coverage-hero__badge-icon">
+                  <img [src]="cov.icon" alt="" aria-hidden="true" />
+                </span>
+                <div>
+                  <span class="coverage-hero__badge-label">{{ cov.quickFacts[0].label }}</span>
+                  <span class="coverage-hero__badge-value">{{ cov.quickFacts[0].value }}</span>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+        <div class="coverage-hero__facts">
+          <div class="container coverage-hero__facts-inner">
+            @for (fact of cov.quickFacts; track fact) {
+              <div class="fact" data-hero="rise">
+                <span class="fact__label">{{ fact.label }}</span>
+                <span class="fact__value">{{ fact.value }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      </section>
+      <!-- Overview -->
+      <section class="section">
+        <div class="container overview">
+          <div class="overview__body prose" stfReveal>
+            <span class="eyebrow">Overview</span>
+            <h2>What {{ cov.name.toLowerCase() }} does</h2>
+            @for (paragraph of cov.intro; track paragraph) {
+              <p>{{ paragraph }}</p>
+            }
+          </div>
+          <aside class="overview__aside" stfReveal>
+            <div class="card who-card">
+              <h3>Who this is for</h3>
+              <ul>
+                @for (item of cov.whoNeedsIt; track item) {
+                  <li>
+                    <svg viewBox="0 0 20 20" aria-hidden="true">
+                      <path
+                        d="M8.2 13.4 5.1 10.3a1 1 0 0 1 1.4-1.4l2.4 2.4 5.1-5.1a1 1 0 1 1 1.4 1.4l-5.8 5.8a1 1 0 0 1-1.4 0Z"
+                        fill="currentColor"
+                        />
+                    </svg>
+                    <span>{{ item }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+            <div class="card help-card">
+              <h3>Talk it through with an agent</h3>
+              <p>
+                Ten minutes on the phone is usually enough to know whether your
+                current policy is doing what you think it is.
+              </p>
+              <a class="btn btn--primary btn--block" [href]="'tel:' + env.arcanumPhoneNumber"
+                >Call {{ env.arcanumPhoneNumber }}</a
+                >
+                <a class="btn btn--secondary btn--block" routerLink="/contact"
+                  >Send a Message</a
+                  >
+                </div>
+              </aside>
+            </div>
+          </section>
+          <!-- Core coverages -->
+          <section class="section section--alt">
+            <div class="container">
+              <div class="section-head" stfReveal>
+                <span class="eyebrow">What's typically included</span>
+                <h2>The parts of {{ cov.policyLabel }}</h2>
+                <p class="lede">
+                  Every carrier words things a little differently, but nearly all
+                  {{ cov.name.toLowerCase() }} policies are built from these pieces.
+                  Knowing what each one does makes it much easier to tell a good quote
+                  from a cheap one.
+                </p>
+              </div>
+              <div class="coverage-items">
+                @for (item of cov.coreCoverages; track item; let i = $index) {
+                  <article
+                    class="card coverage-item"
+                    [stfReveal]="i"
+                    >
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.description }}</p>
+                  </article>
+                }
+              </div>
+            </div>
+          </section>
+          <!-- Optional coverages -->
+          <section class="section">
+            <div class="container">
+              <div class="section-head" stfReveal>
+                <span class="eyebrow">Worth asking about</span>
+                <h2>Add-ons and endorsements</h2>
+                <p class="lede">
+                  These are not on every policy by default. Some cost a few dollars a
+                  year, and they are frequently the difference between a claim that is
+                  covered and one that is not.
+                </p>
+              </div>
+              <div class="optional-list">
+                @for (item of cov.optionalCoverages; track item; let i = $index) {
+                  <article
+                    class="optional-item"
+                    [stfReveal]="i"
+                    >
+                    <span class="optional-item__plus" aria-hidden="true">+</span>
+                    <div>
+                      <h3>{{ item.title }}</h3>
+                      <p>{{ item.description }}</p>
+                    </div>
+                  </article>
+                }
+              </div>
+            </div>
+          </section>
+          <!-- Ways to save -->
+          <section class="section savings-section">
+            <div class="container savings">
+              <div class="savings__text" stfReveal>
+                <span class="eyebrow eyebrow--light">Ways to save</span>
+                <h2>Discounts we look for on every quote</h2>
+                <p>
+                  Price should never be the only reason to pick a policy, but there is
+                  no reason to overpay for the coverage you want. These are the credits
+                  we check before we present anything to you.
+                </p>
+                <a class="btn btn--primary btn--lg" routerLink="/quoteRedirect"
+                  >See What You'd Pay</a
+                  >
+                </div>
+                <ul class="savings__list" stfReveal>
+                  @for (item of cov.savings; track item) {
+                    <li>
+                      <svg viewBox="0 0 20 20" aria-hidden="true">
+                        <path
+                          d="M8.2 13.4 5.1 10.3a1 1 0 0 1 1.4-1.4l2.4 2.4 5.1-5.1a1 1 0 1 1 1.4 1.4l-5.8 5.8a1 1 0 0 1-1.4 0Z"
+                          fill="currentColor"
+                          />
+                      </svg>
+                      <span>{{ item }}</span>
+                    </li>
+                  }
+                </ul>
+              </div>
+            </section>
+            <!-- Photos -->
+            @if (cov.supportingImages?.length) {
+              <section class="section section--tight">
+                <div class="container">
+                  <div class="coverage-gallery">
+                    @for (image of cov.supportingImages; track image) {
+                      <img
+                        [src]="image"
+                        [alt]="cov.name + ' coverage from STF Insurance Group'"
+                        loading="lazy"
+                        stfReveal
+                        />
+                    }
+                  </div>
+                </div>
+              </section>
+            }
+            <!-- FAQs -->
+            <section class="section section--alt">
+              <div class="container container--narrow">
+                <div class="section-head section-head--center" stfReveal>
+                  <span class="eyebrow">Common questions</span>
+                  <h2>{{ cov.name }} FAQs</h2>
+                </div>
+                <div class="faq-list">
+                  @for (faq of cov.faqs; track faq; let i = $index) {
+                    <div
+                      class="faq"
+                      [class.is-open]="faq.expanded"
+                      >
+                      <button
+                        type="button"
+                        class="faq__question"
+                        [attr.aria-expanded]="!!faq.expanded"
+                        (click)="toggleFaq(i)"
+                        >
+                        <span>{{ faq.question }}</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                      </button>
+                      @if (faq.expanded) {
+                        <div class="faq__answer" @growHeight>
+                          <p>{{ faq.answer }}</p>
+                        </div>
+                      }
+                    </div>
+                  }
+                </div>
+                <p class="disclaimer faq-disclaimer">
+                  The descriptions on this page are general summaries of how these
+                  coverages usually work. They are not a contract and do not amend any
+                  policy. Availability, wording and limits vary by carrier — your issued
+                  policy governs what is covered.
+                </p>
+              </div>
+            </section>
+            <!-- Related -->
+            @if (relatedCoverages.length) {
+              <section class="section">
+                <div class="container">
+                  <div class="section-head" stfReveal>
+                    <span class="eyebrow">Keep exploring</span>
+                    <h2>Coverage that often goes with this</h2>
+                  </div>
+                  <div class="related-grid">
+                    @for (related of relatedCoverages; track related; let i = $index) {
+                      <a
+                        class="card related-card"
+                        [routerLink]="'/coverages/' + related.id"
+                        [stfReveal]="i"
+                        >
+                        <span class="icon-badge">
+                          <img [src]="related.icon" alt="" aria-hidden="true" />
+                        </span>
+                        <h3>{{ related.name }}</h3>
+                        <p>{{ related.tagline }}</p>
+                        <span class="link-arrow">Learn more</span>
+                      </a>
+                    }
+                  </div>
+                </div>
+              </section>
+            }
+            <app-banner bannerType="getQuote"></app-banner>
+          }

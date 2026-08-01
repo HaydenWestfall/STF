@@ -1,49 +1,79 @@
-<div id="dot-bg" class="background"></div>
-<div id="gradients" class="gradient">
-  <img class="gradient1" src="../../../assets/img/gradient_1.png" />
-  <img class="gradient2" src="../../../assets/img/gradient_2.png" />
-</div>
-<div class="section locations-section">
-  <div class="gradient-overlay"></div>
-  <section class="overlay-header">
-    <stf-header>
-      <h6>LOCATIONS</h6>
-      <h1 id="location-header">Where you can find us</h1>
-    </stf-header>
-  </section>
-  <section class="locations-wrapper" id="locations">
-    <div class="location" *ngFor="let location of locations">
-      <div class="information">
-        <div>
-          <h2>{{ location.name }}</h2>
-          <span class="address">{{ location.address }}</span
-          ><br />
-        </div>
-        <div>
-          <div *ngFor="let contactMethod of location.contactMethods">
-            <span class="number-label">{{ contactMethod.displayType }}</span
-            ><br />
-            <a
-              class="number"
-              [href]="contactMethod.type + contactMethod.value"
-              >{{ contactMethod.displayValue }}</a
-            ><br />
+<section class="page-hero">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a routerLink="/">Home</a></li>
+      <li>Locations</li>
+    </ol>
+    <span class="eyebrow eyebrow--light">Locations</span>
+    <h1>Three offices across southwest Ohio</h1>
+    <p>
+      Walk-ins are welcome during business hours. Every office can service every
+      policy we write, so use whichever one is closest.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="location-list">
+      @for (location of locations; track location; let i = $index) {
+        <article
+          class="location"
+          [stfReveal]="i"
+          >
+          <div class="location__media">
+            <img
+              [src]="location.image"
+              [alt]="'STF Insurance Group ' + location.name + ' office'"
+              loading="lazy"
+              />
           </div>
-          <span class="number-label">HOURS</span><br />
-          <div *ngFor="let hourSet of location.hours">
-            <span class="hours" style="margin-right: 2rem">{{
-              hourSet.label
-            }}</span>
-            <span
-              class="hours"
-              style="font-family: Maison Neue Book, sans-serif"
-              >{{ hourSet.value }}</span
-            >
-          </div>
+          <div class="location__info">
+            <h2>{{ location.name }}</h2>
+            <p class="location__address">{{ location.address }}</p>
+            <dl class="location__details">
+              @for (contactMethod of location.contactMethods; track contactMethod) {
+                <div>
+                  <dt>{{ contactMethod.displayType }}</dt>
+                  <dd>
+                    <a [href]="contactMethod.type + contactMethod.value">{{
+                      contactMethod.displayValue
+                    }}</a>
+                  </dd>
+                </div>
+              }
+              <div>
+                <dt>Email</dt>
+                <dd>
+                  <a [href]="'mailto:' + env.contactEmail">{{
+                    env.contactEmail
+                  }}</a>
+                </dd>
+              </div>
+              @for (hourSet of location.hours; track hourSet) {
+                <div>
+                  <dt>{{ hourSet.label }}</dt>
+                  <dd class="plain">{{ hourSet.value }}</dd>
+                </div>
+              }
+            </dl>
+            <div class="btn-group">
+              <a
+                class="btn btn--primary"
+                [href]="directionsUrl(location.address)"
+                target="_blank"
+                rel="noopener"
+                >Get Directions</a
+                >
+                <a class="btn btn--secondary" routerLink="/quoteRedirect"
+                  >Request a Quote</a
+                  >
+                </div>
+              </div>
+            </article>
+          }
         </div>
       </div>
-      <img class="location-img" [src]="location.image" [alt]="location.name" />
-    </div>
-  </section>
-</div>
-<app-banner bannerType="contactUs"></app-banner>
+    </section>
+
+    <app-banner bannerType="contactUs"></app-banner>

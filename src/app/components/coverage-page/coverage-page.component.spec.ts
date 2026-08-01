@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { CoveragePageComponent } from './coverage-page.component';
 
@@ -8,7 +9,8 @@ describe('CoveragePageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CoveragePageComponent ]
+    imports: [CoveragePageComponent],
+      providers: [provideRouter([])],
     })
     .compileComponents();
 

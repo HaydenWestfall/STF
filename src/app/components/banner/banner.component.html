@@ -1,14 +1,17 @@
-<section class="section contact">
-  <stf-header>
-    <h1 id="banner-header">
-      {{ selectedBanner.message }}
-    </h1>
-  </stf-header>
-
-  <a
-    id="banner-action"
-    class="stf-button stf-button-primary"
-    [routerLink]="selectedBanner.callback"
-    >{{ selectedBanner.button }}</a
-  >
+<section class="cta-band">
+  <div class="container cta-band__inner">
+    <div class="cta-band__text" stfReveal>
+      <span class="eyebrow">{{ selectedBanner?.eyebrow }}</span>
+      <h2>{{ selectedBanner?.message }}</h2>
+      <p>{{ selectedBanner?.supporting }}</p>
+    </div>
+    <div class="cta-band__actions" stfReveal>
+      <a class="btn btn--primary btn--lg" [routerLink]="selectedBanner?.callback">{{
+        selectedBanner?.button
+      }}</a>
+      <a class="btn btn--secondary btn--lg" [href]="'tel:' + env.arcanumPhoneNumber"
+        >Call {{ env.arcanumPhoneNumber }}</a
+      >
+    </div>
+  </div>
 </section>

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /quoteRedirect
+
+Sitemap: https://www.stf-ins-group.com/sitemap.xml
