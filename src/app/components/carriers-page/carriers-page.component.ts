@@ -7,16 +7,11 @@ import { FormsModule } from '@angular/forms';
 import { BannerComponent } from '../banner/banner.component';
 
 @Component({
-    selector: 'app-carriers-page',
-    templateUrl: './carriers-page.component.html',
-    styleUrls: ['./carriers-page.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    imports: [
-    RouterLink,
-    RevealDirective,
-    FormsModule,
-    BannerComponent
-],
+  selector: 'app-carriers-page',
+  templateUrl: './carriers-page.component.html',
+  styleUrls: ['./carriers-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  imports: [RouterLink, RevealDirective, FormsModule, BannerComponent],
 })
 export class CarriersPageComponent {
   basePath = 'assets/img/carriers/';
@@ -125,6 +120,15 @@ export class CarriersPageComponent {
       claimsLink: 'https://www.hastingsmutual.com/report-a-claim',
     },
     {
+      name: 'Liberty Mutual',
+      logo: this.basePath + 'liberty-mutual.png',
+      phone: '844-251-3582',
+      claims: '833-218-0215',
+      payments:
+        'https://eservice.libertymutual.com/account/billing/pwol/?anim=none',
+      claimsLink: 'https://www.libertymutual.com/claims-center',
+    },
+    {
       name: 'Mapfre',
       logo: this.basePath + 'mapfre.png',
       phone: '855-627-3737',
@@ -140,14 +144,6 @@ export class CarriersPageComponent {
       payments:
         'https://account.apps.progressive.com/access/ez-payment/policy-info',
       claimsLink: 'https://www.progressive.com/',
-    },
-    {
-      name: 'Safeco Insurance',
-      logo: this.basePath + 'safeco.png',
-      phone: '1-800-332-3226',
-      claims: '1-800-332-3226',
-      payments: 'https://customer.safeco.com/accountmanager/account/login',
-      claimsLink: 'https://customer.safeco.com/accountmanager/account/login',
     },
     {
       name: 'Trexis Insurance',

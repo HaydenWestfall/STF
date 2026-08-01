@@ -5,15 +5,11 @@ import { RevealDirective } from '../../directives/reveal.directive';
 import { BannerComponent } from '../banner/banner.component';
 
 @Component({
-    selector: 'app-about-page',
-    templateUrl: './about-page.component.html',
-    styleUrls: ['./about-page.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    imports: [
-    RouterLink,
-    RevealDirective,
-    BannerComponent
-],
+  selector: 'app-about-page',
+  templateUrl: './about-page.component.html',
+  styleUrls: ['./about-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  imports: [RouterLink, RevealDirective, BannerComponent],
 })
 export class AboutPageComponent {
   basePathCarriers = 'assets/img/carrier-about/';
@@ -82,7 +78,7 @@ export class AboutPageComponent {
     this.basePathCarriers + 'grinnell.png',
     this.basePathCarriers + 'celina.png',
     this.basePathCarriers + 'progressive.png',
-    this.basePathCarriers + 'safeco.png',
+    this.basePathCarriers + 'liberty-mutual.png',
     this.basePathCarriers + 'auto-owners.png',
   ];
 }
