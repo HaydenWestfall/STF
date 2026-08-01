@@ -59,7 +59,9 @@ jobs:
           # server's identity just isn't verified against the cert.
           security: loose
           local-dir: ./dist/stf/browser/
-          server-dir: ${{ vars.FTP_SERVER_DIR || 'public_html/' }}
+          # The FTP account is already chrooted to public_html, so the
+          # server root IS public_html. Anything else nests a folder.
+          server-dir: ${{ vars.FTP_SERVER_DIR || './' }}
           # Keep the sync-state file out of the way, and never wipe
           # anything the build doesn't own.
           state-name: .ftp-deploy-sync-state.json
