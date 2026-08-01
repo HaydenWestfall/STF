@@ -1,6 +1,6 @@
 {
   "name": "stf",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,6 +8,7 @@
     "build:stats": "ng build --stats-json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadless",
     "serve:prerendered": "npx http-server dist/stf/browser -p 4200"
   },
   "private": true,
